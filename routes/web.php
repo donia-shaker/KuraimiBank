@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\admin\CategoriesController;
+use App\Http\Controllers\admin\SubCategoryController;
 use Illuminate\Support\Facades\Route;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +16,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::group(['prefix' => LaravelLocalization::setLocale()], function()
+{
 Route::get('/', function () {
     return view('welcome');
 });
+
+// Categorirs Admin Controller
+Route::get('/Categories',[CategoriesController::class,'showCategories'])->name('Categories');
+Route::post('/addCategory',[CategoriesController::class,'addCategory'])->name('addCategory');
+Route::get('/fetchCategory',[CategoriesController::class,'fetchCategory'])->name('fetchCategory');
+Route::get('/editCategory/{id}',[CategoriesController::class,'editCategory'])->name('editCategory');
+Route::put('/updateCategory/{id}',[CategoriesController::class,'updateCategory'])->name('updateCategory');
+Route::post('/deletCategory/{id}',[CategoriesController::class,'deletCategory'])->name('deletCategory');
+
+// SubCategorirs Admin Controller
+Route::get('/subCategory/{id}',[SubCategoryController::class,'showSubCategory'])->name('subCategory');
+
+});
+
+
+

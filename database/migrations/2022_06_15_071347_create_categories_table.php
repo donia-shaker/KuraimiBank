@@ -16,8 +16,9 @@ return new class extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
             $table->json('name');
-            $table->string('link');
-            $table->string('icon');
+            $table->string('icon')->default(0);
+            $table->string('parentId')->default(0);
+            $table->boolean('is_active')->default(0);
             $table->timestamps();
         });
     }

@@ -24,8 +24,8 @@ class CategoriesController extends Controller
     function addCategory(Request $request){
         // return $request;
         $validator = Validator::make($request->all(),[
-            'name.en'=>['required','string', 'between: 3, 30', 'unique:categories,name'],
-            'name.ar'=>['required','string', 'between: 3, 30', 'unique:categories,name'],
+            'nameEn'=>['required','string', 'between: 3, 30', 'unique:categories,name'],
+            'nameAr'=>['required','string', 'between: 3, 30', 'unique:categories,name'],
         ]);
 
         if($validator->fails()){
@@ -35,7 +35,7 @@ class CategoriesController extends Controller
             ]);
         } else{
             $category=new categories;
-            $data =  ['en' => $request->input('name.en'),'ar' => $request->input('name.ar')];
+            $data =  ['en' => $request->input('nameEn'),'ar' => $request->input('nameAr')];
             $category->name = json_encode($data) ;
 
             if($request->input('active') != null){
@@ -82,7 +82,7 @@ class CategoriesController extends Controller
     }
 
     public function updateCategory(Request $request , $id){
-         // return $request;
+        //  return $request;
          $validator = Validator::make($request->all(),[
             'nameEn'=>['required','string', 'between: 3, 30', 'unique:categories,name'],
             'nameAr'=>['required','string', 'between: 3, 30', 'unique:categories,name'],
@@ -129,7 +129,7 @@ class CategoriesController extends Controller
         }
     }
 
-    public function deletCategory($id){
+    public function activeCategory($id){
         $category = categories::find($id);
 
         if($category->is_active )
@@ -142,6 +142,31 @@ class CategoriesController extends Controller
                 'active'=> $category,
                 'status' => 200,
                 'message' => 'Data Update successfully',
+                    
+                    ]
+                );
+            // return $category->name;
+            }else {
+                return response()->json(
+                    [
+                    'status' => 404,
+                    'message' =>'Data not Found',
+                    
+                    ]
+                );
+                }
+        }
+
+        public function deleteCategory($id){
+            $category = categories::find($id);
+            $subCategory = categories::where('parentId', $id);
+            $subCategory->delete();
+            if($category->delete()){
+                return response()->json(
+                [
+                'active'=> $category,
+                'status' => 200,
+                'message' => 'Data Delete successfully',
                     
                     ]
                 );

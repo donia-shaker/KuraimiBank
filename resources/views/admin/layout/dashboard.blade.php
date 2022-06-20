@@ -81,7 +81,7 @@
                integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
                crossorigin="anonymous">
     </script>
-    <script src="{{URL::asset('js/jquery.js')}}"></script>
+   
 </head>
 
 <body>
@@ -754,6 +754,9 @@
     <!-- Page JS -->
     <script src="{{ URL::asset('assets/js/extended-ui-sweetalert2.js')}}"></script>
     
+
+    <script  src="{{ URL::asset('js/axios.min.js')}}"></script>
+    @yield('javascript')
   </body>
   
   

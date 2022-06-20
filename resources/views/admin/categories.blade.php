@@ -3,13 +3,13 @@
 <!-- Basic Bootstrap Table -->
 <div class="" role="alert" id="message">
 </div>
-<div class="card">
+<div class="card p-3" id="mainCategory">
     <h2 name="tableName m-5">الخدمات الرئيسية</h2>
     <button type="button" class="btn btn-primary m-4 w-25"
-    data-bs-toggle="modal" data-bs-target="#categoryModal" id="addCategory"> اضافه خدمه </button>
+    data-bs-toggle="modal" data-bs-target="#addMainCategoryModal" id="addCategory"> اضافه خدمه </button>
     <x-table>
       <div class="table-responsive text-nowrap">
-        <table class="table">
+        <table class="table " >
           <x-slot name="tableHead">
             <tr>
               <th>#</th>
@@ -28,8 +28,9 @@
     </x-table>
 </div>
   <!--/ Basic Bootstrap Table -->
-  <!-- Add New Credit Card Modal -->
-<div class="modal fade" id="categoryModal" tabindex="-1" aria-hidden="true">
+  
+  <!-- Add Category Modal -->
+<div class="modal fade" id="addMainCategoryModal" tabindex="-1" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered1 modal-simple modal-add-new-cc">
     <div class="modal-content p-3 p-md-5">
       <div class="modal-body">
@@ -38,21 +39,21 @@
           <h4 class="modal-title" id="userCrudModal"></h4>
           <p>اضف خدمة جديدة للموقع</p>
         </div>
-        <form id="addCategoryForm" class="row g-3" action="addCategory" method="POST" enctype="multipart/form-data">
+        <form id="addMainCategoryForm" class="row g-3" action="" method="POST" enctype="multipart/form-data">
           @csrf
             <div>
               <label for="defaultFormControlInput" class="form-label">  الاسم (عربي)</label>
-              <input type="text" name="name[ar]" class="form-control  name ar" id="name.ar" placeholder="اضف اسم الخدمة" aria-describedby="defaultFormControlHelp" />
+              <input type="text" name="nameAr" class="form-control  name ar" id="addCategoryNameAr" placeholder="اضف اسم الخدمة" aria-describedby="defaultFormControlHelp" />
               <span class="help-block text-danger"></span>
             </div>
             <div>
               <label for="defaultFormControlInput" class="form-label">الاسم (انجليزي)</label>
-              <input type="text" name="name[en]" class="form-control  name en" id="name.en" placeholder="اضف اسم الخدمة" aria-describedby="defaultFormControlHelp" />
+              <input type="text" name="nameEn" class="form-control  name en" id="addCategoryNameEn" placeholder="اضف اسم الخدمة" aria-describedby="defaultFormControlHelp" />
               <span class="help-block text-danger"></span>
             </div>
           <div class="col-12 my-4">
             <label class="switch">
-              <input type="checkbox" class="switch-input active" name="active" id="active" value="1">
+              <input type="checkbox" class="switch-input active" name="active" id="addCategoryActive" value="1">
               <span class="switch-toggle-slider">
                 <span class="switch-on"></span>
                 <span class="switch-off"></span>
@@ -61,7 +62,7 @@
             </label>
           </div>
           <div class="col-12 text-center">
-            <button type="submit" id="submit" class="btn btn-primary me-sm-3 me-1 mt-3">اضافة</button>
+            <button type="submit"  class="btn btn-primary me-sm-3 me-1 mt-3 addMainCategory">اضافة</button>
             <button type="reset" class="btn btn-label-secondary btn-reset mt-3" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
           </div>
         </form>
@@ -69,10 +70,10 @@
     </div>
   </div>
 </div>
-<!--/ Add New Credit Card Modal -->
+<!--/ Add Category Modal -->
 
-  <!-- Updat New Credit Card Modal -->
-  <div class="modal fade" id="editCategoryModal" tabindex="-1" aria-hidden="true">
+  <!-- Updat Category Modal -->
+  <div class="modal fade" id="editMainCategoryModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered1 modal-simple modal-add-new-cc">
       <div class="modal-content p-3 p-md-5">
         <div class="modal-body">
@@ -81,22 +82,22 @@
             <h4 class="modal-title" id="userCrudModal"></h4>
             <p>تعديل الخدمة  </p>
           </div>
-          <form id="updateCategory" class="row g-3" action="updateCategory" method="POST" enctype="multipart/form-data">
+          <form id="updateMainCategory" class="row g-3" action="updateMainCategory" method="POST" enctype="multipart/form-data">
             @csrf
             <input type="hidden" id="editCategoryId" >
               <div>
                 <label for="defaultFormControlInput" class="form-label">  الاسم (عربي)</label>
-                <input type="text" name="nameAr" class="form-control name ar" id="editNameAr"  placeholder="اضف اسم الخدمة" aria-describedby="defaultFormControlHelp" />
+                <input type="text" name="nameAr" class="form-control name ar" id="editCategoryNameAr"  placeholder="اضف اسم الخدمة" aria-describedby="defaultFormControlHelp" />
                 <span class="help-block text-danger"></span>
               </div>
               <div>
                 <label for="defaultFormControlInput" class="form-label">الاسم (انجليزي)</label>
-                <input type="text" name="nameEn" class="form-control"  id="editNameEn" placeholder="اضف اسم الخدمة" aria-describedby="defaultFormControlHelp" />
+                <input type="text" name="nameEn" class="form-control"  id="editCategoryNameEn" placeholder="اضف اسم الخدمة" aria-describedby="defaultFormControlHelp" />
                 <span class="help-block text-danger"></span>
               </div>
             <div class="col-12 my-4">
               <label class="switch">
-                <input type="checkbox" class="switch-input active" name="active" id="editActive" value="1">
+                <input type="checkbox" class="switch-input active" name="active" id="editCategoryActive" value="1">
                 <span class="switch-toggle-slider">
                   <span class="switch-on"></span>
                   <span class="switch-off"></span>
@@ -105,7 +106,7 @@
               </label>
             </div>
             <div class="col-12 text-center">
-              <button type="submit" id="submit" class="btn btn-primary me-sm-3 me-1 mt-3 updateCategory">تعديل</button>
+              <button type="submit" class="btn btn-primary me-sm-3 me-1 mt-3 updateMainCategory">تعديل</button>
               <button type="reset" class="btn btn-label-secondary btn-reset mt-3" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
             </div>
           </form>
@@ -113,10 +114,10 @@
       </div>
     </div>
   </div>
-  <!--/ Updat New Credit Card Modal -->
+  <!--/ Updat Category Modal -->
 
-   <!-- Active New Credit Card Modal -->
-   <div class="modal fade" id="activeCategoryModal" tabindex="-1" aria-hidden="true">
+<!-- Active Category Modal -->
+  <div class="modal fade activeCategoryModal" id="activeCategoryModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered1 modal-simple modal-add-new-cc">
       <div class="modal-content p-3 p-md-5">
         <div class="modal-body">
@@ -127,7 +128,7 @@
           </div>
           <form id="activeCategory" class="row g-3" action="activeCategory" method="POST" enctype="multipart/form-data">
             @csrf
-            <input type="hidden" id="deletcategoryId" >
+            <input type="hidden" id="activecategoryId" class="activecategoryId" value="" >
             <div class="col-12 text-center">
               <button type="submit" id="submit" class="btn btn-primary me-sm-3 me-1 mt-3 activeCategory">تغيير الحالة</button>
               <button type="reset" class="btn btn-label-secondary btn-reset mt-3" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
@@ -137,5 +138,33 @@
       </div>
     </div>
   </div>
-  <!--/ Updat New Credit Card Modal -->
+<!--/ Updat Category Modal -->
+
+<!-- Delete Category Modal -->
+<div class="modal fade deleteCategoryModal" id="deleteCategoryModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered1 modal-simple modal-add-new-cc">
+    <div class="modal-content p-3 p-md-5">
+      <div class="modal-body">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="text-center mb-4">
+          <h4 class="modal-title" id="userCrudModal">هل انت متاكد انك تريد حذف الخدمة</h4>
+          <p>في حال الموافقه سوف يتم حذف الصنف بشكل نهائي ولن تستطيع التراجع  </p>
+        </div>
+        <form id="deleteCategoryId" class="row g-3" action="deleteCategory" method="POST" enctype="multipart/form-data">
+          @csrf
+          <input type="hidden" id="deleteCategoryId" class="deleteCategoryId" value="" >
+          <div class="col-12 text-center">
+            <button type="submit" id="submit" class="btn btn-primary me-sm-3 me-1 mt-3 deleteCategory">حذف الصنف</button>
+            <button type="reset" class="btn btn-label-secondary btn-reset mt-3" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!--/ Delete Category Modal -->
+@endsection
+@extends('admin.layout.dashboard')
+@section('javascript')
+<script  src="{{URL::asset('js/mainCategory.js')}}"></script>
 @endsection

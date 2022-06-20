@@ -27,11 +27,18 @@ Route::get('/Categories',[CategoriesController::class,'showCategories'])->name('
 Route::post('/addCategory',[CategoriesController::class,'addCategory'])->name('addCategory');
 Route::get('/fetchCategory',[CategoriesController::class,'fetchCategory'])->name('fetchCategory');
 Route::get('/editCategory/{id}',[CategoriesController::class,'editCategory'])->name('editCategory');
-Route::put('/updateCategory/{id}',[CategoriesController::class,'updateCategory'])->name('updateCategory');
-Route::post('/deletCategory/{id}',[CategoriesController::class,'deletCategory'])->name('deletCategory');
+Route::put('/updateMainCategory/{id}',[CategoriesController::class,'updateCategory'])->name('updateMainCategory');
+Route::post('/activeCategory/{id}',[CategoriesController::class,'activeCategory'])->name('activeCategory');
+Route::post('/deleteCategory/{id}',[CategoriesController::class,'deleteCategory'])->name('deleteCategory');
 
 // SubCategorirs Admin Controller
 Route::get('/subCategory/{id}',[SubCategoryController::class,'showSubCategory'])->name('subCategory');
+Route::get('/fetchSubCategory/{id}',[SubCategoryController::class,'fetchSubCategory'])->name('fetchSubCategory');
+Route::post('/subCategory/addSubCategory',[SubCategoryController::class,'addSubCategory'])->name('addSubCategory');
+Route::get('/subCategory/editSubCategory/{id}',[SubCategoryController::class,'editSubCategory'])->name('addSubCategory');
+Route::put('/subCategory/updateSubCategory/{id}',[SubCategoryController::class,'updateSubCategory'])->name('updateSubCategory');
+Route::get('/subCategory/deleteSubCategory/{id}',[SubCategoryController::class,'deleteSubCategory'])->name('deleteSubCategory');
+Route::get('/subCategory/activeSubCategory/{id}',[SubCategoryController::class,'activeSubCategory'])->name('activeSubCategory');
 
 });
 

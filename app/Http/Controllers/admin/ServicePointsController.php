@@ -11,7 +11,7 @@ class ServicePointsController extends Controller
 {
     function showServPoints($id){
         $servPoints = service_points::with(['city'])->where('city_id', $id)->orderBy('id', 'DESC')->get();
-        return view('admin.servPoint.servPoint', [
+        return view('admin.servPoints', [
             'servPoints' => $servPoints,
         ]);
     }
@@ -33,14 +33,14 @@ class ServicePointsController extends Controller
     {
         // return $request;
         // $validator = Validator::make($request->all(), [
-        //     'nameEn' => ['required', 'string', 'between: 3, 30', 'unique:service_points,name'],
-        //     'nameAr' => ['required', 'string', 'between: 3, 30', 'unique:service_points,name'],
-        //     'addressAr' => ['required', 'string', 'between: 3, 30', 'unique:service_points,address'],
-        //     'addressEn' => ['required', 'string', 'between: 3, 30', 'unique:service_points,address'],
-        //     'phone' => ['required', 'string', 'between: 3, 30', 'unique:service_points,phone'],
-        //     'secondPhone' => ['required', 'string', 'between: 3, 30', 'unique:service_points,secondPhone'],
-        //     'workingHoursAr' => ['required', 'string', 'between: 3, 30', 'unique:service_points,workingHours'],
-        //     'workingHoursEn' => ['required', 'string', 'between: 3, 30', 'unique:service_points,workingHours'],
+        //     'nameEn' => ['required', 'string', 'between: 3, 255'],
+        //     'nameAr' => ['required', 'string', 'between: 3, 255'],
+        //     'addressAr' => ['required', 'string', 'between: 3, 255'],
+        //     'addressEn' => ['required', 'string', 'between: 3, 255'],
+        //     'phone' => ['required', 'between: 3, 255'],
+        //     'secondPhone' => ['required', 'between: 3, 255'],
+        //     'workingHoursAr' => ['required', 'string', 'between: 3, 255'],
+        //     'workingHoursEn' => ['required', 'string', 'between: 3, 255'],
         // ]);
 
         // if ($validator->fails()) {
@@ -65,7 +65,7 @@ class ServicePointsController extends Controller
             }
             // return $servPoint;
 
-            if ($servPoint->save())
+            if($servPoint->save())
 
                 return response()->json(
                     [

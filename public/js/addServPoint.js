@@ -40,9 +40,8 @@ el(".addServPoint").addEventListener("click", function (e) {
                 el("#message").classList.add("alert");
                 el("#message").classList.add("alert-success");
                 el("#message").innerText = response.data.message;
-                $("#addCityModal").modal("hide");
-                el("#addCityForm input").value = "";
-                fetchServPointData();
+                // $("#addCityModal").modal("hide");
+                // el("#addCityForm input").value = "";
             }
         });
 });

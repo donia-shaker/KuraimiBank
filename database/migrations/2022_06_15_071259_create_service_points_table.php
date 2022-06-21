@@ -24,7 +24,7 @@ return new class extends Migration
             $table->foreign('city_id')->constrained()
                     ->references('id')->on('cities')
                     ->onUpdate('cascade')->onDelete('cascade');
-            $table->boolean('is_active')->default(0);
+            $table->boolean('is_active')->default(1);
             $table->timestamps();
         });
     }

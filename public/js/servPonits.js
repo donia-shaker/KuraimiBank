@@ -12,7 +12,6 @@ const els = (element) => document.querySelectorAll(element);
 
 //start fetch all data to my table
 var ServPointId = location.hash.slice(1);
-localStorage.setItem("ServPointId", ServPointId);
 
 // console.log(ServPointId);
 
@@ -231,7 +230,7 @@ el(".updateServPoint").addEventListener("click", function (e) {
             secondPhone: el("#editServPointSecondPhone").value,
             workingHoursAr: el("#editServPointWorkingHourAr").value,
             workingHoursEn: el("#editServPointWorkingHourEn").value,
-            cityId: localStorage.getItem("cityId"),
+            addServPointId: localStorage.getItem("addServPointId"),
             active: el("#editServPointActive").value,
         })
         .then((response) => {
@@ -264,3 +263,41 @@ el(".updateServPoint").addEventListener("click", function (e) {
         });
 });
 // End Update data
+
+// start Add Data
+el(".addServPoint").addEventListener("click", function (e) {
+    e.preventDefault();
+    axios
+        .post(`/addServPoint`, {
+            nameAr: el("#addServPointNameAr").value,
+            nameEn: el("#addServPointNameEn").value,
+            addressAr: el("#addServPointAddressAr").value,
+            addressEn: el("#addServPointAddressEn").value,
+            phone: el("#addServPointPhone").value,
+            secondPhone: el("#addServPointSecondPhone").value,
+            workingHoursAr: el("#addServPointWorkingHourAr").value,
+            workingHoursEn: el("#addServPointWorkingHourEn").value,
+            cityId: ServPointId,
+            active: el("#addServPointActive").value,
+        })
+        .then((response) => {
+            console.log(response);
+            if (response.data.status == 400) {
+                var errors = response.data.errors;
+                // console.log(response.data.errors);
+                Object.keys(errors).forEach((key) => {
+                    // console.log(key);
+                    var input = "#addServPointForm input[name=" + key + "]";
+                    el(input + "+span").innerText = errors[key];
+                });
+            } else {
+                el("#message").innerHTML = "";
+                el("#message").classList.add("alert");
+                el("#message").classList.add("alert-success");
+                el("#message").innerText = response.data.message;
+                $("#addServPointModal").modal("hide");
+                el("#addServPointForm input").value = "";
+            }
+        });
+});
+// End Add Data

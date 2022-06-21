@@ -66,7 +66,7 @@ Route::get('/cities/activeCity/{id}',[CitiesController::class,'activeCity'])->na
 // Service Points Admin Controller
 Route::get('/cities/servPoint/{id}',[ServicePointsController::class,'showServPoints'])->name('ServPoin');
 Route::get('/cities/servPoint/fetchServPoint/{id}',[ServicePointsController::class,'fetchServPoint'])->name('fetchServPoint');
-Route::get('/showAddServPoint',[ServicePointsController::class,'showAddServPoint'])->name('showAddServPoint');
+// Route::get('/showAddServPoint',[ServicePointsController::class,'showAddServPoint'])->name('showAddServPoint');
 Route::post('/addServPoint',[ServicePointsController::class,'addServPoint'])->name('addServPoint');
 Route::get('/cities/servPoint/editServPoint/{id}',[ServicePointsController::class,'editServPoint'])->name('editServPoint');
 Route::put('/cities/servPoint/updateServPoint/{id}',[ServicePointsController::class,'updateServPoint'])->name('updateServPoint');

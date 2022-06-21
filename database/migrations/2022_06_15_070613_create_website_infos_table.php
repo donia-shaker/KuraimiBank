@@ -25,6 +25,7 @@ return new class extends Migration
             $table->json('value_principles');
             $table->json('strategy_statement');
             $table->json('board_members');
+            $table->boolean('is_active')->default(0);
             $table->timestamps();
         });
     }

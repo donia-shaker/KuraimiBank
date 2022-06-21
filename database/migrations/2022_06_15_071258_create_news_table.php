@@ -18,6 +18,7 @@ return new class extends Migration
             $table->json('title');
             $table->json('description');
             $table->string('background_image');
+            $table->boolean('is_active')->default(0);
             $table->timestamps();
         });
     }

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\admin\CategoriesController;
+use App\Http\Controllers\admin\SocialMediaController;
 use App\Http\Controllers\admin\SubCategoryController;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -39,6 +40,16 @@ Route::get('/subCategory/editSubCategory/{id}',[SubCategoryController::class,'ed
 Route::put('/subCategory/updateSubCategory/{id}',[SubCategoryController::class,'updateSubCategory'])->name('updateSubCategory');
 Route::get('/subCategory/deleteSubCategory/{id}',[SubCategoryController::class,'deleteSubCategory'])->name('deleteSubCategory');
 Route::get('/subCategory/activeSubCategory/{id}',[SubCategoryController::class,'activeSubCategory'])->name('activeSubCategory');
+
+
+// Categorirs Admin Controller
+Route::get('/socialMedia',[SocialMediaController::class,'showSocialMedia'])->name('sociaMedia');
+Route::post('/addSocialMedia',[SocialMediaController::class,'addSocialMedia'])->name('addSocialMedia');
+Route::get('/fetchSocialMedia',[SocialMediaController::class,'fetchSocialMedia'])->name('fetchSocialMedia');
+Route::get('/editSocialMedia/{id}',[SocialMediaController::class,'editSocialMedia'])->name('editSocialMedia');
+Route::put('/updateSocialMedia/{id}',[SocialMediaController::class,'updateSocialMedia'])->name('updateMainSocialMedia');
+Route::post('/activeSocialMedia/{id}',[SocialMediaController::class,'activeSocialMedia'])->name('activeSocialMedia');
+Route::post('/deleteSocialMedia/{id}',[SocialMediaController::class,'deleteSocialMedia'])->name('deleteSocialMedia');
 
 });
 

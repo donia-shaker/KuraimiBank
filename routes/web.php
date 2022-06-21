@@ -4,6 +4,7 @@ use App\Http\Controllers\admin\CategoriesController;
 use App\Http\Controllers\admin\CitiesController;
 use App\Http\Controllers\admin\CountriesController;
 use App\Http\Controllers\admin\ServicePointsController;
+use App\Http\Controllers\admin\SocialMediaController;
 use App\Http\Controllers\admin\SubCategoryController;
 use App\Models\service_points;
 use Illuminate\Support\Facades\Route;
@@ -71,6 +72,15 @@ Route::get('/cities/servPoint/editServPoint/{id}',[ServicePointsController::clas
 Route::put('/cities/servPoint/updateServPoint/{id}',[ServicePointsController::class,'updateServPoint'])->name('updateServPoint');
 Route::get('/cities/servPoint/deleteServPoint/{id}',[ServicePointsController::class,'deleteServPoint'])->name('deleteServPoint');
 Route::get('/cities/servPoint/activeServPoint/{id}',[ServicePointsController::class,'activeServPoint'])->name('activeServPoint');
+
+// Categorirs Admin Controller
+Route::get('/socialMedia',[SocialMediaController::class,'showSocialMedia'])->name('sociaMedia');
+Route::post('/addSocialMedia',[SocialMediaController::class,'addSocialMedia'])->name('addSocialMedia');
+Route::get('/fetchSocialMedia',[SocialMediaController::class,'fetchSocialMedia'])->name('fetchSocialMedia');
+Route::get('/editSocialMedia/{id}',[SocialMediaController::class,'editSocialMedia'])->name('editSocialMedia');
+Route::put('/updateSocialMedia/{id}',[SocialMediaController::class,'updateSocialMedia'])->name('updateMainSocialMedia');
+Route::post('/activeSocialMedia/{id}',[SocialMediaController::class,'activeSocialMedia'])->name('activeSocialMedia');
+Route::post('/deleteSocialMedia/{id}',[SocialMediaController::class,'deleteSocialMedia'])->name('deleteSocialMedia');
 
 });
 

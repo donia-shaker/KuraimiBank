@@ -27,7 +27,7 @@ class SocialMediaController extends Controller
         $validator = Validator::make($request->all(),[
             'nameEn'=>['required','string', 'between: 3, 255'],
             'nameAr'=>['required','string', 'between: 3, 255'],
-            'link'=>['required','string', 'min: 3', 'unique:social_media,link'],
+            'link'=>['required','string', 'min: 3'],
             'icon'=>['required','string', 'between: 3, 30'],
         ]);
 
@@ -96,7 +96,7 @@ class SocialMediaController extends Controller
          $validator = Validator::make($request->all(),[
             'nameEn'=>['required','string', 'between: 3, 255'],
             'nameAr'=>['required','string', 'between: 3, 255'],
-            'link'=>['required','string', 'min: 3', 'unique:social_media,link'],
+            'link'=>['required','string', 'min: 3'],
             'icon'=>['required','string', 'between: 3, 30'],
         ]);
 

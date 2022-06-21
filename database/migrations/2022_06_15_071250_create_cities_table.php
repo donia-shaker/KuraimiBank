@@ -16,6 +16,11 @@ return new class extends Migration
         Schema::create('cities', function (Blueprint $table) {
             $table->id();
             $table->json('name');
+            $table->unsignedBigInteger('country_id');
+            $table->foreign('country_id')->constrained()
+                    ->references('id')->on('countries')
+                    ->onUpdate('cascade')->onDelete('cascade');
+            $table->boolean('is_active')->default(0);
             $table->timestamps();
         });
     }

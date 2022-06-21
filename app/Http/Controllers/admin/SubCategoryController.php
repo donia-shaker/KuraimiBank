@@ -188,19 +188,3 @@ class SubCategoryController extends Controller
                 }
         }
     }
-
-    // function showSubCategory(){
-    //     return view('admin.subCategory');
-    // }
-
-    // public function showSubCategory($id){
-        // $subCategory = categories::select()->where('parentId',$id)->get();
-        // return view('admin.subCategory');
-        // return response()->json([
-        //     'categories' => $subCategory ,
-        //     'locale'    => app()->getLocale()
-        // ]);
-    // }
-
-
-// }

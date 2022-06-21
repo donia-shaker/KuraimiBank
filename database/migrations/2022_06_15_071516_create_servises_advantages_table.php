@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->json('name');
             $table->string('icon');
+            $table->boolean('is_active')->default(0);
             $table->timestamps();
         });
     }

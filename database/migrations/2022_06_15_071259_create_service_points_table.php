@@ -20,6 +20,11 @@ return new class extends Migration
             $table->string('phone');
             $table->string('second_phone');
             $table->json('working_hours');
+            $table->unsignedBigInteger('city_id');
+            $table->foreign('city_id')->constrained()
+                    ->references('id')->on('cities')
+                    ->onUpdate('cascade')->onDelete('cascade');
+            $table->boolean('is_active')->default(1);
             $table->timestamps();
         });
     }

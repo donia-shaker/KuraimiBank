@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('image');
             $table->json('other_adventage');
             $table->json('service_conditions');
+            $table->boolean('is_active')->default(0);
             $table->timestamps();
         });
     }

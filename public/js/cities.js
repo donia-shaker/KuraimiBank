@@ -9,6 +9,7 @@ const el = (element) => document.querySelector(element);
 const els = (element) => document.querySelectorAll(element);
 
 // another file
+const isLocaleEn = location.href.search('/en/') != -1;
 
 //start fetch all data to my table
 var countryId = location.hash.slice(1);
@@ -17,7 +18,7 @@ var countryId = location.hash.slice(1);
 fetchcitiesData();
 function fetchcitiesData() {
     axios.get(`/fetchCities/${countryId}`).then((response) => {
-        //  console.log (response);
+         console.log (response);
         var i = 0;
         el("tbody").innerHTML = "";
         var cityRes = response.data.cities;
@@ -25,8 +26,7 @@ function fetchcitiesData() {
             i++;
             var tableContentOne = ` <tr>
              <td> ${i} </td>
-             <td> <i></i> ${item.name.ar}</td>
-             <td> <i></i> ${item.name.en}</td>
+             <td> <i></i>${isLocaleEn ? item.name.en : item.name.ar}</td>
              <td>
                  <a href="servPoint/${item.id}#${item.id}" style="color:#03c3ec99">
                 انقر لعرض نقاط الخدمة</a>
@@ -91,8 +91,6 @@ function fetchcitiesData() {
                                 response.data.city.name.en;
                             el("#editCityNameAr").value =
                                 response.data.city.name.ar;
-                            el("#editCityActive").value =
-                                response.data.city.active;
                         }
                     });
                 });
@@ -179,7 +177,6 @@ el(".updateCity").addEventListener("click", function (e) {
             nameEn: el("#editCityNameEn").value,
             nameAr: el("#editCityNameAr").value,
             countryId: countryId,
-            active: el("#editCityActive").value,
         })
         .then((response) => {
             // console.log(response);
@@ -220,7 +217,6 @@ el(".addCity").addEventListener("click", function (e) {
             nameEn: el("#addCityNameEn").value,
             nameAr: el("#addCityNameAr").value,
             countryId: countryId,
-            active: el("#addCityActive").value,
         })
         .then((response) => {
             // console.log(response);

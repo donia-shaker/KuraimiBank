@@ -17,7 +17,11 @@ return new class extends Migration
             $table->id();
             $table->json('name');
             $table->string('icon');
-            $table->boolean('is_active')->default(0);
+            $table->unsignedBigInteger('service_id');
+            $table->foreign('service_id')->constrained()
+                    ->references('id')->on('servises')
+                    ->onUpdate('cascade')->onDelete('cascade');
+            $table->boolean('is_active')->default(1);
             $table->timestamps();
         });
     }

@@ -8,41 +8,35 @@ const el = (element) => document.querySelector(element);
  */
 const els = (element) => document.querySelectorAll(element);
 
+
+const isLocaleEn = location.href.search('/en/') != -1;
+
+
+
 // another file
 
 //start fetch all data to my table
-var ServPointId = location.hash.slice(1);
+var cityId = location.hash.slice(1);
 
 // console.log(ServPointId);
 
 fetchServPointData();
 function fetchServPointData() {
-    axios.get(`fetchServPoint/${ServPointId}`).then((response) => {
+    axios.get(`fetchServPoint/${cityId}`).then((response) => {
         console.log(response);
         var i = 0;
         el("tbody").innerHTML = "";
-        var servPointsRes = response.data.map((item) => {
-            return {
-                ...item,
-                name: JSON.parse(item.name),
-                working_hours: JSON.parse(item.working_hours),
-                address: JSON.parse(item.address),
-            };
-        });
-
+        var servPointsRes = response.data;
         console.log({ servPointsRes });
         servPointsRes.forEach((item) => {
             i++;
             var tableContentOne = ` <tr>
-              <td> ${i} </td>
-              <td> ${item.name.ar}</td>
-              <td> ${item.name.en}</td>
-              <td> ${item.address.ar}</td>
-              <td> ${item.address.en}</td>
-              <td> ${item.phone}</td>
-              <td> ${item.second_phone}</td>
-              <td> ${item.working_hours.ar}</td>
-              <td> ${item.working_hours.en}</td>`;
+            <td> ${i} </td>
+            <td> ${isLocaleEn ? item.name.en : item.name.ar}</td>
+            <td> ${isLocaleEn ? item.address.en : item.address.ar}</td>
+            <td> ${item.phone}</td>
+            <td> ${item.second_phone}</td>
+            <td> ${isLocaleEn ? item.working_hours.en : item.working_hours.ar}</td>`;
             if (item.is_active) {
                 var tableContentTwo = `
                   <td>
@@ -86,7 +80,7 @@ function fetchServPointData() {
                 element.addEventListener("click", function (e) {
                     e.preventDefault();
                     var ServPointId = element.getAttribute("value");
-                    console.log(ServPointId);
+                    // console.log(ServPointId);
                     $("#editServPointModal").modal("show");
                     // el("#editServPointModal").classList.add('show');
                     // el("#editServPointModal").style='display:block';
@@ -94,7 +88,7 @@ function fetchServPointData() {
                     axios
                         .get(`editServPoint/${ServPointId}`)
                         .then((response) => {
-                            console.log(response);
+                            // console.log(response);
 
                             // var servPointsRes = response.data.servPoints.map(item => {
                             //     return {
@@ -106,15 +100,15 @@ function fetchServPointData() {
                             // });
                             var servPointsRes = response.data.servPoints;
 
-                            servPointsRes.name = JSON.parse(servPointsRes.name);
-                            servPointsRes.working_hours = JSON.parse(
-                                servPointsRes.working_hours
-                            );
-                            servPointsRes.address = JSON.parse(
-                                servPointsRes.address
-                            );
+                            // servPointsRes.name = JSON.parse(servPointsRes.name);
+                            // servPointsRes.working_hours = JSON.parse(
+                            //     servPointsRes.working_hours
+                            // );
+                            // servPointsRes.address = JSON.parse(
+                            //     servPointsRes.address
+                            // );
 
-                            console.log(servPointsRes);
+                            // console.log(servPointsRes);
                             if (response.status == 400) {
                                 el("#message").innerHTML = "";
                                 el("#message").classList.add("alert");
@@ -137,8 +131,6 @@ function fetchServPointData() {
                                     servPointsRes.working_hours.ar;
                                 el("#editServPointWorkingHourEn").value =
                                     servPointsRes.working_hours.en;
-                                el("#editServPointActive").value =
-                                    servPointsRes.is_active;
                             }
                         });
                 });
@@ -221,7 +213,7 @@ el(".updateServPoint").addEventListener("click", function (e) {
     ServPointId = el("#editServPointId").value;
 
     axios
-        .put(`updateServPoint/${ServPointId}`, {
+        .post(`updateServPoint/${ServPointId}`, {
             nameAr: el("#editServPointNameAr").value,
             nameEn: el("#editServPointNameEn").value,
             addressAr: el("#editServPointaddressAr").value,
@@ -230,11 +222,10 @@ el(".updateServPoint").addEventListener("click", function (e) {
             secondPhone: el("#editServPointSecondPhone").value,
             workingHoursAr: el("#editServPointWorkingHourAr").value,
             workingHoursEn: el("#editServPointWorkingHourEn").value,
-            addServPointId: localStorage.getItem("addServPointId"),
-            active: el("#editServPointActive").value,
+            cityId: cityId,
         })
         .then((response) => {
-            // console.log(response);
+            console.log(response);
             if (response.data.status == 400) {
                 var errors = response.data.errors;
                 // console.log(errors);
@@ -254,7 +245,7 @@ el(".updateServPoint").addEventListener("click", function (e) {
                 el("#message").classList.add("alert");
                 el("#message").classList.add("alert-success");
                 el("#message").innerText = response.data.message;
-                el("#editServPointModal").classList.remove("show");
+                // el("#editServPointModal").classList.remove("show");
                 // el("#editServPointModal").classList.add('hide');
                 // el("#editServPointModal").style='display:none';
                 $("#editServPointModal").modal("hide");
@@ -297,6 +288,7 @@ el(".addServPoint").addEventListener("click", function (e) {
                 el("#message").innerText = response.data.message;
                 $("#addServPointModal").modal("hide");
                 el("#addServPointForm input").value = "";
+                fetchServPointData();
             }
         });
 });

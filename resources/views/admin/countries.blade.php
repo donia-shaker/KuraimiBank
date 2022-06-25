@@ -13,8 +13,7 @@
           <x-slot name="tableHead">
             <tr>
               <th>#</th>
-              <th>(ar)الخدمات الرئيسيه</th>
-              <th>(en)الخدمات الرئيسيه</th>
+              <th>اسم الدولة</th>
               <th>الخدمات الفرعيه</th>
               <th>الحاله</th>
               <th>العمليات</th>
@@ -51,16 +50,6 @@
               <input type="text" name="nameEn" class="form-control  name en" id="addCountryNameEn" placeholder="اضف اسم الخدمة" aria-describedby="defaultFormControlHelp" />
               <span class="help-block text-danger"></span>
             </div>
-          <div class="col-12 my-4">
-            <label class="switch">
-              <input type="checkbox" class="switch-input " name="active" id="addCountryActive" value="" {{ old('active') == '1' ? ' checked' : '' }} >
-              <span class="switch-toggle-slider">
-                <span class="switch-on"></span>
-                <span class="switch-off"></span>
-              </span>
-              <span class="switch-label"  >تفعيل </span>
-            </label>
-          </div>
           <div class="col-12 text-center">
             <button type="submit"  class="btn btn-primary me-sm-3 me-1 mt-3 addCountry">اضافة</button>
             <button type="reset" class="btn btn-label-secondary btn-reset mt-3" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
@@ -95,16 +84,6 @@
                 <input type="text" name="nameEn" class="form-control"  id="editCountryNameEn" placeholder="اضف اسم الخدمة" aria-describedby="defaultFormControlHelp" />
                 <span class="help-block text-danger"></span>
               </div>
-            <div class="col-12 my-4">
-              <label class="switch">
-                <input type="checkbox" class="switch-input active" name="active" id="editCountryActive" value="1">
-                <span class="switch-toggle-slider">
-                  <span class="switch-on"></span>
-                  <span class="switch-off"></span>
-                </span>
-                <span class="switch-label"  >تفعيل </span>
-              </label>
-            </div>
             <div class="col-12 text-center">
               <button type="submit" class="btn btn-primary me-sm-3 me-1 mt-3 updateCountry">تعديل</button>
               <button type="reset" class="btn btn-label-secondary btn-reset mt-3" data-bs-dismiss="modal" aria-label="Close">Cancel</button>

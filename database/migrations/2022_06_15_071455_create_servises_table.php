@@ -17,10 +17,16 @@ return new class extends Migration
             $table->id();
             $table->json('name');
             $table->json('description');
-            $table->string('image');
+            $table->string('image')->nullable();
+            $table->string('background_image');
             $table->json('other_adventage');
             $table->json('service_conditions');
-            $table->boolean('is_active')->default(0);
+            $table->unsignedBigInteger('category_id');
+            $table->foreign('category_id')->constrained()
+                    ->references('id')->on('categories')
+                    ->onUpdate('cascade')->onDelete('cascade');
+            $table->boolean('position')->default(0);
+            $table->boolean('is_active')->default(1);
             $table->timestamps();
         });
     }

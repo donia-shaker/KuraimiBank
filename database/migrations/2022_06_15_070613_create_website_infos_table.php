@@ -15,17 +15,10 @@ return new class extends Migration
     {
         Schema::create('website_infos', function (Blueprint $table) {
             $table->id();
-            $table->json('applay_for_services');
-            $table->string('phone');
-            $table->string('fax');
-            $table->string('free_number');
-            $table->string('mail_box');
-            $table->string('email');
-            $table->json('about_us');
-            $table->json('value_principles');
-            $table->json('strategy_statement');
-            $table->json('board_members');
-            $table->boolean('is_active')->default(0);
+
+            $table->json('table_key');
+            $table->json('table_value');
+            $table->boolean('is_active')->default(1);
             $table->timestamps();
         });
     }

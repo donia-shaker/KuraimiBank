@@ -8,6 +8,8 @@ const el = (element) => document.querySelector(element);
  */
 const els = (element) => document.querySelectorAll(element);
 
+const isLocaleEn = location.href.search('/en/') != -1;
+
 //start fetch all data to my table
 fetchData();
 function fetchData() {
@@ -20,8 +22,7 @@ function fetchData() {
             i++;
             var tableContentOne = ` <tr>
              <td> ${i} </td>
-             <td> <i></i> ${item.name.ar}</td>
-             <td> <i></i> ${item.name.en}</td>
+             <td> <i></i> ${isLocaleEn ? item.name.en : item.name.ar}</td>
              <td>${item.link}</td>
              <td> <i class="${item.icon}"></i> </td>
              `

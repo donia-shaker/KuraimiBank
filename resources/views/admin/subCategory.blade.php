@@ -5,18 +5,16 @@
     </div>
     <div class="card p-3">
         <h2 name="tableName m-5">الخدمات الرئيسية</h2>
-        <button type="button" class="btn btn-primary m-4 w-25" data-bs-toggle="modal" data-bs-target="#addCityModal"
-            id="addCity"> اضافه مدينة للموقع </button>
+        <button type="button" class="btn btn-primary m-4 w-25" data-bs-toggle="modal" data-bs-target="#addSubCategoryModal"
+            id="addSubCategory"> اضافه خدمه </button>
         <x-table>
             <div class="table-responsive text-nowrap">
                 <table class="table">
                     <x-slot name="tableHead">
                         <tr>
                             <th>#</th>
-                            <th>(ar)اسم التصنيف</th>
-                            <th>(en)اسم التصنيف</th>
+                            <th>اسم التصنيف</th>
                             <th>الحاله</th>
-                            <th>نفاط الخدمة</th>
                             <th>العمليات</th>
                         </tr>
                     </x-slot>
@@ -28,8 +26,8 @@
     </div>
     <!--/ Basic Bootstrap Table -->
 
-    <!-- Add City Modal -->
-    <div class="modal fade" id="addCityModal" tabindex="-1" aria-hidden="true">
+    <!-- Add SubCategory Modal -->
+    <div class="modal fade" id="addSubCategoryModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered1 modal-simple modal-add-new-cc">
             <div class="modal-content p-3 p-md-5">
                 <div class="modal-body">
@@ -38,34 +36,23 @@
                         <h4 class="modal-title" id="userCrudModal"></h4>
                         <p>اضف صنف جديدة للموقع</p>
                     </div>
-                    <form id="addCityForm" class="row g-3" action="" method="POST"
+                    <form id="addSubCategoryForm" class="row g-3" action="" method="POST"
                         enctype="multipart/form-data">
                         @csrf
                         <div>
                             <label for="defaultFormControlInput" class="form-label"> الاسم (عربي)</label>
-                            <input type="text" name="nameAr" class="form-control  name ar" id="addCityNameAr"
+                            <input type="text" name="nameAr" class="form-control  name ar" id="addCategoryNameAr"
                                 placeholder="اضف اسم الخدمة" aria-describedby="defaultFormControlHelp" />
                             <span class="help-block text-danger"></span>
                         </div>
                         <div>
                             <label for="defaultFormControlInput" class="form-label">الاسم (انجليزي)</label>
-                            <input type="text" name="nameEn" class="form-control  name en" id="addCityNameEn"
-                                placeholder="اضف اسم الخدمة" aria-describedby="defaultFormControlHelp" />
+                            <input type="text" name="nameEn" class="form-control  name en" id="addCategoryNameEn"
+                                placeholder="اضف اسم العملة" aria-describedby="defaultFormControlHelp" />
                             <span class="help-block text-danger"></span>
                         </div>
-                        <div class="col-12 my-4">
-                            <label class="switch">
-                                <input type="checkbox" class="switch-input active" name="active" id="addCityActive"
-                                    value="1">
-                                <span class="switch-toggle-slider">
-                                    <span class="switch-on"></span>
-                                    <span class="switch-off"></span>
-                                </span>
-                                <span class="switch-label">تفعيل </span>
-                            </label>
-                        </div>
                         <div class="col-12 text-center">
-                            <button type="mit" class="btn btn-primary me-sm-3 me-1 mt-3 addCity">اضافة</button>
+                            <button type="submit" class="btn btn-primary me-sm-3 me-1 mt-3 addSUbCategory">اضافة</button>
                             <button type="reset" class="btn btn-label-secondary btn-reset mt-3" data-bs-dismiss="modal"
                                 aria-label="Close">Cancel</button>
                         </div>
@@ -74,10 +61,10 @@
             </div>
         </div>
     </div>
-    <!--/ Add City Modal -->
+    <!--/ Add SubCategory Modal -->
 
-    <!-- Updat City Modal -->
-    <div class="modal fade" id="editCityModal" tabindex="-1" aria-hidden="true">
+    <!-- Updat SubCategory Modal -->
+    <div class="modal fade" id="editSubCategoryModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered1 modal-simple modal-add-new-cc">
             <div class="modal-content p-3 p-md-5">
                 <div class="modal-body">
@@ -86,36 +73,25 @@
                         <h4 class="modal-title" id="userCrudModal"></h4>
                         <p>تعديل الخدمة </p>
                     </div>
-                    <form id="updateCity" class="row g-3"  method="POST"
+                    <form id="updateSubCategory" class="row g-3"  method="POST"
                         enctype="multipart/form-data">
                         @csrf
-                        <input type="hidden" id="editCityId">
+                        <input type="hidden" id="editCategoryId">
                         <div>
                             <label for="defaultFormControlInput" class="form-label"> الاسم (عربي)</label>
-                            <input type="text" name="nameAr" class="form-control name ar" id="editCityNameAr"
+                            <input type="text" name="nameAr" class="form-control name ar" id="editCategoryNameAr"
                                 placeholder="اضف اسم الخدمة" aria-describedby="defaultFormControlHelp" />
                             <span class="help-block text-danger"></span>
                         </div>
                         <div>
                             <label for="defaultFormControlInput" class="form-label">الاسم (انجليزي)</label>
-                            <input type="text" name="nameEn" class="form-control" id="editCityNameEn"
+                            <input type="text" name="nameEn" class="form-control" id="editCategoryNameEn"
                                 placeholder="اضف اسم الخدمة" aria-describedby="defaultFormControlHelp" />
                             <span class="help-block text-danger"></span>
-                        </div>
-                        <div class="col-12 my-4">
-                            <label class="switch">
-                                <input type="checkbox" class="switch-input active" name="active"
-                                    id="editCityActive" value="1">
-                                <span class="switch-toggle-slider">
-                                    <span class="switch-on"></span>
-                                    <span class="switch-off"></span>
-                                </span>
-                                <span class="switch-label">تفعيل </span>
-                            </label>
-                        </div>
+                        </div>>
                         <div class="col-12 text-center">
-                            <button type="mit"
-                                class="btn btn-primary me-sm-3 me-1 mt-3 updateCity">تعديل</button>
+                            <button type="submit"
+                                class="btn btn-primary me-sm-3 me-1 mt-3 updateSubCategory">تعديل</button>
                             <button type="reset" class="btn btn-label-secondary btn-reset mt-3" data-bs-dismiss="modal"
                                 aria-label="Close">Cancel</button>
                         </div>
@@ -124,10 +100,10 @@
             </div>
         </div>
     </div>
-    <!--/ Updat City Modal -->
+    <!--/ Updat SubCategory Modal -->
 
-    <!-- Active City Modal -->
-    <div class="modal fade activeCityModal" id="activeCityModal" tabindex="-1" aria-hidden="true">
+    <!-- Active SubCategory Modal -->
+    <div class="modal fade activeSubCategoryModal" id="activeSubCategoryModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered1 modal-simple modal-add-new-cc">
             <div class="modal-content p-3 p-md-5">
                 <div class="modal-body">
@@ -136,13 +112,13 @@
                         <h4 class="modal-title" id="userCrudModal">هل انت متاكد انك تريد تغيير حاله الخدمة</h4>
                         <p>تغيير حالة الخدمة </p>
                     </div>
-                    <form id="activeCity" class="row g-3" action="activeCity" method="POST"
+                    <form id="activeSubCategory" class="row g-3" action="activeSubCategory" method="POST"
                         enctype="multipart/form-data">
                         @csrf
-                        <input type="hidden" id="activeCityId" class="activeCityId" value="">
+                        <input type="hidden" id="activeSubCategoryId" class="activeSubCategoryId" value="">
                         <div class="col-12 text-center">
-                            <button type="mit" id="mit"
-                                class="btn btn-primary me-sm-3 me-1 mt-3 activeCity">تغيير الحالة</button>
+                            <button type="submit" id="submit"
+                                class="btn btn-primary me-sm-3 me-1 mt-3 activeSubCategory">تغيير الحالة</button>
                             <button type="reset" class="btn btn-label-secondary btn-reset mt-3" data-bs-dismiss="modal"
                                 aria-label="Close">Cancel</button>
                         </div>
@@ -151,10 +127,10 @@
             </div>
         </div>
     </div>
-    <!--/ Updat City Modal -->
+    <!--/ Updat SubCategory Modal -->
 
-    <!-- Delete City Modal -->
-    <div class="modal fade deleteCityModal" id="deleteCityModal" tabindex="-1" aria-hidden="true">
+    <!-- Delete SubCategory Modal -->
+    <div class="modal fade deleteCategoryModal" id="deleteCategoryModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered1 modal-simple modal-add-new-cc">
             <div class="modal-content p-3 p-md-5">
                 <div class="modal-body">
@@ -163,13 +139,13 @@
                         <h4 class="modal-title" id="userCrudModal">هل انت متاكد انك تريد حذف الخدمة</h4>
                         <p>في حال الموافقه سوف يتم حذف الصنف بشكل نهائي ولن تستطيع التراجع </p>
                     </div>
-                    <form id="deleteCityId" class="row g-3"  method="POST"
+                    <form id="deleteSubCategoryId" class="row g-3"  method="POST"
                         enctype="multipart/form-data">
                         @csrf
-                        <input type="hidden" id="deleteCityId" class="deleteCityId" value="">
+                        <input type="hidden" id="deleteCategoryId" class="deleteCategoryId" value="">
                         <div class="col-12 text-center">
-                            <button type="mit" id="mit"
-                                class="btn btn-primary me-sm-3 me-1 mt-3 deleteCity">حذف الصنف</button>
+                            <button type="submit" id="submit"
+                                class="btn btn-primary me-sm-3 me-1 mt-3 deleteCategory">حذف الصنف</button>
                             <button type="reset" class="btn btn-label-secondary btn-reset mt-3" data-bs-dismiss="modal"
                                 aria-label="Close">Cancel</button>
                         </div>
@@ -178,8 +154,8 @@
             </div>
         </div>
     </div>
-    <!--/ Delete City Modal -->
+    <!--/ Delete SubCategory Modal -->
 @endsection
 @section('javascript')
-<script  src="{{URL::asset('js/cities.js')}}"></script>
+<script  src="{{URL::asset('js/subCategory.js')}}"></script>
 @endsection

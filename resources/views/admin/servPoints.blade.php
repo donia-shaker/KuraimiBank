@@ -13,14 +13,11 @@
                     <x-slot name="tableHead">
                         <tr>
                             <th>#</th>
-                            <th>(ar)اسم التصنيف</th>
-                            <th>(en)اسم التصنيف</th>
-                            <th>(ar) العنوان</th>
-                            <th>(en) العنوان</th>
+                            <th>اسم التصنيف</th>
+                            <th>العنوان</th>
                             <th>الهاتف</th>
                             <th>الهاتف الاخر</th>
-                            <th> ساعات العمل(ar)</th>
-                            <th> ساعات العمل(en)</th>
+                            <th> ساعات العمل</th>
                             <th> الحاله</th>
                             <th>العمليات</th>
                         </tr>
@@ -57,13 +54,13 @@
                                 <span class="help-block text-danger"></span>
                             </div>
                             <div class="col-md-6">
-                                <label for="defaultFormControlInput" class="form-label">الاسم (انجليزي)</label>
+                                <label for="defaultFormControlInput" class="form-label">العنوان (انجليزي)</label>
                                 <input type="text" name="addressAr" class="form-control  " id="addServPointAddressAr"
                                     placeholder="اضف عنوان نقطة الخدمة" aria-describedby="defaultFormControlHelp" />
                                 <span class="help-block text-danger"></span>
                             </div>
                             <div class="col-md-6">
-                                <label for="defaultFormControlInput" class="form-label">الاسم (انجليزي)</label>
+                                <label for="defaultFormControlInput" class="form-label">العنوان (انجليزي)</label>
                                 <input type="text" name="addressEn" class="form-control  " id="addServPointAddressEn"
                                     placeholder="اضف عنوان نقطة الخدمة" aria-describedby="defaultFormControlHelp" />
                                 <span class="help-block text-danger"></span>

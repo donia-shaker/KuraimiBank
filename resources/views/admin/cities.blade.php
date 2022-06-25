@@ -4,7 +4,7 @@
     <div class="" role="alert" id="message">
     </div>
     <div class="card p-3">
-        <h2 name="tableName m-5">الخدمات الرئيسية</h2>
+        <h2 name="tableName m-5"> المدن</h2>
         <button type="button" class="btn btn-primary m-4 w-25" data-bs-toggle="modal" data-bs-target="#addCityModal"
             id="addCity"> اضافه مدينة للموقع </button>
         <x-table>
@@ -13,10 +13,9 @@
                     <x-slot name="tableHead">
                         <tr>
                             <th>#</th>
-                            <th>(ar)اسم التصنيف</th>
-                            <th>(en)اسم التصنيف</th>
+                            <th>اسم المدينه</th>
                             <th>الحاله</th>
-                            <th>نفاط الخدمة</th>
+                            <th>نفاط مدينة</th>
                             <th>العمليات</th>
                         </tr>
                     </x-slot>
@@ -36,7 +35,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     <div class="text-center mb-4">
                         <h4 class="modal-title" id="userCrudModal"></h4>
-                        <p>اضف صنف جديدة للموقع</p>
+                        <p>اضف مدينة جديدة للموقع</p>
                     </div>
                     <form id="addCityForm" class="row g-3" action="" method="POST"
                         enctype="multipart/form-data">
@@ -44,25 +43,14 @@
                         <div>
                             <label for="defaultFormControlInput" class="form-label"> الاسم (عربي)</label>
                             <input type="text" name="nameAr" class="form-control  name ar" id="addCityNameAr"
-                                placeholder="اضف اسم الخدمة" aria-describedby="defaultFormControlHelp" />
+                                placeholder="اضف اسم مدينة" aria-describedby="defaultFormControlHelp" />
                             <span class="help-block text-danger"></span>
                         </div>
                         <div>
                             <label for="defaultFormControlInput" class="form-label">الاسم (انجليزي)</label>
                             <input type="text" name="nameEn" class="form-control  name en" id="addCityNameEn"
-                                placeholder="اضف اسم الخدمة" aria-describedby="defaultFormControlHelp" />
+                                placeholder="اضف اسم مدينة" aria-describedby="defaultFormControlHelp" />
                             <span class="help-block text-danger"></span>
-                        </div>
-                        <div class="col-12 my-4">
-                            <label class="switch">
-                                <input type="checkbox" class="switch-input active" name="active" id="addCityActive"
-                                    value="1">
-                                <span class="switch-toggle-slider">
-                                    <span class="switch-on"></span>
-                                    <span class="switch-off"></span>
-                                </span>
-                                <span class="switch-label">تفعيل </span>
-                            </label>
                         </div>
                         <div class="col-12 text-center">
                             <button type="mit" class="btn btn-primary me-sm-3 me-1 mt-3 addCity">اضافة</button>
@@ -84,7 +72,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     <div class="text-center mb-4">
                         <h4 class="modal-title" id="userCrudModal"></h4>
-                        <p>تعديل الخدمة </p>
+                        <p>تعديل مدينة </p>
                     </div>
                     <form id="updateCity" class="row g-3"  method="POST"
                         enctype="multipart/form-data">
@@ -93,25 +81,14 @@
                         <div>
                             <label for="defaultFormControlInput" class="form-label"> الاسم (عربي)</label>
                             <input type="text" name="nameAr" class="form-control name ar" id="editCityNameAr"
-                                placeholder="اضف اسم الخدمة" aria-describedby="defaultFormControlHelp" />
+                                placeholder="اضف اسم مدينة" aria-describedby="defaultFormControlHelp" />
                             <span class="help-block text-danger"></span>
                         </div>
                         <div>
                             <label for="defaultFormControlInput" class="form-label">الاسم (انجليزي)</label>
                             <input type="text" name="nameEn" class="form-control" id="editCityNameEn"
-                                placeholder="اضف اسم الخدمة" aria-describedby="defaultFormControlHelp" />
+                                placeholder="اضف اسم مدينة" aria-describedby="defaultFormControlHelp" />
                             <span class="help-block text-danger"></span>
-                        </div>
-                        <div class="col-12 my-4">
-                            <label class="switch">
-                                <input type="checkbox" class="switch-input active" name="active"
-                                    id="editCityActive" value="1">
-                                <span class="switch-toggle-slider">
-                                    <span class="switch-on"></span>
-                                    <span class="switch-off"></span>
-                                </span>
-                                <span class="switch-label">تفعيل </span>
-                            </label>
                         </div>
                         <div class="col-12 text-center">
                             <button type="mit"
@@ -133,8 +110,8 @@
                 <div class="modal-body">
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     <div class="text-center mb-4">
-                        <h4 class="modal-title" id="userCrudModal">هل انت متاكد انك تريد تغيير حاله الخدمة</h4>
-                        <p>تغيير حالة الخدمة </p>
+                        <h4 class="modal-title" id="userCrudModal">هل انت متاكد انك تريد تغيير حاله مدينة</h4>
+                        <p>تغيير حالة مدينة </p>
                     </div>
                     <form id="activeCity" class="row g-3" action="activeCity" method="POST"
                         enctype="multipart/form-data">
@@ -160,8 +137,8 @@
                 <div class="modal-body">
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     <div class="text-center mb-4">
-                        <h4 class="modal-title" id="userCrudModal">هل انت متاكد انك تريد حذف الخدمة</h4>
-                        <p>في حال الموافقه سوف يتم حذف الصنف بشكل نهائي ولن تستطيع التراجع </p>
+                        <h4 class="modal-title" id="userCrudModal">هل انت متاكد انك تريد حذف مدينة</h4>
+                        <p>في حال الموافقه سوف يتم حذف المدينة بشكل نهائي ولن تستطيع التراجع </p>
                     </div>
                     <form id="deleteCityId" class="row g-3"  method="POST"
                         enctype="multipart/form-data">
@@ -169,7 +146,7 @@
                         <input type="hidden" id="deleteCityId" class="deleteCityId" value="">
                         <div class="col-12 text-center">
                             <button type="mit" id="mit"
-                                class="btn btn-primary me-sm-3 me-1 mt-3 deleteCity">حذف الصنف</button>
+                                class="btn btn-primary me-sm-3 me-1 mt-3 deleteCity">حذف المدينة</button>
                             <button type="reset" class="btn btn-label-secondary btn-reset mt-3" data-bs-dismiss="modal"
                                 aria-label="Close">Cancel</button>
                         </div>

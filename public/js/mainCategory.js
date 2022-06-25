@@ -8,6 +8,8 @@ const el = (element) => document.querySelector(element);
  */
 const els = (element) => document.querySelectorAll(element);
 
+const isLocaleEn = location.href.search('/en/') != -1;
+
 //start fetch all data to my table
 fetchData();
 function fetchData() {
@@ -19,8 +21,7 @@ function fetchData() {
             i++;
             var tableContentOne = ` <tr>
             <td> ${i} </td>
-            <td> <i></i> ${item.name.ar}</td>
-            <td> <i></i> ${item.name.en}</td>
+            <td> <i></i> ${isLocaleEn ? item.name.en : item.name.ar}</td>
             <td>
                 <a href="subCategory/${item.id}#${item.id}" style="color:#03c3ec99">
                 انقر لعرض الخدمات الفرعيه</a>
@@ -84,8 +85,6 @@ function fetchData() {
                                 response.data.category.name.en;
                             el("#editCategoryNameAr").value =
                                 response.data.category.name.ar;
-                            el("#editCategoryActive").value =
-                                response.data.category.active;
                         }
                     });
                 });
@@ -165,7 +164,6 @@ el(".updateMainCategory").addEventListener("click", function (e) {
         .put(`updateMainCategory/${categoryId}`, {
             nameEn: el("#editCategoryNameEn").value,
             nameAr: el("#editCategoryNameAr").value,
-            active: el("#editCategoryActive").value,
         })
         .then((response) => {
             console.log(response);

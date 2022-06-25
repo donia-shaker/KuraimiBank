@@ -38,6 +38,25 @@ class RouteServiceProvider extends ServiceProvider
         });
     }
 
+    // public function boot()
+    // {
+    //     $this->configureRateLimiting();
+
+    //     $locale = \request()->segment(1);
+
+    //     $this->routes(function () use ($locale) {
+    //         Route::middleware('api')
+    //             ->prefix('api')
+    //             ->namespace($this->namespace)
+    //             ->group(base_path('routes/api.php'));
+
+    //         Route::middleware('web')
+    //             ->prefix($locale)
+    //             ->namespace($this->namespace)
+    //             ->group(base_path('routes/web.php'));
+    //     });
+    // }
+
     /**
      * Configure the rate limiters for the application.
      *

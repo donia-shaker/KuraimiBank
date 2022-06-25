@@ -3,9 +3,18 @@
 use App\Http\Controllers\admin\CategoriesController;
 use App\Http\Controllers\admin\CitiesController;
 use App\Http\Controllers\admin\CountriesController;
+use App\Http\Controllers\admin\ExchangeRatesController;
+use App\Http\Controllers\admin\FinancialReportsController;
+use App\Http\Controllers\admin\JobsController;
+use App\Http\Controllers\admin\NewsController;
+use App\Http\Controllers\admin\OurPartinersController;
+use App\Http\Controllers\admin\PagesController;
 use App\Http\Controllers\admin\ServicePointsController;
+use App\Http\Controllers\admin\ServisesAdvantagesController;
+use App\Http\Controllers\admin\ServisesController;
 use App\Http\Controllers\admin\SocialMediaController;
 use App\Http\Controllers\admin\SubCategoryController;
+use App\Http\Controllers\admin\WebsiteInfoController;
 use App\Models\service_points;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -66,10 +75,9 @@ Route::get('/cities/activeCity/{id}',[CitiesController::class,'activeCity'])->na
 // Service Points Admin Controller
 Route::get('/cities/servPoint/{id}',[ServicePointsController::class,'showServPoints'])->name('ServPoin');
 Route::get('/cities/servPoint/fetchServPoint/{id}',[ServicePointsController::class,'fetchServPoint'])->name('fetchServPoint');
-// Route::get('/showAddServPoint',[ServicePointsController::class,'showAddServPoint'])->name('showAddServPoint');
 Route::post('/addServPoint',[ServicePointsController::class,'addServPoint'])->name('addServPoint');
 Route::get('/cities/servPoint/editServPoint/{id}',[ServicePointsController::class,'editServPoint'])->name('editServPoint');
-Route::put('/cities/servPoint/updateServPoint/{id}',[ServicePointsController::class,'updateServPoint'])->name('updateServPoint');
+Route::post('/cities/servPoint/updateServPoint/{id}',[ServicePointsController::class,'updateServPoint'])->name('updateServPoint');
 Route::get('/cities/servPoint/deleteServPoint/{id}',[ServicePointsController::class,'deleteServPoint'])->name('deleteServPoint');
 Route::get('/cities/servPoint/activeServPoint/{id}',[ServicePointsController::class,'activeServPoint'])->name('activeServPoint');
 
@@ -81,6 +89,71 @@ Route::get('/editSocialMedia/{id}',[SocialMediaController::class,'editSocialMedi
 Route::put('/updateSocialMedia/{id}',[SocialMediaController::class,'updateSocialMedia'])->name('updateMainSocialMedia');
 Route::post('/activeSocialMedia/{id}',[SocialMediaController::class,'activeSocialMedia'])->name('activeSocialMedia');
 Route::post('/deleteSocialMedia/{id}',[SocialMediaController::class,'deleteSocialMedia'])->name('deleteSocialMedia');
+
+
+// Admin Services Manage
+Route::get('/services', [ServisesController::class, 'showServices'])->name('services');
+Route::post('/addService', [ServisesController::class, 'addService'])->name('addService');
+Route::post('/editService/{id}', [ServisesController::class, 'editService'])->name('editService');
+Route::post('/activeService/{id}', [ServisesController::class, 'activeService'])->name('activeService');
+Route::post('/positionService/{id}', [ServisesController::class, 'positionService'])->name('positionService');
+Route::post('/deleteService/{id}', [ServisesController::class, 'deleteService'])->name('deleteService');
+
+// Services Advantage Controller
+Route::get('/serviceAdv/{id}',[ServisesAdvantagesController::class,'showServiceAdv'])->name('serviceAdv');
+// Route::get('/serviceAdvAdd',[ServisesAdvantagesController::class,'serviceAdvAdd'])->name('serviceAdvAdd');
+Route::post('/addServiceAdv',[ServisesAdvantagesController::class,'addServiceAdv'])->name('addServiceAdv');
+// Route::get('/cities/editCity/{id}',[ServisesAdvantagesController::class,'editCity'])->name('editCity');
+// Route::put('/cities/updateCity/{id}',[ServisesAdvantagesController::class,'updateCity'])->name('updateCity');
+// Route::get('/cities/deleteCity/{id}',[ServisesAdvantagesController::class,'deleteCity'])->name('deleteCity');
+// Route::get('/cities/activeCity/{id}',[ServisesAdvantagesController::class,'activeCity'])->name('activeCity');
+
+// Admin news Manage
+Route::get('/news', [NewsController::class, 'showNews'])->name('news');
+Route::post('/addNews', [NewsController::class, 'addNews'])->name('addNews');
+Route::post('/editNews/{id}', [NewsController::class, 'editNews'])->name('editNews');
+Route::post('/activeNews/{id}', [NewsController::class, 'activeNews'])->name('activeNews');
+Route::post('/positionNews/{id}', [NewsController::class, 'positionNews'])->name('positionNews');
+Route::post('/deleteNews/{id}', [NewsController::class, 'deleteNews'])->name('deleteNews');
+
+// Admin Rate Manage
+Route::get('/rate', [ExchangeRatesController::class, 'showRate'])->name('rate');
+Route::post('/addRate', [ExchangeRatesController::class, 'addRate'])->name('addRate');
+Route::post('/editRate/{id}', [ExchangeRatesController::class, 'editRate'])->name('editRate');
+Route::post('/activeRate/{id}', [ExchangeRatesController::class, 'activeRate'])->name('activeRate');
+Route::post('/deleteRate/{id}', [ExchangeRatesController::class, 'deleteRate'])->name('deleteRate');
+
+// Admin jobs Manage
+Route::get('/jobs', [JobsController::class, 'showjobs'])->name('jobs');
+Route::post('/addjobs', [JobsController::class, 'addjobs'])->name('addjobs');
+Route::post('/editjobs/{id}', [JobsController::class, 'editjobs'])->name('editjobs');
+Route::post('/activejobs/{id}', [JobsController::class, 'activejobs'])->name('activejobs');
+Route::post('/deletejobs/{id}', [JobsController::class, 'deletejobs'])->name('deletejobs');
+
+// Admin reports Manage
+Route::get('/reports', [FinancialReportsController::class, 'showreports'])->name('reports');
+Route::post('/addreports', [FinancialReportsController::class, 'addreports'])->name('addreports');
+Route::post('/editreports/{id}', [FinancialReportsController::class, 'editreports'])->name('editreports');
+Route::post('/activereports/{id}', [FinancialReportsController::class, 'activereports'])->name('activereports');
+Route::post('/deletereports/{id}', [FinancialReportsController::class, 'deletereports'])->name('deletereports');
+
+// Admin partiners Manage
+Route::get('/partiners', [OurPartinersController::class, 'showpartiners'])->name('partiners');
+Route::post('/addpartiners', [OurPartinersController::class, 'addpartiners'])->name('addpartiners');
+Route::post('/editpartiners/{id}', [OurPartinersController::class, 'editpartiners'])->name('editpartiners');
+Route::post('/activepartiners/{id}', [OurPartinersController::class, 'activepartiners'])->name('activepartiners');
+Route::post('/deletepartiners/{id}', [OurPartinersController::class, 'deletepartiners'])->name('deletepartiners');
+
+// Admin pages Manage
+Route::get('/pages', [PagesController::class, 'showpages'])->name('pages');
+Route::post('/addpages', [PagesController::class, 'addpages'])->name('addpages');
+Route::post('/editpages/{id}', [PagesController::class, 'editpages'])->name('editpages');
+Route::post('/activepages/{id}', [PagesController::class, 'activepages'])->name('activepages');
+Route::post('/deletepages/{id}', [PagesController::class, 'deletepages'])->name('deletepages');
+
+// admin Manage websiteInfo
+Route::get('/website', [WebsiteInfoController::class, 'website'])->name('website');
+Route::get('/editwebsite', [WebsiteInfoController::class, 'editwebsite'])->name('editwebsite');
 
 });
 

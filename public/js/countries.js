@@ -8,6 +8,8 @@ const el = (element) => document.querySelector(element);
  */
 const els = (element) => document.querySelectorAll(element);
 
+const isLocaleEn = location.href.search('/en/') != -1;
+
 //start fetch all data to my table
 fetchData();
 function fetchData() {
@@ -21,8 +23,7 @@ function fetchData() {
             i++;
             var tableContentOne = ` <tr>
              <td> ${i} </td>
-             <td> <i></i> ${item.name.ar}</td>
-             <td> <i></i> ${item.name.en}</td>
+             <td> <i></i> ${isLocaleEn ? item.name.en : item.name.ar}</td>
              <td>
                  <a href="cities/${item.id}#${item.id}" style="color:#03c3ec99">
                 انقر لعرض المدن</a>
@@ -168,7 +169,6 @@ el(".updateCountry").addEventListener("click", function (e) {
         .put(`updateCountry/${CountryId}`, {
             nameEn: el("#editCountryNameEn").value,
             nameAr: el("#editCountryNameAr").value,
-            active: el("#editCountryActive").value,
         })
         .then((response) => {
             console.log(response);

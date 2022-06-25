@@ -13,8 +13,7 @@
                     <x-slot name="tableHead">
                         <tr>
                             <th>#</th>
-                            <th>(ar)الاسم</th>
-                            <th>(en)الاسم</th>
+                            <th>الاسم</th>
                             <th>الرابط او رقم الهاتف</th>
                             <th>الايقونة</th>
                             <th>الحاله</th>

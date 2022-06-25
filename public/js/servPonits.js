@@ -16,7 +16,7 @@ const isLocaleEn = location.href.search('/en/') != -1;
 // another file
 
 //start fetch all data to my table
-var cityId = location.hash.slice(1);
+var cityId = Number(location.hash.slice(1));
 
 // console.log(ServPointId);
 
@@ -211,9 +211,10 @@ if (el(".deleteServPoint")) {
 el(".updateServPoint").addEventListener("click", function (e) {
     e.preventDefault();
     ServPointId = el("#editServPointId").value;
+    console.log(ServPointId);
 
     axios
-        .post(`updateServPoint/${ServPointId}`, {
+        .post(`/updateServPoint/${ServPointId}`, {
             nameAr: el("#editServPointNameAr").value,
             nameEn: el("#editServPointNameEn").value,
             addressAr: el("#editServPointaddressAr").value,
@@ -232,7 +233,7 @@ el(".updateServPoint").addEventListener("click", function (e) {
                 Object.keys(errors).forEach((key) => {
                     // console.log(key);
 
-                    var input = "#updateServPoint input[name=" + key + "]";
+                    var input = "#editServPointForm input[name=" + key + "]";
                     el(input + "+span").innerText = errors[key];
                 });
             } else if (response.data.status == 404) {
@@ -268,7 +269,7 @@ el(".addServPoint").addEventListener("click", function (e) {
             secondPhone: el("#addServPointSecondPhone").value,
             workingHoursAr: el("#addServPointWorkingHourAr").value,
             workingHoursEn: el("#addServPointWorkingHourEn").value,
-            cityId: ServPointId,
+            cityId: cityId,
             active: el("#addServPointActive").value,
         })
         .then((response) => {

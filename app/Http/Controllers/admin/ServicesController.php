@@ -4,16 +4,16 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\categories;
-use App\Models\servises;
+use App\Models\services;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
-class ServisesController extends Controller
+class servicesController extends Controller
 {
     function showServices(){
         $do = isset($_GET['do']) ? $do = $_GET['do'] : 'Manage';
         $categories = categories::where('parentId' ,'!=',' 0')->get();
-        $services = servises::select()->orderBy('id', 'DESC')->get();
+        $services = services::select()->orderBy('id', 'DESC')->get();
         // dd($categories);
         return view('admin.services', [
             'services'  => $services,
@@ -42,7 +42,7 @@ class ServisesController extends Controller
         if($request->hasFile('background_image'))
             $background_image=$this->uploadFile($request->file('background_image'));
 
-        $service =  servises::create([
+        $service =  services::create([
 
             'name' => [
                 'en'        =>      $request->nameEn,
@@ -88,7 +88,7 @@ class ServisesController extends Controller
         if($request->hasFile('background_image'))
             $background_image=$this->uploadFile($request->file('background_image'));
 
-        $service =  servises::find($id)->update([
+        $service =  services::find($id)->update([
 
             'name' => [
                 'en'        =>      $request->nameEn,
@@ -115,7 +115,7 @@ class ServisesController extends Controller
     }
 
     function positionService($id){
-        $service=servises::find($id);
+        $service=services::find($id);
         if($service->position )
             $service->position=0;
         else 
@@ -125,7 +125,7 @@ class ServisesController extends Controller
     }
 
     function activeService($id){
-        $service=servises::find($id);
+        $service=services::find($id);
         if($service->is_active )
             $service->is_active=0;
         else 
@@ -136,7 +136,7 @@ class ServisesController extends Controller
 
     public function deleteService($id)
     {
-        $service = servises::find($id);
+        $service = services::find($id);
         if ($service->delete()) 
         return redirect()->back()->with(['success' => 'Data Delete successfully']);
 

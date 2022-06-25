@@ -10,8 +10,8 @@ use App\Http\Controllers\admin\NewsController;
 use App\Http\Controllers\admin\OurPartinersController;
 use App\Http\Controllers\admin\PagesController;
 use App\Http\Controllers\admin\ServicePointsController;
-use App\Http\Controllers\admin\ServisesAdvantagesController;
-use App\Http\Controllers\admin\ServisesController;
+use App\Http\Controllers\admin\servicesAdvantagesController;
+use App\Http\Controllers\admin\servicesController;
 use App\Http\Controllers\admin\SocialMediaController;
 use App\Http\Controllers\admin\SubCategoryController;
 use App\Http\Controllers\admin\WebsiteInfoController;
@@ -77,7 +77,7 @@ Route::get('/cities/servPoint/{id}',[ServicePointsController::class,'showServPoi
 Route::get('/cities/servPoint/fetchServPoint/{id}',[ServicePointsController::class,'fetchServPoint'])->name('fetchServPoint');
 Route::post('/addServPoint',[ServicePointsController::class,'addServPoint'])->name('addServPoint');
 Route::get('/cities/servPoint/editServPoint/{id}',[ServicePointsController::class,'editServPoint'])->name('editServPoint');
-Route::post('/cities/servPoint/updateServPoint/{id}',[ServicePointsController::class,'updateServPoint'])->name('updateServPoint');
+Route::post('/updateServPoint/{id}',[ServicePointsController::class,'updateServPoint'])->name('updateServPoint');
 Route::get('/cities/servPoint/deleteServPoint/{id}',[ServicePointsController::class,'deleteServPoint'])->name('deleteServPoint');
 Route::get('/cities/servPoint/activeServPoint/{id}',[ServicePointsController::class,'activeServPoint'])->name('activeServPoint');
 
@@ -92,21 +92,19 @@ Route::post('/deleteSocialMedia/{id}',[SocialMediaController::class,'deleteSocia
 
 
 // Admin Services Manage
-Route::get('/services', [ServisesController::class, 'showServices'])->name('services');
-Route::post('/addService', [ServisesController::class, 'addService'])->name('addService');
-Route::post('/editService/{id}', [ServisesController::class, 'editService'])->name('editService');
-Route::post('/activeService/{id}', [ServisesController::class, 'activeService'])->name('activeService');
-Route::post('/positionService/{id}', [ServisesController::class, 'positionService'])->name('positionService');
-Route::post('/deleteService/{id}', [ServisesController::class, 'deleteService'])->name('deleteService');
+Route::get('/services', [servicesController::class, 'showServices'])->name('services');
+Route::post('/addService', [servicesController::class, 'addService'])->name('addService');
+Route::post('/editService/{id}', [servicesController::class, 'editService'])->name('editService');
+Route::post('/activeService/{id}', [servicesController::class, 'activeService'])->name('activeService');
+Route::post('/positionService/{id}', [servicesController::class, 'positionService'])->name('positionService');
+Route::post('/deleteService/{id}', [servicesController::class, 'deleteService'])->name('deleteService');
 
 // Services Advantage Controller
-Route::get('/serviceAdv/{id}',[ServisesAdvantagesController::class,'showServiceAdv'])->name('serviceAdv');
-// Route::get('/serviceAdvAdd',[ServisesAdvantagesController::class,'serviceAdvAdd'])->name('serviceAdvAdd');
-Route::post('/addServiceAdv',[ServisesAdvantagesController::class,'addServiceAdv'])->name('addServiceAdv');
-// Route::get('/cities/editCity/{id}',[ServisesAdvantagesController::class,'editCity'])->name('editCity');
-// Route::put('/cities/updateCity/{id}',[ServisesAdvantagesController::class,'updateCity'])->name('updateCity');
-// Route::get('/cities/deleteCity/{id}',[ServisesAdvantagesController::class,'deleteCity'])->name('deleteCity');
-// Route::get('/cities/activeCity/{id}',[ServisesAdvantagesController::class,'activeCity'])->name('activeCity');
+Route::get('/serviceAdv/{id}',[servicesAdvantagesController::class,'showServiceAdv'])->name('serviceAdv');
+Route::post('/addServiceAdv',[servicesAdvantagesController::class,'addServiceAdv'])->name('addServiceAdv');
+Route::post('/updateServiceAdv/{id}',[servicesAdvantagesController::class,'updateServiceAdv'])->name('updateServiceAdv');
+Route::get('/deleteServiceAdv/{id}',[servicesAdvantagesController::class,'deleteServiceAdv'])->name('deleteServiceAdv');
+Route::get('/activeServiceAdv/{id}',[servicesAdvantagesController::class,'activeServiceAdv'])->name('activeServiceAdv');
 
 // Admin news Manage
 Route::get('/news', [NewsController::class, 'showNews'])->name('news');

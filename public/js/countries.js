@@ -208,7 +208,6 @@ el(".addCountry").addEventListener("click", function (e) {
         .post(`addCountry`, {
             nameEn: el("#addCountryNameEn").value,
             nameAr: el("#addCountryNameAr").value,
-            active: el("#addCountryActive").value,
         })
         .then((response) => {
             console.log(response);

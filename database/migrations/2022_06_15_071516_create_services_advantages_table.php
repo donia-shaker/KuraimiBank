@@ -13,13 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('servises_advantages', function (Blueprint $table) {
+        Schema::create('services_advantages', function (Blueprint $table) {
             $table->id();
-            $table->json('name');
-            $table->string('icon');
+            $table->json('name')->nullable();
+            $table->string('icon')->nullable();
             $table->unsignedBigInteger('service_id');
             $table->foreign('service_id')->constrained()
-                    ->references('id')->on('servises')
+                    ->references('id')->on('services')
                     ->onUpdate('cascade')->onDelete('cascade');
             $table->boolean('is_active')->default(1);
             $table->timestamps();
@@ -33,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('servises_advantages');
+        Schema::dropIfExists('services_advantages');
     }
 };

@@ -6,12 +6,15 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
 
-class servises extends Model
+class services_advantages extends Model
 {
     use HasFactory, HasTranslations;
 
     protected $guarded = [];
 
-    public $translatable = ['name','description','other_adventage','service_conditions'];
+    public $translatable = ['name'];
 
+    public function service(){
+        return $this->belongsTo(services::class,'service_id');
+    }
 }

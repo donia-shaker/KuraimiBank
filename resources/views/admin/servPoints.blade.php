@@ -125,7 +125,7 @@
                             <h4 class="modal-title" id="userCrudModal"></h4>
                             <p>تعديل نقاط الخدمة </p>
                         </div>
-                        <form id="editServPointForm" class="row g-3" action="" method="POST"
+                        <form id="editServPointForm" class="row g-3"
                             enctype="multipart/form-data">
                             @csrf
                             <input type="hidden" id="editServPointId">
@@ -144,7 +144,7 @@
                             </div>
                             <div class="col-md-6">
                                 <label for="defaultFormControlInput" class="form-label">العنوان (انجليزي)</label>
-                                <input type="text" name="editressAr" class="form-control  "
+                                <input type="text" name="addressAr" class="form-control  "
                                     id="editServPointaddressAr" placeholder="اضف عنوان نقطة الخدمة"
                                     aria-describedby="defaultFormControlHelp" />
                                 <span class="help-block text-danger"></span>
@@ -152,7 +152,7 @@
                             </div>
                             <div class="col-md-6">
                                 <label for="defaultFormControlInput" class="form-label">العنوان (انجليزي)</label>
-                                <input type="text" name="editressEn" class="form-control  "
+                                <input type="text" name="addressEn" class="form-control  "
                                     id="editServPointaddressEn" placeholder="اضف عنوان نقطة الخدمة"
                                     aria-describedby="defaultFormControlHelp" />
                                 <span class="help-block text-danger"></span>

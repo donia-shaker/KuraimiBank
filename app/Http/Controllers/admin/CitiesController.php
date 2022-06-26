@@ -105,9 +105,9 @@ class CitiesController extends Controller
                 $data =  ['en' => $request->input('nameEn'),'ar' => $request->input('nameAr')];
                 $city->name = json_encode($data) ;
                 $city->country_id = $request->input('countryId') ;    
-                if($request->input('active') != null){
-                    $city->is_active=1;
-                }
+                // if($request->input('active') != null){
+                //     $city->is_active=1;
+                // }
                 // return $city;
     
                 if($city->update()){

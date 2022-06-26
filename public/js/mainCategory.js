@@ -203,7 +203,6 @@ el(".addMainCategory").addEventListener("click", function (e) {
         .post(`addCategory`, {
             nameEn: el("#addCategoryNameEn").value,
             nameAr: el("#addCategoryNameAr").value,
-            active: el("#addCategoryActive").value,
         })
         .then((response) => {
             // console.log(response);

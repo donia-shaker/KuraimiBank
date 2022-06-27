@@ -41,6 +41,8 @@ class ServicePointsController extends Controller
             'secondPhone' => ['required', 'between: 3, 255'],
             'workingHoursAr' => ['required', 'string', 'between: 3, 255'],
             'workingHoursEn' => ['required', 'string', 'between: 3, 255'],
+            'lat'=>['required'],
+            'lng'=>['required'],
         ]);
 
         if ($validator->fails()) {
@@ -49,7 +51,7 @@ class ServicePointsController extends Controller
                 'errors' => $validator->getMessageBag(),
             ]);
         }
-         else {
+        else {
             $servPoint =  service_points::create([
                 'name'   =>  [
                     'en' => $request->nameEn,
@@ -64,8 +66,10 @@ class ServicePointsController extends Controller
                     'ar' => $request->workingHoursAr
                 ],
                 'second_phone' =>   $request->secondPhone,
-                'phone'        =>    $request->phone,
-                'city_id'      =>    $request->cityId
+                'phone'        =>   $request->phone,
+                'latitude'     =>   $request->lat,
+                'longitude'    =>   $request->lng,
+                'city_id'      =>   $request->cityId
                 
             ]);
             // $nameData =  ['en' => $request->input('nameEn'), 'ar' => $request->input('nameAr')];
@@ -131,6 +135,8 @@ class ServicePointsController extends Controller
             'secondPhone' => ['required', 'string', 'between: 3, 255'],
             'workingHoursAr' => ['required', 'string', 'between: 3, 255'],
             'workingHoursEn' => ['required', 'string', 'between: 3, 255'],
+            'lat'=>['required'],
+            'lng'=>['required'],
         ]);
 
         if ($validator->fails()) {
@@ -140,20 +146,39 @@ class ServicePointsController extends Controller
             ]);
         }
          else {
-            $servPoint = service_points::find($id);
-            if ($servPoint) {
-            $nameData =  ['en' => $request->input('nameEn'), 'ar' => $request->input('nameAr')];
-            $addressData =  ['en' => $request->input('addressEn'), 'ar' => $request->input('addressAr')];
-            $workingHours =  ['en' => $request->input('workingHoursEn'), 'ar' => $request->input('workingHoursAr')];
-            $servPoint->name = $nameData;
-            $servPoint->address = $addressData;
-            $servPoint->second_phone=$request->input('secondPhone');
-            $servPoint->phone = $request->input('phone');
-            $servPoint->working_hours = $workingHours;
-            $servPoint->city_id = $request->input('cityId');
+            $servPoint = service_points::find($id)->update([
+                'name'   =>  [
+                    'en' => $request->nameEn,
+                    'ar' => $request->nameAr
+                ],
+                'address'=> [
+                    'en' => $request->addressEn,
+                    'ar' => $request->addressAr
+                ],
+                'working_hours' =>  [
+                    'en' => $request->workingHoursEn, 
+                    'ar' => $request->workingHoursAr
+                ],
+                'second_phone' =>   $request->secondPhone,
+                'phone'        =>   $request->phone,
+                'latitude'     =>   $request->lat,
+                'longitude'    =>   $request->lng,
+                'city_id'      =>   $request->cityId
+                
+            ]);
+            // if ($servPoint) {
+            // $nameData =  ['en' => $request->input('nameEn'), 'ar' => $request->input('nameAr')];
+            // $addressData =  ['en' => $request->input('addressEn'), 'ar' => $request->input('addressAr')];
+            // $workingHours =  ['en' => $request->input('workingHoursEn'), 'ar' => $request->input('workingHoursAr')];
+            // $servPoint->name = $nameData;
+            // $servPoint->address = $addressData;
+            // $servPoint->second_phone=$request->input('secondPhone');
+            // $servPoint->phone = $request->input('phone');
+            // $servPoint->working_hours = $workingHours;
+            // $servPoint->city_id = $request->input('cityId');
                 // return $city;
 
-                if ($servPoint->update()) {
+                // if ($servPoint->update()) {
 
                     return response()->json(
                         [
@@ -163,17 +188,18 @@ class ServicePointsController extends Controller
                         ]
                     );
                     // return $city->name;
-                } else {
-                    return response()->json(
-                        [
-                            'status' => 404,
-                            'message' => 'Data not Found',
-
-                        ]
-                    );
                 }
-            }
-        }
+                //  else {
+                //     return response()->json(
+                //         [
+                //             'status' => 404,
+                //             'message' => 'Data not Found',
+
+                //         ]
+                //     );
+                // }
+            // }
+        // }
     }
 
     public function activeServPoint($id)

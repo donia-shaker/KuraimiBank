@@ -30,7 +30,7 @@
 
         <!-- Add ServPoint Modal -->
         <div class="modal fade" id="addServPointModal" tabindex="-1" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered1 modal-simple modal-add-new-cc">
+            <div class="modal-dialog map modal-dialog-centered1 modal-simple modal-add-new-cc">
                 <div class="modal-content p-3 p-md-5">
                     <div class="modal-body">
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -38,7 +38,7 @@
                             <h4 class="modal-title" id="userCrudModal"></h4>
                             <p>اضف صنف جديدة للموقع</p>
                         </div>
-                        <form id="addServPointForm" class="row g-3" action="" method="POST"
+                        <form id="addServPointForm" class="row g-3" action=""
                             enctype="multipart/form-data">
                             @csrf
                             <div class="col-md-6">
@@ -91,6 +91,18 @@
                                     aria-describedby="defaultFormControlHelp" />
                                 <span class="help-block text-danger"></span>
                             </div>
+                            <div class="col-md-6">
+                                <label for="defaultFormControlInput" class="form-label">Latitude</label>
+                                <input type="text" class="form-control" placeholder="lat" name="lat" id="lat">
+                                <span class="help-block text-danger"></span>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="defaultFormControlInput" class="form-label">lngitude</label>
+                                <input type="text" class="form-control" placeholder="lng" name="lng" id="lng">
+                                <span class="help-block text-danger"></span>
+                            </div>
+                            
+                            <div id="map" style="height:400px; width: 400px;" class="my-3"></div>
                             <div class="col-12 my-4">
                                 <label class="switch">
                                     <input type="checkbox" class="switch-input active" name="active"
@@ -117,7 +129,7 @@
 
         <!-- Updat ServPoint Modal -->
         <div class="modal fade" id="editServPointModal" tabindex="-1" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered1 modal-simple modal-add-new-cc">
+            <div class="modal-dialog map modal-dialog-centered1 modal-simple modal-add-new-cc">
                 <div class="modal-content p-3 p-md-5">
                     <div class="modal-body">
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -189,6 +201,18 @@
                                 <span class="help-block text-danger"></span>
 
                             </div>
+                            <div class="col-md-6">
+                                <label for="defaultFormControlInput" class="form-label">Latitude</label>
+                                <input type="text" class="form-control" placeholder="lat" name="lat" id="latTwo">
+                                <span class="help-block text-danger"></span>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="defaultFormControlInput" class="form-label">lngitude</label>
+                                <input type="text" class="form-control" placeholder="lng" name="lng" id="lngTwo">
+                                <span class="help-block text-danger"></span>
+                            </div>
+                            
+                            <div id="mapTwo"  style="height:400px; width: 400px;" class="my-3"></div>
                             <div class="col-12 my-4">
                                 <label class="switch">
                                     <input type="checkbox" class="switch-input active" name="active"
@@ -268,5 +292,11 @@
         <!--/ Delete ServPoint Modal -->
     @endsection
     @section('javascript')
+    <script src="{{ URL::asset('js/location.js' )}}"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBnmKDP1HHCNnioa2SwC6xA1Rwf2GkaC7s&callback=initMap"
+            type="text/javascript">
+    </script>
+
         <script src="{{ URL::asset('js/servPonits.js') }}"></script>
+        
     @endsection

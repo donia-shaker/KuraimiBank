@@ -1,12 +1,12 @@
-/**
- * @returns {HTMLElement}
- */
-const el = (element) => document.querySelector(element);
+// /**
+//  * @returns {HTMLElement}
+//  */
+// const el = (element) => document.querySelector(element);
 
-/**
- * @returns {NodeListOf<HTMLElementTagNameMap[K]>}
- */
-const els = (element) => document.querySelectorAll(element);
+// /**
+//  * @returns {NodeListOf<HTMLElementTagNameMap[K]>}
+//  */
+// const els = (element) => document.querySelectorAll(element);
 
 
 const isLocaleEn = location.href.search('/en/') != -1;
@@ -27,7 +27,7 @@ function fetchServPointData() {
         var i = 0;
         el("tbody").innerHTML = "";
         var servPointsRes = response.data;
-        console.log({ servPointsRes });
+        // console.log({ servPointsRes });
         servPointsRes.forEach((item) => {
             i++;
             var tableContentOne = ` <tr>
@@ -70,6 +70,7 @@ function fetchServPointData() {
                   </a>
               </td>
               </tr>`;
+              console.log( el('#lat').value);
 
             el("tbody").innerHTML +=
                 tableContentOne + tableContentTwo + tableContentThree;
@@ -131,6 +132,11 @@ function fetchServPointData() {
                                     servPointsRes.working_hours.ar;
                                 el("#editServPointWorkingHourEn").value =
                                     servPointsRes.working_hours.en;
+                                el("#latTwo").value =
+                                    servPointsRes.latitude;
+                                 el("#lngTwo").value =
+                                    servPointsRes.longitude;
+                                initMapTwo();
                             }
                         });
                 });
@@ -223,6 +229,8 @@ el(".updateServPoint").addEventListener("click", function (e) {
             secondPhone: el("#editServPointSecondPhone").value,
             workingHoursAr: el("#editServPointWorkingHourAr").value,
             workingHoursEn: el("#editServPointWorkingHourEn").value,
+            lat: el('#latTwo').value,
+            lng:el('#lngTwo').value,
             cityId: cityId,
         })
         .then((response) => {
@@ -269,6 +277,8 @@ el(".addServPoint").addEventListener("click", function (e) {
             secondPhone: el("#addServPointSecondPhone").value,
             workingHoursAr: el("#addServPointWorkingHourAr").value,
             workingHoursEn: el("#addServPointWorkingHourEn").value,
+            lat: el('#lat').value,
+            lng:el('#lng').value,
             cityId: cityId,
             active: el("#addServPointActive").value,
         })

@@ -36,6 +36,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Route::group(['middleware' => 'auth'], function () {
+
+//     Route::group(['middleware' => ['role:admin']], function () {
+
 // Categorirs Admin Controller
 Route::get('/Categories',[CategoriesController::class,'showCategories'])->name('Categories');
 Route::post('/addCategory',[CategoriesController::class,'addCategory'])->name('addCategory');
@@ -154,6 +158,8 @@ Route::get('/website', [WebsiteInfoController::class, 'website'])->name('website
 Route::get('/editwebsite', [WebsiteInfoController::class, 'editwebsite'])->name('editwebsite');
 
 });
+// });
+// });
 
 
 

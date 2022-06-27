@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('phone');
             $table->string('second_phone');
             $table->json('working_hours');
+            $table->decimal('latitude',8,6);
+            $table->decimal('longitude', 9,6);
             $table->unsignedBigInteger('city_id');
             $table->foreign('city_id')->constrained()
                     ->references('id')->on('cities')

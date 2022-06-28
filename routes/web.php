@@ -16,6 +16,7 @@ use App\Http\Controllers\admin\SocialMediaController;
 use App\Http\Controllers\admin\SubCategoryController;
 use App\Http\Controllers\admin\WebsiteInfoController;
 use App\Http\Controllers\admin\Authentication;
+use App\Http\Controllers\admin\UserController;
 use App\Models\service_points;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -51,9 +52,14 @@ Route::get('/verify_password/{token}',[Authentication::class,'formPassword'])->n
 Route::post('/new_password',[Authentication::class,'newPassword'])->name('new_password');
 
 
-Route::group(['middleware' => 'auth'], function () {
+// Route::group(['middleware' => 'auth'], function () {
 
-    Route::group(['middleware' => ['role:admin']], function () {
+//     Route::group(['middleware' => ['role:admin']], function () {
+
+// Admin Manage Users
+Route::get('/users',[UserController::class,'showUsers'])->name('users');
+Route::get('/activeUser/{id}',[UserController::class,'activeUser'])->name('activeUser');
+Route::get('/deleteUser/{id}',[UserController::class,'deleteUser'])->name('deleteUser');
 
 // Categorirs Admin Controller
 Route::get('/Categories',[CategoriesController::class,'showCategories'])->name('Categories');
@@ -173,8 +179,8 @@ Route::get('/website', [WebsiteInfoController::class, 'website'])->name('website
 Route::get('/editwebsite', [WebsiteInfoController::class, 'editwebsite'])->name('editwebsite');
 
 });
-});
-});
+// });
+// });
 
 
 

@@ -124,6 +124,12 @@
     
     <!-- Apps & Pages -->
     <li class="menu-item">
+      <a href="{{route('users')}}" class="menu-link">
+        <i class='menu-icon tf-icons bx bx-food-menu'></i>
+        <div >ادارة المستخدمين</div>
+      </a>
+    </li>
+    <li class="menu-item">
       <a href="{{route('Categories')}}" class="menu-link">
         <i class='menu-icon tf-icons bx bx-food-menu'></i>
         <div >ادارة اصناف الخدمات</div>

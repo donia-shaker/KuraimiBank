@@ -15,6 +15,7 @@ use App\Http\Controllers\admin\servicesController;
 use App\Http\Controllers\admin\SocialMediaController;
 use App\Http\Controllers\admin\SubCategoryController;
 use App\Http\Controllers\admin\WebsiteInfoController;
+use App\Http\Controllers\admin\Authentication;
 use App\Models\service_points;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -36,9 +37,23 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::group(['middleware' => 'auth'], function () {
+// Authentication Admin Controller
+Route::get('/login',[Authentication::class,'showLogin'])->name('login');
+Route::post('/userlogin',[Authentication::class,'userlogin'])->name('userlogin');
+Route::get('/register',[Authentication::class,'showRegister'])->name('register');
+Route::post('/save_user',[Authentication::class,'saveUser'])->name('save_user');
+Route::get('/logout', [Authentication::class, 'logout'])->name('logout');
 
-//     Route::group(['middleware' => ['role:admin']], function () {
+// Reset Password Controller
+Route::get('/resetPassword',[Authentication::class,'showResetPassword'])->name('resetPassword');
+Route::post('/resetPasswordEmail',[Authentication::class,'resetPassword'])->name('resetPasswordEmail');
+Route::get('/verify_password/{token}',[Authentication::class,'formPassword'])->name('verify_password');
+Route::post('/new_password',[Authentication::class,'newPassword'])->name('new_password');
+
+
+Route::group(['middleware' => 'auth'], function () {
+
+    Route::group(['middleware' => ['role:admin']], function () {
 
 // Categorirs Admin Controller
 Route::get('/Categories',[CategoriesController::class,'showCategories'])->name('Categories');
@@ -158,8 +173,8 @@ Route::get('/website', [WebsiteInfoController::class, 'website'])->name('website
 Route::get('/editwebsite', [WebsiteInfoController::class, 'editwebsite'])->name('editwebsite');
 
 });
-// });
-// });
+});
+});
 
 
 

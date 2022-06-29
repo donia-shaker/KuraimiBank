@@ -29,6 +29,6 @@ class VerificationPassword extends Mailable
      */
     public function build()
     {
-        return $this->view('mail.password_verify')->subject('Reset Password');
+        return $this->markdown('emails.orders.shipped')->subject('Reset Password');
     }
 }

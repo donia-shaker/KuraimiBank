@@ -23,6 +23,7 @@
                                 <th>#</th>
                                 <th>الاسم </th>
                                 <th> الايميل</th>
+                                <th> الصلاحيات</th>
                                 <th> الحاله</th>
                                 <th>العمليات</th>
                             </tr>
@@ -34,6 +35,11 @@
                                     <td>{{ $i++ }}</td>
                                     <td>{{ $user->name }}</td>
                                     <td>{{ $user->email }}</td>
+                                    <td>
+                                        <a class="btn text-white " style="background-color: #8170a4" data-bs-toggle="modal"  data-bs-target="#editPermission{{ $user->id }}">
+                                            عرض الصلاحيات
+                     </a>
+                            </td>
                                     <td>
                                         @if ($user->is_active == 1)
                                             <label class="switch" data-bs-toggle="modal"
@@ -62,6 +68,44 @@
                                         </a>
                                     </td>
                                 </tr>
+
+                                <!-- Updat SubCategory Modal -->
+    <div class="modal fade" id="editPermission{{ $user->id }}" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered1 modal-simple modal-add-new-cc">
+            <div class="modal-content p-3 p-md-5">
+                <div class="modal-body">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <div class="text-center mb-4">
+                        <h4 class="modal-title" id="userCrudModal">صلاحيات المستخدم</h4>
+                    </div>
+                    <form  action="{{route('updatePermission')}}" method="POST"  method="POST"
+                        enctype="multipart/form-data">
+                        @csrf
+                        <input type="hidden" id="editPermissionId" name="id" value="{{$user->id}}" >
+                        <input type="hidden" name="name" value="{{$user->name}}">
+                        @if($perimissions)
+                        @foreach ($perimissions as $perimission)
+                        <div class="form-group">
+                          <label for="{{$perimission->name}}">
+                            <input type="checkbox" name="permission[]" id="{{$perimission->name}}" value="{{$perimission->name}}" {{$user->hasPermission($perimission->name) ? 'checked' : ''}}> {{$perimission->display_name}}
+                          </label>
+                        </div>
+                      {{-- @endforeach --}}
+                      @endforeach
+                      @endif
+
+                        <div class="col-12 text-center">
+                            <button type="submit"
+                                class="btn btn-primary me-sm-3 me-1 mt-3 updateSubCategory">تعديل</button>
+                            <button type="reset" class="btn btn-label-secondary btn-reset mt-3" data-bs-dismiss="modal"
+                                aria-label="Close">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ Updat SubCategory Modal -->
 
                                 <!-- Active user Modal -->
                                 <div class="modal fade " id="activeuser{{ $user->id }}" tabindex="-1"

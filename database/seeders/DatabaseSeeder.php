@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Permission;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB as FacadesDB;
@@ -24,5 +25,7 @@ class DatabaseSeeder extends Seeder
 
 $this->call(WebSiteInfoSeeder::class);
 $this->call(roleSeeder::class);
+$this->call(PermissionSeeder::class);
+$this->call(userTableSeeder::class);
     }
 }

@@ -17,20 +17,20 @@ class roleSeeder extends Seeder
      */
     public function run()
     {
-        Role::create(
+        $admin =Role::create(
             [
-                'name' => 'admin',
+                'name'          => 'admin',
+                'display_name'  => 'Admin',
+                'description'   => 'Manage Dashboard'
             ]
         );
-        Role::create(
+        $super_admin = Role::create(
             [
                 'name' => 'super_admin',
+                'display_name'  => 'Super Admin',
+                'description'   => 'Manage All The Dashboard'
             ]
         );
-        Role::create(
-            [
-                'name' => 'client',
-            ]
-        );
+        
     }
 }

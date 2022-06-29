@@ -31,7 +31,7 @@ class Authentication extends Controller
         $user =new User;
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->password = $request->password;
+        $user->password = Hash::make($request->password);
         $token=Str::uuid();
         $user->remember_token = $token;
         if($user->save())
@@ -41,7 +41,10 @@ class Authentication extends Controller
     }
 
     public function showLogin(){
-        return view('web.login');
+        if (Auth::check())
+            return redirect()->route($this->checkRole());
+        else
+            return view('web.login');
     }
 
     public function userlogin(Request $request){
@@ -55,8 +58,16 @@ class Authentication extends Controller
         }
 
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password , 'is_active' => 1])) {
-            if (Auth::user()->hasRole('admin'))
-                return redirect()->route('Categories');
+            // if (Auth::user()->hasRole('admin'))
+            if(Auth::user()->isAbleTo('all_dashboard') ||
+            Auth::user()->isAbleTo('manage_services'))
+                return redirect()->route('services');
+            else if(Auth::user()->isAbleTo('manage_location'))
+            return redirect()->route('countries');
+            else if(Auth::user()->isAbleTo('manage_content'))
+            return redirect()->route('news');
+            else
+            Auth::logout();
         } else {
             return redirect()->back()->with([
                 'error' => '  عذرا! تاكد من تفعيل حسابك اولا',
@@ -123,8 +134,23 @@ class Authentication extends Controller
     }
 
     public function logout(){
-
         Auth::logout();
         return redirect()->route('login');
+    }
+
+    public function checkRole()
+    {
+        if (Auth::user()->hasRole('super_admin'))
+            return redirect()->route('users');
+        else if(Auth::user()->isAbleTo('all_dashboard') ||
+        Auth::user()->isAbleTo('manage_services'))
+            return redirect()->route('services');
+        else if(Auth::user()->isAbleTo('manage_location'))
+        return redirect()->route('countries');
+        else if(Auth::user()->isAbleTo('manage_content'))
+        return redirect()->route('news');
+        else
+        Auth::logout();
+        return redirect()->route('login')->with(['error' => 'ليس لديك صلاحيات الوصول']);
     }
 }

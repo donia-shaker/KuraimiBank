@@ -4,20 +4,20 @@
     @if ($do == 'Manage')
         <!-- show message -->
         @if (session()->has('success'))
-            <div class="alert alert-success" id="message">
+            <div class="alert bg_color message_animation" id="message">
                 {{ session()->get('success') }}
             </div>
         @elseif (session()->has('error'))
-            <div class="alert alert-danger" id="message">
-                {{ session()->get('success') }}
+            <div class="alert alert-danger message_animation" id="message">
+                {{ session()->get('error') }}
             </div>
         @endif
         <!-- End show message -->
 
         <div class="card p-3">
             <h2 name="tableName m-5 ">  تقارير الموقع</h2>
-            <a href="reports?do=Add" class="btn w-25 p-2 contact">
-                <button type="button" class="btn btn-primary m-4 px-5 d-flex justify-content-start text-center"
+            <a href="reports?do=Add" class="btn d-flex justify-content-start  p-2 contact">
+                <button type="button" class="btn color m-4 px-5 w-25 text-center"
                     id="addreports"> اضافه  تقارير للموقع </button></a>
             <x-table>
                 <div class="table-responsive text-nowrap">
@@ -38,7 +38,7 @@
                                     <td>{{ $i++ }}</td>
                                     <td>{{ $reports->title }}</td>
                                     <td>
-                                        <a href="reports?do=Edit&reportsId={{ $reports->id }}" style="color:#03c3ec99">معلومات التقرير</a></td>
+                                        <a href="reports?do=Edit&reportsId={{ $reports->id }}" class="color_text">معلومات التقرير</a></td>
                                         <td>
                                         @if ($reports->is_active == 1)
                                             <label class="switch" data-bs-toggle="modal"
@@ -82,8 +82,8 @@
                                                     aria-label="Close"></button>
                                                 <div class="text-center mb-4">
                                                     <h4 class="modal-title" id="userCrudModal">هل انت متاكد انك تريد تغيير
-                                                        حاله تقارير</h4>
-                                                    <p>تغيير حالة تقارير </p>
+                                                        حاله التقارير</h4>
+                                                    <p>تغيير حالة التقارير </p>
                                                 </div>
                                                 <form id="" class="row g-3"
                                                     action="{{ route('activereports', $reports->id) }}" method="post"
@@ -93,11 +93,11 @@
                                                         value="{{ $reports->id }}">
                                                     <div class="col-12 text-center">
                                                         <button type="mit" id="mit"
-                                                            class="btn btn-primary me-sm-3 me-1 mt-3 activereports">تغيير
+                                                            class="btn color me-sm-3 me-1 mt-3 activereports">تغيير
                                                             الحالة</button>
                                                         <button type="reset"
                                                             class="btn btn-label-secondary btn-reset mt-3"
-                                                            data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+                                                            data-bs-dismiss="modal" aria-label="Close">الغاء</button>
                                                     </div>
                                                 </form>
                                             </div>
@@ -116,8 +116,8 @@
                                                     aria-label="Close"></button>
                                                 <div class="text-center mb-4">
                                                     <h4 class="modal-title" id="userCrudModal">هل انت متاكد انك تريد حذف
-                                                        تقارير</h4>
-                                                    <p>في حال الموافقه سوف يتم حذف الصنف بشكل نهائي ولن تستطيع التراجع </p>
+                                                        التقرير</h4>
+                                                    <p>في حال الموافقه سوف يتم حذف التقرير بشكل نهائي ولن تستطيع التراجع </p>
                                                 </div>
                                                 <form action="{{ route('deletereports', $reports->id) }}"
                                                     class="row g-3" method="POST" enctype="multipart/form-data">
@@ -125,11 +125,11 @@
                                                     <input type="hidden" value="{{ $reports->id }}">
                                                     <div class="col-12 text-center">
                                                         <button type="mit" id="mit"
-                                                            class="btn btn-primary me-sm-3 me-1 mt-3 deletereports">حذف
-                                                            الصنف</button>
+                                                            class="btn color me-sm-3 me-1 mt-3 deletereports">حذف
+                                                            التقرير</button>
                                                         <button type="reset"
                                                             class="btn btn-label-secondary btn-reset mt-3"
-                                                            data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+                                                            data-bs-dismiss="modal" aria-label="Close">الغاء</button>
                                                     </div>
                                                 </form>
                                             </div>
@@ -145,12 +145,12 @@
         @elseif($do == 'Add')
             <!-- Add reports Modal -->
             @if (session()->has('success'))
-                <div class="alert alert-success" id="message">
+                <div class="alert bg_color message_animation" id="message">
                     {{ session()->get('success') }}
                 </div>
             @elseif (session()->has('error'))
-                <div class="alert alert-danger" id="message">
-                    {{ session()->get('success') }}
+                <div class="alert alert-danger message_animation " id="message">
+                    {{ session()->get('error') }}
                 </div>
             @endif
             <div class="col-md-12 m-auto">
@@ -173,7 +173,7 @@
                             <div class="col-md-6">
                                 <label for="defaultFormControlInput" class="form-label">الاسم (انجليزي)</label>
                                 <input type="text" name="titleEn" class="form-control  " id="addreportsNameEn"
-                                    value="{{ old('titleEn') }}" placeholder="اضف  تقارير"
+                                    value="{{ old('titleEn') }}" placeholder="اسم  التقرير"
                                     aria-describedby="defaultFormControlHelp" />
                                 @error('titleEn')
                                     <span class="help-block text-danger">* {{ $message }} </span>
@@ -183,7 +183,7 @@
                                 <label for="defaultFormControlInput" class="form-label">صورة</label>
                                 <input type="file" name="file"
                                     oninput="previewImage.src=window.URL.createObjectURL(this.files[0])"
-                                    class="form-control  " id="addreportsPhone" placeholder="اضف صورة تقارير"
+                                    class="form-control  " id="addreportsPhone" placeholder="اضف صورة التقرير"
                                     aria-describedby="defaultFormControlHelp" value="{{ old('file') }}" />
                                 @error('file')
                                     <span class="help-block text-danger">* {{ $message }} </span>
@@ -192,24 +192,24 @@
                                 </div>
                             </div>
                             <div class="col-md-12">
-                                <label for="defaultFormControlInput" class="form-label">( العربي) مميزات اخرى</label>
+                                <label for="defaultFormControlInput" class="form-label">( العربي) معلومات اخرى</label>
                                 <textarea name="descriptionAr" id="" cols="30" rows="10"></textarea>
                                 @error('descriptionAr')
                                     <span class="help-block text-danger">* {{ $message }} </span>
                                 @enderror
                             </div>
                             <div class="col-md-12">
-                                <label for="defaultFormControlInput" class="form-label">مميزات اخرى (انجليزي)</label>
+                                <label for="defaultFormControlInput" class="form-label">معلومات اخرى (انجليزي)</label>
                                 <textarea name="descriptionEn" id="" cols="30" rows="10"></textarea>
                                 @error('descriptionEn')
                                     <span class="help-block text-danger">* {{ $message }} </span>
                                 @enderror
                             </div>
                             <div class="col-12 text-center">
-                                <button type="mit" class="btn btn-primary me-sm-3 me-1 mt-3 addreports">
-                                    اضافة تقارير</button>
+                                <button type="mit" class="btn color me-sm-3 me-1 mt-3 addreports">
+                                    اضافة تقرير</button>
                                 <button type="reset" class="btn btn-label-secondary btn-reset mt-3"
-                                    data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+                                    data-bs-dismiss="modal" aria-label="Close">الغاء</button>
                             </div>
                         </form>
 
@@ -221,17 +221,17 @@
             <!-- start Edit model -->
             <?php $reportsId = isset($_GET['reportsId']) && is_numeric($_GET['reportsId']) ? intval($_GET['reportsId']) : 0; ?>
             @if (session()->has('success'))
-                <div class="alert alert-success">
+                <div class="alert bg_color message_animation">
                     {{ session()->get('success') }}
                 </div>
             @elseif (session()->has('error'))
-                <div class="alert alert-danger">
-                    {{ session()->get('success') }}
+                <div class="alert alert-danger message_animation">
+                    {{ session()->get('error') }}
                 </div>
             @endif
             <div class="col-md-12 m-auto">
                 <div class="card mb-4 p-4 ">
-                    <h1 class="text-start fs-3 ">تعديل معلومات تقارير</h1>
+                    <h1 class="text-start fs-3 ">تعديل معلومات التقرير</h1>
                     <div class="card-body demo-vertical-spacing demo-only-element">
                         @foreach ($reports as $reports)
                             @if ($reportsId == $reports->id)
@@ -243,7 +243,7 @@
                                         <label for="defaultFormControlInput" class="form-label"> الاسم (عربي)</label>
                                         <input type="text" name="titleAr" class="form-control"
                                             value="{{ $reports->getTranslation('title', 'ar') }}" id="addreportsNameAr"
-                                            placeholder="اضف  تقارير" aria-describedby="defaultFormControlHelp" />
+                                            placeholder="اسم  التقرير" aria-describedby="defaultFormControlHelp" />
                                         @error('titleAr')
                                             <span class="help-block text-danger">* {{ $message }} </span>
                                         @enderror
@@ -252,7 +252,7 @@
                                         <label for="defaultFormControlInput" class="form-label">الاسم (انجليزي)</label>
                                         <input type="text" name="titleEn" class="form-control  "
                                             id="addreportsNameEn" value="{{ $reports->getTranslation('title', 'en') }}"
-                                            placeholder="اضف  تقارير" aria-describedby="defaultFormControlHelp" />
+                                            placeholder="اسم  التقرير" aria-describedby="defaultFormControlHelp" />
                                         @error('titleEn')
                                             <span class="help-block text-danger">* {{ $message }} </span>
                                         @enderror
@@ -271,7 +271,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-12">
-                                        <label for="defaultFormControlInput" class="form-label">الوصف (انجليزي)</label>
+                                        <label for="defaultFormControlInput" class="form-label">معلومات اخرى (انجليزي)</label>
                                         <textarea type="text" name="descriptionAr" class="form-control"> {{ $reports->getTranslation('description', 'ar') }}
                                         </textarea>
                                         @error('descriptionAr')
@@ -279,7 +279,7 @@
                                         @enderror
                                     </div>
                                     <div class="col-md-12">
-                                        <label for="defaultFormControlInput" class="form-label">الوصف (انجليزي)</label>
+                                        <label for="defaultFormControlInput" class="form-label">معلومات اخرى (انجليزي)</label>
                                         <textarea type="text" name="descriptionEn" class="form-control  ">{{ $reports->getTranslation('description', 'en') }}
                                         </textarea>
                                         @error('descriptionEn')
@@ -287,10 +287,10 @@
                                         @enderror
                                     </div>
                                     <div class="col-12 text-center">
-                                        <button type="mit" class="btn btn-primary me-sm-3 me-1 mt-3 addreports">
-                                            نعديل معلومات تقارير</button>
+                                        <button type="mit" class="btn color me-sm-3 me-1 mt-3 addreports">
+                                            نعديل معلومات التقرير</button>
                                         <button type="reset" class="btn btn-label-secondary btn-reset mt-3"
-                                            data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+                                            data-bs-dismiss="modal" aria-label="Close">الغاء</button>
                                     </div>
                                 </form>
                             @endif

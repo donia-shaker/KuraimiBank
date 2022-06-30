@@ -82,9 +82,7 @@ function fetchSubCategoryData() {
                         .then((response) => {
                             console.log(response);
                             if (response.status == 400) {
-                                el("#message").innerHTML = "";
-                                el("#message").classList.add("alert");
-                                el("#message").classList.add("alert-danger");
+                                el("#message").innerHTML = "<div class='alert alert-danger message_animation'>"+ response.data.message+"</div>";
                             } else {
                                 el("#editCategoryId").value = categoryId;
                                 el("#editCategoryNameEn").value =
@@ -135,10 +133,7 @@ if (el(".activeSubCategory")) {
         console.log(categoryId);
 
         axios.get(`activeSubCategory/${categoryId}`).then((response) => {
-            el("#message").innerHTML = "";
-            el("#message").classList.add("alert");
-            el("#message").classList.add("alert-success");
-            el("#message").innerText = response.data.message;
+            el("#message").innerHTML = "<div class='alert bg_color message_animation'>"+ response.data.message+"</div>";
             $("#activeSubCategoryModal").modal("hide");
             fetchSubCategoryData();
         });
@@ -156,10 +151,7 @@ if (el(".deleteCategory")) {
         console.log(categoryId);
 
         axios.get(`deleteSubCategory/${categoryId}`).then((response) => {
-            el("#message").innerHTML = "";
-            el("#message").classList.add("alert");
-            el("#message").classList.add("alert-success");
-            el("#message").innerText = response.data.message;
+            el("#message").innerHTML = "<div class='alert bg_color message_animation'>"+ response.data.message+"</div>";
             $("#deleteCategoryModal").modal("hide");
             fetchSubCategoryData();
         });
@@ -191,14 +183,9 @@ el(".updateSubCategory").addEventListener("click", function (e) {
                 });
             } else if (response.data.status == 404) {
                 el("#updateSubCategory").innerHTML = "";
-                el("#message").classList.add("alert");
-                el("#message").classList.add("alert-danger");
-                el("#message").innerText = response.data.message;
+                el("#message").innerHTML = "<div class='alert alert-danger message_animation'>"+ response.data.message+"</div>";
             } else {
-                el("#message").innerHTML = "";
-                el("#message").classList.add("alert");
-                el("#message").classList.add("alert-success");
-                el("#message").innerText = response.data.message;
+                el("#message").innerHTML = "<div class='alert bg_color message_animation'>"+ response.data.message+"</div>";
                 el("#editSubCategoryModal").classList.remove("show");
                 // el("#editSubCategoryModal").classList.add('hide');
                 // el("#editSubCategoryModal").style='display:none';
@@ -229,10 +216,7 @@ el(".addSUbCategory").addEventListener("click", function (e) {
                     el(input + "+span").innerText = errors[key];
                 });
             } else {
-                el("#message").innerHTML = "";
-                el("#message").classList.add("alert");
-                el("#message").classList.add("alert-success");
-                el("#message").innerText = response.data.message;
+                el("#message").innerHTML = "<div class='alert bg_color message_animation'>"+ response.data.message+"</div>";
                 $("#addSubCategoryModal").modal("hide");
                 el("#addSubCategoryForm input").value = "";
                 fetchSubCategoryData();

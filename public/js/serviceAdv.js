@@ -28,7 +28,7 @@
               <td> ${i} </td>
               <td> <i></i>${isLocaleEn ? item.name.en : item.name.ar}</td>
               <td>
-                  <a href="servPoint/${item.id}#${item.id}" style="color:#03c3ec99">
+                  <a href="servPoint/${item.id}#${item.id}" class="color_text">
                  انقر لعرض نقاط الخدمة</a>
               </td>`;
              if (item.is_active) {
@@ -82,9 +82,7 @@
                      axios.get(`editserviceAdv/${serviceAdvId}`).then((response) => {
                          // console.log(response);
                          if (response.status == 400) {
-                             el("#message").innerHTML = "";
-                             el("#message").classList.add("alert");
-                             el("#message").classList.add("alert-danger");
+                            el("#message").innerHTML = "<div class='alert alert-danger message_animation'>"+ response.data.message+"</div>";
                          } else {
                              el("#editserviceAdvId").value = serviceAdvId;
                              el("#editserviceAdvNameEn").value =
@@ -135,10 +133,7 @@
          //  console.log(serviceAdvId);
  
          axios.get(`activeserviceAdv/${serviceAdvId}`).then((response) => {
-             el("#message").innerHTML = "";
-             el("#message").classList.add("alert");
-             el("#message").classList.add("alert-success");
-             el("#message").innerText = response.data.message;
+            el("#message").innerHTML = "<div class='alert bg_color message_animation'>"+ response.data.message+"</div>";
              $("#activeserviceAdvModal").modal("hide");
              fetchcitiesData();
          });
@@ -156,10 +151,7 @@
          // console.log(serviceAdvId);
  
          axios.get(`deleteserviceAdv/${serviceAdvId}`).then((response) => {
-             el("#message").innerHTML = "";
-             el("#message").classList.add("alert");
-             el("#message").classList.add("alert-success");
-             el("#message").innerText = response.data.message;
+            el("#message").innerHTML = "<div class='alert bg_color message_animation'>"+ response.data.message+"</div>";
              $("#deleteserviceAdvModal").modal("hide");
              fetchcitiesData();
          });
@@ -191,14 +183,9 @@
                  });
              } else if (response.data.status == 404) {
                  el("#updateserviceAdv").innerHTML = "";
-                 el("#message").classList.add("alert");
-                 el("#message").classList.add("alert-danger");
-                 el("#message").innerText = response.data.message;
+                 el("#message").innerHTML = "<div class='alert alert-danger message_animation'>"+ response.data.message+"</div>";
              } else {
-                 el("#message").innerHTML = "";
-                 el("#message").classList.add("alert");
-                 el("#message").classList.add("alert-success");
-                 el("#message").innerText = response.data.message;
+                el("#message").innerHTML = "<div class='alert bg_color message_animation'>"+ response.data.message+"</div>";
                  el("#editserviceAdvModal").classList.remove("show");
                  // el("#editserviceAdvModal").classList.add('hide');
                  // el("#editserviceAdvModal").style='display:none';
@@ -229,10 +216,7 @@
                      el(input + "+span").innerText = errors[key];
                  });
              } else {
-                 el("#message").innerHTML = "";
-                 el("#message").classList.add("alert");
-                 el("#message").classList.add("alert-success");
-                 el("#message").innerText = response.data.message;
+                el("#message").innerHTML = "<div class='alert bg_color message_animation'>"+ response.data.message+"</div>";
                  $("#addserviceAdvModal").modal("hide");
                  els("#addserviceAdvForm input").value = "";
                  fetchcitiesData();

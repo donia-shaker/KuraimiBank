@@ -23,8 +23,8 @@ function fetchData() {
             <td> ${i} </td>
             <td> <i></i> ${isLocaleEn ? item.name.en : item.name.ar}</td>
             <td>
-                <a href="subCategory/${item.id}#${item.id}" style="color:#03c3ec99">
-                انقر لعرض الخدمات الفرعيه</a>
+                <a href="subCategory/${item.id}#${item.id}" class="color_text">
+                انقر لعرض الاقسام الفرعيه</a>
             </td>`;
             if (item.is_active) {
                 var tableContentTwo = `
@@ -77,8 +77,8 @@ function fetchData() {
                         // console.log(response);
                         if (response.status == 400) {
                             el("#message").innerHTML = "";
-                            el("#message").classList.add("alert");
-                            el("#message").classList.add("alert-danger");
+                el("#message").innerHTML = "<div class='alert alert-danger message_animation'>"+ response.data.message+"</div>";
+                            
                         } else {
                             el("#editCategoryId").value = categoryId;
                             el("#editCategoryNameEn").value =
@@ -129,9 +129,7 @@ el(".activeCategory").addEventListener("click", function (e) {
 
     axios.post(`activeCategory/${categoryId}`).then((response) => {
         el("#message").innerHTML = "";
-        el("#message").classList.add("alert");
-        el("#message").classList.add("alert-success");
-        el("#message").innerText = response.data.message;
+        el("#message").innerHTML = "<div class='alert bg_color message_animation'>"+ response.data.message+"</div>";
         $("#activeCategoryModal").modal("hide");
         fetchData();
     });
@@ -147,7 +145,8 @@ el(".deleteCategory").addEventListener("click", function (e) {
     axios.post(`deleteCategory/${categoryId}`).then((response) => {
         el("#message").innerHTML = "";
         el("#message").classList.add("alert");
-        el("#message").classList.add("alert-success");
+        el("#message").classList.add("bg_color");
+        el("#message").classList.add("message_animation");
         el("#message").innerText = response.data.message;
         $("#deleteCategoryModal").modal("hide");
         fetchData();
@@ -177,15 +176,9 @@ el(".updateMainCategory").addEventListener("click", function (e) {
                     el(input + "+span").innerText = errors[key];
                 });
             } else if (response.data.status == 404) {
-                el("#updateMainCategory").innerHTML = "";
-                el("#message").classList.add("alert");
-                el("#message").classList.add("alert-danger");
-                el("#message").innerText = response.data.message;
+                el("#message").innerHTML = "<div class='alert alert-danger message_animation'>"+ response.data.message+"</div>";
             } else {
-                el("#message").innerHTML = "";
-                el("#message").classList.add("alert");
-                el("#message").classList.add("alert-success");
-                el("#message").innerText = response.data.message;
+                el("#message").innerHTML = "<div class='alert bg_color message_animation'>"+ response.data.message+"</div>";
                 el("#editMainCategoryModal").classList.remove("show");
                 // el("#editMainCategoryModal").classList.add('hide');
                 // el("#editMainCategoryModal").style='display:none';
@@ -215,10 +208,7 @@ el(".addMainCategory").addEventListener("click", function (e) {
                     el(input + "+span").innerText = errors[key];
                 });
             } else {
-                el("#message").innerHTML = "";
-                el("#message").classList.add("alert");
-                el("#message").classList.add("alert-success");
-                el("#message").innerText = response.data.message;
+                el("#message").innerHTML = "<div class='alert bg_color message_animation'>"+ response.data.message+"</div>";
                 $("#addMainCategoryModal").modal("hide");
                 el("#addMainCategoryForm input").value = "";
                 fetchData();

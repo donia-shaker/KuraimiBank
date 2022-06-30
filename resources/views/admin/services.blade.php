@@ -4,20 +4,20 @@
     @if ($do == 'Manage')
         <!-- show message -->
         @if (session()->has('success'))
-            <div class="alert alert-success" id="message">
+            <div class="alert bg_color message_animation" id="message">
                 {{ session()->get('success') }}
             </div>
         @elseif (session()->has('error'))
-            <div class="alert alert-danger" id="message">
-                {{ session()->get('success') }}
+            <div class="alert alert-danger message_animation" id="message">
+                {{ session()->get('error') }}
             </div>
         @endif
         <!-- End show message -->
 
         <div class="card p-3">
-            <h2 name="tableName m-5 "> خدمات الموقع</h2>
-            <a href="services?do=Add" class="btn w-25 p-2 contact">
-                <button type="button" class="btn btn-primary m-4 px-5 d-flex justify-content-start text-center"
+            <h2 name="tableName m-5  "> ادارة خدمات  الموقع</h2>
+            <a href="services?do=Add" class="btn  d-flex justify-content-start p-2 contact">
+                <button type="button" class="btn  color m-4 px-5  w-25  text-center"
                     id="addservices">اضافه خدمة </button></a>
             <x-table>
                 <div class="table-responsive text-nowrap">
@@ -29,7 +29,7 @@
                                 <th>الصوره</th>
                                 <th> صورة الخلفيه</th>
                                 <th> اسم الصنف</th>
-                                <th>  مميزات رئيسيه  </th>
+                                <th>  المميزات الرئيسيه  </th>
                                 <th> عرض في الرئيسية</th>
                                 <th> الحاله</th>
                                 <th>العمليات</th>
@@ -48,7 +48,7 @@
                                     <td>{{ $category->name->ar }}</td>
                                     @endif
                                     @endforeach
-                                    <td><a href="{{route('serviceAdv',$service->id)}}" style="color:#03c3ec99"> عرض المميزات الرئيسيه</a> </td>
+                                    <td><a href="{{route('serviceAdv',$service->id)}}" class="color_text"> عرض المميزات الرئيسيه</a> </td>
                                     <td><a href="">
                                             @if ($service->position == 1)
                                                 <label class="switch" data-bs-toggle="modal"
@@ -99,13 +99,13 @@
                                             <div class="dropdown-menu">
                                                 <a class="dropdown-item"
                                                     href="services?do=Edit&serviceId={{ $service->id }}"><i
-                                                        class="bx bx-edit-alt me-1"></i> Edit</a>
+                                                        class="bx bx-edit-alt me-1"></i> تعديل</a>
                                                 <a class="dropdown-item"
                                                     href="services?do=Edit&serviceId={{ $service->id }}"><i
                                                         class="menu-icon tf-icons bx bx-file"></i>تفاصيل</a>
                                                 <a class="dropdown-item" data-bs-toggle="modal"
                                                     data-bs-target="#deleteService{{ $service->id }}"
-                                                    href="javascript:void(0);"><i class="bx bx-trash me-1"></i> Delete</a>
+                                                    href="javascript:void(0);"><i class="bx bx-trash me-1"></i> حذف</a>
                                             </div>
                                         </div>
                                     </td>
@@ -132,11 +132,11 @@
                                                         value="{{ $service->id }}">
                                                     <div class="col-12 text-center">
                                                         <button type="mit" id="mit"
-                                                            class="btn btn-primary me-sm-3 me-1 mt-3 activeservices">تغيير
+                                                            class="btn  color me-sm-3 me-1 mt-3 activeservices">تغيير
                                                             الحالة</button>
                                                         <button type="reset"
                                                             class="btn btn-label-secondary btn-reset mt-3"
-                                                            data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+                                                            data-bs-dismiss="modal" aria-label="Close">الغاء</button>
                                                     </div>
                                                 </form>
                                             </div>
@@ -154,7 +154,7 @@
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                     aria-label="Close"></button>
                                                 <div class="text-center mb-4">
-                                                    <h4 class="modal-title" id="userCrudModal">هل تريد عرض الميزة في
+                                                    <h4 class="modal-title" id="userCrudModal">هل تريد عرض الخدمة في
                                                         الصفحة الرئيسية
                                                         حاله الخدمة</h4>
                                                     <p>تغيير حالة الخدمة </p>
@@ -167,11 +167,11 @@
                                                         value="{{ $service->id }}">
                                                     <div class="col-12 text-center">
                                                         <button type="mit" id="mit"
-                                                            class="btn btn-primary me-sm-3 me-1 mt-3 activeservices">تغيير
+                                                            class="btn  color me-sm-3 me-1 mt-3 activeservices">تغيير
                                                             الحالة</button>
                                                         <button type="reset"
                                                             class="btn btn-label-secondary btn-reset mt-3"
-                                                            data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+                                                            data-bs-dismiss="modal" aria-label="Close">الغاء</button>
                                                     </div>
                                                 </form>
                                             </div>
@@ -191,7 +191,7 @@
                                                 <div class="text-center mb-4">
                                                     <h4 class="modal-title" id="userCrudModal">هل انت متاكد انك تريد حذف
                                                         الخدمة</h4>
-                                                    <p>في حال الموافقه سوف يتم حذف الصنف بشكل نهائي ولن تستطيع التراجع </p>
+                                                    <p>في حال الموافقه سوف يتم حذف الخدمة بشكل نهائي ولن تستطيع التراجع </p>
                                                 </div>
                                                 <form action="{{ route('deleteService', $service->id) }}"
                                                     class="row g-3" method="POST" enctype="multipart/form-data">
@@ -199,11 +199,11 @@
                                                     <input type="hidden" value="{{ $service->id }}">
                                                     <div class="col-12 text-center">
                                                         <button type="mit" id="mit"
-                                                            class="btn btn-primary me-sm-3 me-1 mt-3 deleteservices">حذف
-                                                            الصنف</button>
+                                                            class="btn  color me-sm-3 me-1 mt-3 deleteservices">حذف
+                                                            الخدمة</button>
                                                         <button type="reset"
                                                             class="btn btn-label-secondary btn-reset mt-3"
-                                                            data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+                                                            data-bs-dismiss="modal" aria-label="Close">الغاء</button>
                                                     </div>
                                                 </form>
                                             </div>
@@ -219,12 +219,12 @@
         @elseif($do == 'Add')
             <!-- Add services Modal -->
             @if (session()->has('success'))
-                <div class="alert alert-success" id="message">
+                <div class="alert bg_color message_animation" id="message">
                     {{ session()->get('success') }}
                 </div>
             @elseif (session()->has('error'))
-                <div class="alert alert-danger" id="message">
-                    {{ session()->get('success') }}
+                <div class="alert alert-danger message_animation" id="message">
+                    {{ session()->get('error') }}
                 </div>
             @endif
             <div class="col-md-12 m-auto">
@@ -238,7 +238,7 @@
                             <div class="col-md-6">
                                 <label for="defaultFormControlInput" class="form-label"> الاسم (عربي)</label>
                                 <input type="text" name="nameAr" class="form-control  name ar"
-                                    id="addservicesNameAr" placeholder="اضف  الخدمة" value="{{ old('nameAr') }}"
+                                    id="addservicesNameAr" placeholder="اضف  الخدمة AR" value="{{ old('nameAr') }}"
                                     aria-describedby="defaultFormControlHelp" />
                                 @error('nameEn')
                                     <span class="help-block text-danger">* {{ $message }} </span>
@@ -247,7 +247,7 @@
                             <div class="col-md-6">
                                 <label for="defaultFormControlInput" class="form-label">الاسم (انجليزي)</label>
                                 <input type="text" name="nameEn" class="form-control  " id="addservicesNameEn"
-                                    value="{{ old('nameEn') }}" placeholder="اضف  الخدمة"
+                                    value="{{ old('nameEn') }}" placeholder="اضف  الخدمة EN"
                                     aria-describedby="defaultFormControlHelp" />
                                 @error('nameEn')
                                     <span class="help-block text-danger">* {{ $message }} </span>
@@ -256,7 +256,7 @@
                             <div class="col-md-6">
                                 <label for="defaultFormControlInput" class="form-label">الوصف (انجليزي)</label>
                                 <input type="text" name="descriptionAr" class="form-control  "
-                                    value="{{ old('descriptionAr') }}" placeholder="اضف وصف  الخدمة"
+                                    value="{{ old('descriptionAr') }}" placeholder="اضف وصف  الخدمة AR"
                                     aria-describedby="defaultFormControlHelp" />
                                 @error('descriptionAr')
                                     <span class="help-block text-danger">* {{ $message }} </span>
@@ -265,7 +265,7 @@
                             <div class="col-md-6">
                                 <label for="defaultFormControlInput" class="form-label">الوصف (انجليزي)</label>
                                 <input type="text" name="descriptionEn" class="form-control  "
-                                    value="{{ old('descriptionEn') }}" placeholder="اضف وصف  الخدمة"
+                                    value="{{ old('descriptionEn') }}" placeholder="اضف وصف  الخدمة EN"
                                     aria-describedby="defaultFormControlHelp" />
                                 @error('descriptionEn')
                                     <span class="help-block text-danger">* {{ $message }} </span>
@@ -325,18 +325,18 @@
                                 @enderror
                             </div>
                             <div class="col-md-6">
-                                <label for="defaultFormControlInput" class="form-label">الشروط(انجليزي)</label>
-                                <select name="categoryId" id="">
+                                <label for="defaultFormControlInput" class="form-label">حدد القسم الذي تنتمي الية الخدمة</label>
+                                <select name="categoryId" id="" class="px-5 py-1">
                                     @foreach ($categories as $category)
                                         <option value="{{ $category->id }}">{{ $category->name->ar }}</option>
                                     @endforeach
                                 </select>
                             </div>
                             <div class="col-12 text-center">
-                                <button type="mit" class="btn btn-primary me-sm-3 me-1 mt-3 addservices">
+                                <button type="mit" class="btn  color me-sm-3 me-1 mt-3 addservices">
                                     اضافة الخدمة</button>
                                 <button type="reset" class="btn btn-label-secondary btn-reset mt-3"
-                                    data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+                                    data-bs-dismiss="modal" aria-label="Close">الغاء</button>
                             </div>
                         </form>
 
@@ -348,12 +348,12 @@
             <!-- start Edit model -->
             <?php $serviceId = isset($_GET['serviceId']) && is_numeric($_GET['serviceId']) ? intval($_GET['serviceId']) : 0; ?>
             @if (session()->has('success'))
-                <div class="alert alert-success">
+                <div class="alert bg_color message_animation">
                     {{ session()->get('success') }}
                 </div>
             @elseif (session()->has('error'))
-                <div class="alert alert-danger">
-                    {{ session()->get('success') }}
+                <div class="alert alert-danger message_animation">
+                    {{ session()->get('error') }}
                 </div>
             @endif
             <div class="col-md-12 m-auto">
@@ -370,7 +370,7 @@
                                         <label for="defaultFormControlInput" class="form-label"> الاسم (عربي)</label>
                                         <input type="text" name="nameAr" class="form-control"
                                             value="{{ $service->getTranslation('name', 'ar') }}" id="addservicesNameAr"
-                                            placeholder="اضف  الخدمة" aria-describedby="defaultFormControlHelp" />
+                                            placeholder="اضف  الخدمة AR" aria-describedby="defaultFormControlHelp" />
                                         @error('nameAr')
                                             <span class="help-block text-danger">* {{ $message }} </span>
                                         @enderror
@@ -379,7 +379,7 @@
                                         <label for="defaultFormControlInput" class="form-label">الاسم (انجليزي)</label>
                                         <input type="text" name="nameEn" class="form-control  "
                                             id="addservicesNameEn" value="{{ $service->getTranslation('name', 'en') }}"
-                                            placeholder="اضف  الخدمة" aria-describedby="defaultFormControlHelp" />
+                                            placeholder="اضف  الخدمة EN" aria-describedby="defaultFormControlHelp" />
                                         @error('nameEn')
                                             <span class="help-block text-danger">* {{ $message }} </span>
                                         @enderror
@@ -387,7 +387,7 @@
                                     <div class="col-md-6">
                                         <label for="defaultFormControlInput" class="form-label">الوصف (انجليزي)</label>
                                         <input type="text" name="descriptionAr" class="form-control  " old
-                                            placeholder="اضف وصف  الخدمة"
+                                            placeholder="اضف وصف  الخدمة AR"
                                             value="{{ $service->getTranslation('description', 'ar') }}"
                                             aria-describedby="defaultFormControlHelp" />
                                         @error('descriptionAr')
@@ -397,7 +397,7 @@
                                     <div class="col-md-6">
                                         <label for="defaultFormControlInput" class="form-label">الوصف (انجليزي)</label>
                                         <input type="text" name="descriptionEn" class="form-control  "
-                                            placeholder="اضف وصف  الخدمة"
+                                            placeholder="اضف وصف  الخدمة EN"
                                             value="{{ $service->getTranslation('description', 'en') }}"
                                             aria-describedby="defaultFormControlHelp" />
                                         @error('descriptionEn')
@@ -464,7 +464,7 @@
                                         @enderror
                                     </div>
                                     <div class="col-md-6">
-                                        <label for="defaultFormControlInput" class="form-label ">الصنف</label>
+                                        <label for="defaultFormControlInput" class="form-label ">حدد القسم الذي تنتمي الية الخدمة</label>
                                         <select name="categoryId" class="px-5 py-2" id="">
                                             @foreach ($categories as $category)
                                                 <option value="{{ $category->id }}">{{ $category->name->ar }}
@@ -474,10 +474,10 @@
 
                                     </div>
                                     <div class="col-12 text-center">
-                                        <button type="mit" class="btn btn-primary me-sm-3 me-1 mt-3 addservices">
+                                        <button type="mit" class="btn  color me-sm-3 me-1 mt-3 addservices">
                                             نعديل معلومات الخدمة</button>
                                         <button type="reset" class="btn btn-label-secondary btn-reset mt-3"
-                                            data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+                                            data-bs-dismiss="modal" aria-label="Close">الغاء</button>
                                     </div>
                                 </form>
                             @endif

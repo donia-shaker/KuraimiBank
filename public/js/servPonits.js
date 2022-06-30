@@ -111,9 +111,7 @@ function fetchServPointData() {
 
                             // console.log(servPointsRes);
                             if (response.status == 400) {
-                                el("#message").innerHTML = "";
-                                el("#message").classList.add("alert");
-                                el("#message").classList.add("alert-danger");
+                                el("#message").innerHTML = "<div class='alert alert-danger message_animation'>"+ response.data.message+"</div>";
                             } else {
                                 el("#editServPointId").value = ServPointId;
                                 el("#editServPointNameEn").value =
@@ -181,10 +179,7 @@ if (el(".activeServPoint")) {
         //  console.log(ServPointId);
 
         axios.get(`activeServPoint/${ServPointId}`).then((response) => {
-            el("#message").innerHTML = "";
-            el("#message").classList.add("alert");
-            el("#message").classList.add("alert-success");
-            el("#message").innerText = response.data.message;
+            el("#message").innerHTML = "<div class='alert bg_color message_animation'>"+ response.data.message+"</div>";
             $("#activeServPointModal").modal("hide");
             fetchServPointData();
         });
@@ -202,10 +197,7 @@ if (el(".deleteServPoint")) {
         // console.log(ServPointId);
 
         axios.get(`deleteServPoint/${ServPointId}`).then((response) => {
-            el("#message").innerHTML = "";
-            el("#message").classList.add("alert");
-            el("#message").classList.add("alert-success");
-            el("#message").innerText = response.data.message;
+            el("#message").innerHTML = "<div class='alert bg_color message_animation'>"+ response.data.message+"</div>";
             $("#deleteServPointModal").modal("hide");
             fetchServPointData();
         });
@@ -246,14 +238,10 @@ el(".updateServPoint").addEventListener("click", function (e) {
                 });
             } else if (response.data.status == 404) {
                 el("#updateServPoint").innerHTML = "";
-                el("#message").classList.add("alert");
-                el("#message").classList.add("alert-danger");
+                el("#message").innerHTML = "<div class='alert alert-danger message_animation'>"+ response.data.message+"</div>";
                 el("#message").innerText = response.data.message;
             } else {
-                el("#message").innerHTML = "";
-                el("#message").classList.add("alert");
-                el("#message").classList.add("alert-success");
-                el("#message").innerText = response.data.message;
+                el("#message").innerHTML = "<div class='alert bg_color message_animation'>"+ response.data.message+"</div>";
                 // el("#editServPointModal").classList.remove("show");
                 // el("#editServPointModal").classList.add('hide');
                 // el("#editServPointModal").style='display:none';
@@ -293,10 +281,7 @@ el(".addServPoint").addEventListener("click", function (e) {
                     el(input + "+span").innerText = errors[key];
                 });
             } else {
-                el("#message").innerHTML = "";
-                el("#message").classList.add("alert");
-                el("#message").classList.add("alert-success");
-                el("#message").innerText = response.data.message;
+                el("#message").innerHTML = "<div class='alert bg_color message_animation'>"+ response.data.message+"</div>";
                 $("#addServPointModal").modal("hide");
                 el("#addServPointForm input").value = "";
                 fetchServPointData();

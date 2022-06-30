@@ -65,7 +65,7 @@ class servicesController extends Controller
             'category_id'       =>  $request->categoryId,
         ]);
         
-        return redirect()->route('services')->with(['success' => 'Data Insert Successfully']);
+        return redirect()->route('services')->with(['success' => 'تم اضافة االبيانات بنجاح']);
     }
 
     function editService(Request $request,$id)
@@ -110,7 +110,7 @@ class servicesController extends Controller
             'background_image'  =>  $background_image,
             'category_id'       =>  $request->categoryId,
         ]);
-        return redirect()->route('services')->with(['success' => 'Data Update Successfully']);
+        return redirect()->route('services')->with(['success' => 'تم تعديل البيانات بنجاح']);
         
     }
 
@@ -121,7 +121,7 @@ class servicesController extends Controller
         else 
             $service->position=1;
         if($service->save())
-        return redirect()->back()->with(['success'=> 'Position Change Successfuly']);
+        return redirect()->back()->with(['success'=> 'تم عرض الخدمة في الرئيسية']);
     }
 
     function activeService($id){
@@ -131,14 +131,14 @@ class servicesController extends Controller
         else 
             $service->is_active=1;
         if($service->save())
-        return redirect()->back()->with(['success'=> 'Position Change Successfuly']);
+        return redirect()->back()->with(['success'=> 'تكم تغيير حالة الخدمة بنجاح']);
     }
 
     public function deleteService($id)
     {
         $service = services::find($id);
         if ($service->delete()) 
-        return redirect()->back()->with(['success' => 'Data Delete successfully']);
+        return redirect()->back()->with(['success' => 'تم حذف البيانات بنجاح']);
 
     }
     

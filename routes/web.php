@@ -16,6 +16,7 @@ use App\Http\Controllers\admin\SocialMediaController;
 use App\Http\Controllers\admin\SubCategoryController;
 use App\Http\Controllers\admin\WebsiteInfoController;
 use App\Http\Controllers\admin\Authentication;
+use App\Http\Controllers\admin\SubCategoriesController;
 use App\Http\Controllers\admin\UserController;
 use App\Models\service_points;
 use Illuminate\Support\Facades\Route;
@@ -50,6 +51,10 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
     Route::get('/verify_password/{token}', [Authentication::class, 'formPassword'])->name('verify_password');
     Route::post('/new_password', [Authentication::class, 'newPassword'])->name('new_password');
 
+    // Error 403
+    Route::get('/403', function () {
+        return view('wed.403');
+    })->name('403'); 
 
     Route::group(['middleware' => 'auth'], function () {
 
@@ -181,8 +186,8 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
             Route::post('/deletepages/{id}', [PagesController::class, 'deletepages'])->name('deletepages');
 
             // admin Manage websiteInfo
-            Route::get('/website', [WebsiteInfoController::class, 'website'])->name('website');
-            Route::get('/editwebsite', [WebsiteInfoController::class, 'editwebsite'])->name('editwebsite');
+            Route::get('/website/{id}', [WebsiteInfoController::class, 'website'])->name('website');
+            Route::POST('/editwebsite/{id}', [WebsiteInfoController::class, 'editwebsite'])->name('editwebsite');
         });
     });
 });

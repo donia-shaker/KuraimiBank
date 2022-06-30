@@ -4,16 +4,16 @@
     <div class="" role="alert" id="message">
     </div>
     <div class="card p-3">
-        <h2 name="tableName m-5">الخدمات الرئيسية</h2>
-        <button type="button" class="btn btn-primary m-4 w-25" data-bs-toggle="modal" data-bs-target="#addSubCategoryModal"
-            id="addSubCategory"> اضافه خدمه </button>
+        <h2 name="tableName m-5">الاقسام الفرعية</h2>
+        <button type="button" class="btn color m-4 w-25" data-bs-toggle="modal" data-bs-target="#addSubCategoryModal"
+            id="addSubCategory"> اضافة قسم </button>
         <x-table>
             <div class="table-responsive text-nowrap">
                 <table class="table">
                     <x-slot name="tableHead">
                         <tr>
                             <th>#</th>
-                            <th>اسم التصنيف</th>
+                            <th>اسم القسم</th>
                             <th>الحاله</th>
                             <th>العمليات</th>
                         </tr>
@@ -34,7 +34,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     <div class="text-center mb-4">
                         <h4 class="modal-title" id="userCrudModal"></h4>
-                        <p>اضف صنف جديدة للموقع</p>
+                        <p>اضف قسم جديدة للموقع</p>
                     </div>
                     <form id="addSubCategoryForm" class="row g-3" action="" method="POST"
                         enctype="multipart/form-data">
@@ -42,19 +42,19 @@
                         <div>
                             <label for="defaultFormControlInput" class="form-label"> الاسم (عربي)</label>
                             <input type="text" name="nameAr" class="form-control  name ar" id="addCategoryNameAr"
-                                placeholder="اضف اسم الخدمة" aria-describedby="defaultFormControlHelp" />
+                                placeholder="اضف اسم القسم AR" aria-describedby="defaultFormControlHelp" />
                             <span class="help-block text-danger"></span>
                         </div>
                         <div>
                             <label for="defaultFormControlInput" class="form-label">الاسم (انجليزي)</label>
                             <input type="text" name="nameEn" class="form-control  name en" id="addCategoryNameEn"
-                                placeholder="اضف اسم العملة" aria-describedby="defaultFormControlHelp" />
+                                placeholder="اضف اسم القسم EN" aria-describedby="defaultFormControlHelp" />
                             <span class="help-block text-danger"></span>
                         </div>
                         <div class="col-12 text-center">
-                            <button type="submit" class="btn btn-primary me-sm-3 me-1 mt-3 addSUbCategory">اضافة</button>
+                            <button type="submit" class="btn color me-sm-3 me-1 mt-3 addSUbCategory">  اضافة القسم</button>
                             <button type="reset" class="btn btn-label-secondary btn-reset mt-3" data-bs-dismiss="modal"
-                                aria-label="Close">Cancel</button>
+                                aria-label="Close">الغاء</button>
                         </div>
                     </form>
                 </div>
@@ -71,7 +71,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     <div class="text-center mb-4">
                         <h4 class="modal-title" id="userCrudModal"></h4>
-                        <p>تعديل الخدمة </p>
+                        <p>تعديل القسم </p>
                     </div>
                     <form id="updateSubCategory" class="row g-3"  method="POST"
                         enctype="multipart/form-data">
@@ -80,20 +80,20 @@
                         <div>
                             <label for="defaultFormControlInput" class="form-label"> الاسم (عربي)</label>
                             <input type="text" name="nameAr" class="form-control name ar" id="editCategoryNameAr"
-                                placeholder="اضف اسم الخدمة" aria-describedby="defaultFormControlHelp" />
+                                placeholder="اضف اسم القسم" aria-describedby="defaultFormControlHelp" />
                             <span class="help-block text-danger"></span>
                         </div>
                         <div>
                             <label for="defaultFormControlInput" class="form-label">الاسم (انجليزي)</label>
                             <input type="text" name="nameEn" class="form-control" id="editCategoryNameEn"
-                                placeholder="اضف اسم الخدمة" aria-describedby="defaultFormControlHelp" />
+                                placeholder="اضف اسم القسم" aria-describedby="defaultFormControlHelp" />
                             <span class="help-block text-danger"></span>
                         </div>>
                         <div class="col-12 text-center">
                             <button type="submit"
-                                class="btn btn-primary me-sm-3 me-1 mt-3 updateSubCategory">تعديل</button>
+                                class="btn color me-sm-3 me-1 mt-3 updateSubCategory">تعديل</button>
                             <button type="reset" class="btn btn-label-secondary btn-reset mt-3" data-bs-dismiss="modal"
-                                aria-label="Close">Cancel</button>
+                                aria-label="Close">الغاء</button>
                         </div>
                     </form>
                 </div>
@@ -109,8 +109,8 @@
                 <div class="modal-body">
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     <div class="text-center mb-4">
-                        <h4 class="modal-title" id="userCrudModal">هل انت متاكد انك تريد تغيير حاله الخدمة</h4>
-                        <p>تغيير حالة الخدمة </p>
+                        <h4 class="modal-title" id="userCrudModal">هل انت متاكد انك تريد تغيير حاله القسم</h4>
+                        <p>تغيير حالة القسم </p>
                     </div>
                     <form id="activeSubCategory" class="row g-3" action="activeSubCategory" method="POST"
                         enctype="multipart/form-data">
@@ -118,9 +118,9 @@
                         <input type="hidden" id="activeSubCategoryId" class="activeSubCategoryId" value="">
                         <div class="col-12 text-center">
                             <button type="submit" id="submit"
-                                class="btn btn-primary me-sm-3 me-1 mt-3 activeSubCategory">تغيير الحالة</button>
+                                class="btn color me-sm-3 me-1 mt-3 activeSubCategory">تغيير الحالة</button>
                             <button type="reset" class="btn btn-label-secondary btn-reset mt-3" data-bs-dismiss="modal"
-                                aria-label="Close">Cancel</button>
+                                aria-label="Close">الغاء</button>
                         </div>
                     </form>
                 </div>
@@ -136,8 +136,8 @@
                 <div class="modal-body">
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     <div class="text-center mb-4">
-                        <h4 class="modal-title" id="userCrudModal">هل انت متاكد انك تريد حذف الخدمة</h4>
-                        <p>في حال الموافقه سوف يتم حذف الصنف بشكل نهائي ولن تستطيع التراجع </p>
+                        <h4 class="modal-title" id="userCrudModal">هل انت متاكد انك تريد حذف القسم</h4>
+                        <p>في حال الموافقه سوف يتم حذف القسم بشكل نهائي ولن تستطيع التراجع </p>
                     </div>
                     <form id="deleteSubCategoryId" class="row g-3"  method="POST"
                         enctype="multipart/form-data">
@@ -145,9 +145,9 @@
                         <input type="hidden" id="deleteCategoryId" class="deleteCategoryId" value="">
                         <div class="col-12 text-center">
                             <button type="submit" id="submit"
-                                class="btn btn-primary me-sm-3 me-1 mt-3 deleteCategory">حذف الصنف</button>
+                                class="btn color me-sm-3 me-1 mt-3 deleteCategory">حذف القسم</button>
                             <button type="reset" class="btn btn-label-secondary btn-reset mt-3" data-bs-dismiss="modal"
-                                aria-label="Close">Cancel</button>
+                                aria-label="Close">الغاء</button>
                         </div>
                     </form>
                 </div>

@@ -46,7 +46,7 @@ class OurPartinersController extends Controller
             'image' =>$image
         ]);
         
-        return redirect()->route('partiners')->with(['success' => 'Data Insert Successfully']);
+        return redirect()->route('partiners')->with(['success' => 'تمت الاضافه بنجاح']);
     }
 
     function editpartiners(Request $request,$id)
@@ -74,7 +74,7 @@ class OurPartinersController extends Controller
             ],
             'image' =>$image
         ]);
-        return redirect()->route('partiners')->with(['success' => 'Data Update Successfully']);
+        return redirect()->route('partiners')->with(['success' => 'تم تعديل البيانات بنجاح']);
         
     }
 
@@ -85,7 +85,7 @@ class OurPartinersController extends Controller
         else 
             $partiners->is_active=1;
         if($partiners->save())
-        return redirect()->back()->with(['success'=> 'Position Change Successfuly']);
+        return redirect()->back()->with(['success'=> 'تم تغيير الحالة بنجاح']);
     }
 
     public function deletepartiners($id)
@@ -93,7 +93,7 @@ class OurPartinersController extends Controller
         $partiners = our_partiners::find($id);
         // return $partiners;
         if ($partiners->delete()) 
-        return redirect()->back()->with(['success' => 'Data Delete successfully']);
+        return redirect()->back()->with(['success' => 'تم الحذف بنجاح']);
 
     }
 }

@@ -39,7 +39,7 @@ class JobsController extends Controller
             ],
         ]);
         
-        return redirect()->route('jobs')->with(['success' => 'Data Insert Successfully']);
+        return redirect()->route('jobs')->with(['success' => 'تمت الاضافه بنجاح']);
     }
 
     function editjobs(Request $request,$id)
@@ -61,7 +61,7 @@ class JobsController extends Controller
                 'ar'        =>      $request->descriptionAr
             ],
         ]);
-        return redirect()->route('jobs')->with(['success' => 'Data Update Successfully']);
+        return redirect()->route('jobs')->with(['success' => 'تم تعديل البيانات بنجاح']);
         
     }
 
@@ -72,7 +72,7 @@ class JobsController extends Controller
         else 
             $jobs->is_active=1;
         if($jobs->save())
-        return redirect()->back()->with(['success'=> 'Position Change Successfuly']);
+        return redirect()->back()->with(['success'=> 'تم تغيير الحالة بنجاح']);
     }
 
     public function deletejobs($id)
@@ -80,7 +80,7 @@ class JobsController extends Controller
         $jobs = jobs::find($id);
         // return $jobs;
         if ($jobs->delete()) 
-        return redirect()->back()->with(['success' => 'Data Delete successfully']);
+        return redirect()->back()->with(['success' => 'تم الحذف بنجاح']);
 
     }
 }

@@ -4,20 +4,20 @@
     @if ($do == 'Manage')
         <!-- show message -->
         @if (session()->has('success'))
-            <div class="alert alert-success" id="message">
+            <div class="alert bg_color message_animation" id="message">
                 {{ session()->get('success') }}
             </div>
         @elseif (session()->has('error'))
-            <div class="alert alert-danger" id="message">
+            <div class="alert alert-danger message_animation" id="message">
                 {{ session()->get('error') }}
             </div>
         @endif
         <!-- End show message -->
 
         <div class="card p-3">
-            <h2 name="tableName m-5 "> مميزات الخدمة </h2>
-            <a href="{{$serviceId}}?do=Add&servId={{$serviceId}}" class="btn w-25 p-2 contact">
-                <button type="button" class="btn btn-primary m-4 px-5 d-flex justify-content-start text-center"
+            <h2 name="tableName m-5 "> مميزات الميزة </h2>
+            <a href="{{$serviceId}}?do=Add&servId={{$serviceId}}" class="btn d-flex justify-content-start  p-2 contact">
+                <button type="button" class="btn color m-4 px-5 w-25 text-center"
                     id="addservices">اضافه ميزة </button></a>
             <x-table>
                 <div class="table-responsive text-nowrap">
@@ -25,7 +25,7 @@
                         <x-slot name="tableHead">
                             <tr>
                                 <th>#</th>
-                                <th> اسم الخدمه</th>
+                                <th> اسم الميزة</th>
                                 <th>الصوره</th>
                                 <th> الحاله</th>
                                 <th>العمليات</th>
@@ -81,8 +81,8 @@
                                                     aria-label="Close"></button>
                                                 <div class="text-center mb-4">
                                                     <h4 class="modal-title" id="userCrudModal">هل انت متاكد انك تريد تغيير
-                                                        حاله الخدمة</h4>
-                                                    <p>تغيير حالة الخدمة </p>
+                                                        حاله الميزة</h4>
+                                                    <p>تغيير حالة الميزة </p>
                                                 </div>
                                                 
                                                 <form id="" class="row g-3"
@@ -93,11 +93,11 @@
                                                         value="{{ $serviceAdv->id }}">
                                                     <div class="col-12 text-center">
                                                         <button type="mit" id="mit"
-                                                            class="btn btn-primary me-sm-3 me-1 mt-3 activeservices">تغيير
+                                                            class="btn color me-sm-3 me-1 mt-3 activeservices">تغيير
                                                             الحالة</button>
                                                         <button type="reset"
                                                             class="btn btn-label-secondary btn-reset mt-3"
-                                                            data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+                                                            data-bs-dismiss="modal" aria-label="Close">الغاء</button>
                                                     </div>
                                                 </form>
                                             </div>
@@ -116,8 +116,8 @@
                                                     aria-label="Close"></button>
                                                 <div class="text-center mb-4">
                                                     <h4 class="modal-title" id="userCrudModal">هل انت متاكد انك تريد حذف
-                                                        الخدمة</h4>
-                                                    <p>في حال الموافقه سوف يتم حذف الصنف بشكل نهائي ولن تستطيع التراجع </p>
+                                                        الميزة</h4>
+                                                    <p>في حال الموافقه سوف يتم حذف الميزة بشكل نهائي ولن تستطيع التراجع </p>
                                                 </div>
                                                 <form action="{{ route('deleteServiceAdv', $serviceAdv->id) }}"
                                                     class="row g-3" method="GET" enctype="multipart/form-data">
@@ -125,11 +125,11 @@
                                                     <input type="hidden" value="{{ $serviceAdv->id }}">
                                                     <div class="col-12 text-center">
                                                         <button type="mit" id="mit"
-                                                            class="btn btn-primary me-sm-3 me-1 mt-3 deleteservices">حذف
-                                                            الصنف</button>
+                                                            class="btn color me-sm-3 me-1 mt-3 deleteservices">حذف
+                                                            الميزة</button>
                                                         <button type="reset"
                                                             class="btn btn-label-secondary btn-reset mt-3"
-                                                            data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+                                                            data-bs-dismiss="modal" aria-label="Close">الغاء</button>
                                                     </div>
                                                 </form>
                                             </div>
@@ -147,17 +147,17 @@
         @elseif($do == 'Add')
             <!-- Add services Modal -->
             @if (session()->has('success'))
-                <div class="alert alert-success" id="message">
+                <div class="alert bg_color message_animation" id="message">
                     {{ session()->get('success') }}
                 </div>
             @elseif (session()->has('error'))
-                <div class="alert alert-danger" id="message">
-                    {{ session()->get('success') }}
+                <div class="alert alert-danger message_animation" id="message">
+                    {{ session()->get('error') }}
                 </div>
             @endif
             <div class="col-md-8 m-auto">
                 <div class="card mb-4 p-4 ">
-                    <h1 class="text-start fs-3 ">اضافة معلومه الخدمة</h1>
+                    <h1 class="text-start fs-3 ">اضافة معلومه الميزة</h1>
                     <div class="card-body demo-vertical-spacing demo-only-element">
                         
                         <form class="row g-3" action="{{ route('addServiceAdv') }}" method="POST"
@@ -167,7 +167,7 @@
                             <div class="col-md-6">
                                 <label for="defaultFormControlInput" class="form-label"> الاسم (عربي)</label>
                                 <input type="text" name="nameAr" class="form-control  name ar"
-                                    id="addservicesNameAr" placeholder="اضف  الخدمة" value="{{ old('nameAr') }}"
+                                    id="addservicesNameAr" placeholder=" اضف  الميزة AR" value="{{ old('nameAr') }}"
                                     aria-describedby="defaultFormControlHelp" />
                                 @error('nameEn')
                                     <span class="help-block text-danger">* {{ $message }} </span>
@@ -176,7 +176,7 @@
                             <div class="col-md-6">
                                 <label for="defaultFormControlInput" class="form-label">الاسم (انجليزي)</label>
                                 <input type="text" name="nameEn" class="form-control  " id="addservicesNameEn"
-                                    value="{{ old('nameEn') }}" placeholder="اضف  الخدمة"
+                                    value="{{ old('nameEn') }}" placeholder="اضف  الميزة EN"
                                     aria-describedby="defaultFormControlHelp" />
                                 @error('nameEn')
                                     <span class="help-block text-danger">* {{ $message }} </span>
@@ -186,7 +186,7 @@
                                 <label for="defaultFormControlInput" class="form-label">صورة</label>
                                 <input type="file" name="icon"
                                     oninput="previewImage.src=window.URL.createObjectURL(this.files[0])"
-                                    class="form-control  " id="addservicesPhone" placeholder="اضف صورة الخدمة"
+                                    class="form-control  " id="addservicesPhone" placeholder="اضف صورة الميزة"
                                     aria-describedby="defaultFormControlHelp" value="{{ old('image') }}" />
                                 @error('image')
                                     <span class="help-block text-danger">* {{ $message }} </span>
@@ -195,10 +195,10 @@
                                 </div>
                             </div>
                             <div class="col-12 text-center">
-                                <button type="mit" class="btn btn-primary me-sm-3 me-1 mt-3 addservices">
-                                    اضافة الخدمة</button>
+                                <button type="mit" class="btn color me-sm-3 me-1 mt-3 addservices">
+                                    اضافة الميزة</button>
                                 <button type="reset" class="btn btn-label-secondary btn-reset mt-3"
-                                    data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+                                    data-bs-dismiss="modal" aria-label="Close">الغاء</button>
                             </div>
                         </form>
 
@@ -210,17 +210,17 @@
             <!-- start Edit model -->
             <?php $serviceAdvId = isset($_GET['serviceAdvId']) && is_numeric($_GET['serviceAdvId']) ? intval($_GET['serviceAdvId']) : 0; ?>
             @if (session()->has('success'))
-                <div class="alert alert-success">
+                <div class="alert bg_color message_animation">
                     {{ session()->get('success') }}
                 </div>
             @elseif (session()->has('error'))
-                <div class="alert alert-danger">
-                    {{ session()->get('success') }}
+                <div class="alert alert-danger message_animation">
+                    {{ session()->get('error') }}
                 </div>
             @endif
             <div class="col-md-12 m-auto">
                 <div class="card mb-4 p-4 ">
-                    <h1 class="text-start fs-3 ">تعديل معلومات الخدمة</h1>
+                    <h1 class="text-start fs-3 ">تعديل معلومات الميزة</h1>
                     <div class="card-body demo-vertical-spacing demo-only-element">
                         @foreach ($allServAdv as $service)
 
@@ -232,7 +232,7 @@
                             <div class="col-md-6">
                                 <label for="defaultFormControlInput" class="form-label"> الاسم (عربي)</label>
                                 <input type="text" name="nameAr" class="form-control  name ar"
-                                    id="addservicesNameAr" placeholder="اضف  الخدمة" value="{{ $service->getTranslation('name', 'ar') }}"
+                                    id="addservicesNameAr" placeholder="اضف  الميزة AR" value="{{ $service->getTranslation('name', 'ar') }}"
                                     aria-describedby="defaultFormControlHelp" />
                                 @error('nameEn')
                                     <span class="help-block text-danger">* {{ $message }} </span>
@@ -241,7 +241,7 @@
                             <div class="col-md-6">
                                 <label for="defaultFormControlInput" class="form-label">الاسم (انجليزي)</label>
                                 <input type="text" name="nameEn" class="form-control  " id="addservicesNameEn"
-                                    value="{{ $service->getTranslation('name', 'en') }}" placeholder="اضف  الخدمة"
+                                    value="{{ $service->getTranslation('name', 'en') }}" placeholder="اضف  الميزة EN"
                                     aria-describedby="defaultFormControlHelp" />
                                 @error('nameEn')
                                     <span class="help-block text-danger">* {{ $message }} </span>
@@ -251,7 +251,7 @@
                                 <label for="defaultFormControlInput" class="form-label">صورة</label>
                                 <input type="file" name="icon"
                                     oninput="previewImage.src=window.URL.createObjectURL(this.files[0])"
-                                    class="form-control  " id="addservicesPhone" placeholder="اضف صورة الخدمة"
+                                    class="form-control  " id="addservicesPhone" placeholder="اضف صورة الميزة"
                                     aria-describedby="defaultFormControlHelp" value="{{ old('image') }}" />
                                 @error('image')
                                     <span class="help-block text-danger">* {{ $message }} </span>
@@ -260,10 +260,10 @@
                                 </div>
                             </div>
                             <div class="col-12 text-center">
-                                <button type="mit" class="btn btn-primary me-sm-3 me-1 mt-3 addservices">
-                                    اضافة الخدمة</button>
+                                <button type="mit" class="btn color me-sm-3 me-1 mt-3 addservices">
+                                    اضافة الميزة</button>
                                 <button type="reset" class="btn btn-label-secondary btn-reset mt-3"
-                                    data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+                                    data-bs-dismiss="modal" aria-label="Close">الغاء</button>
                             </div>
                                 </form>
                             @endif

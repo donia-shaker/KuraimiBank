@@ -49,12 +49,20 @@ class CategoriesController extends Controller
                 [
                 // 'category'=> $category,
                 'status' => 200,
-                'message' => 'Data inserted successfully',
+                'message' => 'تمت الاضافه بنجاح',
                 
                 ]
             );
-            // return $category->name;
-        }
+         else {
+            return response()->json(
+                [
+                    'status' => 404,
+                    'message' => 'خطا في عملية الاضافه',
+
+                ]
+            );
+        }        
+    }
     }
 
     public function editCategory( $id){
@@ -65,7 +73,7 @@ class CategoriesController extends Controller
                 // 'category'=> $category,
                 'status' => 200,
                 'category' => $category,
-                
+                'message' =>'تم التعديل بنجاح',
                 ]
             );
         }else {
@@ -73,7 +81,7 @@ class CategoriesController extends Controller
                 [
                 // 'category'=> $category,
                 'status' => 404,
-                'message' =>'Data not Found',
+                'message' =>'لم يتم التعديل',
                 
                 ]
             );
@@ -111,7 +119,7 @@ class CategoriesController extends Controller
                         [
                         // 'category'=> $category,
                         'status' => 200,
-                        'message' => 'Data Update successfully',
+                        'message' => 'تم التعديل بنجاح',
                         
                         ]
                     );
@@ -120,7 +128,7 @@ class CategoriesController extends Controller
                 return response()->json(
                     [
                     'status' => 404,
-                    'message' =>'Data not Found',
+                    'message' =>'لم يتم التعديل',
                     
                     ]
                 );
@@ -141,7 +149,7 @@ class CategoriesController extends Controller
                 [
                 'active'=> $category,
                 'status' => 200,
-                'message' => 'Data Update successfully',
+                'message' => 'تم تغيير حالة القسم بنجاح',
                     
                     ]
                 );
@@ -150,7 +158,7 @@ class CategoriesController extends Controller
                 return response()->json(
                     [
                     'status' => 404,
-                    'message' =>'Data not Found',
+                    'message' =>'فشل في عملية تغيير حالة القسم',
                     
                     ]
                 );
@@ -166,7 +174,7 @@ class CategoriesController extends Controller
                 [
                 'active'=> $category,
                 'status' => 200,
-                'message' => 'Data Delete successfully',
+                'message' => 'تم الحذف بنجاح',
                     
                     ]
                 );
@@ -175,7 +183,7 @@ class CategoriesController extends Controller
                 return response()->json(
                     [
                     'status' => 404,
-                    'message' =>'Data not Found',
+                    'message' =>'خطا في عملية الحذف',
                     
                     ]
                 );

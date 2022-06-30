@@ -42,6 +42,8 @@
     <!-- Page CSS -->
     <!-- Page -->
 <link rel="stylesheet" href="../../assets/vendor/css/pages/page-auth.css">
+<link rel="stylesheet" href="{{ URL::asset('css/main.css') }}" />
+
     <!-- Helpers -->
     <script src="../../assets/vendor/js/helpers.js"></script>
 
@@ -135,6 +137,17 @@
                             </a>
                         </div>
                         <!-- /Logo -->
+                        <!-- show message -->
+    @if (session()->has('success'))
+    <div class="alert bg_color message_animation" id="message">
+        {{ session()->get('success') }}
+    </div>
+@elseif (session()->has('error'))
+    <div class="alert alert-danger message_animation" id="message">
+        {{ session()->get('error') }}
+    </div>
+@endif
+<!-- End show message -->
                         <h4 class="mb-2">Reset Password 🔒</h4>
                         <p class="mb-4">for <span class="fw-bold">{{$userInfo->email}}</span></p>
                         <form id="formAuthentication" class="mb-3"

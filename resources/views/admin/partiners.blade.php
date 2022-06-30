@@ -4,28 +4,28 @@
     @if ($do == 'Manage')
         <!-- show message -->
         @if (session()->has('success'))
-            <div class="alert alert-success" id="message">
+            <div class="alert bg_color message_animation" id="message">
                 {{ session()->get('success') }}
             </div>
         @elseif (session()->has('error'))
-            <div class="alert alert-danger" id="message">
-                {{ session()->get('success') }}
+            <div class="alert alert-danger message_animation" id="message">
+                {{ session()->get('error') }}
             </div>
         @endif
         <!-- End show message -->
 
         <div class="card p-3">
-            <h2 name="tableName m-5 ">  الشركات</h2>
-            <a href="partiners?do=Add" class="btn w-25 p-2 contact">
-                <button type="button" class="btn btn-primary m-4 px-5 d-flex justify-content-start text-center"
-                    id="addpartiners"> اضافة  شركاء  </button></a>
+            <h2 name="tableName m-5 ">ادارة الشركات</h2>
+            <a href="partiners?do=Add" class="btn d-flex justify-content-start p-2 contact">
+                <button type="button" class="btn color m-4 px-5  w-25 text-center"
+                    id="addpartiners"> اضافة  شركة  </button></a>
             <x-table>
                 <div class="table-responsive text-nowrap">
                     <table class="table">
                         <x-slot name="tableHead">
                             <tr>
                                 <th>#</th>
-                                <th>العنوان </th>
+                                <th>الاسم </th>
                                 <th>معلومات </th>
                                 <th> الحاله</th>
                                 <th>العمليات</th>
@@ -38,7 +38,7 @@
                                     <td>{{ $i++ }}</td>
                                     <td>{{ $partiners->title }}</td>
                                     <td>
-                                        <a href="partiners?do=Edit&partinersId={{ $partiners->id }}" style="color:#03c3ec99">معلومات التقرير</a></td>
+                                        <a href="partiners?do=Edit&partinersId={{ $partiners->id }}" class="color_text">معلومات التقرير</a></td>
                                         <td>
                                         @if ($partiners->is_active == 1)
                                             <label class="switch" data-bs-toggle="modal"
@@ -82,8 +82,8 @@
                                                     aria-label="Close"></button>
                                                 <div class="text-center mb-4">
                                                     <h4 class="modal-title" id="userCrudModal">هل انت متاكد انك تريد تغيير
-                                                        حاله شركة</h4>
-                                                    <p>تغيير حالة شركة </p>
+                                                        حاله الشركة</h4>
+                                                    <p>تغيير حالة الشركة </p>
                                                 </div>
                                                 <form id="" class="row g-3"
                                                     action="{{ route('activepartiners', $partiners->id) }}" method="post"
@@ -93,11 +93,11 @@
                                                         value="{{ $partiners->id }}">
                                                     <div class="col-12 text-center">
                                                         <button type="mit" id="mit"
-                                                            class="btn btn-primary me-sm-3 me-1 mt-3 activepartiners">تغيير
+                                                            class="btn color me-sm-3 me-1 mt-3 activepartiners">تغيير
                                                             الحالة</button>
                                                         <button type="reset"
                                                             class="btn btn-label-secondary btn-reset mt-3"
-                                                            data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+                                                            data-bs-dismiss="modal" aria-label="Close">الغاء</button>
                                                     </div>
                                                 </form>
                                             </div>
@@ -116,8 +116,8 @@
                                                     aria-label="Close"></button>
                                                 <div class="text-center mb-4">
                                                     <h4 class="modal-title" id="userCrudModal">هل انت متاكد انك تريد حذف
-                                                        شركة</h4>
-                                                    <p>في حال الموافقه سوف يتم حذف الصنف بشكل نهائي ولن تستطيع التراجع </p>
+                                                        الشركة</h4>
+                                                    <p>في حال الموافقه سوف يتم حذف الشركة بشكل نهائي ولن تستطيع التراجع </p>
                                                 </div>
                                                 <form action="{{ route('deletepartiners', $partiners->id) }}"
                                                     class="row g-3" method="POST" enctype="multipart/form-data">
@@ -125,11 +125,11 @@
                                                     <input type="hidden" value="{{ $partiners->id }}">
                                                     <div class="col-12 text-center">
                                                         <button type="mit" id="mit"
-                                                            class="btn btn-primary me-sm-3 me-1 mt-3 deletepartiners">حذف
-                                                            الصنف</button>
+                                                            class="btn color me-sm-3 me-1 mt-3 deletepartiners">حذف
+                                                            الشركة</button>
                                                         <button type="reset"
                                                             class="btn btn-label-secondary btn-reset mt-3"
-                                                            data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+                                                            data-bs-dismiss="modal" aria-label="Close">الغاء</button>
                                                     </div>
                                                 </form>
                                             </div>
@@ -145,12 +145,12 @@
         @elseif($do == 'Add')
             <!-- Add partiners Modal -->
             @if (session()->has('success'))
-                <div class="alert alert-success" id="message">
+                <div class="alert bg_color message_animation" id="message">
                     {{ session()->get('success') }}
                 </div>
             @elseif (session()->has('error'))
-                <div class="alert alert-danger" id="message">
-                    {{ session()->get('success') }}
+                <div class="alert alert-danger message_animation" id="message">
+                    {{ session()->get('error') }}
                 </div>
             @endif
             <div class="col-md-12 m-auto">
@@ -192,24 +192,24 @@
                                 </div>
                             </div>
                             <div class="col-md-12">
-                                <label for="defaultFormControlInput" class="form-label">( العربي) مميزات اخرى</label>
+                                <label for="defaultFormControlInput" class="form-label">( العربي) معلومات اخرى</label>
                                 <textarea name="descriptionAr" id="" cols="30" rows="10"></textarea>
                                 @error('descriptionAr')
                                     <span class="help-block text-danger">* {{ $message }} </span>
                                 @enderror
                             </div>
                             <div class="col-md-12">
-                                <label for="defaultFormControlInput" class="form-label">مميزات اخرى (انجليزي)</label>
+                                <label for="defaultFormControlInput" class="form-label">معلومات اخرى (انجليزي)</label>
                                 <textarea name="descriptionEn" id="" cols="30" rows="10"></textarea>
                                 @error('descriptionEn')
                                     <span class="help-block text-danger">* {{ $message }} </span>
                                 @enderror
                             </div>
                             <div class="col-12 text-center">
-                                <button type="mit" class="btn btn-primary me-sm-3 me-1 mt-3 addpartiners">
+                                <button type="mit" class="btn color me-sm-3 me-1 mt-3 addpartiners">
                                     اضافة شركة</button>
                                 <button type="reset" class="btn btn-label-secondary btn-reset mt-3"
-                                    data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+                                    data-bs-dismiss="modal" aria-label="Close">الغاء</button>
                             </div>
                         </form>
 
@@ -221,17 +221,17 @@
             <!-- start Edit model -->
             <?php $partinersId = isset($_GET['partinersId']) && is_numeric($_GET['partinersId']) ? intval($_GET['partinersId']) : 0; ?>
             @if (session()->has('success'))
-                <div class="alert alert-success">
+                <div class="alert bg_color message_animation">
                     {{ session()->get('success') }}
                 </div>
             @elseif (session()->has('error'))
-                <div class="alert alert-danger">
-                    {{ session()->get('success') }}
+                <div class="alert alert-danger message_animation">
+                    {{ session()->get('error') }}
                 </div>
             @endif
             <div class="col-md-12 m-auto">
                 <div class="card mb-4 p-4 ">
-                    <h1 class="text-start fs-3 ">تعديل معلومات شركة</h1>
+                    <h1 class="text-start fs-3 ">تعديل معلومات الشركة</h1>
                     <div class="card-body demo-vertical-spacing demo-only-element">
                         @foreach ($partiners as $partiners)
                             @if ($partinersId == $partiners->id)
@@ -271,7 +271,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-12">
-                                        <label for="defaultFormControlInput" class="form-label">الوصف (انجليزي)</label>
+                                        <label for="defaultFormControlInput" class="form-label">معلومات اخرى (انجليزي)</label>
                                         <textarea type="text" name="descriptionAr" class="form-control"> {{ $partiners->getTranslation('description', 'ar') }}
                                         </textarea>
                                         @error('descriptionAr')
@@ -279,7 +279,7 @@
                                         @enderror
                                     </div>
                                     <div class="col-md-12">
-                                        <label for="defaultFormControlInput" class="form-label">الوصف (انجليزي)</label>
+                                        <label for="defaultFormControlInput" class="form-label">معلومات اخرى (انجليزي)</label>
                                         <textarea type="text" name="descriptionEn" class="form-control  ">{{ $partiners->getTranslation('description', 'en') }}
                                         </textarea>
                                         @error('descriptionEn')
@@ -287,10 +287,10 @@
                                         @enderror
                                     </div>
                                     <div class="col-12 text-center">
-                                        <button type="mit" class="btn btn-primary me-sm-3 me-1 mt-3 addpartiners">
+                                        <button type="mit" class="btn color me-sm-3 me-1 mt-3 addpartiners">
                                             نعديل معلومات شركة</button>
                                         <button type="reset" class="btn btn-label-secondary btn-reset mt-3"
-                                            data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+                                            data-bs-dismiss="modal" aria-label="Close">الغاء</button>
                                     </div>
                                 </form>
                             @endif

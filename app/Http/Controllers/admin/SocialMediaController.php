@@ -59,7 +59,7 @@ class SocialMediaController extends Controller
                 [
                 // 'socialMedia'=> $socialMedia,
                 'status' => 200,
-                'message' => 'Data inserted successfully',
+                'message' => 'تمت الاضافه بنجاح',
                 
                 ]
             );
@@ -83,7 +83,7 @@ class SocialMediaController extends Controller
                 [
                 // 'socialMedia'=> $socialMedia,
                 'status' => 404,
-                'message' =>'Data not Found',
+                'message' =>'حدث خطا لا يوجد اي بيانات',
                 
                 ]
             );
@@ -124,7 +124,7 @@ class SocialMediaController extends Controller
                         [
                         // 'socialMedia'=> $socialMedia,
                         'status' => 200,
-                        'message' => 'Data Update successfully',
+                        'message' => 'تم تعديل البيانات بنجاح',
                         
                         ]
                     );
@@ -133,7 +133,7 @@ class SocialMediaController extends Controller
                 return response()->json(
                     [
                     'status' => 404,
-                    'message' =>'Data not Found',
+                    'message' =>'حدث خطا لا يوجد اي بيانات',
                     
                     ]
                 );
@@ -154,7 +154,7 @@ class SocialMediaController extends Controller
                 [
                 'active'=> $socialMedia,
                 'status' => 200,
-                'message' => 'Data Update successfully',
+                'message' => 'تم تعديل البيانات بنجاح',
                     
                     ]
                 );
@@ -163,7 +163,7 @@ class SocialMediaController extends Controller
                 return response()->json(
                     [
                     'status' => 404,
-                    'message' =>'Data not Found',
+                    'message' =>'حدث خطا لا يوجد اي بيانات',
                     
                     ]
                 );
@@ -177,7 +177,7 @@ class SocialMediaController extends Controller
                 [
                 'active'=> $socialMedia,
                 'status' => 200,
-                'message' => 'Data Delete successfully',
+                'message' => 'تم الحذف بنجاح',
                     
                     ]
                 );
@@ -186,7 +186,7 @@ class SocialMediaController extends Controller
                 return response()->json(
                     [
                     'status' => 404,
-                    'message' =>'Data not Found',
+                    'message' =>'حدث خطا لا يوجد اي بيانات',
                     
                     ]
                 );

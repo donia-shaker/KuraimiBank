@@ -1,11 +1,11 @@
 @extends('admin.layout.dashboard')
 @section('content')
     <!-- Basic Bootstrap Table -->
-    <div class="" role="alert" id="message">
+    <div class="" role="alert" id="message" >
     </div>
     <div class="card p-3">
-        <h2 name="tableName m-5"> المدن</h2>
-        <button type="button" class="btn btn-primary m-4 w-25" data-bs-toggle="modal" data-bs-target="#addCityModal"
+        <h2 name="tableName m-5">   المدن التي تتواجد فيها الخدمة </h2>
+        <button type="button" class="btn color m-4 w-25" data-bs-toggle="modal" data-bs-target="#addCityModal"
             id="addCity"> اضافه مدينة للموقع </button>
         <x-table>
             <div class="table-responsive text-nowrap">
@@ -43,19 +43,19 @@
                         <div>
                             <label for="defaultFormControlInput" class="form-label"> الاسم (عربي)</label>
                             <input type="text" name="nameAr" class="form-control  name ar" id="addCityNameAr"
-                                placeholder="اضف اسم مدينة" aria-describedby="defaultFormControlHelp" />
+                                placeholder="اضف اسم مدينة AR" aria-describedby="defaultFormControlHelp" />
                             <span class="help-block text-danger"></span>
                         </div>
                         <div>
                             <label for="defaultFormControlInput" class="form-label">الاسم (انجليزي)</label>
                             <input type="text" name="nameEn" class="form-control  name en" id="addCityNameEn"
-                                placeholder="اضف اسم مدينة" aria-describedby="defaultFormControlHelp" />
+                                placeholder="اضف اسم مدينة EN" aria-describedby="defaultFormControlHelp" />
                             <span class="help-block text-danger"></span>
                         </div>
                         <div class="col-12 text-center">
-                            <button type="mit" class="btn btn-primary me-sm-3 me-1 mt-3 addCity">اضافة</button>
+                            <button type="mit" class="btn color me-sm-3 me-1 mt-3 addCity">اضافة</button>
                             <button type="reset" class="btn btn-label-secondary btn-reset mt-3" data-bs-dismiss="modal"
-                                aria-label="Close">Cancel</button>
+                                aria-label="Close">الغاء</button>
                         </div>
                     </form>
                 </div>
@@ -81,20 +81,20 @@
                         <div>
                             <label for="defaultFormControlInput" class="form-label"> الاسم (عربي)</label>
                             <input type="text" name="nameAr" class="form-control name ar" id="editCityNameAr"
-                                placeholder="اضف اسم مدينة" aria-describedby="defaultFormControlHelp" />
+                                placeholder="اضف اسم مدينة AR" aria-describedby="defaultFormControlHelp" />
                             <span class="help-block text-danger"></span>
                         </div>
                         <div>
                             <label for="defaultFormControlInput" class="form-label">الاسم (انجليزي)</label>
                             <input type="text" name="nameEn" class="form-control" id="editCityNameEn"
-                                placeholder="اضف اسم مدينة" aria-describedby="defaultFormControlHelp" />
+                                placeholder="اضف اسم مدينة EN" aria-describedby="defaultFormControlHelp" />
                             <span class="help-block text-danger"></span>
                         </div>
                         <div class="col-12 text-center">
                             <button type="mit"
-                                class="btn btn-primary me-sm-3 me-1 mt-3 updateCity">تعديل</button>
+                                class="btn color me-sm-3 me-1 mt-3 updateCity">تعديل</button>
                             <button type="reset" class="btn btn-label-secondary btn-reset mt-3" data-bs-dismiss="modal"
-                                aria-label="Close">Cancel</button>
+                                aria-label="Close">الغاء</button>
                         </div>
                     </form>
                 </div>
@@ -119,9 +119,9 @@
                         <input type="hidden" id="activeCityId" class="activeCityId" value="">
                         <div class="col-12 text-center">
                             <button type="mit" id="mit"
-                                class="btn btn-primary me-sm-3 me-1 mt-3 activeCity">تغيير الحالة</button>
+                                class="btn color me-sm-3 me-1 mt-3 activeCity">تغيير الحالة</button>
                             <button type="reset" class="btn btn-label-secondary btn-reset mt-3" data-bs-dismiss="modal"
-                                aria-label="Close">Cancel</button>
+                                aria-label="Close">الغاء</button>
                         </div>
                     </form>
                 </div>
@@ -146,9 +146,9 @@
                         <input type="hidden" id="deleteCityId" class="deleteCityId" value="">
                         <div class="col-12 text-center">
                             <button type="mit" id="mit"
-                                class="btn btn-primary me-sm-3 me-1 mt-3 deleteCity">حذف المدينة</button>
+                                class="btn color me-sm-3 me-1 mt-3 deleteCity">حذف المدينة</button>
                             <button type="reset" class="btn btn-label-secondary btn-reset mt-3" data-bs-dismiss="modal"
-                                aria-label="Close">Cancel</button>
+                                aria-label="Close">الغاء</button>
                         </div>
                     </form>
                 </div>

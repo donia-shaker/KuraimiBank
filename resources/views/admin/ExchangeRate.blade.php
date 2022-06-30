@@ -4,20 +4,20 @@
     @if ($do == 'Manage')
         <!-- show message -->
         @if (session()->has('success'))
-            <div class="alert alert-success" id="message">
+            <div class="alert bg_color message_animation" id="message">
                 {{ session()->get('success') }}
             </div>
         @elseif (session()->has('error'))
-            <div class="alert alert-danger" id="message">
-                {{ session()->get('success') }}
+            <div class="alert alert-danger message_animation" id="message">
+                {{ session()->get('error') }}
             </div>
         @endif
         <!-- End show message -->
 
         <div class="card p-3">
             <h2 name="tableName m-5 ">  اسعار العملات</h2>
-            <a href="rate?do=Add" class="btn w-25 p-2 contact">
-                <button type="button" class="btn btn-primary m-4 px-5 d-flex justify-content-start text-center"
+            <a href="rate?do=Add" class="btn d-flex justify-content-start  p-2 contact">
+                <button type="button" class="btn color m-4 px-5 w-25 text-center"
                     id="addrate"> اضافه عملة جديدة </button></a>
             <x-table>
                 <div class="table-responsive text-nowrap">
@@ -94,11 +94,11 @@
                                                         value="{{ $rate->id }}">
                                                     <div class="col-12 text-center">
                                                         <button type="mit" id="mit"
-                                                            class="btn btn-primary me-sm-3 me-1 mt-3 activerate">تغيير
+                                                            class="btn color me-sm-3 me-1 mt-3 activerate">تغيير
                                                             الحالة</button>
                                                         <button type="reset"
                                                             class="btn btn-label-secondary btn-reset mt-3"
-                                                            data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+                                                            data-bs-dismiss="modal" aria-label="Close">الغاء</button>
                                                     </div>
                                                 </form>
                                             </div>
@@ -117,8 +117,8 @@
                                                     aria-label="Close"></button>
                                                 <div class="text-center mb-4">
                                                     <h4 class="modal-title" id="userCrudModal">هل انت متاكد انك تريد حذف
-                                                        عملة</h4>
-                                                    <p>في حال الموافقه سوف يتم حذف الصنف بشكل نهائي ولن تستطيع التراجع </p>
+                                                        العملة</h4>
+                                                    <p>في حال الموافقه سوف يتم حذف العملة بشكل نهائي ولن تستطيع التراجع </p>
                                                 </div>
                                                 <form action="{{ route('deleteRate', $rate->id) }}"
                                                     class="row g-3" method="POST" enctype="multipart/form-data">
@@ -126,11 +126,11 @@
                                                     <input type="hidden" value="{{ $rate->id }}">
                                                     <div class="col-12 text-center">
                                                         <button type="mit" id="mit"
-                                                            class="btn btn-primary me-sm-3 me-1 mt-3 deleterate">حذف
-                                                            الصنف</button>
+                                                            class="btn color me-sm-3 me-1 mt-3 deleterate">حذف
+                                                            العملة</button>
                                                         <button type="reset"
                                                             class="btn btn-label-secondary btn-reset mt-3"
-                                                            data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+                                                            data-bs-dismiss="modal" aria-label="Close">الغاء</button>
                                                     </div>
                                                 </form>
                                             </div>
@@ -146,12 +146,12 @@
         @elseif($do == 'Add')
             <!-- Add rate Modal -->
             @if (session()->has('success'))
-                <div class="alert alert-success" id="message">
+                <div class="alert bg_color message_animation" id="message">
                     {{ session()->get('success') }}
                 </div>
             @elseif (session()->has('error'))
-                <div class="alert alert-danger" id="message">
-                    {{ session()->get('success') }}
+                <div class="alert alert-danger message_animation" id="message">
+                    {{ session()->get('error') }}
                 </div>
             @endif
             <div class="col-md-12 m-auto">
@@ -165,7 +165,7 @@
                             <div class="col-md-6">
                                 <label for="defaultFormControlInput" class="form-label"> الاسم (عربي)</label>
                                 <input type="text" name="nameAr" class="form-control  name ar"
-                                    id="addrateNameAr" placeholder="اضف  عملة" value="{{ old('nameAr') }}"
+                                    id="addrateNameAr" placeholder="اضف  عملة AR" value="{{ old('nameAr') }}"
                                     aria-describedby="defaultFormControlHelp" />
                                 @error('nameAr')
                                     <span class="help-block text-danger">* {{ $message }} </span>
@@ -174,35 +174,35 @@
                             <div class="col-md-6">
                                 <label for="defaultFormControlInput" class="form-label">الاسم (انجليزي)</label>
                                 <input type="text" name="nameEn" class="form-control  " id="addrateNameEn"
-                                    value="{{ old('nameEn') }}" placeholder="اضف  عملة"
+                                    value="{{ old('nameEn') }}" placeholder="اضف  عملة EN"
                                     aria-describedby="defaultFormControlHelp" />
                                 @error('nameEn')
                                     <span class="help-block text-danger">* {{ $message }} </span>
                                 @enderror
                             </div>
                             <div class="col-md-6">
-                                <label for="defaultFormControlInput" class="form-label">شراء</label>
+                                <label for="defaultFormControlInput" class="form-label">سعر الشراء</label>
                                 <input type="text" name="buy" class="form-control  " id="addrateNameEn"
-                                    value="{{ old('buy') }}" placeholder="اضف  عملة"
+                                    value="{{ old('buy') }}" placeholder="  سعر الشراء"
                                     aria-describedby="defaultFormControlHelp" />
                                 @error('buy')
                                     <span class="help-block text-danger">* {{ $message }} </span>
                                 @enderror
                             </div>
                             <div class="col-md-6">
-                                <label for="defaultFormControlInput" class="form-label">بيع</label>
+                                <label for="defaultFormControlInput" class="form-label">سعر البيع</label>
                                 <input type="text" name="sale" class="form-control  " id="addrateNameEn"
-                                    value="{{ old('sale') }}" placeholder="اضف  عملة"
+                                    value="{{ old('sale') }}" placeholder="  سعر البيع"
                                     aria-describedby="defaultFormControlHelp" />
                                 @error('sale')
                                     <span class="help-block text-danger">* {{ $message }} </span>
                                 @enderror
                             </div>
                             <div class="col-12 text-center">
-                                <button type="mit" class="btn btn-primary me-sm-3 me-1 mt-3 addrate">
+                                <button type="mit" class="btn color me-sm-3 me-1 mt-3 addrate">
                                     اضافة عملة</button>
                                 <button type="reset" class="btn btn-label-secondary btn-reset mt-3"
-                                    data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+                                    data-bs-dismiss="modal" aria-label="Close">الغاء</button>
                             </div>
                         </form>
 
@@ -214,12 +214,12 @@
             <!-- start Edit model -->
             <?php $rateId = isset($_GET['rateId']) && is_numeric($_GET['rateId']) ? intval($_GET['rateId']) : 0; ?>
             @if (session()->has('success'))
-                <div class="alert alert-success">
+                <div class="alert bg_color message_animation">
                     {{ session()->get('success') }}
                 </div>
             @elseif (session()->has('error'))
-                <div class="alert alert-danger">
-                    {{ session()->get('success') }}
+                <div class="alert alert-danger message_animation">
+                    {{ session()->get('error') }}
                 </div>
             @endif
             <div class="col-md-12 m-auto">
@@ -236,7 +236,7 @@
                                         <label for="defaultFormControlInput" class="form-label"> الاسم (عربي)</label>
                                         <input type="text" name="nameAr" class="form-control"
                                             value="{{ $rate->getTranslation('name', 'ar') }}" id="addrateNameAr"
-                                            placeholder="اضف  عملة" aria-describedby="defaultFormControlHelp" />
+                                            placeholder="اضف  عملة AR" aria-describedby="defaultFormControlHelp" />
                                         @error('nameAr')
                                             <span class="help-block text-danger">* {{ $message }} </span>
                                         @enderror
@@ -245,34 +245,34 @@
                                         <label for="defaultFormControlInput" class="form-label">الاسم (انجليزي)</label>
                                         <input type="text" name="nameEn" class="form-control  "
                                             id="addrateNameEn" value="{{ $rate->getTranslation('name', 'en') }}"
-                                            placeholder="اضف  عملة" aria-describedby="defaultFormControlHelp" />
+                                            placeholder="اضف  عملة EN" aria-describedby="defaultFormControlHelp" />
                                         @error('nameEn')
                                             <span class="help-block text-danger">* {{ $message }} </span>
                                         @enderror
                                     </div>
                                     <div class="col-md-6">
-                                        <label for="defaultFormControlInput" class="form-label"> شراء (عربي)</label>
+                                        <label for="defaultFormControlInput" class="form-label"> سعر الشراء </label>
                                         <input type="text" name="buy" class="form-control"
                                             value="{{$rate->buy}}" id="addratebuy"
-                                            placeholder="اضف  عملة" aria-describedby="defaultFormControlHelp" />
+                                            placeholder="  سعر الشراء" aria-describedby="defaultFormControlHelp" />
                                         @error('buy')
                                             <span class="help-block text-danger">* {{ $message }} </span>
                                         @enderror
                                     </div>
                                     <div class="col-md-6">
-                                        <label for="defaultFormControlInput" class="form-label"> بيع (عربي)</label>
+                                        <label for="defaultFormControlInput" class="form-label"> سعر البيع</label>
                                         <input type="text" name="sale" class="form-control"
                                             value="{{ $rate->sale }}" id="addratesaleAr"
-                                            placeholder="اضف  عملة" aria-describedby="defaultFormControlHelp" />
+                                            placeholder="  سعر البيع" aria-describedby="defaultFormControlHelp" />
                                         @error('saleAr')
                                             <span class="help-block text-danger">* {{ $message }} </span>
                                         @enderror
                                     </div>
                                     <div class="col-12 text-center">
-                                        <button type="mit" class="btn btn-primary me-sm-3 me-1 mt-3 addrate">
-                                            نعديل معلومات عملة</button>
+                                        <button type="mit" class="btn color me-sm-3 me-1 mt-3 addrate">
+                                            نعديل معلومات العملة</button>
                                         <button type="reset" class="btn btn-label-secondary btn-reset mt-3"
-                                            data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+                                            data-bs-dismiss="modal" aria-label="Close">الغاء</button>
                                     </div>
                                 </form>
                             @endif

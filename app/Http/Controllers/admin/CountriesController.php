@@ -77,7 +77,7 @@ class CountriesController extends Controller
                 [
                     // 'Country'=> $Country,
                     'status' => 404,
-                    'message' => 'Data not Found',
+                    'message' => 'حدث خطا لا يوجد اي بيانات',
 
                 ]
             );
@@ -115,7 +115,7 @@ class CountriesController extends Controller
                         [
                             // 'Country'=> $Country,
                             'status' => 200,
-                            'message' => 'Data Update successfully',
+                            'message' => 'تم تعديل البيانات بنجاح',
 
                         ]
                     );
@@ -124,7 +124,7 @@ class CountriesController extends Controller
                     return response()->json(
                         [
                             'status' => 404,
-                            'message' => 'Data not Found',
+                            'message' => 'حدث خطا لا يوجد اي بيانات',
 
                         ]
                     );
@@ -146,7 +146,7 @@ class CountriesController extends Controller
                 [
                     'active' => $Country,
                     'status' => 200,
-                    'message' => 'Data Update successfully',
+                    'message' => 'تم تعديل البيانات بنجاح',
 
                 ]
             );
@@ -155,7 +155,7 @@ class CountriesController extends Controller
             return response()->json(
                 [
                     'status' => 404,
-                    'message' => 'Data not Found',
+                    'message' => 'حدث خطا لا يوجد اي بيانات',
 
                 ]
             );
@@ -170,7 +170,7 @@ class CountriesController extends Controller
                 [
                     'active' => $Country,
                     'status' => 200,
-                    'message' => 'Data Delete successfully',
+                    'message' => 'تم الحذف بنجاح',
 
                 ]
             );
@@ -179,7 +179,7 @@ class CountriesController extends Controller
             return response()->json(
                 [
                     'status' => 404,
-                    'message' => 'Data not Found',
+                    'message' => 'حدث خطا لا يوجد اي بيانات',
 
                 ]
             );

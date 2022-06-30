@@ -4,20 +4,20 @@
     @if ($do == 'Manage')
         <!-- show message -->
         @if (session()->has('success'))
-            <div class="alert alert-success" id="message">
+            <div class="alert bg_color message_animation" id="message">
                 {{ session()->get('success') }}
             </div>
         @elseif (session()->has('error'))
-            <div class="alert alert-danger" id="message">
-                {{ session()->get('success') }}
+            <div class="alert alert-danger message_animation" id="message">
+                {{ session()->get('error') }}
             </div>
         @endif
         <!-- End show message -->
 
         <div class="card p-3">
             <h2 name="tableName m-5 ">  الوظائف</h2>
-            <a href="jobs?do=Add" class="btn w-25 p-2 contact">
-                <button type="button" class="btn btn-primary m-4 px-5 d-flex justify-content-start text-center"
+            <a href="jobs?do=Add" class="btn d-flex justify-content-start  p-2 contact">
+                <button type="button" class="btn color m-4 px-5 w-25 text-center"
                     id="addjobs"> اضافه وظيفة جديدة </button></a>
             <x-table>
                 <div class="table-responsive text-nowrap">
@@ -37,7 +37,7 @@
                                 <tr>
                                     <td>{{ $i++ }}</td>
                                     <td>{{ $jobs->title }}</td>
-                                    <td><a href="jobs?do=Edit&jobsId={{ $jobs->id }}" style="color:#03c3ec99">تفاصيل الوظيفه</a></td>
+                                    <td><a href="jobs?do=Edit&jobsId={{ $jobs->id }}" class="color_text">تفاصيل الوظيفه</a></td>
                                     <td>
                                         @if ($jobs->is_active == 1)
                                             <label class="switch" data-bs-toggle="modal"
@@ -92,11 +92,11 @@
                                                         value="{{ $jobs->id }}">
                                                     <div class="col-12 text-center">
                                                         <button type="mit" id="mit"
-                                                            class="btn btn-primary me-sm-3 me-1 mt-3 activejobs">تغيير
+                                                            class="btn color me-sm-3 me-1 mt-3 activejobs">تغيير
                                                             الحالة</button>
                                                         <button type="reset"
                                                             class="btn btn-label-secondary btn-reset mt-3"
-                                                            data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+                                                            data-bs-dismiss="modal" aria-label="Close">الغاء</button>
                                                     </div>
                                                 </form>
                                             </div>
@@ -116,7 +116,7 @@
                                                 <div class="text-center mb-4">
                                                     <h4 class="modal-title" id="userCrudModal">هل انت متاكد انك تريد حذف
                                                         وظيفة</h4>
-                                                    <p>في حال الموافقه سوف يتم حذف الصنف بشكل نهائي ولن تستطيع التراجع </p>
+                                                    <p>في حال الموافقه سوف يتم حذف الوظيفة بشكل نهائي ولن تستطيع التراجع </p>
                                                 </div>
                                                 <form action="{{ route('deletejobs', $jobs->id) }}"
                                                     class="row g-3" method="POST" enctype="multipart/form-data">
@@ -124,11 +124,11 @@
                                                     <input type="hidden" value="{{ $jobs->id }}">
                                                     <div class="col-12 text-center">
                                                         <button type="mit" id="mit"
-                                                            class="btn btn-primary me-sm-3 me-1 mt-3 deletejobs">حذف
-                                                            الصنف</button>
+                                                            class="btn color me-sm-3 me-1 mt-3 deletejobs">حذف
+                                                            الوظيفة</button>
                                                         <button type="reset"
                                                             class="btn btn-label-secondary btn-reset mt-3"
-                                                            data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+                                                            data-bs-dismiss="modal" aria-label="Close">الغاء</button>
                                                     </div>
                                                 </form>
                                             </div>
@@ -144,12 +144,12 @@
         @elseif($do == 'Add')
             <!-- Add jobs Modal -->
             @if (session()->has('success'))
-                <div class="alert alert-success" id="message">
+                <div class="alert bg_color message_animation" id="message">
                     {{ session()->get('success') }}
                 </div>
             @elseif (session()->has('error'))
-                <div class="alert alert-danger" id="message">
-                    {{ session()->get('success') }}
+                <div class="alert alert-danger message_animation" id="message">
+                    {{ session()->get('error') }}
                 </div>
             @endif
             <div class="col-md-12 m-auto">
@@ -179,24 +179,24 @@
                                 @enderror
                             </div>
                             <div class="col-md-6">
-                                <label for="defaultFormControlInput" class="form-label">( العربي) مميزات اخرى</label>
+                                <label for="defaultFormControlInput" class="form-label">( العربي) تفاصيل اخرى</label>
                                 <textarea name="descriptionAr" id="" cols="30" rows="10"></textarea>
                                 @error('descriptionAr')
                                     <span class="help-block text-danger">* {{ $message }} </span>
                                 @enderror
                             </div>
                             <div class="col-md-6">
-                                <label for="defaultFormControlInput" class="form-label">مميزات اخرى (انجليزي)</label>
+                                <label for="defaultFormControlInput" class="form-label">تفاصيل اخرى (انجليزي)</label>
                                 <textarea name="descriptionEn" id="" cols="30" rows="10"></textarea>
                                 @error('descriptionEn')
                                     <span class="help-block text-danger">* {{ $message }} </span>
                                 @enderror
                             </div>
                             <div class="col-12 text-center">
-                                <button type="mit" class="btn btn-primary me-sm-3 me-1 mt-3 addjobs">
+                                <button type="mit" class="btn color me-sm-3 me-1 mt-3 addjobs">
                                     اضافة وظيفة</button>
                                 <button type="reset" class="btn btn-label-secondary btn-reset mt-3"
-                                    data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+                                    data-bs-dismiss="modal" aria-label="Close">الغاء</button>
                             </div>
                         </form>
 
@@ -208,12 +208,12 @@
             <!-- start Edit model -->
             <?php $jobsId = isset($_GET['jobsId']) && is_numeric($_GET['jobsId']) ? intval($_GET['jobsId']) : 0; ?>
             @if (session()->has('success'))
-                <div class="alert alert-success">
+                <div class="alert bg_color message_animation">
                     {{ session()->get('success') }}
                 </div>
             @elseif (session()->has('error'))
-                <div class="alert alert-danger">
-                    {{ session()->get('success') }}
+                <div class="alert alert-danger message_animation">
+                    {{ session()->get('error') }}
                 </div>
             @endif
             <div class="col-md-12 m-auto">
@@ -245,7 +245,7 @@
                                         @enderror
                                     </div>
                                     <div class="col-md-6">
-                                        <label for="defaultFormControlInput" class="form-label">الوصف (انجليزي)</label>
+                                        <label for="defaultFormControlInput" class="form-label">تفاصيل اخرى (عربي)</label>
                                         <textarea type="text" name="descriptionAr" class="form-control"> {{ $jobs->getTranslation('description', 'ar') }}
                                         </textarea>
                                         @error('descriptionAr')
@@ -253,7 +253,7 @@
                                         @enderror
                                     </div>
                                     <div class="col-md-6">
-                                        <label for="defaultFormControlInput" class="form-label">الوصف (انجليزي)</label>
+                                        <label for="defaultFormControlInput" class="form-label">تفاصيل اخرى (انجليزي)</label>
                                         <textarea type="text" name="descriptionEn" class="form-control  ">{{ $jobs->getTranslation('description', 'en') }}
                                         </textarea>
                                         @error('descriptionEn')
@@ -261,10 +261,10 @@
                                         @enderror
                                     </div>
                                     <div class="col-12 text-center">
-                                        <button type="mit" class="btn btn-primary me-sm-3 me-1 mt-3 addjobs">
+                                        <button type="mit" class="btn color me-sm-3 me-1 mt-3 addjobs">
                                             نعديل معلومات وظيفة</button>
                                         <button type="reset" class="btn btn-label-secondary btn-reset mt-3"
-                                            data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+                                            data-bs-dismiss="modal" aria-label="Close">الغاء</button>
                                     </div>
                                 </form>
                             @endif

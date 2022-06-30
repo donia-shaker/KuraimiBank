@@ -4,9 +4,9 @@
     <div class="" role="alert" id="message">
     </div>
     <div class="card p-3" id="socialMedia">
-        <h2 name="tableName m-5"> وسائل التواصل</h2>
-        <button type="button" class="btn btn-primary m-4 w-25" data-bs-toggle="modal" data-bs-target="#addSocialMediaModal"
-            id="addSocialMedia"> اضافه خدمه </button>
+        <h2 name="tableName m-5">ادارة وسائل التواصل </h2>
+        <button type="button" class="btn color m-4 w-25" data-bs-toggle="modal" data-bs-target="#addSocialMediaModal"
+            id="addSocialMedia"> اضافه وسائل تواصل </button>
         <x-table>
             <div class="table-responsive text-nowrap">
                 <table class="table ">
@@ -37,7 +37,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     <div class="text-center mb-4">
                         <h4 class="modal-title" id="userCrudModal"></h4>
-                        <p>اضف خدمة جديدة للموقع</p>
+                        <p>اضف وسيلة تواصل جديدة للموقع</p>
                     </div>
                     <form id="addSocialMediaForm" class="row g-3" action="" method="POST"
                         enctype="multipart/form-data">
@@ -45,19 +45,19 @@
                         <div>
                             <label for="defaultFormControlInput" class="form-label"> الاسم (عربي)</label>
                             <input type="text" name="nameAr" class="form-control  name ar" id="addSocialMediaNameAr"
-                                placeholder="اضف اسم الخدمة" aria-describedby="defaultFormControlHelp" />
+                                placeholder="اضف اسم وسيلة التواصل AR" aria-describedby="defaultFormControlHelp" />
                             <span class="help-block text-danger"></span>
                         </div>
                         <div>
                             <label for="defaultFormControlInput" class="form-label">الاسم (انجليزي)</label>
                             <input type="text" name="nameEn" class="form-control  name en" id="addSocialMediaNameEn"
-                                placeholder="اضف اسم الخدمة" aria-describedby="defaultFormControlHelp" />
+                                placeholder="اضف اسم وسيلة التواصل EN" aria-describedby="defaultFormControlHelp" />
                             <span class="help-block text-danger"></span>
                         </div>
                         <div>
                             <label for="defaultFormControlInput" class="form-label">ادخل الرابط</label>
                             <input type="text" name="link" class="form-control  name en" id="addSocialMediaLink"
-                                placeholder="اضف اسم الخدمة" aria-describedby="defaultFormControlHelp" />
+                                placeholder="اضف اسم وسيلة التواصل" aria-describedby="defaultFormControlHelp" />
                             <span class="help-block text-danger"></span>
                         </div>
                         <div class="col-12 my-4">
@@ -88,9 +88,9 @@
                             </label>
                         </div> --}}
                         <div class="col-12 text-center">
-                            <button type="submit" class="btn btn-primary me-sm-3 me-1 mt-3 addSocialMedia">اضافة</button>
+                            <button type="submit" class="btn color me-sm-3 me-1 mt-3 addSocialMedia">اضافة</button>
                             <button type="reset" class="btn btn-label-secondary btn-reset mt-3" data-bs-dismiss="modal"
-                                aria-label="Close">Cancel</button>
+                                aria-label="Close">الغاء</button>
                         </div>
                     </form>
                 </div>
@@ -107,7 +107,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     <div class="text-center mb-4">
                         <h4 class="modal-title" id="userCrudModal"></h4>
-                        <p>تعديل الخدمة </p>
+                        <p>تعديل وسيلة التواصل </p>
                     </div>
                     <form id="updateSocialMedia" class="row g-3" action="updateSocialMedia" method="POST"
                         enctype="multipart/form-data">
@@ -116,19 +116,19 @@
                         <div>
                             <label for="defaultFormControlInput" class="form-label"> الاسم (عربي)</label>
                             <input type="text" name="nameAr" class="form-control name ar" id="editSocialMediaNameAr"
-                                placeholder="اضف اسم الخدمة" aria-describedby="defaultFormControlHelp" />
+                                placeholder="اضف اسم وسيلة التواصل" aria-describedby="defaultFormControlHelp" />
                             <span class="help-block text-danger"></span>
                         </div>
                         <div>
                             <label for="defaultFormControlInput" class="form-label">الاسم (انجليزي)</label>
                             <input type="text" name="nameEn" class="form-control" id="editSocialMediaNameEn"
-                                placeholder="اضف اسم الخدمة" aria-describedby="defaultFormControlHelp" />
+                                placeholder="اضف اسم وسيلة التواصل" aria-describedby="defaultFormControlHelp" />
                             <span class="help-block text-danger"></span>
                         </div>
                         <div>
                             <label for="defaultFormControlInput" class="form-label">ادخل الرابط</label>
                             <input type="text" name="link" class="form-control  name en" id="editSocialMediaLink"
-                                placeholder="اضف اسم الخدمة" aria-describedby="defaultFormControlHelp" />
+                                placeholder="اضف اسم وسيلة التواصل" aria-describedby="defaultFormControlHelp" />
                             <span class="help-block text-danger"></span>
                         </div>
                         <div class="col-12 my-4">
@@ -158,9 +158,9 @@
                         </div>
                         <div class="col-12 text-center">
                             <button type="submit"
-                                class="btn btn-primary me-sm-3 me-1 mt-3 updateSocialMedia">تعديل</button>
+                                class="btn color me-sm-3 me-1 mt-3 updateSocialMedia">تعديل</button>
                             <button type="reset" class="btn btn-label-secondary btn-reset mt-3" data-bs-dismiss="modal"
-                                aria-label="Close">Cancel</button>
+                                aria-label="Close">الغاء</button>
                         </div>
                     </form>
                 </div>
@@ -176,8 +176,8 @@
                 <div class="modal-body">
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     <div class="text-center mb-4">
-                        <h4 class="modal-title" id="userCrudModal">هل انت متاكد انك تريد تغيير حاله الخدمة</h4>
-                        <p>تغيير حالة الخدمة </p>
+                        <h4 class="modal-title" id="userCrudModal">هل انت متاكد انك تريد تغيير حاله وسيلة التواصل</h4>
+                        <p>تغيير حالة وسيلة التواصل </p>
                     </div>
                     <form id="activeSocialMedia" class="row g-3" action="activeSocialMedia" method="POST"
                         enctype="multipart/form-data">
@@ -185,9 +185,9 @@
                         <input type="hidden" id="activeSocialMediaId" class="activeSocialMediaId" value="">
                         <div class="col-12 text-center">
                             <button type="submit" id="submit"
-                                class="btn btn-primary me-sm-3 me-1 mt-3 activeSocialMedia">تغيير الحالة</button>
+                                class="btn color me-sm-3 me-1 mt-3 activeSocialMedia">تغيير الحالة</button>
                             <button type="reset" class="btn btn-label-secondary btn-reset mt-3" data-bs-dismiss="modal"
-                                aria-label="Close">Cancel</button>
+                                aria-label="Close">الغاء</button>
                         </div>
                     </form>
                 </div>
@@ -203,8 +203,8 @@
                 <div class="modal-body">
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     <div class="text-center mb-4">
-                        <h4 class="modal-title" id="userCrudModal">هل انت متاكد انك تريد حذف الخدمة</h4>
-                        <p>في حال الموافقه سوف يتم حذف الصنف بشكل نهائي ولن تستطيع التراجع </p>
+                        <h4 class="modal-title" id="userCrudModal">هل انت متاكد انك تريد حذف وسيلة التواصل</h4>
+                        <p>في حال الموافقه سوف يتم حذف وسائل التواصل بشكل نهائي ولن تستطيع التراجع </p>
                     </div>
                     <form id="deleteSocialMediaId" class="row g-3" action="deleteSocialMedia" method="POST"
                         enctype="multipart/form-data">
@@ -212,9 +212,9 @@
                         <input type="hidden" id="deleteSocialMediaId" class="deleteSocialMediaId" value="">
                         <div class="col-12 text-center">
                             <button type="submit" id="submit"
-                                class="btn btn-primary me-sm-3 me-1 mt-3 deleteSocialMedia">حذف الصنف</button>
+                                class="btn color me-sm-3 me-1 mt-3 deleteSocialMedia">حذف وسائل التواصل</button>
                             <button type="reset" class="btn btn-label-secondary btn-reset mt-3" data-bs-dismiss="modal"
-                                aria-label="Close">Cancel</button>
+                                aria-label="Close">الغاء</button>
                         </div>
                     </form>
                 </div>

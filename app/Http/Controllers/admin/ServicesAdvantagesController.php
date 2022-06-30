@@ -47,7 +47,7 @@ class servicesAdvantagesController extends Controller
             'service_id'    => $request->serviceId
         ]);
         
-        return redirect()->route('serviceAdv',$request->serviceId)->with(['success' => 'Data Insert Successfully']);
+        return redirect()->route('serviceAdv',$request->serviceId)->with(['success' => 'تمت الاضافه بنجاح']);
     }
 
     function updateServiceAdv(Request $request,$id)
@@ -71,7 +71,7 @@ class servicesAdvantagesController extends Controller
             'service_id'    => $request->serviceId
         ]);
 
-    return redirect()->route('serviceAdv',$request->serviceId)->with(['success' => 'Data update Successfully']);
+    return redirect()->route('serviceAdv',$request->serviceId)->with(['success' => 'تم تعديل البيانات بنجاح']);
         
     }
 
@@ -82,14 +82,14 @@ class servicesAdvantagesController extends Controller
         else 
             $service->is_active=1;
         if($service->save())
-        return redirect()->back()->with(['success'=> 'Status Change Successfuly']);
+        return redirect()->back()->with(['success'=> 'تم تغيير الحالة بنجاح']);
     }
 
     public function deleteServiceAdv($id)
     {
         $service = services_advantages::find($id);
         if ($service->delete()) 
-        return redirect()->back()->with(['success' => 'Data Delete successfully']);
+        return redirect()->back()->with(['success' => 'تم الحذف بنجاح']);
 
     }
 }

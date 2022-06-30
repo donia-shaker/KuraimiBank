@@ -12,6 +12,10 @@ class categories extends Model
     //     'name' => 'object'
     // ];
 
+    public function category(){
+        return $this->belongsTo(categories::class,'category_id');
+    }
+
     public function getNameAttribute()
     {
         return json_decode($this->attributes['name']);

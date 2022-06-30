@@ -25,7 +25,7 @@ function fetchData() {
              <td> ${i} </td>
              <td> <i></i> ${isLocaleEn ? item.name.en : item.name.ar}</td>
              <td>
-                 <a href="cities/${item.id}#${item.id}" style="color:#03c3ec99">
+                 <a href="cities/${item.id}#${item.id}" class="color_text">
                 انقر لعرض المدن</a>
              </td>`;
             if (item.is_active) {
@@ -79,9 +79,7 @@ function fetchData() {
                     axios.get(`editCountry/${CountryId}`).then((response) => {
                         // console.log(response);
                         if (response.status == 400) {
-                            el("#message").innerHTML = "";
-                            el("#message").classList.add("alert");
-                            el("#message").classList.add("alert-danger");
+                            el("#message").innerHTML = "<div class='alert alert-danger message_animation'>"+ response.data.message+"</div>";
                         } else {
                             el("#editCountryId").value = CountryId;
                             el("#editCountryNameEn").value =
@@ -133,10 +131,7 @@ el(".activeCountry").addEventListener("click", function (e) {
     console.log(CountryId);
 
     axios.post(`activeCountry/${CountryId}`).then((response) => {
-        el("#message").innerHTML = "";
-        el("#message").classList.add("alert");
-        el("#message").classList.add("alert-success");
-        el("#message").innerText = response.data.message;
+        el("#message").innerHTML = "<div class='alert bg_color message_animation'>"+ response.data.message+"</div>";
         $("#activeCountryModal").modal("hide");
         fetchData();
     });
@@ -150,10 +145,7 @@ el(".deleteCountry").addEventListener("click", function (e) {
     // console.log(CountryId);
 
     axios.post(`deleteCountry/${CountryId}`).then((response) => {
-        el("#message").innerHTML = "";
-        el("#message").classList.add("alert");
-        el("#message").classList.add("alert-success");
-        el("#message").innerText = response.data.message;
+        el("#message").innerHTML = "<div class='alert bg_color message_animation'>"+ response.data.message+"</div>";
         $("#deleteCountryModal").modal("hide");
         fetchData();
     });
@@ -183,13 +175,10 @@ el(".updateCountry").addEventListener("click", function (e) {
                 });
             } else if (response.data.status == 404) {
                 el("#updateCountry").innerHTML = "";
-                el("#message").classList.add("alert");
-                el("#message").classList.add("alert-danger");
-                el("#message").innerText = response.data.message;
+                el("#message").innerHTML = "<div class='alert alert-danger message_animation'>"+ response.data.message+"</div>";
             } else {
-                el("#message").innerHTML = "";
-                el("#message").classList.add("alert");
-                el("#message").classList.add("alert-success");
+                el("#message").innerHTML = "<div class='alert bg_color message_animation'>"+ response.data.message+"</div>";
+
                 el("#message").innerText = response.data.message;
                 el("#editCountryModal").classList.remove("show");
                 // el("#editCountryModal").classList.add('hide');
@@ -220,10 +209,7 @@ el(".addCountry").addEventListener("click", function (e) {
                     el(input + "+span").innerText = errors[key];
                 });
             } else {
-                el("#message").innerHTML = "";
-                el("#message").classList.add("alert");
-                el("#message").classList.add("alert-success");
-                el("#message").innerText = response.data.message;
+                el("#message").innerHTML = "<div class='alert bg_color message_animation'>"+ response.data.message+"</div>";
                 $("#addCountryModal").modal("hide");
                 el("#addCountryForm input").value = "";
                 fetchData();

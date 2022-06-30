@@ -4,28 +4,28 @@
     @if ($do == 'Manage')
         <!-- show message -->
         @if (session()->has('success'))
-            <div class="alert alert-success" id="message">
+            <div class="alert bg_color message_animation" id="message">
                 {{ session()->get('success') }}
             </div>
         @elseif (session()->has('error'))
-            <div class="alert alert-danger" id="message">
-                {{ session()->get('success') }}
+            <div class="alert alert-danger message_animation" id="message">
+                {{ session()->get('error') }}
             </div>
         @endif
         <!-- End show message -->
 
         <div class="card p-3">
-            <h2 name="tableName m-5 ">  الاخبار</h2>
-            <a href="pages?do=Add" class="btn w-25 p-2 contact">
-                <button type="button" class="btn btn-primary m-4 px-5 d-flex justify-content-start text-center"
-                    id="addpages">  اضافه صفحة جديد للموقع </button></a>
+            <h2 name="tableName m-5 ">  صفحة السياسة والخصوصية</h2>
+            <a href="pages?do=Add" class="btn  d-flex justify-content-start  p-2 contact">
+                <button type="button" class="btn color m-4 px-5w-25  text-center"
+                    id="addpages">   اضافة معلومات الصفحة   </button></a>
             <x-table>
                 <div class="table-responsive text-nowrap">
                     <table class="table">
                         <x-slot name="tableHead">
                             <tr>
                                 <th>#</th>
-                                <th>العنوان </th>
+                                <th>العنوان الرئيسي </th>
                                 <th>العنوان الفرعي</th>
                                 <th> تفاصيل الصفحة</th>
                                 <th> الحاله</th>
@@ -40,7 +40,7 @@
                                     <td>{{ $pages->title }}</td>
                                     <td>{{ $pages->sub_title }}</td>
                                     <td>
-                                    <a href="pages?do=Edit&pagesId={{ $pages->id }}" style="color:#03c3ec99">معلومات الصفحة</a></td>
+                                    <a href="pages?do=Edit&pagesId={{ $pages->id }}" class="color_text">معلومات الصفحة</a></td>
                                     </td>
                                     <td>
                                         @if ($pages->is_active == 1)
@@ -96,11 +96,11 @@
                                                         value="{{ $pages->id }}">
                                                     <div class="col-12 text-center">
                                                         <button type="mit" id="mit"
-                                                            class="btn btn-primary me-sm-3 me-1 mt-3 activepages">تغيير
+                                                            class="btn color me-sm-3 me-1 mt-3 activepages">تغيير
                                                             الحالة</button>
                                                         <button type="reset"
                                                             class="btn btn-label-secondary btn-reset mt-3"
-                                                            data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+                                                            data-bs-dismiss="modal" aria-label="Close">الغاء</button>
                                                     </div>
                                                 </form>
                                             </div>
@@ -119,8 +119,8 @@
                                                     aria-label="Close"></button>
                                                 <div class="text-center mb-4">
                                                     <h4 class="modal-title" id="userCrudModal">هل انت متاكد انك تريد حذف
-                                                        الصفحات</h4>
-                                                    <p>في حال الموافقه سوف يتم حذف الصنف بشكل نهائي ولن تستطيع التراجع </p>
+                                                        الصفحة</h4>
+                                                    <p>في حال الموافقه سوف يتم حذف الصفحة بشكل نهائي ولن تستطيع التراجع </p>
                                                 </div>
                                                 <form action="{{ route('deletepages', $pages->id) }}"
                                                     class="row g-3" method="POST" enctype="multipart/form-data">
@@ -128,11 +128,11 @@
                                                     <input type="hidden" value="{{ $pages->id }}">
                                                     <div class="col-12 text-center">
                                                         <button type="mit" id="mit"
-                                                            class="btn btn-primary me-sm-3 me-1 mt-3 deletepages">حذف
-                                                            الصنف</button>
+                                                            class="btn color me-sm-3 me-1 mt-3 deletepages">حذف
+                                                            الصفحة</button>
                                                         <button type="reset"
                                                             class="btn btn-label-secondary btn-reset mt-3"
-                                                            data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+                                                            data-bs-dismiss="modal" aria-label="Close">الغاء</button>
                                                     </div>
                                                 </form>
                                             </div>
@@ -148,17 +148,17 @@
         @elseif($do == 'Add')
             <!-- Add pages Modal -->
             @if (session()->has('success'))
-                <div class="alert alert-success" id="message">
+                <div class="alert bg_color message_animation" id="message">
                     {{ session()->get('success') }}
                 </div>
             @elseif (session()->has('error'))
-                <div class="alert alert-danger" id="message">
-                    {{ session()->get('success') }}
+                <div class="alert alert-danger message_animation" id="message">
+                    {{ session()->get('error') }}
                 </div>
             @endif
             <div class="col-md-12 m-auto">
                 <div class="card mb-4 p-4 ">
-                    <h1 class="text-start fs-3 ">اضافة معلومه الصفحات</h1>
+                    <h1 class="text-start fs-3 ">اضافة معلومه الصفحة</h1>
                     <div class="card-body demo-vertical-spacing demo-only-element">
 
                         <form class="row g-3" action="{{ route('addpages') }}" method="POST"
@@ -215,10 +215,10 @@
                                 @enderror
                             </div>
                             <div class="col-12 text-center">
-                                <button type="mit" class="btn btn-primary me-sm-3 me-1 mt-3 addpages">
+                                <button type="mit" class="btn color me-sm-3 me-1 mt-3 addpages">
                                     اضافة الصفحات</button>
                                 <button type="reset" class="btn btn-label-secondary btn-reset mt-3"
-                                    data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+                                    data-bs-dismiss="modal" aria-label="Close">الغاء</button>
                             </div>
                         </form>
 
@@ -230,12 +230,12 @@
             <!-- start Edit model -->
             <?php $pagesId = isset($_GET['pagesId']) && is_numeric($_GET['pagesId']) ? intval($_GET['pagesId']) : 0; ?>
             @if (session()->has('success'))
-                <div class="alert alert-success">
+                <div class="alert bg_color message_animation">
                     {{ session()->get('success') }}
                 </div>
             @elseif (session()->has('error'))
-                <div class="alert alert-danger">
-                    {{ session()->get('success') }}
+                <div class="alert alert-danger message_animation">
+                    {{ session()->get('error') }}
                 </div>
             @endif
             <div class="col-md-12 m-auto">
@@ -285,7 +285,7 @@
                                         @enderror
                                     </div>
                                     <div class="col-md-6">
-                                        <label for="defaultFormControlInput" class="form-label">الوصف (انجليزي)</label>
+                                        <label for="defaultFormControlInput" class="form-label">تفاصيل اخرى (عربي)</label>
                                         <textarea type="text" name="descriptionAr" class="form-control"> {{ $pages->getTranslation('description', 'ar') }}
                                         </textarea>
                                         @error('descriptionAr')
@@ -293,7 +293,7 @@
                                         @enderror
                                     </div>
                                     <div class="col-md-6">
-                                        <label for="defaultFormControlInput" class="form-label">الوصف (انجليزي)</label>
+                                        <label for="defaultFormControlInput" class="form-label">تفاصيل اخرى (انجليزي)</label>
                                         <textarea type="text" name="descriptionEn" class="form-control  ">{{ $pages->getTranslation('description', 'en') }}
                                         </textarea>
                                         @error('descriptionEn')
@@ -301,10 +301,10 @@
                                         @enderror
                                     </div>
                                     <div class="col-12 text-center">
-                                        <button type="mit" class="btn btn-primary me-sm-3 me-1 mt-3 addpages">
-                                            نعديل معلومات الصفحات</button>
+                                        <button type="mit" class="btn color me-sm-3 me-1 mt-3 addpages">
+                                            نعديل معلومات الصفحة</button>
                                         <button type="reset" class="btn btn-label-secondary btn-reset mt-3"
-                                            data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+                                            data-bs-dismiss="modal" aria-label="Close">الغاء</button>
                                     </div>
                                 </form>
                             @endif

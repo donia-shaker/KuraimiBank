@@ -42,6 +42,8 @@
     <!-- Page CSS -->
     <!-- Page -->
 <link rel="stylesheet" href="../../assets/vendor/css/pages/page-auth.css">
+<link rel="stylesheet" href="{{ URL::asset('css/main.css') }}" />
+
     <!-- Helpers -->
     <script src="../../assets/vendor/js/helpers.js"></script>
 
@@ -73,11 +75,11 @@
 
   <!-- show message -->
   @if (session()->has('success'))
-  <div class="alert alert-success" id="message">
+  <div class="alert bg_color message_animation" id="message">
       {{ session()->get('success') }}
   </div>
 @elseif (session()->has('error'))
-  <div class="alert alert-danger" id="message">
+  <div class="alert alert-danger message_animation" id="message">
       {{ session()->get('error') }}
   </div>
 @endif

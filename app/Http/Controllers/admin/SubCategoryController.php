@@ -56,10 +56,19 @@ class SubCategoryController extends Controller
                 [
                 // 'category'=> $category,
                 'status' => 200,
-                'message' => 'Data inserted successfully',
+                'message' => 'تم اضافة البيانات بنجاح',
                 
                 ]
             );
+            else {
+                return response()->json(
+                    [
+                    'status' => 404,
+                    'message' =>'فشل في عملية اضافة البيانات',
+                    
+                    ]
+                );
+                }
             // return $category->name;
         }
     }
@@ -80,7 +89,7 @@ class SubCategoryController extends Controller
                 [
                 // 'category'=> $category,
                 'status' => 404,
-                'message' =>'Data not Found',
+                'message' =>'لا يوجد اي بيانات',
                 
                 ]
             );
@@ -119,7 +128,7 @@ class SubCategoryController extends Controller
                         [
                         // 'category'=> $category,
                         'status' => 200,
-                        'message' => 'Data Update successfully',
+                        'message' => 'تم تعديل البيانات بنجاح',
                         
                         ]
                     );
@@ -128,7 +137,7 @@ class SubCategoryController extends Controller
                 return response()->json(
                     [
                     'status' => 404,
-                    'message' =>'Data not Found',
+                    'message' =>'لا يوجد بيانات',
                     
                     ]
                 );
@@ -149,7 +158,7 @@ class SubCategoryController extends Controller
                 [
                 'active'=> $category,
                 'status' => 200,
-                'message' => 'Data Update successfully',
+                'message' => 'تم تغيير حالة القسم بنجاح',
                     
                     ]
                 );
@@ -158,7 +167,7 @@ class SubCategoryController extends Controller
                 return response()->json(
                     [
                     'status' => 404,
-                    'message' =>'Data not Found',
+                    'message' =>'لا يوجد اي بيانات',
                     
                     ]
                 );
@@ -172,7 +181,7 @@ class SubCategoryController extends Controller
                 [
                 'active'=> $category,
                 'status' => 200,
-                'message' => 'Data Delete successfully',
+                'message' => 'تم حذف البيانات بنجاح',
                     
                     ]
                 );
@@ -181,7 +190,7 @@ class SubCategoryController extends Controller
                 return response()->json(
                     [
                     'status' => 404,
-                    'message' =>'Data not Found',
+                    'message' =>'لا يوجد اي بيانات',
                     
                     ]
                 );

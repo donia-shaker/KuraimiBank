@@ -26,7 +26,8 @@ class WebSiteInfoSeeder extends Seeder
                         'ar'    =>  '<p> تحتوي هذه الصفحة عن معلومات البنك <p>',
                         'en'    =>  '<p>  this Pages Contain Information About The Bank <p>',
                     ],
-                
+                ]);
+                    website_info::create([
 
                     'table_key' => [
                         'ar'    =>  '<p><a>الرؤيا </a></p> ',
@@ -36,9 +37,39 @@ class WebSiteInfoSeeder extends Seeder
                         'ar'    =>  '<p> ادخل الرؤيا الخاصة البنك <p>',
                         'en'    =>  '<p>  this Pages Contain Information About The Bank <p>',
                     ],
-                ]
+                ]);
 
-            
-        );
+                website_info::create([
+                    'table_key' => [
+                        'ar'    =>  '<p><a>الرسالة  </a></p> ',
+                        'en'    =>  '<p><a>Our principles </a></p> '
+                    ],
+                    'table_value' => [
+                        'ar'    =>  '<p> ادخل الرسالة الخاصة البنك <p>',
+                        'en'    =>  '<p>  this Pages Contain Information About The Bank <p>',
+                    ],
+                ]);
+
+                website_info::create([
+                    'table_key' => [
+                        'ar'    =>  '<p><a>الاهداف التي نسعى للوصول اليها  </a></p> ',
+                        'en'    =>  '<p><a>Our principles </a></p> '
+                    ],
+                    'table_value' => [
+                        'ar'    =>  '<p> ادخل الاهداف الخاصة البنك <p>',
+                        'en'    =>  '<p>  this Pages Contain Information About The Bank <p>',
+                    ],
+                ]);
+
+                website_info::create([
+                    'table_key' => [
+                        'ar'    =>  '<p><a>القيم والمبادئ  </a></p> ',
+                        'en'    =>  '<p><a>Our principles </a></p> '
+                    ],
+                    'table_value' => [
+                        'ar'    =>  '<p> ادخل القيم والمبادئ الخاصة البنك <p>',
+                        'en'    =>  '<p>  this Pages Contain Information About The Bank <p>',
+                    ],
+                ]);
     }
 }

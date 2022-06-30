@@ -28,7 +28,7 @@ function fetchcitiesData() {
              <td> ${i} </td>
              <td> <i></i>${isLocaleEn ? item.name.en : item.name.ar}</td>
              <td>
-                 <a href="servPoint/${item.id}#${item.id}" style="color:#03c3ec99">
+                 <a href="servPoint/${item.id}#${item.id}" class="color_text" >
                 انقر لعرض نقاط الخدمة</a>
              </td>`;
             if (item.is_active) {
@@ -82,10 +82,7 @@ function fetchcitiesData() {
                     axios.get(`editCity/${cityId}`).then((response) => {
                         // console.log(response);
                         if (response.status == 400) {
-                            el("#message").innerHTML = "";
-                            el("#message").classList.add("alert");
-                            el("#message").classList.add("alert-danger");
-                        } else {
+                            el("#message").innerHTML = "<div class='alert alert-danger message_animation'>"+ response.data.message+"</div>";
                             el("#editCityId").value = cityId;
                             el("#editCityNameEn").value =
                                 response.data.city.name.en;
@@ -135,10 +132,7 @@ if (el(".activeCity")) {
         //  console.log(cityId);
 
         axios.get(`activeCity/${cityId}`).then((response) => {
-            el("#message").innerHTML = "";
-            el("#message").classList.add("alert");
-            el("#message").classList.add("alert-success");
-            el("#message").innerText = response.data.message;
+            el("#message").innerHTML = "<div class='alert bg_color message_animation'>"+ response.data.message+"</div>";
             $("#activeCityModal").modal("hide");
             fetchcitiesData();
         });
@@ -156,10 +150,8 @@ if (el(".deleteCity")) {
         // console.log(cityId);
 
         axios.get(`deleteCity/${cityId}`).then((response) => {
-            el("#message").innerHTML = "";
-            el("#message").classList.add("alert");
-            el("#message").classList.add("alert-success");
-            el("#message").innerText = response.data.message;
+            el("#message").innerHTML = "<div class='alert bg_color message_animation'>"+ response.data.message+"</div>";
+
             $("#deleteCityModal").modal("hide");
             fetchcitiesData();
         });
@@ -191,14 +183,10 @@ el(".updateCity").addEventListener("click", function (e) {
                 });
             } else if (response.data.status == 404) {
                 el("#updateCity").innerHTML = "";
-                el("#message").classList.add("alert");
-                el("#message").classList.add("alert-danger");
-                el("#message").innerText = response.data.message;
+                el("#message").innerHTML = "<div class='alert alert-danger message_animation'>"+ response.data.message+"</div>";
             } else {
-                el("#message").innerHTML = "";
-                el("#message").classList.add("alert");
-                el("#message").classList.add("alert-success");
-                el("#message").innerText = response.data.message;
+                el("#message").innerHTML = "<div class='alert bg_color message_animation'>"+ response.data.message+"</div>";
+
                 el("#editCityModal").classList.remove("show");
                 // el("#editCityModal").classList.add('hide');
                 // el("#editCityModal").style='display:none';
@@ -229,10 +217,7 @@ el(".addCity").addEventListener("click", function (e) {
                     el(input + "+span").innerText = errors[key];
                 });
             } else {
-                el("#message").innerHTML = "";
-                el("#message").classList.add("alert");
-                el("#message").classList.add("alert-success");
-                el("#message").innerText = response.data.message;
+                el("#message").innerHTML = "<div class='alert bg_color message_animation'>"+ response.data.message+"</div>";
                 $("#addCityModal").modal("hide");
                 els("#addCityForm input").value = "";
                 fetchcitiesData();

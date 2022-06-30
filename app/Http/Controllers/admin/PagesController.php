@@ -45,7 +45,7 @@ class PagesController extends Controller
             ],
         ]);
         
-        return redirect()->route('pages')->with(['success' => 'Data Insert Successfully']);
+        return redirect()->route('pages')->with(['success' => 'تمت الاضافه بنجاح']);
     }
 
     function editpages(Request $request,$id)
@@ -78,7 +78,7 @@ class PagesController extends Controller
                 'ar'        =>      $request->descriptionAr
             ],
         ]);
-        return redirect()->route('pages')->with(['success' => 'Data Update Successfully']);
+        return redirect()->route('pages')->with(['success' => 'تم تعديل البيانات بنجاح']);
         
     }
 
@@ -89,14 +89,14 @@ class PagesController extends Controller
         else 
             $pages->is_active=1;
         if($pages->save())
-        return redirect()->back()->with(['success'=> 'Position Change Successfuly']);
+        return redirect()->back()->with(['success'=> 'تم تغيير الحالة بنجاح']);
     }
 
     public function deletepages($id)
     {
         $pages = pages::find($id);
         if ($pages->delete()) 
-        return redirect()->back()->with(['success' => 'Data Delete successfully']);
+        return redirect()->back()->with(['success' => 'تم الحذف بنجاح']);
 
     }
 }

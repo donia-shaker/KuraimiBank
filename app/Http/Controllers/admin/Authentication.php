@@ -37,7 +37,7 @@ class Authentication extends Controller
         if($user->save())
         $user->attachRole('admin');
         return redirect()->route('login')->with(
-            ['success' => 'Account Created Successfuly Please Waite for the Admin to Active your Acount']);
+            ['success' => 'تم انشاء حساب بنجاح قم بالانتظار حتى يتم تفعيل حسابك']);
     }
 
     public function showLogin(){
@@ -50,7 +50,7 @@ class Authentication extends Controller
     public function userlogin(Request $request){
         Validator::validate($request->all(), [
             'email' => ['required', 'email', 'exists:users,email'],
-            'password' => ['required'],
+            'password' => ['required', 'min:5'],
         ]);
         $user = User::where('email', '=', $request->email)->first();
         if (!Hash::check($request->password, $user->password)) {
@@ -95,16 +95,16 @@ class Authentication extends Controller
         $email_data=array('email'=>$request->email,
         'activation_url'=>URL::to('/')."/verify_password/".$token);
         // return ($email_data);
-        // try {
+        try {
 
             Mail::to($request->email)->send(new VerificationPassword($email_data));
             return  redirect()->back()->with(['success'=>' يرجى مراجعة الايميل لتستطيع تغيير كلمة المرور ']);
 
 
-            // } catch (\Exception ) {
+            } catch (\Exception ) {
 
-            //     return back()->with(['error'=>'تأكد من كتابة الايميل بالشكل الصحيح ']);
-            // }
+                return back()->with(['error'=>'تأكد من كتابة الايميل بالشكل الصحيح ']);
+            }
         }
     }
 
@@ -129,8 +129,8 @@ class Authentication extends Controller
         $user = User::where('id', $id)->update(['password' => $password]);
         if($user)
         return redirect('login')
-        ->with(['success'=>'password update Successfuly']);
-        return redirect('login')->with(['error'=>'Errore Trye Again']);
+        ->with(['success'=>'تم تعديل كلمة المرور بنجاح']);
+        return redirect('login')->with(['error'=>'هناك خطا حاول مره اخرى']);
     }
 
     public function logout(){
@@ -141,16 +141,16 @@ class Authentication extends Controller
     public function checkRole()
     {
         if (Auth::user()->hasRole('super_admin'))
-            return redirect()->route('users');
+            return 'users';
         else if(Auth::user()->isAbleTo('all_dashboard') ||
         Auth::user()->isAbleTo('manage_services'))
-            return redirect()->route('services');
+            return 'services';
         else if(Auth::user()->isAbleTo('manage_location'))
-        return redirect()->route('countries');
+        return 'countries';
         else if(Auth::user()->isAbleTo('manage_content'))
-        return redirect()->route('news');
+        return 'news';
         else
         Auth::logout();
-        return redirect()->route('login')->with(['error' => 'ليس لديك صلاحيات الوصول']);
+        return 'login';
     }
 }

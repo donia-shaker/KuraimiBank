@@ -78,9 +78,7 @@ function fetchData() {
                     axios.get(`editSocialMedia/${socialMediaId}`).then((response) => {
                         // console.log(response);
                         if (response.status == 400) {
-                            el("#message").innerHTML = "";
-                            el("#message").classList.add("alert");
-                            el("#message").classList.add("alert-danger");
+                            el("#message").innerHTML = "<div class='alert alert-danger message_animation'>"+ response.data.message+"</div>";
                         } else {
                             el("#editSocialMediaId").value = socialMediaId;
                             el("#editSocialMediaNameEn").value =
@@ -136,10 +134,7 @@ el(".activeSocialMedia").addEventListener("click", function (e) {
     console.log(socialMediaId);
 
     axios.post(`activeSocialMedia/${socialMediaId}`).then((response) => {
-        el("#message").innerHTML = "";
-        el("#message").classList.add("alert");
-        el("#message").classList.add("alert-success");
-        el("#message").innerText = response.data.message;
+        el("#message").innerHTML = "<div class='alert bg_color message_animation'>"+ response.data.message+"</div>";
         $("#activeSocialMediaModal").modal("hide");
         fetchData();
     });
@@ -153,10 +148,7 @@ el(".deleteSocialMedia").addEventListener("click", function (e) {
     console.log(socialMediaId);
 
     axios.post(`deleteSocialMedia/${socialMediaId}`).then((response) => {
-        el("#message").innerHTML = "";
-        el("#message").classList.add("alert");
-        el("#message").classList.add("alert-success");
-        el("#message").innerText = response.data.message;
+        el("#message").innerHTML = "<div class='alert bg_color message_animation'>"+ response.data.message+"</div>";
         $("#deleteSocialMediaModal").modal("hide");
         fetchData();
     });
@@ -189,14 +181,9 @@ el(".updateSocialMedia").addEventListener("click", function (e) {
                 });
             } else if (response.data.status == 404) {
                 el("#updateSocialMedia").innerHTML = "";
-                el("#message").classList.add("alert");
-                el("#message").classList.add("alert-danger");
-                el("#message").innerText = response.data.message;
+                el("#message").innerHTML = "<div class='alert alert-danger message_animation'>"+ response.data.message+"</div>";
             } else {
-                el("#message").innerHTML = "";
-                el("#message").classList.add("alert");
-                el("#message").classList.add("alert-success");
-                el("#message").innerText = response.data.message;
+                el("#message").innerHTML = "<div class='alert bg_color message_animation'>"+ response.data.message+"</div>";
                 el("#editSocialMediaModal").classList.remove("show");
                 // el("#editSocialMediaModal").classList.add('hide');
                 // el("#editsocialMediaModal").style='display:none';
@@ -228,10 +215,7 @@ el(".addSocialMedia").addEventListener("click", function (e) {
                     el(input + "+span").innerText = errors[key];
                 });
             } else {
-                el("#message").innerHTML = "";
-                el("#message").classList.add("alert");
-                el("#message").classList.add("alert-success");
-                el("#message").innerText = response.data.message;
+                el("#message").innerHTML = "<div class='alert bg_color message_animation'>"+ response.data.message+"</div>";
                 $("#addSocialMediaModal").modal("hide");
                 el("#addSocialMediaForm input").value = "";
                 fetchData();

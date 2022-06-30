@@ -49,7 +49,7 @@ class NewsController extends Controller
             'background_image'  =>  $background_image,
         ]);
         
-        return redirect()->route('news')->with(['success' => 'Data Insert Successfully']);
+        return redirect()->route('news')->with(['success' => 'تمت الاضافه بنجاح']);
     }
 
     function editNews(Request $request,$id)
@@ -81,7 +81,7 @@ class NewsController extends Controller
             'image'             =>  $image,
             'background_image'  =>  $background_image,
         ]);
-        return redirect()->route('news')->with(['success' => 'Data Update Successfully']);
+        return redirect()->route('news')->with(['success' => 'تم تعديل البيانات بنجاح']);
         
     }
 
@@ -92,14 +92,14 @@ class NewsController extends Controller
         else 
             $news->is_active=1;
         if($news->save())
-        return redirect()->back()->with(['success'=> 'Position Change Successfuly']);
+        return redirect()->back()->with(['success'=> 'تم تغيير الحالة بنجاح']);
     }
 
     public function deleteNews($id)
     {
         $news = news::find($id);
         if ($news->delete()) 
-        return redirect()->back()->with(['success' => 'Data Delete successfully']);
+        return redirect()->back()->with(['success' => 'تم الحذف بنجاح']);
 
     }
 }

@@ -27,14 +27,16 @@ class UserController extends Controller
         else 
             $user->is_active=1;
         if($user->save())
-        return redirect()->back()->with(['success'=> 'Position Change Successfuly']);
+        return redirect()->back()->with(['success'=> 'تم تغيير حالة المستخدم بنجاح']);
+        return redirect()->back()->with(['error'=> 'فشل في عملية تغيير حالة المستخدم']);
     }
 
     public function deleteUser($id)
     {
         $user = User::find($id);
         if ($user->delete()) 
-        return redirect()->back()->with(['success' => 'Data Delete successfully']);
+        return redirect()->back()->with(['success' => 'تم عملية الحذف بنجاح']);
+        return redirect()->back()->with(['error'=> 'فشل في عملية حذف المستخدم']);
 
     }
 

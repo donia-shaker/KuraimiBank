@@ -92,7 +92,7 @@ class ServicePointsController extends Controller
                     [
                         // 'city'=> $city,
                         'status' => 200,
-                        'message' => 'Data inserted successfully',
+                        'message' => 'تمت الاضافة بنجاح',
                     ]
                 );
             // return $city->name;
@@ -116,7 +116,7 @@ class ServicePointsController extends Controller
                 [
                 // 'category'=> $category,
                 'status' => 404,
-                'message' =>'Data not Found',
+                'message' =>'حدث خطا لا يوجد اي بيانات',
                 
                 ]
             );
@@ -183,7 +183,7 @@ class ServicePointsController extends Controller
                     return response()->json(
                         [
                             'status' => 200,
-                            'message' => 'Data Update successfully',
+                            'message' => 'تم تعديل البيانات بنجاح',
 
                         ]
                     );
@@ -193,7 +193,7 @@ class ServicePointsController extends Controller
                 //     return response()->json(
                 //         [
                 //             'status' => 404,
-                //             'message' => 'Data not Found',
+                //             'message' => 'حدث خطا لا يوجد اي بيانات',
 
                 //         ]
                 //     );
@@ -215,7 +215,7 @@ class ServicePointsController extends Controller
                 [
                     'active' => $ServPoint,
                     'status' => 200,
-                    'message' => 'Data Update successfully',
+                    'message' => 'تم تعديل البيانات بنجاح',
 
                 ]
             );
@@ -224,7 +224,7 @@ class ServicePointsController extends Controller
             return response()->json(
                 [
                     'status' => 404,
-                    'message' => 'Data not Found',
+                    'message' => 'حدث خطا لا يوجد اي بيانات',
 
                 ]
             );
@@ -239,7 +239,7 @@ class ServicePointsController extends Controller
                 [
                     'active' => $ServPoint,
                     'status' => 200,
-                    'message' => 'Data Delete successfully',
+                    'message' => 'تم الحذف بنجاح',
 
                 ]
             );
@@ -248,7 +248,7 @@ class ServicePointsController extends Controller
             return response()->json(
                 [
                     'status' => 404,
-                    'message' => 'Data not Found',
+                    'message' => 'حدث خطا لا يوجد اي بيانات',
 
                 ]
             );

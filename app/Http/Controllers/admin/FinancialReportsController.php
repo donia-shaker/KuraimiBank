@@ -46,7 +46,7 @@ class FinancialReportsController extends Controller
             'pdf' =>$file
         ]);
         
-        return redirect()->route('reports')->with(['success' => 'Data Insert Successfully']);
+        return redirect()->route('reports')->with(['success' => 'تمت الاضافه بنجاح']);
     }
 
     function editreports(Request $request,$id)
@@ -74,7 +74,7 @@ class FinancialReportsController extends Controller
             ],
             'pdf' =>$file
         ]);
-        return redirect()->route('reports')->with(['success' => 'Data Update Successfully']);
+        return redirect()->route('reports')->with(['success' => 'تم تعديل البيانات بنجاح']);
         
     }
 
@@ -85,7 +85,7 @@ class FinancialReportsController extends Controller
         else 
             $reports->is_active=1;
         if($reports->save())
-        return redirect()->back()->with(['success'=> 'Position Change Successfuly']);
+        return redirect()->back()->with(['success'=> 'تم تغيير الحالة بنجاح']);
     }
 
     public function deletereports($id)
@@ -93,7 +93,7 @@ class FinancialReportsController extends Controller
         $reports = financial_reports::find($id);
         // return $reports;
         if ($reports->delete()) 
-        return redirect()->back()->with(['success' => 'Data Delete successfully']);
+        return redirect()->back()->with(['success' => 'تم الحذف بنجاح']);
 
     }
 }

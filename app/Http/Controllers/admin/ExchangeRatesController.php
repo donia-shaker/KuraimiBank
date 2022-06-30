@@ -37,7 +37,7 @@ class ExchangeRatesController extends Controller
             'sale'            =>  $request->sale,
         ]);
         
-        return redirect()->route('rate')->with(['success' => 'Data Insert Successfully']);
+        return redirect()->route('rate')->with(['success' => 'تمت الاضافه بنجاح']);
     }
 
     function editRate(Request $request,$id)
@@ -57,7 +57,7 @@ class ExchangeRatesController extends Controller
             'buy'             =>  $request->buy,
             'sale'            =>  $request->sale,
         ]);
-        return redirect()->route('rate')->with(['success' => 'Data Update Successfully']);
+        return redirect()->route('rate')->with(['success' => 'تم تعديل البيانات بنجاح']);
         
     }
 
@@ -68,14 +68,14 @@ class ExchangeRatesController extends Controller
         else 
             $rate->is_active=1;
         if($rate->save())
-        return redirect()->back()->with(['success'=> 'Position Change Successfuly']);
+        return redirect()->back()->with(['success'=> 'تم تغيير الحالة بنجاح']);
     }
 
     public function deleteRate($id)
     {
         $rate = exchange_rates::find($id);
         if ($rate->delete()) 
-        return redirect()->back()->with(['success' => 'Data Delete successfully']);
+        return redirect()->back()->with(['success' => 'تم الحذف بنجاح']);
 
     }
 }

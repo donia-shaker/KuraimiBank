@@ -1,0 +1,31 @@
+//Start Media Breakpoint
+@mixin breakpoints($point) {
+    @if $point == mobile {
+        @media (max-width: 767px) {
+            @content;
+        }
+    } @else if $point == small {
+        @media (min-width: 768px) and (max-width: 991px) {
+            @content;
+        }
+    } @else if $point == medium {
+        @media (min-width: 992px) and (max-width: 1199px) {
+            @content;
+        }
+    } @else if $point == large {
+        @media (min-width: 1200px) {
+            @content;
+        }
+    }
+}
+//End Media Breakpoint
+
+// start Flex
+@mixin flex($justify_content, $direction, $wrap, $align_items) {
+    display: flex;
+    flex-direction: $direction;
+    flex-wrap: $wrap;
+    justify-content: $justify_content;
+    align-items: $align_items;
+}
+// End Flex

@@ -17,6 +17,7 @@ use App\Http\Controllers\admin\SubCategoryController;
 use App\Http\Controllers\admin\WebsiteInfoController;
 use App\Http\Controllers\admin\Authentication;
 use App\Http\Controllers\admin\UserController;
+use App\Http\Controllers\web\HomePageController;
 use App\Models\service_points;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -33,9 +34,9 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 */
 
 Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
-    Route::get('/', function () {
-        return view('welcome');
-    });
+    // Route::get('/', function () {
+    //     return view('welcome');
+    // });
 
     // Authentication Admin Controller
     Route::get('/login', [Authentication::class, 'showLogin'])->name('login');
@@ -185,4 +186,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
             Route::get('/editwebsite', [WebsiteInfoController::class, 'editwebsite'])->name('editwebsite');
         });
     });
+
+
+    Route::get('/',[HomePageController::class,'showHomePage'])->name('');
 });

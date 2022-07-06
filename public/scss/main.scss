@@ -1,0 +1,306 @@
+@use "helper/mixin" as *;
+@use "helper/variable" as *;
+@use "component/btn" as *;
+@use "component/header" as *;
+* {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+/* start Container */
+.container {
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.container {
+    @include breakpoints(small) {
+        width: 750px;
+    }
+    @include breakpoints(medium) {
+        width: 970px;
+    }
+    @include breakpoints(large) {
+        width: 1170px;
+    }
+}
+/* End Container */
+ul {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+}
+body {
+    overflow-x: hidden;
+    &::before {
+        content: "";
+        position: absolute;
+        top: -10px;
+        left: 0;
+        width: 100%;
+        height: 10px;
+        box-shadow: 0px 0 70px 180px hwb(289deg 8% 65% / 24%);
+        z-index: 2;
+    }
+}
+// Stasrt Header Section
+header {
+    position: absolute;
+    width: 100%;
+    z-index: 2;
+    color: $text-color;
+    .content {
+        padding: 40px 0 25px;
+        &,
+        .top,
+        .left-list,
+        .right-list {
+            @include flex(space-between, row, wrap, center);
+        }
+        ul {
+            width: 13rem;
+            a {
+                color: $text-color;
+            }
+        }
+        i {
+            padding: 0 10px;
+        }
+    }
+    // Start Nav Section
+    nav {
+        border: 1px solid $text-color;
+        border-left: 0;
+        border-right: 0;
+        ul {
+            @include flex(space-between, row, wrap, center);
+            padding: 15px 20px;
+            a {
+                color: $text-color;
+            }
+        }
+    }
+    // End Nav Section
+}
+// End Header Section
+
+// Start Hero Section
+main {
+    position: relative;
+    background-image: url("/images/2.jpg");
+    background-size: cover;
+    height: 130vh;
+    width: 100vw;
+    color: $text-color;
+    transform: rotateY(180deg);
+    top: -60px;
+    .container {
+        height: 100%;
+        position: relative;
+    }
+    .text {
+        position: absolute;
+        transform: rotateY(180deg);
+        top: 50%;
+        left: 15px;
+        h1 {
+            font-size: 54px;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 34px;
+        }
+    }
+}
+// End Hero Section
+
+// start coin Section
+.coin {
+    position: relative;
+    background-image: url("/images/header-bg.png");
+    background-size: 50%;
+    background-repeat: repeat-x;
+    top: -60px;
+    .container {
+        padding: 10px;
+        background-color: $text-color;
+        @include flex(space-between, row, wrap, center);
+        box-shadow: 0px 10px 10px 0px #73659a17;
+        .box {
+            padding: 15px 25px;
+            width: 280px;
+            margin: 20px;
+            border: 1px solid $border-color;
+            @include flex(space-between, row, wrap, center);
+            .col {
+                @include flex(center, column, wrap, center);
+                span {
+                    &:first-child {
+                        color: $span-color;
+                    }
+                    &:nth-child(2) {
+                        margin-top: 15px;
+                        &.up {
+                            color: green;
+                        }
+                        &.down {
+                            color: red;
+                        }
+                    }
+                }
+            }
+        }
+        .button {
+            flex-grow: 2;
+            margin: 10px auto;
+            @include flex(center, row, wrap, center);
+        }
+    }
+}
+// End coin Section
+
+// Start Services Section
+.services {
+    position: relative;
+    margin-bottom: 180px;
+    .container {
+        h2 {
+            text-align: center;
+        }
+        ul {
+            padding: 20px 0;
+            margin: 0 80px;
+            @include flex(space-between, row, wrap, center);
+            a {
+                color: $span-color;
+            }
+            .active a {
+                color: black;
+                // &:after{
+                //   content: "";
+                //   width: 1px;
+                //   height: 16px;
+                //   padding: 1px;
+                //   background-color: black;
+                //   display: block;;
+                // }
+            }
+        }
+    }
+    .service {
+        background-image: url("/images/islamic.png");
+        background-size: 600px;
+        margin: 80px 0;
+        height: 400px;
+        box-shadow: 100px 400px 20px 20px inset rgb(251 251 251 / 95%);
+
+        .box {
+            position: relative;
+            background-color: $text-color;
+            height: 480px;
+            border: 1px solid #eee;
+            box-shadow: 0px 10px 10px 0px #73659a17;
+            top: -50px;
+            margin: 0 80px;
+            @include flex(space-between, row, wrap, revert);
+            .content {
+                @include flex(space-between, column, wrap, start);
+                max-width: 600px;
+                padding: 40px;
+                color: $paragraph-color;
+                h3 {
+                    font-size: 40px;
+                    color: $primary-color;
+                    padding: 40px 0;
+                }
+                p {
+                    font-size: 20px;
+                    margin-bottom: 40px;
+                }
+            }
+            .image {
+                position: absolute;
+                background-color: #73659a;
+                height: 100%;
+                width: 350px;
+                left: 0;
+                overflow: hidden;
+                img {
+                    &:first-child {
+                        z-index: 2;
+                        height: 80%;
+                        margin-right: -380px;
+                        margin-top: 70px;
+                        position: relative;
+                    }
+                    &:nth-child(2),
+                    &:nth-child(3) {
+                        position: absolute;
+                        width: 100%;
+                        height: 50%;
+                        top: 120px;
+                    }
+                    &:nth-child(3) {
+                        width: 40%;
+                        height: 30%;
+                        left: 0px;
+                        top: 200px;
+                    }
+                }
+            }
+        }
+    }
+    .design {
+        img {
+            &:first-child {
+                position: absolute;
+                left: 10px;
+                height: 70px;
+                bottom: -90px;
+            }
+        }
+    }
+}
+// End Services Section
+
+// Start App Section
+.app {
+    background-color: $background-color;
+    .container {
+        @include flex(space-between, row, no-wrap, center);
+        .image {
+            width: 70%;
+            img {
+                width: 100%;
+            }
+        }
+        .content {
+            padding: 20px;
+            .box {
+                background-color: $text-color;
+                border-radius: 20px ;
+                padding: 20px 20px 80px 10px;
+                margin: 60px 0;
+                h3{
+                    margin: 40px 10px;
+                }
+                ul {
+                    @include flex(space-between, row, wrap, center);
+                    margin-bottom: 20px;
+                    li {
+                        width: calc((100% - 60px) / 3);
+                        margin: 10px
+                    }
+                }
+                img{
+                    width: calc(100%  / 3);
+                    padding-left: 40px;
+                }
+            }
+        }
+    }
+}
+// End App Section

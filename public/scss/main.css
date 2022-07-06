@@ -1,0 +1,341 @@
+.btn {
+  border: 1.5px solid #73659A;
+  padding: 15px 25px;
+  background-color: white;
+  color: #423064;
+  font-size: 20px;
+  cursor: pointer;
+  min-width: 150px;
+}
+
+.h-2 {
+  padding: 30px 0;
+  font-size: 50px;
+  color: #73659A;
+}
+
+.h-3 {
+  font-size: 28px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* start Container */
+.container {
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+
+/* End Container */
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  overflow-x: hidden;
+}
+body::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  box-shadow: 0px 0 70px 180px hwb(289deg 8% 65%/24%);
+  z-index: 2;
+}
+
+header {
+  position: absolute;
+  width: 100%;
+  z-index: 2;
+  color: white;
+}
+header .content {
+  padding: 40px 0 25px;
+}
+header .content,
+header .content .top,
+header .content .left-list,
+header .content .right-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+header .content ul {
+  width: 13rem;
+}
+header .content ul a {
+  color: white;
+}
+header .content i {
+  padding: 0 10px;
+}
+header nav {
+  border: 1px solid white;
+  border-left: 0;
+  border-right: 0;
+}
+header nav ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+}
+header nav ul a {
+  color: white;
+}
+
+main {
+  position: relative;
+  background-image: url("/images/2.jpg");
+  background-size: cover;
+  height: 130vh;
+  width: 100vw;
+  color: white;
+  transform: rotateY(180deg);
+  top: -60px;
+}
+main .container {
+  height: 100%;
+  position: relative;
+}
+main .text {
+  position: absolute;
+  transform: rotateY(180deg);
+  top: 50%;
+  left: 15px;
+}
+main .text h1 {
+  font-size: 54px;
+  margin-bottom: 10px;
+}
+main .text p {
+  font-size: 34px;
+}
+
+.coin {
+  position: relative;
+  background-image: url("/images/header-bg.png");
+  background-size: 50%;
+  background-repeat: repeat-x;
+  top: -60px;
+}
+.coin .container {
+  padding: 10px;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0px 10px 10px 0px rgba(115, 101, 154, 0.0901960784);
+}
+.coin .container .box {
+  padding: 15px 25px;
+  width: 280px;
+  margin: 20px;
+  border: 1px solid #eee;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.coin .container .box .col {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.coin .container .box .col span:first-child {
+  color: #999;
+}
+.coin .container .box .col span:nth-child(2) {
+  margin-top: 15px;
+}
+.coin .container .box .col span:nth-child(2).up {
+  color: green;
+}
+.coin .container .box .col span:nth-child(2).down {
+  color: red;
+}
+.coin .container .button {
+  flex-grow: 2;
+  margin: 10px auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.services {
+  position: relative;
+  margin-bottom: 180px;
+}
+.services .container h2 {
+  text-align: center;
+}
+.services .container ul {
+  padding: 20px 0;
+  margin: 0 80px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.services .container ul a {
+  color: #999;
+}
+.services .container ul .active a {
+  color: black;
+}
+.services .service {
+  background-image: url("/images/islamic.png");
+  background-size: 600px;
+  margin: 80px 0;
+  height: 400px;
+  box-shadow: 100px 400px 20px 20px inset rgba(251, 251, 251, 0.95);
+}
+.services .service .box {
+  position: relative;
+  background-color: white;
+  height: 480px;
+  border: 1px solid #eee;
+  box-shadow: 0px 10px 10px 0px rgba(115, 101, 154, 0.0901960784);
+  top: -50px;
+  margin: 0 80px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: revert;
+}
+.services .service .box .content {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: start;
+  max-width: 600px;
+  padding: 40px;
+  color: #666;
+}
+.services .service .box .content h3 {
+  font-size: 40px;
+  color: #73659A;
+  padding: 40px 0;
+}
+.services .service .box .content p {
+  font-size: 20px;
+  margin-bottom: 40px;
+}
+.services .service .box .image {
+  position: absolute;
+  background-color: #73659a;
+  height: 100%;
+  width: 350px;
+  left: 0;
+  overflow: hidden;
+}
+.services .service .box .image img:first-child {
+  z-index: 2;
+  height: 80%;
+  margin-right: -380px;
+  margin-top: 70px;
+  position: relative;
+}
+.services .service .box .image img:nth-child(2), .services .service .box .image img:nth-child(3) {
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  top: 120px;
+}
+.services .service .box .image img:nth-child(3) {
+  width: 40%;
+  height: 30%;
+  left: 0px;
+  top: 200px;
+}
+.services .design img:first-child {
+  position: absolute;
+  left: 10px;
+  height: 70px;
+  bottom: -90px;
+}
+
+.app {
+  background-color: rgba(62, 100, 235, 0.1019607843);
+}
+.app .container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: no-wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.app .container .image {
+  width: 70%;
+}
+.app .container .image img {
+  width: 100%;
+}
+.app .container .content {
+  padding: 20px;
+}
+.app .container .content .box {
+  background-color: white;
+  border-radius: 20px;
+  padding: 20px 20px 80px 10px;
+  margin: 60px 0;
+}
+.app .container .content .box h3 {
+  margin: 40px 10px;
+}
+.app .container .content .box ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.app .container .content .box ul li {
+  width: calc((100% - 60px) / 3);
+  margin: 10px;
+}
+.app .container .content .box img {
+  width: 33.3333333333%;
+  padding-left: 40px;
+}/*# sourceMappingURL=main.css.map */

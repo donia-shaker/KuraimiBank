@@ -65,6 +65,8 @@
     </header>
     {{-- End Header Section --}}
     @yield('content')
+    @yield('javascript')
+
 </body>
 
 </html>

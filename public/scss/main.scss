@@ -2,6 +2,8 @@
 @use "helper/variable" as *;
 @use "component/btn" as *;
 @use "component/header" as *;
+@use "component/animation" as *;
+@use "component/shadow" as *;
 * {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -128,7 +130,6 @@ main {
         padding: 10px;
         background-color: $text-color;
         @include flex(space-between, row, wrap, center);
-        box-shadow: 0px 10px 10px 0px #73659a17;
         .box {
             padding: 15px 25px;
             width: 280px;
@@ -195,14 +196,11 @@ main {
         background-size: 600px;
         margin: 80px 0;
         height: 400px;
-        box-shadow: 100px 400px 20px 20px inset rgb(251 251 251 / 95%);
-
         .box {
             position: relative;
             background-color: $text-color;
             height: 480px;
             border: 1px solid #eee;
-            box-shadow: 0px 10px 10px 0px #73659a17;
             top: -50px;
             margin: 0 80px;
             @include flex(space-between, row, wrap, revert);
@@ -279,28 +277,141 @@ main {
         }
         .content {
             padding: 20px;
-            .box {
-                background-color: $text-color;
-                border-radius: 20px ;
-                padding: 20px 20px 80px 10px;
-                margin: 60px 0;
-                h3{
-                    margin: 40px 10px;
-                }
-                ul {
-                    @include flex(space-between, row, wrap, center);
-                    margin-bottom: 20px;
-                    li {
-                        width: calc((100% - 60px) / 3);
-                        margin: 10px
+            position: relative;
+            .boxes {
+                position: relative;
+                height: 440px;
+                .box {
+                    background-color: $text-color;
+                    border-radius: 20px;
+                    max-width: 570px;
+                    padding: 20px 20px 80px 10px;
+                    margin: 60px 0;
+                    position: absolute;
+                    transition: left 2s ease;
+                    h3 {
+                        margin: 20px 10px;
+                    }
+                    ul {
+                        @include flex(space-between, row, wrap, center);
+                        margin-bottom: 20px;
+                        li {
+                            width: calc((100% - 60px) / 3);
+                            margin: 10px;
+                        }
                     }
                 }
-                img{
-                    width: calc(100%  / 3);
+                img {
+                    width: calc(100% / 3);
                     padding-left: 40px;
                 }
+            }
+            .mySlides {
+            }
+            .dot {
+                cursor: pointer;
+                height: 8px;
+                width: 25px;
+                margin: 0 2px;
+                background-color: #bbb;
+                border-radius: 30px;
+                display: inline-block;
+                transition: background-color 0.6s ease-in-out;
+            }
+
+            .active {
+                transition: background-color 0.6s ease-in-out;
+                background-color: $primary-color;
+                width: 140px;
             }
         }
     }
 }
 // End App Section
+
+// Start News Section
+.news {
+    margin: 60px 0;
+    h2 {
+        text-align: center;
+    }
+    .boxes {
+        margin: 60px 0;
+        @include flex(space-between, row, no-wrap, center);
+        .box {
+            position: relative;
+            overflow: hidden;
+            .animation {
+                position: absolute;
+                width: 2px;
+                height: 50px;
+                background-color: $text-color;
+                left: 50%;
+                top: -50%;
+            }
+            &:hover .animation {
+                animation: news 0.5s forwards;
+            }
+            .active {
+                color: $text-color;
+                position: absolute;
+                overflow: hidden;
+                width: 2px;
+                height: 2px;
+                left: 50%;
+                top: 50px;
+                .description {
+                    height: 360px;
+                    padding: 26px;
+                    box-shadow: 100px 400px 20px 20px inset
+                        rgb(134 119 160 / 66%);
+                    h3,
+                    p {
+                        opacity: 0;
+                    }
+                    h3 {
+                        padding: 140px 0 15px;
+                        text-align: center;
+                    }
+                }
+                .d-link {
+                    height: 200px;
+                    box-shadow: 100px 400px 20px 20px inset rgb(134 119 160);
+                    text-align: center;
+                    padding-top: 100px;
+                    a {
+                        color: $text-color;
+                        padding: 10px 5px;
+                        opacity: 0;
+                        border-bottom: 1px solid $text-color;
+                    }
+                }
+            }
+            &:hover .active {
+                animation: active 0.8s forwards 0.5s;
+            }
+            &:hover .description h3,
+            &:hover .description p,
+            &:hover .d-link a {
+                animation: opacity 1s forwards 1.3s;
+            }
+            img {
+                width: 350px;
+                height: 360px;
+            }
+            .text {
+                height: 200px;
+                padding: 40px 40px 20px;
+                .link {
+                    padding: 10px 0;
+                    color: $paragraph-color;
+                    margin-top: 40px;
+                    border-bottom: 1px solid $primary-color;
+                    width: fit-content;
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+}
+// End News Section

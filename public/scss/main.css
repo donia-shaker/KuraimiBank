@@ -1,6 +1,6 @@
 .btn {
   border: 1.5px solid #73659A;
-  padding: 15px 25px;
+  padding: 10px 25px;
   background-color: white;
   color: #423064;
   font-size: 20px;
@@ -16,6 +16,71 @@
 
 .h-3 {
   font-size: 28px;
+}
+
+@-webkit-keyframes news {
+  from {
+    top: -50px;
+  }
+  to {
+    top: 0;
+  }
+}
+
+@keyframes news {
+  from {
+    top: -50px;
+  }
+  to {
+    top: 0;
+  }
+}
+@-webkit-keyframes active {
+  from {
+    width: 2px;
+    height: 2px;
+  }
+  to {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+}
+@keyframes active {
+  from {
+    width: 2px;
+    height: 2px;
+  }
+  to {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+}
+@-webkit-keyframes opacity {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 100%;
+  }
+}
+@keyframes opacity {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 100%;
+  }
+}
+.shadow {
+  box-shadow: 0px 10px 10px 0px rgba(115, 101, 154, 0.0901960784);
+}
+
+.shadow-inset {
+  box-shadow: 100px 400px 20px 20px inset rgba(251, 251, 251, 0.95);
 }
 
 * {
@@ -157,7 +222,6 @@ main .text p {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0px 10px 10px 0px rgba(115, 101, 154, 0.0901960784);
 }
 .coin .container .box {
   padding: 15px 25px;
@@ -226,14 +290,12 @@ main .text p {
   background-size: 600px;
   margin: 80px 0;
   height: 400px;
-  box-shadow: 100px 400px 20px 20px inset rgba(251, 251, 251, 0.95);
 }
 .services .service .box {
   position: relative;
   background-color: white;
   height: 480px;
   border: 1px solid #eee;
-  box-shadow: 0px 10px 10px 0px rgba(115, 101, 154, 0.0901960784);
   top: -50px;
   margin: 0 80px;
   display: flex;
@@ -313,17 +375,25 @@ main .text p {
 }
 .app .container .content {
   padding: 20px;
+  position: relative;
 }
-.app .container .content .box {
+.app .container .content .boxes {
+  position: relative;
+  height: 440px;
+}
+.app .container .content .boxes .box {
   background-color: white;
   border-radius: 20px;
+  max-width: 570px;
   padding: 20px 20px 80px 10px;
   margin: 60px 0;
+  position: absolute;
+  transition: left 2s ease;
 }
-.app .container .content .box h3 {
-  margin: 40px 10px;
+.app .container .content .boxes .box h3 {
+  margin: 20px 10px;
 }
-.app .container .content .box ul {
+.app .container .content .boxes .box ul {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -331,11 +401,117 @@ main .text p {
   align-items: center;
   margin-bottom: 20px;
 }
-.app .container .content .box ul li {
+.app .container .content .boxes .box ul li {
   width: calc((100% - 60px) / 3);
   margin: 10px;
 }
-.app .container .content .box img {
+.app .container .content .boxes img {
   width: 33.3333333333%;
   padding-left: 40px;
+}
+.app .container .content .dot {
+  cursor: pointer;
+  height: 8px;
+  width: 25px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 30px;
+  display: inline-block;
+  transition: background-color 0.6s ease-in-out;
+}
+.app .container .content .active {
+  transition: background-color 0.6s ease-in-out;
+  background-color: #73659A;
+  width: 140px;
+}
+
+.news {
+  margin: 60px 0;
+}
+.news h2 {
+  text-align: center;
+}
+.news .boxes {
+  margin: 60px 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: no-wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.news .boxes .box {
+  position: relative;
+  overflow: hidden;
+}
+.news .boxes .box .animation {
+  position: absolute;
+  width: 2px;
+  height: 50px;
+  background-color: white;
+  left: 50%;
+  top: -50%;
+}
+.news .boxes .box:hover .animation {
+  -webkit-animation: news 0.5s forwards;
+          animation: news 0.5s forwards;
+}
+.news .boxes .box .active {
+  color: white;
+  position: absolute;
+  overflow: hidden;
+  width: 2px;
+  height: 2px;
+  left: 50%;
+  top: 50px;
+}
+.news .boxes .box .active .description {
+  height: 360px;
+  padding: 26px;
+  box-shadow: 100px 400px 20px 20px inset rgba(134, 119, 160, 0.66);
+}
+.news .boxes .box .active .description h3,
+.news .boxes .box .active .description p {
+  opacity: 0;
+}
+.news .boxes .box .active .description h3 {
+  padding: 140px 0 15px;
+  text-align: center;
+}
+.news .boxes .box .active .d-link {
+  height: 200px;
+  box-shadow: 100px 400px 20px 20px inset rgb(134, 119, 160);
+  text-align: center;
+  padding-top: 100px;
+}
+.news .boxes .box .active .d-link a {
+  color: white;
+  padding: 10px 5px;
+  opacity: 0;
+  border-bottom: 1px solid white;
+}
+.news .boxes .box:hover .active {
+  -webkit-animation: active 0.8s forwards 0.5s;
+          animation: active 0.8s forwards 0.5s;
+}
+.news .boxes .box:hover .description h3, .news .boxes .box:hover .description p, .news .boxes .box:hover .d-link a {
+  -webkit-animation: opacity 1s forwards 1.3s;
+          animation: opacity 1s forwards 1.3s;
+}
+.news .boxes .box img {
+  width: 350px;
+  height: 360px;
+}
+.news .boxes .box .text {
+  height: 200px;
+  padding: 40px 40px 20px;
+}
+.news .boxes .box .text .link {
+  padding: 10px 0;
+  color: #666;
+  margin-top: 40px;
+  border-bottom: 1px solid #73659A;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  font-size: 18px;
 }/*# sourceMappingURL=main.css.map */

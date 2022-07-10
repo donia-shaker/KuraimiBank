@@ -78,10 +78,26 @@ header {
         border-left: 0;
         border-right: 0;
         ul {
+            overflow-y: hidden;
             @include flex(space-between, row, wrap, center);
             padding: 15px 20px;
-            a {
-                color: $text-color;
+            li {
+                position: relative;
+                a {
+                    color: $text-color;
+                }
+                &:hover {
+                    &::after {
+                        content: "";
+                        width: 2px;
+                        position: absolute;
+                        height: 5px;
+                        background-color: $text-color;
+                        left: 50%;
+                        margin-top: 18px;
+                        animation: active-list 0.5s forwards;
+                    }
+                }
             }
         }
     }
@@ -168,6 +184,7 @@ main {
     position: relative;
     margin-bottom: 180px;
     .container {
+        position: relative;
         h2 {
             text-align: center;
         }
@@ -175,19 +192,24 @@ main {
             padding: 20px 0;
             margin: 0 80px;
             @include flex(space-between, row, wrap, center);
-            a {
+            .ServicesDot {
                 color: $span-color;
+                cursor: pointer;
+                position: relative;
             }
-            .active a {
+            .active.ServicesDot {
                 color: black;
-                // &:after{
-                //   content: "";
-                //   width: 1px;
-                //   height: 16px;
-                //   padding: 1px;
-                //   background-color: black;
-                //   display: block;;
-                // }
+                &::after {
+                    content: "";
+                    content: "";
+                    width: 2px;
+                    position: absolute;
+                    height: 25px;
+                    background-color: $primary-color;
+                    left: 50%;
+                    margin-top: 25px;
+                    animation: active-list 0.5s forwards;
+                }
             }
         }
     }
@@ -225,6 +247,7 @@ main {
                 height: 100%;
                 width: 350px;
                 left: 0;
+                top: 0;
                 overflow: hidden;
                 img {
                     &:first-child {
@@ -250,6 +273,10 @@ main {
                 }
             }
         }
+        .fade {
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
     }
     .design {
         img {
@@ -260,6 +287,24 @@ main {
                 bottom: -90px;
             }
         }
+    }
+    .prev,
+    .next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: auto;
+        padding: 16px;
+        margin-top: -100px;
+        color: $primary-color;
+        font-size: 40px;
+        transition: 0.6s ease;
+        border-radius: 0 3px 3px 0;
+        user-select: none;
+    }
+    .next {
+        left: 0;
+        border-radius: 3px 0 0 3px;
     }
 }
 // End Services Section
@@ -331,7 +376,7 @@ main {
 
 // Start News Section
 .news {
-    margin: 60px 0;
+    margin: 60px 0 80px;
     h2 {
         text-align: center;
     }
@@ -356,10 +401,7 @@ main {
                 color: $text-color;
                 position: absolute;
                 overflow: hidden;
-                width: 2px;
-                height: 2px;
-                left: 50%;
-                top: 50px;
+                clip-path: circle(1px at 50% 50px);
                 .description {
                     height: 360px;
                     padding: 26px;
@@ -388,12 +430,12 @@ main {
                 }
             }
             &:hover .active {
-                animation: active 0.8s forwards 0.5s;
+                animation: active 1s forwards 0.5s;
             }
             &:hover .description h3,
             &:hover .description p,
             &:hover .d-link a {
-                animation: opacity 1s forwards 1.3s;
+                animation: opacity 1s forwards 1s;
             }
             img {
                 width: 350px;
@@ -413,5 +455,116 @@ main {
             }
         }
     }
+    .button {
+        text-align: center;
+    }
 }
 // End News Section
+
+// Start Number Secttion
+.number {
+    background-color: #3d2260;
+    padding: 20px 0 60px;
+    color: $text-color;
+    .container {
+        position: relative;
+        &::before {
+            content: attr(data-content);
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            font-size: 60px;
+        }
+    }
+    h2 {
+        color: $text-color;
+    }
+    .boxes {
+        @include flex(space-between, row, wrap, center);
+        .box {
+            height: fit-content;
+            margin: 20px 0;
+            border-bottom: 4px solid $primary-color;
+            span {
+                color: $text-color;
+                padding: 20px 10px;
+            }
+            p {
+                width: 60%;
+                // font-size: 1/px;
+            }
+            padding: 20px;
+            width: calc((100% - 200px) / 4);
+        }
+    }
+}
+// End Number Secttion
+
+// Start Location Section
+.location {
+    .container {
+        @include flex(space-between, row, no-wrap, center);
+        img {
+            width: 700px;
+        }
+        .content {
+            margin-top: 120px;
+            .boxes {
+                margin-right: -25px;
+                text-align: center;
+                width: 300px;
+                @include flex(space-between, row, no-wrap, center);
+                .box {
+                    color: $primary-color;
+                    font-weight: bold;
+                    font-size: 20px;
+                    width: calc(100% / 3);
+
+                    &:not(:last-of-type) span {
+                        padding: 0 35px 10px;
+                        border-left: 2px solid $primary-color;
+                    }
+                    p {
+                        padding: 20px 0;
+                        font-weight: normal;
+                    }
+                }
+            }
+        }
+    }
+    .button {
+        margin: 60px 0;
+    }
+}
+// End Location Section
+
+// Start Footer
+footer{
+    background-color: #73659a;
+    .image{
+        width: 80%;
+        padding: 40px 0;
+        border-bottom: 1px solid #bbb;
+        @include flex(start, column, no-wrap, center);
+    }
+    .container{
+    @include flex(start, column, no-wrap, center);
+    ul.main{
+        padding: 40px 0;
+        width: 80%;
+    @include flex(space-between,row, no-wrap, start);
+    li.first{
+        color: $text-color;
+        width: calc((100% - 10px) / 6);
+        li a{
+            color: #bbb;
+            &:hover{
+            color: $text-color;
+            }
+        }
+    }
+
+    }
+}
+}
+// End Footer

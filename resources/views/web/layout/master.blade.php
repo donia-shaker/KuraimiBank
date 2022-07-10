@@ -28,17 +28,8 @@
                 </div>
                 <div class="logo">
                     <div class="top">
-                        <div class="right">
-                            <p class="name">بنك الكريمي</p>
-                            <span>للتمويل الاصغر الاسلامي</span>
-                        </div>
-                        <div class="icon"><img src="{{ asset('images/logo.svg') }}" alt=""></div>
-                        <div class="left">
-                            <p class="name">بنك الكريمي</p>
-                            <span>للتمويل الاصغر الاسلامي</span>
-                        </div>
+                        <div class="icon"><img src="{{ asset('images/logok.svg') }}" alt="" ></div>
                     </div>
-                    <p> دوما معك ... دوما معك</p>
                 </div>
                 <div>
                     <ul class="left-list">
@@ -50,7 +41,7 @@
             {{-- Start Nav Section --}}
             <nav>
                 <ul>
-                    <li><a href="">الرئيسية</a></li>
+                    <li><a href="">الرئيسية</a>
                     <li><a href="">عن البنك</a></li>
                     <li><a href="">خدمات الافراد</a></li>
                     <li><a href="">خدمات الشركة</a></li>
@@ -65,6 +56,70 @@
     </header>
     {{-- End Header Section --}}
     @yield('content')
+
+    {{-- Start Footer --}}
+    <footer>
+        <div class="container">
+            <div class="image">
+                <img src="{{asset('images/logok.svg')}}" alt="">
+            </div>
+            <ul class="main">
+                <li class="first" >البنك
+                    <ul>
+                        <li><a href="">عن البنك</a></li>
+                        <li><a href="">الرؤية</a></li>
+                        <li><a href="">الرسالة</a></li>
+                        <li><a href="">الأهداف </a></li>
+                        <li><a href="">القيم والمبادئ</a></li>
+                        <li><a href="">بيان سياسة </a></li>
+                        <li><a href="">مكافحة غسل </a></li>
+                        <li><a href=""> شركائنا </a></li>
+
+                    </ul>
+                </li>
+                <li class="first" >شركائنا
+                    <ul>
+                        <li><a href="">موني جرام</a></li>
+                        <li><a href="">ماستر كارد</a></li>
+                        <li><a href="">البنوك المراسلة</a></li>
+                        <li><a href="">منظمة التمويل الدولية </a></li>
+                        <li><a href=""> تيمينوس </a></li>
+
+                    </ul>
+                </li>
+                <li class="first">الخدمات
+                    <ul>
+                        <li><a href="">خدمات الأفراد</a></li>
+                        <li><a href="">خدمات الشركات</a></li>
+                        <li><a href="">كريمي اكسبرس</a></li>
+                        <li><a href="">ام فلوس </a></li>
+                        <li><a href=""> التمويل </a></li>
+
+                    </ul>
+                </li>
+                <li class="first" >التقارير
+                    <ul>
+                        <li><a href="">التقارير المالية</a></li>
+                        <li><a href="">القوائم المالية</a></li>
+
+                    </ul>
+                </li>
+                <li class="first" >نقاط الخدمة
+                    <ul>
+                        <li><a href=""> وماكينات الصرافة</a></li>
+                    </ul>
+                </li>
+                <li class="first" >تواصل معنا
+                    <ul>
+                        <li><a href=""> 967 1 503888 : ت</a></li>
+                        <li><a href=""> 967 1 435400 : ف</a></li>
+                        <li><a href="">967 1 435400 : ف</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </footer>
+    {{-- End Footer --}}
     @yield('javascript')
 
 </body>

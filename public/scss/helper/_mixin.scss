@@ -1,22 +1,26 @@
 //Start Media Breakpoint
 @mixin breakpoints($point) {
-    @if $point == mobile {
+    @if $point == x-large {
+        @media (min-width: 1300px) {
+            @content;
+        }
+    }@else if $point == large {
+        @media (max-width: 1200px) {
+            @content;
+        }
+    }@else if $point == medium {
+        @media  (max-width: 1199px) {
+            @content;
+        }
+    }@else if $point == small {
+        @media (max-width: 991px) {
+            @content;
+        }
+    }@else if $point == mobile {
         @media (max-width: 767px) {
             @content;
         }
-    } @else if $point == small {
-        @media (min-width: 768px) and (max-width: 991px) {
-            @content;
-        }
-    } @else if $point == medium {
-        @media (min-width: 992px) and (max-width: 1199px) {
-            @content;
-        }
-    } @else if $point == large {
-        @media (min-width: 1200px) {
-            @content;
-        }
-    }
+    }  
 }
 //End Media Breakpoint
 

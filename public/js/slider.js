@@ -16,16 +16,22 @@ function showSlides(n) {
         slideIndex = slides.length;
     }
     for (i = 0; i < slides.length; i++) {
-        slides[i].style.left = "-690px";
+        slides[i].style.right ="620px";
         slides[i].style.padding = "20px ";
-        // slides[i].style.top = "-425px";
+        slides[i].style.left = "40px";
+        slides[i].style['z-index'] = "1";
+        slides[i].style.width = "100%";
+        slides[i].style['margin-right'] = "20px";
     }
     for (i = 0; i < dots.length; i++) {
         dots[i].className = dots[i].className.replace(" active", "");
     }
     // slides[slideIndex - 1].style.top = "0px";
-    slides[slideIndex - 1].style.left = "0px";
-    slides[slideIndex - 1].style.padding = "20px 20px 120px 10px";
+    slides[slideIndex - 1].style.right = "0";
+    slides[slideIndex - 1].style.padding = "20px 20px 80px 10px";
+    slides[slideIndex - 1].style['z-index'] = "2";
+    slides[slideIndex - 1].style['margin-right'] = "";
+
     dots[slideIndex - 1].className += " active";
 }
 

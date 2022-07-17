@@ -1,10 +1,16 @@
 @use "../helper/variable" as *;
+@use "../helper/mixin" as *;
 .btn {
     border: 1.5px solid $primary-color;
-    padding: 10px 25px;
-    background-color: $text-color;
-    color: $main-color;
-    font-size: 20px;
+    padding: 15px 25px;
+    background-color: transparent;
+    color: $primary-color;
+    font-size: 16px;
     cursor: pointer;
-    min-width: 120px;
+    min-width: 140px;
+    border-radius: 2px;
+    @include breakpoints(mobile) {
+        font-size: 12px;
+        padding: 10px 15px;
+    }
 }

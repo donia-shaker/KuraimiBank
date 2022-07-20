@@ -33,11 +33,14 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 | contains the "web" middleware group. Now create something great!
 |
 */
+// Route::get('/', function () {
+//     return app()->getLocale();
+// });
+Route::group([
+    'prefix' => LaravelLocalization::setLocale(),
+    'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
+], function () {
 
-Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
-    // Route::get('/', function () {
-    //     return view('welcome');
-    // });
 
     // Authentication Admin Controller
     Route::get('/login', [Authentication::class, 'showLogin'])->name('login');
@@ -55,7 +58,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
     // Error 403
     Route::get('/403', function () {
         return view('wed.403');
-    })->name('403'); 
+    })->name('403');
 
     Route::group(['middleware' => 'auth'], function () {
 
@@ -191,7 +194,5 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
             Route::POST('/editwebsite/{id}', [WebsiteInfoController::class, 'editwebsite'])->name('editwebsite');
         });
     });
-
-
-    Route::get('/',[HomePageController::class,'showHomePage'])->name('');
+    Route::get('/home', [HomePageController::class, 'showHomePage'])->name('home');
 });

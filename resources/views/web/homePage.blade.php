@@ -65,7 +65,7 @@
         <div class="container">
             <h2 class="h-2">خدمات تهتم بك</h2>
             <ul>
-                <li class="ServicesDot" onclick="currentservicesSlide(1)">البطاقات الإئتمانية</li>
+                <li class="ServicesDot active" onclick="currentservicesSlide(1)">البطاقات الإئتمانية</li>
                 <li class="ServicesDot" onclick="currentservicesSlide(2)">تمويل الملكة</li>
                 <li class="ServicesDot" onclick="currentservicesSlide(3)">حسابات الافراد</li>
                 <li class="ServicesDot" onclick="currentservicesSlide(4)">ماكينات الصراف الآلي</li>
@@ -74,113 +74,119 @@
         </div>
         <div class="service shadow-inset">
             <div class="container">
-                <div class="box shadow myservicesSlides fade">
-                    <div class="content">
-                        <div class="text">
-                            <h3 class="h-3">البطاقات الإئتمانية</h3>
-                            <p class="f-4">هذا النص هو مثال لنص يمكن أن يستبدل
-                                في نفس المساحة، لقد تم توليد هذا
-                                النص من مولد النص العربى هذا النص هو مثال لنص يمكن أن يستبدل في
-                                نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى هذا النص هو
-                                مثال لنص يمكن أن يستبد
-                            </p>
+                <div class="slider">
+                    <div class="slider-wrapper">
+                        <div class="box shadow myservicesSlides fade active">
+                            <div class="content">
+                                <div class="text">
+                                    <h3 class="h-3">البطاقات الإئتمانية</h3>
+                                    <p class="f-4">هذا النص هو مثال لنص يمكن أن يستبدل
+                                        في نفس المساحة، لقد تم توليد هذا
+                                        النص من مولد النص العربى هذا النص هو مثال لنص يمكن أن يستبدل في
+                                        نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى هذا النص هو
+                                        مثال لنص يمكن أن يستبد
+                                    </p>
+                                </div>
+                                <div class="button">
+                                    <button class="btn">المزيد</button>
+                                </div>
+                            </div>
+                            <div class="image">
+                                <img src="{{ asset('images/Al-_Kurimi_1 f.png') }}" alt="">
+                                <img src="{{ asset('images/Layer 61.png') }}" alt="">
+                                <img src="{{ asset('images/Layer 71.png') }}" alt="">
+                            </div>
                         </div>
-                        <div class="button">
-                            <button class="btn">المزيد</button>
+                        <div class="box shadow myservicesSlides fade">
+                            <div class="content">
+                                <div class="text">
+                                    <h3 class="h-3">تمويل الملكة</h3>
+                                    <p class="f-4">هذا النص هو مثال لنص يمكن أن يستبدل
+                                        في نفس المساحة، لقد تم توليد هذا
+                                        النص من مولد النص العربى هذا النص هو مثال لنص يمكن أن يستبدل في
+                                        نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى هذا النص هو
+                                        مثال لنص يمكن أن يستبد
+                                    </p>
+                                </div>
+                                <div class="button">
+                                    <button class="btn">المزيد</button>
+                                </div>
+                            </div>
+                            <div class="image">
+                                <img src="{{ asset('images/Al-_Kurimi_1 f.png') }}" alt="">
+                                <img src="{{ asset('images/Layer 61.png') }}" alt="">
+                                <img src="{{ asset('images/Layer 71.png') }}" alt="">
+                            </div>
                         </div>
-                    </div>
-                    <div class="image">
-                        <img src="{{ asset('images/Al-_Kurimi_1 f.png') }}" alt="">
-                        <img src="{{ asset('images/Layer 61.png') }}" alt="">
-                        <img src="{{ asset('images/Layer 71.png') }}" alt="">
+                        <div class="box shadow myservicesSlides fade">
+                            <div class="content">
+                                <div class="text">
+                                    <h3 class="h-3">حسابات الافراد</h3>
+                                    <p class="f-4">هذا النص هو مثال لنص يمكن أن يستبدل
+                                        في نفس المساحة، لقد تم توليد هذا
+                                        النص من مولد النص العربى هذا النص هو مثال لنص يمكن أن يستبدل في
+                                        نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى هذا النص هو
+                                        مثال لنص يمكن أن يستبد
+                                    </p>
+                                </div>
+                                <div class="button">
+                                    <button class="btn">المزيد</button>
+                                </div>
+                            </div>
+                            <div class="image">
+                                <img src="{{ asset('images/Al-_Kurimi_1 f.png') }}" alt="">
+                                <img src="{{ asset('images/Layer 61.png') }}" alt="">
+                                <img src="{{ asset('images/Layer 71.png') }}" alt="">
+                            </div>
+                        </div>
+                        <div class="box shadow myservicesSlides fade">
+                            <div class="content">
+                                <div class="text">
+                                    <h3 class="h-3">ماكينات الصراف الآلي</h3>
+                                    <p class="f-4">هذا النص هو مثال لنص يمكن أن يستبدل
+                                        في نفس المساحة، لقد تم توليد هذا
+                                        النص من مولد النص العربى هذا النص هو مثال لنص يمكن أن يستبدل في
+                                        نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى هذا النص هو
+                                        مثال لنص يمكن أن يستبد
+                                    </p>
+                                </div>
+                                <div class="button">
+                                    <button class="btn">المزيد</button>
+                                </div>
+                            </div>
+                            <div class="image">
+                                <img src="{{ asset('images/Al-_Kurimi_1 f.png') }}" alt="">
+                                <img src="{{ asset('images/Layer 61.png') }}" alt="">
+                                <img src="{{ asset('images/Layer 71.png') }}" alt="">
+                            </div>
+                        </div>
+                        <div class="box shadow myservicesSlides fade">
+                            <div class="content">
+                                <div class="text">
+                                    <h3 class="h-3">التمويل</h3>
+                                    <p class="f-4">هذا النص هو مثال لنص يمكن أن يستبدل
+                                        في نفس المساحة، لقد تم توليد هذا
+                                        النص من مولد النص العربى هذا النص هو مثال لنص يمكن أن يستبدل في
+                                        نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى هذا النص هو
+                                        مثال لنص يمكن أن يستبد
+                                    </p>
+                                </div>
+                                <div class="button">
+                                    <button class="btn">المزيد</button>
+                                </div>
+                            </div>
+                            <div class="image">
+                                <img src="{{ asset('images/Al-_Kurimi_1 f.png') }}" alt="">
+                                <img src="{{ asset('images/Layer 61.png') }}" alt="">
+                                <img src="{{ asset('images/Layer 71.png') }}" alt="">
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="box shadow myservicesSlides fade">
-                    <div class="content">
-                        <div class="text">
-                            <h3 class="h-3">تمويل الملكة</h3>
-                            <p class="f-4">هذا النص هو مثال لنص يمكن أن يستبدل
-                                في نفس المساحة، لقد تم توليد هذا
-                                النص من مولد النص العربى هذا النص هو مثال لنص يمكن أن يستبدل في
-                                نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى هذا النص هو
-                                مثال لنص يمكن أن يستبد
-                            </p>
-                        </div>
-                        <div class="button">
-                            <button class="btn">المزيد</button>
-                        </div>
-                    </div>
-                    <div class="image">
-                        <img src="{{ asset('images/Al-_Kurimi_1 f.png') }}" alt="">
-                        <img src="{{ asset('images/Layer 61.png') }}" alt="">
-                        <img src="{{ asset('images/Layer 71.png') }}" alt="">
-                    </div>
+                <div class="slider-btn">
+                    <a class="prev" onclick="prev(-1)">❮</a>
+                    <a class="next" onclick="next(1)">❯</a>
                 </div>
-                <div class="box shadow myservicesSlides fade">
-                    <div class="content">
-                        <div class="text">
-                            <h3 class="h-3">حسابات الافراد</h3>
-                            <p class="f-4">هذا النص هو مثال لنص يمكن أن يستبدل
-                                في نفس المساحة، لقد تم توليد هذا
-                                النص من مولد النص العربى هذا النص هو مثال لنص يمكن أن يستبدل في
-                                نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى هذا النص هو
-                                مثال لنص يمكن أن يستبد
-                            </p>
-                        </div>
-                        <div class="button">
-                            <button class="btn">المزيد</button>
-                        </div>
-                    </div>
-                    <div class="image">
-                        <img src="{{ asset('images/Al-_Kurimi_1 f.png') }}" alt="">
-                        <img src="{{ asset('images/Layer 61.png') }}" alt="">
-                        <img src="{{ asset('images/Layer 71.png') }}" alt="">
-                    </div>
-                </div>
-                <div class="box shadow myservicesSlides fade">
-                    <div class="content">
-                        <div class="text">
-                            <h3 class="h-3">ماكينات الصراف الآلي</h3>
-                            <p class="f-4">هذا النص هو مثال لنص يمكن أن يستبدل
-                                في نفس المساحة، لقد تم توليد هذا
-                                النص من مولد النص العربى هذا النص هو مثال لنص يمكن أن يستبدل في
-                                نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى هذا النص هو
-                                مثال لنص يمكن أن يستبد
-                            </p>
-                        </div>
-                        <div class="button">
-                            <button class="btn">المزيد</button>
-                        </div>
-                    </div>
-                    <div class="image">
-                        <img src="{{ asset('images/Al-_Kurimi_1 f.png') }}" alt="">
-                        <img src="{{ asset('images/Layer 61.png') }}" alt="">
-                        <img src="{{ asset('images/Layer 71.png') }}" alt="">
-                    </div>
-                </div>
-                <div class="box shadow myservicesSlides fade">
-                    <div class="content">
-                        <div class="text">
-                            <h3 class="h-3">التمويل</h3>
-                            <p  class="f-4">هذا النص هو مثال لنص يمكن أن يستبدل
-                                في نفس المساحة، لقد تم توليد هذا
-                                النص من مولد النص العربى هذا النص هو مثال لنص يمكن أن يستبدل في
-                                نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى هذا النص هو
-                                مثال لنص يمكن أن يستبد
-                            </p>
-                        </div>
-                        <div class="button">
-                            <button class="btn">المزيد</button>
-                        </div>
-                    </div>
-                    <div class="image">
-                        <img src="{{ asset('images/Al-_Kurimi_1 f.png') }}" alt="">
-                        <img src="{{ asset('images/Layer 61.png') }}" alt="">
-                        <img src="{{ asset('images/Layer 71.png') }}" alt="">
-                    </div>
-                </div>
-                <a class="prev" onclick="plusSlides(-1)">❮</a>
-                <a class="next" onclick="plusSlides(1)">❯</a>
             </div>
             <div class="design">
                 <img src="{{ asset('images/sasa.png') }}" alt="">
@@ -214,10 +220,12 @@
                                 <li>التحويل بين الحسابات</li>
                                 <li>سداد فواتير الخدمات</li>
                                 <li>
-                                <a href=""><img src="{{ asset('images/google_play.png') }}" alt=""></a>
+                                    <a href=""><img src="{{ asset('images/google_play.png') }}"
+                                            alt=""></a>
                                 </li>
                                 <li>
-                                <a href=""><img src="{{ asset('images/google_play.png') }}" alt=""></a>
+                                    <a href=""><img src="{{ asset('images/google_play.png') }}"
+                                            alt=""></a>
                                 </li>
                             </ul>
                         </div>
@@ -231,14 +239,16 @@
                                 <li>التحويل بين الحسابات</li>
                                 <li>سداد فواتير الخدمات</li>
                                 <li>
-                                    <a href=""><img src="{{ asset('images/google_play.png') }}" alt=""></a>
-                                    </li>
-                                    <li>
-                                    <a href=""><img src="{{ asset('images/google_play.png') }}" alt=""></a>
-                                    </li>
+                                    <a href=""><img src="{{ asset('images/google_play.png') }}"
+                                            alt=""></a>
+                                </li>
+                                <li>
+                                    <a href=""><img src="{{ asset('images/google_play.png') }}"
+                                            alt=""></a>
+                                </li>
                             </ul>
                         </div>
-    
+
                     </div>
                     <div>
                         <span class="dot" onclick="currentSlide(1)"></span>
@@ -247,86 +257,132 @@
                 </div>
             </div>
         </div>
-        
+
         <div id="wave-two"></div>
     </section>
     {{-- End Application Section --}}
 
     {{-- Start News Section --}}
     <section class="news">
-        <img src="{{asset('images/From selection.png')}}" alt="" class="layer1">
+        <img src="{{ asset('images/From selection.png') }}" alt="" class="layer1">
         <div class="container">
             <h2 class="h-2"> ابق على اطلاع على آخر أخبار البنك</h2>
-            <div class="boxes">
-                <div class="box shadow news-Slides">
-                    <div class="active">
-                        <div class="description">
-                            <h3 class=" f-5">مشروع تحديث أنظمة البنك</h3 class="h-3">
-                            <p>هذا النص هو مثال لنص يمكن أن يستبدل في
-                                نفس المساحة، لقد تم توليد هذا النص من مولد
-                                النص العربى هذا النص هو مثال لنص يمكن أن
-                                يستبدل في نفس المساحة، لقد تم توليد هذا
-                                النص من مولد النص العربى هذا النص هو مثال
-                                لنص يمكن أن يستبدل</p>
+            <div class="slide-wrapper">
+                <div class="boxes" id="news-boxes">
+                    <div class="box shadow news-Slides 1">
+                        <div class="active">
+                            <div class="description">
+                                <h3 class=" f-5">مشروع تحديث أنظمة البنك</h3 class="h-3">
+                                <p>هذا النص هو مثال لنص يمكن أن يستبدل في
+                                    نفس المساحة، لقد تم توليد هذا النص من مولد
+                                    النص العربى هذا النص هو مثال لنص يمكن أن
+                                    يستبدل في نفس المساحة، لقد تم توليد هذا
+                                    النص من مولد النص العربى هذا النص هو مثال
+                                    لنص يمكن أن يستبدل</p>
+                            </div>
+                            <div class="d-link"><a href="">المزيد</a></div>
                         </div>
-                        <div class="d-link"><a href="">المزيد</a></div>
-                    </div>
-                    <span class="animation"></span>
-                    <img src="{{ asset('images/news.PNG') }}" alt="">
-                    <div class="text">
-                        <h3 class=" f-5">مشروع تحديث أنظمة البنك</h3>
-                        <div class="link"><a href="">المزيد</a></div>
-                    </div>
-                    <div class="overlay"></div>
-                </div>
-                <div class="box shadow news-Slides">
-                    <div class="active">
-                        <div class="description">
-                            <h3 class=" f-5">مشروع تحديث أنظمة البنك</h3 class="h-3">
-                            <p>هذا النص هو مثال لنص يمكن أن يستبدل في
-                                نفس المساحة، لقد تم توليد هذا النص من مولد
-                                النص العربى هذا النص هو مثال لنص يمكن أن
-                                يستبدل في نفس المساحة، لقد تم توليد هذا
-                                النص من مولد النص العربى هذا النص هو مثال
-                                لنص يمكن أن يستبدل</p>
+                        <span class="animation"></span>
+                        <img src="{{ asset('images/news.PNG') }}" alt="">
+                        <div class="text">
+                            <h3 class=" f-5">1مشروع تحديث أنظمة البنك</h3>
+                            <div class="link"><a href="">المزيد</a></div>
                         </div>
-                        <div class="d-link"><a href="">المزيد</a></div>
+                        <div class="overlay"></div>
                     </div>
-                    <span class="animation"></span>
-                    <img src="{{ asset('images/news.PNG') }}" alt="">
-                    <div class="text">
-                        <h3 class="f-5">مشروع تحديث أنظمة البنك</h3>
-                        <div class="link"><a href="">المزيد</a></div>
-                    </div>
-                </div>
-                <div class="box shadow news-Slides">
-                    <div class="active">
-                        <div class="description">
-                            <h3 class="f-5">مشروع تحديث أنظمة البنك</h3>
-                            <p>هذا النص هو مثال لنص يمكن أن يستبدل في
-                                نفس المساحة، لقد تم توليد هذا النص من مولد
-                                النص العربى هذا النص هو مثال لنص يمكن أن
-                                يستبدل في نفس المساحة، لقد تم توليد هذا
-                                النص من مولد النص العربى هذا النص هو مثال
-                                لنص يمكن أن يستبدل</p>
+                    <div class="box shadow news-Slides 2">
+                        <div class="active">
+                            <div class="description">
+                                <h3 class=" f-5">2مشروع تحديث أنظمة البنك</h3 class="h-3">
+                                <p>هذا النص هو مثال لنص يمكن أن يستبدل في
+                                    نفس المساحة، لقد تم توليد هذا النص من مولد
+                                    النص العربى هذا النص هو مثال لنص يمكن أن
+                                    يستبدل في نفس المساحة، لقد تم توليد هذا
+                                    النص من مولد النص العربى هذا النص هو مثال
+                                    لنص يمكن أن يستبدل</p>
+                            </div>
+                            <div class="d-link"><a href="">المزيد</a></div>
                         </div>
-                        <div class="d-link"><a href="">المزيد</a></div>
+                        <span class="animation"></span>
+                        <img src="{{ asset('images/news.PNG') }}" alt="">
+                        <div class="text">
+                            <h3 class="f-5">2مشروع تحديث أنظمة البنك</h3>
+                            <div class="link"><a href="">المزيد</a></div>
+                        </div>
                     </div>
-                    <span class="animation"></span>
-                    <img src="{{ asset('images/news.PNG') }}" alt="">
-                    <div class="text">
-                        <h3 class="f-5">مشروع تحديث أنظمة البنك</h3>
-                        <div class="link"><a href="">المزيد</a></div>
+                    <div class="box shadow news-Slides 3">
+                        <div class="active">
+                            <div class="description">
+                                <h3 class="f-5">3مشروع تحديث أنظمة البنك</h3>
+                                <p>هذا النص هو مثال لنص يمكن أن يستبدل في
+                                    نفس المساحة، لقد تم توليد هذا النص من مولد
+                                    النص العربى هذا النص هو مثال لنص يمكن أن
+                                    يستبدل في نفس المساحة، لقد تم توليد هذا
+                                    النص من مولد النص العربى هذا النص هو مثال
+                                    لنص يمكن أن يستبدل</p>
+                            </div>
+                            <div class="d-link"><a href="">المزيد</a></div>
+                        </div>
+                        <span class="animation"></span>
+                        <img src="{{ asset('images/news.PNG') }}" alt="">
+                        <div class="text">
+                            <h3 class="f-5">3مشروع تحديث أنظمة البنك</h3>
+                            <div class="link"><a href="">المزيد</a></div>
+                        </div>
+                    </div>
+                    <div class="box shadow news-Slides 4">
+                        <div class="active">
+                            <div class="description">
+                                <h3 class="f-5">4مشروع تحديث أنظمة البنك</h3>
+                                <p>هذا النص هو مثال لنص يمكن أن يستبدل في
+                                    نفس المساحة، لقد تم توليد هذا النص من مولد
+                                    النص العربى هذا النص هو مثال لنص يمكن أن
+                                    يستبدل في نفس المساحة، لقد تم توليد هذا
+                                    النص من مولد النص العربى هذا النص هو مثال
+                                    لنص يمكن أن يستبدل</p>
+                            </div>
+                            <div class="d-link"><a href="">المزيد</a></div>
+                        </div>
+                        <span class="animation"></span>
+                        <img src="{{ asset('images/news.PNG') }}" alt="">
+                        <div class="text">
+                            <h3 class="f-5">4مشروع تحديث أنظمة البنك</h3>
+                            <div class="link"><a href="">المزيد</a></div>
+                        </div>
+                    </div>
+                    <div class="box shadow news-Slides 5">
+                        <div class="active">
+                            <div class="description">
+                                <h3 class="f-5">5مشروع تحديث أنظمة البنك</h3>
+                                <p>هذا النص هو مثال لنص يمكن أن يستبدل في
+                                    نفس المساحة، لقد تم توليد هذا النص من مولد
+                                    النص العربى هذا النص هو مثال لنص يمكن أن
+                                    يستبدل في نفس المساحة، لقد تم توليد هذا
+                                    النص من مولد النص العربى هذا النص هو مثال
+                                    لنص يمكن أن يستبدل</p>
+                            </div>
+                            <div class="d-link"><a href="">المزيد</a></div>
+                        </div>
+                        <span class="animation"></span>
+                        <img src="{{ asset('images/news.PNG') }}" alt="">
+                        <div class="text">
+                            <h3 class="f-5">5مشروع تحديث أنظمة البنك</h3>
+                            <div class="link"><a href="">المزيد</a></div>
+                        </div>
                     </div>
                 </div>
             </div>
+            <div class="slider-btn">
+                <a class="prev" onclick="newsPrev(-1)">❮</a>
+                <a class="next" onclick="newsNext(1)">❯</a>
+            </div>
             <div class="button"><button class="btn">المزيد</button></div>
         </div>
+
         <div class="new-wave"></div>
         <div class="layer2">
-        <img src="{{asset('images/aa.png')}}" alt="">
-        <img src="{{asset('images/From selection.png')}}" alt="">
-
+            <img src="{{ asset('images/aa.png') }}" alt="">
+            <img src="{{ asset('images/From selection.png') }}" alt="">
         </div>
     </section>
     {{-- End News Section --}}
@@ -376,7 +432,7 @@
     {{-- Start Location Section --}}
     <section class="location">
         <div class="layer1">
-            <img src="{{asset('images/From selection.png')}}" alt="">
+            <img src="{{ asset('images/From selection.png') }}" alt="">
         </div>
         <div class="container">
             <div class="content">
@@ -402,7 +458,7 @@
             </div>
         </div>
         <div class="layer2">
-            <img src="{{asset('images/aa.png')}}" alt="">
+            <img src="{{ asset('images/aa.png') }}" alt="">
         </div>
     </section>
     {{-- End Location Section --}}

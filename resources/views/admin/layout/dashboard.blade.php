@@ -285,6 +285,21 @@
 
 
                         <ul class="navbar-nav flex-row align-items-center ms-auto">
+                            <ul>
+                                @if ( app()->getLocale()  != 'en')
+                                <li>
+                                    <a rel="alternate" hreflang="en" href="{{ LaravelLocalization::getLocalizedURL('en', null, [], true) }}">
+                                        En
+                                    </a>
+                                </li>
+                                @else
+                                <li>
+                                    <a rel="alternate" hreflang="ar" href="{{ LaravelLocalization::getLocalizedURL('ar', null, [], true) }}">
+                                        Ar
+                                    </a>
+                                </li>
+                                @endif
+                            </ul>
 
                             <!-- Language -->
                             {{-- <li class="nav-item dropdown-language dropdown me-2 me-xl-0">

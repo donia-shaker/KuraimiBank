@@ -1,5 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" dir="rtl">
+@if ( app()->getLocale()  != 'en')
+<html lang="ar" dir="rtl">
+@else
+<html lang="en" dir='ltr'>
+@endif
+{{-- <html lang="en" dir="rtl"> --}}
 
 <head>
     <meta charset="UTF-8">
@@ -25,9 +30,7 @@
         <div class="container ">
             <div class="content">
                 <div>
-                    <div class="minu">
-                        <input type="checkbox" id="myToggle" style="position: relative;
-                        z-index:2">
+                    <div class="minu" id="minu" onclick="showNav()">
                         <span></span>
                         <span></span>
                     </div>
@@ -44,15 +47,24 @@
                 <div>
                     <ul class="left-list">
                         <li class="points"><a href=""><i class="fa-solid fa-location-dot"></i>نقاط الخدمة</a></li>
-                        <li ><a href=""><i class="fa-solid fa-search"></i></a><a href="" class="lang">
-                                EN</a></li>
+                        <li ><a href=""><i class="fa-solid fa-search"></i></a>
+                            @if ( app()->getLocale()  != 'en')
+                                    <a rel="alternate" hreflang="en" class="lang" href="{{ LaravelLocalization::getLocalizedURL('en', null, [], true) }}">
+                                        EN
+                                    </a>
+                                @else
+                                    <a rel="alternate" hreflang="ar" class="lang" href="{{ LaravelLocalization::getLocalizedURL('ar', null, [], true) }}">
+                                        AR
+                                    </a>
+                                @endif
+                            </li>
                     </ul>
                 </div>
             </div>
             {{-- Start Nav Section --}}
             <nav>
-                <ul class="main-list">
-                    <li><a href="">الرئيسية</a>
+                <ul class="main-list " id="main-list">
+                    <li><a href="">@lang('content.home')</a>
                         <div class="info">
                             <h2 class="h-2">عن البنك</h2>
                             <div class="list">

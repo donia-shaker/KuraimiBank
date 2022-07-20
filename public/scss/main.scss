@@ -74,6 +74,8 @@ header {
         .minu {
             display: none;
             min-width: 40px;
+            top: 0px;
+            position: absolute;
             span {
                 width: 30px;
                 height: 2px;
@@ -90,7 +92,17 @@ header {
                 display: block;
             }
         }
-
+        .rotate {
+            left: 50px;
+            span:first-child {
+                transform: rotate3d(1, 1, 1, 60deg);
+            }
+            span:last-child {
+                transform: rotate3d(1, 2, 1, 180deg);
+                width: 32px;
+                top: 45px;
+            }
+        }
         &,
         .top,
         .left-list,
@@ -149,6 +161,9 @@ header {
                 top: -112px;
                 padding-top: 100px;
                 right: -15px;
+                &.responsive {
+                    display: flex;
+                }
             }
             li {
                 // position: relative;
@@ -374,81 +389,97 @@ main {
         background-size: 600px;
         margin: 80px 0;
         height: 340px;
-        .box {
-            position: relative;
-            background-color: $text-color;
-            height: 440px;
-            border: 1px solid #eee;
-            top: -50px;
-            margin: 0 80px;
-            @include breakpoints(mobile) {
-                margin: auto;
-                width: 95%;
-            }
-            @include flex(space-between, row, wrap, revert);
-            .content {
-                @include flex(space-between, column, wrap, start);
-                max-width: 600px;
-                padding: 40px;
-                color: $paragraph-color;
-                @include breakpoints(large) {
-                    width: 65%;
-                }
-                @include breakpoints(mobile) {
-                    width: 100%;
-                    padding: 20px;
-                }
-
-                h3 {
-                    color: $primary-color;
-                    padding: 40px 0;
-                }
-                p {
-                    margin-bottom: 40px;
-                    height: 160px;
-                }
-                button {
-                    padding: 15px 50px;
-                }
-            }
-            .image {
-                position: absolute;
-                background-color: #73659a;
-                height: 100%;
-                width: 300px;
-                left: 0;
-                top: 0;
+        // .container{
+        // display: flex;
+        // }
+        .slider {
+            width: 100%;
+            .slider-wrapper {
+                display: flex;
+                position: relative;
+                height: 440px;
+                top: -50px;
+                margin: 0 80px;
                 overflow: hidden;
-                @include breakpoints(small) {
-                    display: none;
+                @include breakpoints(mobile) {
+                    margin: auto;
+                    width: 95%;
                 }
-                img {
-                    &:first-child {
+                .box {
+                    position: absolute;
+                    background-color: $text-color;
+                    height: 440px;
+                    border: 1px solid #eee;
+                    width: 100%;
+                    transform: translateX(-100%);
+                    transition: 0.5s ease-in-out;
+                    &.active {
+                        transform: translateX(0);
                         z-index: 2;
-                        height: 80%;
-                        margin-right: -350px;
-                        margin-top: 70px;
-                        position: relative;
                     }
-                    &:nth-child(2),
-                    &:nth-child(3) {
+
+                    @include flex(space-between, row, wrap, revert);
+                    .content {
+                        @include flex(space-between, column, wrap, start);
+                        max-width: 600px;
+                        padding: 40px;
+                        color: $paragraph-color;
+                        @include breakpoints(large) {
+                            width: 65%;
+                        }
+                        @include breakpoints(mobile) {
+                            width: 100%;
+                            padding: 20px;
+                        }
+
+                        h3 {
+                            color: $primary-color;
+                            padding: 40px 0;
+                        }
+                        p {
+                            margin-bottom: 40px;
+                            height: 160px;
+                        }
+                        button {
+                            padding: 15px 50px;
+                        }
+                    }
+                    .image {
                         position: absolute;
-                        width: 100%;
-                        height: 50%;
-                        top: 120px;
-                    }
-                    &:nth-child(3) {
-                        width: 40%;
-                        height: 30%;
-                        left: 0px;
-                        top: 200px;
+                        background-color: #73659a;
+                        height: 100%;
+                        width: 300px;
+                        left: 0;
+                        top: 0;
+                        overflow: hidden;
+                        @include breakpoints(small) {
+                            display: none;
+                        }
+                        img {
+                            &:first-child {
+                                z-index: 2;
+                                height: 80%;
+                                margin-right: -350px;
+                                margin-top: 70px;
+                                position: relative;
+                            }
+                            &:nth-child(2),
+                            &:nth-child(3) {
+                                position: absolute;
+                                width: 100%;
+                                height: 50%;
+                                top: 120px;
+                            }
+                            &:nth-child(3) {
+                                width: 40%;
+                                height: 30%;
+                                left: 0px;
+                                top: 200px;
+                            }
+                        }
                     }
                 }
             }
-        }
-        .fade {
-            animation-name: fade;
-            animation-duration: 1.5s;
         }
     }
     .design {
@@ -647,151 +678,191 @@ main {
         top: -20px;
         z-index: -3;
     }
-    h2 {
-        text-align: center;
-    }
-    .boxes {
-        margin: 80px 0 60px;
-        @include flex(space-between, row, nowrap, center);
-        @include breakpoints(large) {
-            overflow-x: scroll;
-        }
-        .box:not(:last-child) {
-            @include breakpoints(large) {
-                margin-left: 20px;
-            }
-        }
-        .box {
-            position: relative;
-            overflow: hidden;
-            min-width: 280px;
-            max-width: 380px;
-
-            img {
-                width: 100%;
-            }
-            .text {
-                height: 190px;
-                padding: 40px 40px 20px;
-                background-color: $text-color;
-                .link {
-                    padding: 10px 0;
-                    color: $paragraph-color;
-                    margin-top: 40px;
-                    border-bottom: 1px solid $primary-color;
-                    width: fit-content;
-                    font-size: 16px;
-                }
-            }
-            .animation {
-                position: absolute;
-                width: 2px;
-                height: 50px;
-                background-color: $text-color;
-                left: 50%;
-                top: -50%;
-            }
-            &:hover .animation {
-                animation: news 0.5s forwards;
-            }
-            .active {
-                color: $text-color;
-                position: absolute;
-                overflow: hidden;
-                height: 100%;
-                clip-path: circle(1px at 50% 50px);
-                .description {
-                    height: calc(100% - 195px);
-                    padding: 40px;
-                    box-shadow: 100px 400px 20px 20px inset
-                        rgb(134 119 160 / 66%);
-                    h3,
-                    p {
-                        opacity: 0;
-                    }
-                    h3 {
-                        padding: 150px 0 15px;
-                        text-align: center;
-                        @include breakpoints(large) {
-                            padding: 40px 0 15px;
-                        }
-                    }
-                    p {
-                        color: #f9f9f9;
-                        font-weight: 200;
-                        line-height: 1.6;
-                        font-size: 16px;
-                        letter-spacing: -0.2px;
-                        @include breakpoints(medium) {
-                            font-size: 14px;
-                        }
-                        @include breakpoints(small) {
-                            font-size: 12px;
-                        }
-                    }
-                }
-                .d-link {
-                    height: 195px;
-                    box-shadow: 100px 400px 20px 20px inset rgb(134 119 160);
-                    text-align: center;
-                    padding-top: 100px;
-                    a {
-                        color: $text-color;
-                        padding: 10px 5px;
-                        opacity: 0;
-                        border-bottom: 1px solid $text-color;
-                    }
-                }
-            }
-            &:hover .active {
-                animation: active 1s forwards 0.5s;
-            }
-            &:hover .description h3,
-            &:hover .description p,
-            &:hover .d-link a {
-                animation: opacity 1s forwards 1s;
-            }
-        }
-    }
-    .button {
-        text-align: center;
-    }
-    .new-wave {
+    .container {
         position: relative;
-        &::after {
-            content: "";
-            display: block;
-            position: absolute;
-            /* border-radius: 699px 750px 0 0; */
-            border-radius: 50%;
-            width: 130vw;
-            height: 120vw;
-            background-color: $background-color;
-            left: -340px;
-            top: -500px;
-            z-index: -1;
-            @include breakpoints(small) {
-                left: -130px;
+        h2 {
+            text-align: center;
+        }
+        .slide-wrapper {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            .boxes {
+                margin: 80px 0 60px;
+                width: calc(100% / 3 * 7);
+                height: 100%;
+                position: relative;
             }
-            @include breakpoints(mobile) {
-                left: -50px;
-                top: -220px;
+            .box {
+                position: relative;
+                overflow: hidden;
+                display: inline-block;
+                margin-bottom: 60px;
+                margin-left: 25px;
+                width: 400px;
+                height: 600px;
+                transition: 0.5s ease-in-out;
+
+                img {
+                    width: 100%;
+                }
+                .text {
+                    height: 190px;
+                    padding: 40px 40px 20px;
+                    background-color: $text-color;
+                    .link {
+                        padding: 10px 0;
+                        color: $paragraph-color;
+                        margin-top: 40px;
+                        border-bottom: 1px solid $primary-color;
+                        width: fit-content;
+                        font-size: 16px;
+                    }
+                }
+                .animation {
+                    position: absolute;
+                    width: 2px;
+                    height: 50px;
+                    background-color: $text-color;
+                    left: 50%;
+                    top: -50%;
+                }
+                &:hover .animation {
+                    animation: news 0.5s forwards;
+                }
+                .active {
+                    color: $text-color;
+                    position: absolute;
+                    overflow: hidden;
+                    height: 100%;
+                    clip-path: circle(1px at 50% 50px);
+                    .description {
+                        height: calc(100% - 195px);
+                        padding: 40px;
+                        box-shadow: 100px 400px 20px 20px inset
+                            rgb(134 119 160 / 66%);
+                        h3,
+                        p {
+                            opacity: 0;
+                        }
+                        h3 {
+                            padding: 150px 0 15px;
+                            text-align: center;
+                            @include breakpoints(large) {
+                                padding: 40px 0 15px;
+                            }
+                        }
+                        p {
+                            color: #f9f9f9;
+                            font-weight: 200;
+                            line-height: 1.6;
+                            font-size: 16px;
+                            letter-spacing: -0.2px;
+                            @include breakpoints(medium) {
+                                font-size: 14px;
+                            }
+                            @include breakpoints(small) {
+                                font-size: 12px;
+                            }
+                        }
+                    }
+                    .d-link {
+                        height: 195px;
+                        box-shadow: 100px 400px 20px 20px inset rgb(134 119 160);
+                        text-align: center;
+                        padding-top: 100px;
+                        a {
+                            color: $text-color;
+                            padding: 10px 5px;
+                            opacity: 0;
+                            border-bottom: 1px solid $text-color;
+                        }
+                    }
+                }
+                &:hover .active {
+                    animation: active 1s forwards 0.5s;
+                }
+                &:hover .description h3,
+                &:hover .description p,
+                &:hover .d-link a {
+                    animation: opacity 1s forwards 1s;
+                }
             }
         }
     }
-    .layer2 {
+
+    .slider-btn {
         position: absolute;
-        left: -40px;
-        bottom: 60px;
-        z-index: -1;
-        img {
-            width: 55px;
+        display: flex;
+        justify-content: space-between;
+        width: 110%;
+        position: absolute;
+        top: 50%;
+        margin-right: -80px;
+        .prev,
+        .next {
+            cursor: pointer;
+            padding: 16px;
+            color: $primary-color;
+            font-size: 40px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+            @include breakpoints(mobile) {
+                padding: 5px;
+                right: 2px;
+                font-size: 30px;
+            }
         }
-        img:last-child {
-            width: 100px;
+        .next {
+            left: 0;
+            border-radius: 3px 0 0 3px;
+            @include breakpoints(mobile) {
+                right: 95%;
+            }
         }
     }
 }
+
+.button {
+    text-align: center;
+}
+.new-wave {
+    position: relative;
+    &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        /* border-radius: 699px 750px 0 0; */
+        border-radius: 50%;
+        width: 130vw;
+        height: 120vw;
+        background-color: $background-color;
+        left: -340px;
+        top: -500px;
+        z-index: -1;
+        @include breakpoints(small) {
+            left: -130px;
+        }
+        @include breakpoints(mobile) {
+            left: -50px;
+            top: -220px;
+        }
+    }
+}
+.layer2 {
+    position: absolute;
+    left: -40px;
+    bottom: 60px;
+    z-index: -1;
+    img {
+        width: 55px;
+    }
+    img:last-child {
+        width: 100px;
+    }
+}
+
 // End News Section
 
 // Start Number Secttion

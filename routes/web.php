@@ -19,6 +19,8 @@ use App\Http\Controllers\admin\Authentication;
 use App\Http\Controllers\admin\SubCategoriesController;
 use App\Http\Controllers\admin\UserController;
 use App\Http\Controllers\web\HomePageController;
+use App\Http\Controllers\web\ServicesController as WebServicesController;
+use App\Http\Controllers\web\ServicesPageController;
 use App\Models\service_points;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -195,4 +197,5 @@ Route::group([
         });
     });
     Route::get('/home', [HomePageController::class, 'showHomePage'])->name('home');
+    Route::get('/services', [ServicesPageController::class, 'showServicesPage'])->name('services');
 });

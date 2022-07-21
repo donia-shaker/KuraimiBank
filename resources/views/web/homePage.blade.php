@@ -1,4 +1,7 @@
 @extends('web.layout.master')
+@section('css')
+<link rel="stylesheet" href="{{ asset('scss/main.css') }}" />
+@endsection
 @section('content')
     {{-- Start Hero Section --}}
     @if (app()->getLocale() != 'en')

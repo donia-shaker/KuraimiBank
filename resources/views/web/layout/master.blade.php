@@ -16,7 +16,8 @@
     <!-- CSS Normalized -->
     <link rel="stylesheet" href="{{ asset('css/normalized.css') }}" />
     <!-- CSS File -->
-    <link rel="stylesheet" href="{{ asset('scss/main.css') }}" />
+    <link rel="stylesheet" href="{{ asset('scss/header&footer.css') }}" />
+    @yield('css')
     <!-- Open  Font -->
     <link rel="stylesheet" href="{{ asset('css/stylesheet.css') }}" />
     <link rel="preload" href="HacenTunisia.woff2" as="font" type="font/woff2" crossorigin>

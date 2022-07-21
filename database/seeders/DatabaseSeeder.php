@@ -27,5 +27,6 @@ $this->call(WebSiteInfoSeeder::class);
 $this->call(roleSeeder::class);
 $this->call(PermissionSeeder::class);
 $this->call(userTableSeeder::class);
+$this->call(CategoriesSeeder::class);
     }
 }

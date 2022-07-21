@@ -18,7 +18,7 @@ return new class extends Migration
             $table->json('name');
             $table->string('icon')->default(0);
             $table->integer('parentId')->default(0);
-            $table->boolean('is_active')->default(0);
+            $table->boolean('is_active')->default(1);
             $table->timestamps();
         });
     }

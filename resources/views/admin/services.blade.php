@@ -467,7 +467,7 @@
                                         <label for="defaultFormControlInput" class="form-label ">حدد القسم الذي تنتمي الية الخدمة</label>
                                         <select name="categoryId" class="px-5 py-2" id="">
                                             @foreach ($categories as $category)
-                                                <option value="{{ $category->id }}">{{ $category->name->ar }}
+                                                <option value="{{ $category->id }}">{{ $category->name }}
                                                 </option>
                                             @endforeach
                                         </select>

@@ -1,13 +1,21 @@
 @extends('web.layout.master')
 @section('content')
     {{-- Start Hero Section --}}
-    <main>
-        <div class="container">
-            <div class="text">
-                <h1 class="h-1">حساب في كل بيت يمني</h1>
-                <p>يسهم في التنمية الاقتصادية والاجتماعية</p>
-            </div>
-        </div>
+    @if (app()->getLocale() != 'en')
+        <main dir="rtl">
+        @else
+            <main dir="ltr">
+    @endif
+    <div class="container">
+        @if (app()->getLocale() != 'en')
+            <div class="text" dir="rtl">
+            @else
+                <div class="text" dir="ltr">
+        @endif
+        <h1 class="h-1">@lang('content.home_title')</h1>
+        <p>@lang('content.home_p')</p>
+    </div>
+    </div>
     </main>
     {{-- End Hero Section --}}
 
@@ -210,7 +218,7 @@
                         مولد النص العربى هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد ت
                     </p>
                     <div class="boxes">
-                        <div class="box mySlides shadow">
+                        <div class="box mySlides shadow main-position">
                             <h3 class="h-3">الكريمي جوال</h3>
                             <ul class="f-4">
                                 <li>التحويل بين الحسابات</li>
@@ -229,7 +237,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="box mySlides shadow">
+                        <div class="box mySlides shadow seconed-position">
                             <h3 class="h-3">الكريمي جوال2</h3>
                             <ul class="f-4">
                                 <li>التحويل بين الحسابات</li>
@@ -251,7 +259,7 @@
 
                     </div>
                     <div>
-                        <span class="dot" onclick="currentSlide(1)"></span>
+                        <span class="dot active" onclick="currentSlide(1)"></span>
                         <span class="dot" onclick="currentSlide(2)"></span>
                     </div>
                 </div>

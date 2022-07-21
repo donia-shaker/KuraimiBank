@@ -46,7 +46,13 @@ a {
 }
 body {
     overflow-x: hidden;
-    font-family: "GE SS Two";
+    &[dir=rtl]{
+        font-family: "GE SS Two";
+    }
+    &[dir=ltr]{
+        font-family: 'Helvetica Neue LT Pro';
+        font-style: normal;
+    }
     &::before {
         content: "";
         position: absolute;
@@ -144,6 +150,7 @@ header {
     nav {
         position: relative;
         ul.main-list {
+            text-transform: capitalize;
             overflow-y: hidden;
             @include flex(space-between, row, wrap, center);
             padding: 0 20px;
@@ -245,7 +252,9 @@ main {
     background-size: cover;
     height: 130vh;
     color: $text-color;
-    transform: rotateY(180deg);
+    &[dir=rtl]{
+        transform: rotateY(180deg);
+    }
     top: -70px;
     @include breakpoints(small) {
         background-size: cover;
@@ -257,9 +266,13 @@ main {
     }
     .text {
         position: absolute;
+        &[dir=rtl]{
         transform: rotateY(180deg);
-        top: 52%;
+        }
+        top: 50%;
         left: 15px;
+        text-align: start;
+        text-shadow: 0 1px 5px #555;
         @include breakpoints(small) {
             top: 40%;
         }
@@ -275,7 +288,6 @@ main {
             font-size: 30px;
             font-family: "GE SS Two";
             font-weight: 300;
-            text-shadow: 0 1px 5px #555;
             @include breakpoints(small) {
                 font-size: 24px;
                 text-align: center;
@@ -523,6 +535,7 @@ main {
 
 // Start App Section
 .app {
+    direction: rtl;
     background-color: $background-color;
     // overflow-x: hidden;
     border-radius: 0px 0px 20%;
@@ -571,28 +584,65 @@ main {
             padding-bottom: 0;
             position: relative;
             @include breakpoints(small) {
-                padding: 0px;
+                padding: 0px 80px;
+                text-align: center;
+            }
+            @include breakpoints(mobile) {
+                padding: 0px 0 0 10px;
+                text-align: center;
             }
             .boxes {
                 position: relative;
                 height: 440px;
+                @include breakpoints(small) {
+                    margin-right: 5%;
+                }
+                @include breakpoints(mobile) {
+                    margin-right: 0;
+                }
                 .box {
                     background-color: $text-color;
                     border-radius: 20px;
-                    max-width: 600px;
+                    text-align: start;
+
+                    width: 600px;
                     padding: 20px 20px 80px 10px;
                     margin: 60px 0;
                     margin-left: 20px;
                     position: absolute;
                     transition: right 2s ease;
+                    &.main-position {
+                        right: 0;
+                        padding: 20px 20px 80px 10px;
+                        z-index: 2;
+                        margin-right: "";
+                    }
+                    &.seconed-position {
+                        right: calc(34vw + 100px);
+                        padding: 20px;
+                        left: 40px;
+                        z-index: 1;
+                        width: 100%;
+                        margin-right: 25px;
+                        @include breakpoints(large) {
+                            right: calc(43vw + 50px);
+                        }
+                        @include breakpoints(small) {
+                            right: calc(55vw + 50px);
+                        }
+                        @include breakpoints(mobile) {
+                            right: calc(82vw + 6px);
+                        }
+                    }
                     @include breakpoints(large) {
-                        max-width: 50vw;
+                        width: 45vw;
                     }
                     @include breakpoints(small) {
-                        max-width: 65%;
+                        // max-width: 65%;
+                        width: 85vw;
                     }
                     @include breakpoints(mobile) {
-                        max-width: 100%;
+                        max-width: 90%;
                         padding-bottom: 40px;
                     }
                     h3 {
@@ -612,7 +662,7 @@ main {
                             font-size: 14px;
                         }
                         @include breakpoints(medium) {
-                            font-size: 12px;
+                            font-size: 10px;
                         }
                         img {
                             width: 80%;
@@ -677,6 +727,9 @@ main {
         right: -40px;
         top: -20px;
         z-index: -3;
+        @include breakpoints(small) {
+            display: none;
+        }
     }
     .container {
         position: relative;
@@ -687,122 +740,132 @@ main {
             width: 100%;
             overflow: hidden;
             position: relative;
+            @include breakpoints(large) {
+                margin: auto;
+                width: 90%;
+            }
             .boxes {
                 margin: 80px 0 60px;
-                width: calc(100% / 3 * 7);
+                // width: calc(100% / 3 * 7);
                 height: 100%;
                 position: relative;
-            }
-            .box {
-                position: relative;
-                overflow: hidden;
-                display: inline-block;
-                margin-bottom: 60px;
-                margin-left: 25px;
-                width: 400px;
-                height: 600px;
-                transition: 0.5s ease-in-out;
-
-                img {
-                    width: 100%;
-                }
-                .text {
-                    height: 190px;
-                    padding: 40px 40px 20px;
-                    background-color: $text-color;
-                    .link {
-                        padding: 10px 0;
-                        color: $paragraph-color;
-                        margin-top: 40px;
-                        border-bottom: 1px solid $primary-color;
-                        width: fit-content;
-                        font-size: 16px;
-                    }
-                }
-                .animation {
-                    position: absolute;
-                    width: 2px;
-                    height: 50px;
-                    background-color: $text-color;
-                    left: 50%;
-                    top: -50%;
-                }
-                &:hover .animation {
-                    animation: news 0.5s forwards;
-                }
-                .active {
-                    color: $text-color;
-                    position: absolute;
+                display: flex;
+                // display: grid;
+                // grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+                gap: 50px;
+                transition: all 0.5s ease-in-out;
+                .box {
+                    position: relative;
                     overflow: hidden;
-                    height: 100%;
-                    clip-path: circle(1px at 50% 50px);
-                    .description {
-                        height: calc(100% - 195px);
-                        padding: 40px;
-                        box-shadow: 100px 400px 20px 20px inset
-                            rgb(134 119 160 / 66%);
-                        h3,
-                        p {
-                            opacity: 0;
-                        }
-                        h3 {
-                            padding: 150px 0 15px;
-                            text-align: center;
-                            @include breakpoints(large) {
-                                padding: 40px 0 15px;
-                            }
-                        }
-                        p {
-                            color: #f9f9f9;
-                            font-weight: 200;
-                            line-height: 1.6;
+                    // display: inline;
+                    margin-bottom: 60px;
+                    // margin-left: 5px;
+                    max-width: 390px;
+                    max-height: 585px;
+                    transition: 0.5s ease-in-out;
+                    // @include breakpoints(large) {
+                    //     // margin: 0 15px;
+                    //     margin: 0;
+                    //     margin-left: 20px;
+                    // }
+                    img {
+                        width: 100%;
+                        height: calc(100% - 190px);
+                    }
+                    .text {
+                        height: 190px;
+                        padding: 40px 40px 20px;
+                        background-color: $text-color;
+                        .link {
+                            padding: 10px 0;
+                            color: $paragraph-color;
+                            margin-top: 40px;
+                            border-bottom: 1px solid $primary-color;
+                            width: fit-content;
                             font-size: 16px;
-                            letter-spacing: -0.2px;
-                            @include breakpoints(medium) {
-                                font-size: 14px;
+                        }
+                    }
+                    .animation {
+                        position: absolute;
+                        width: 2px;
+                        height: 50px;
+                        background-color: $text-color;
+                        left: 50%;
+                        top: -50%;
+                    }
+                    &:hover .animation {
+                        animation: news 0.5s forwards;
+                    }
+                    .active {
+                        color: $text-color;
+                        position: absolute;
+                        overflow: hidden;
+                        height: 100%;
+                        clip-path: circle(1px at 50% 50px);
+                        .description {
+                            height: calc(100% - 195px);
+                            padding: 40px;
+                            box-shadow: 100px 400px 20px 20px inset
+                                rgb(134 119 160 / 66%);
+                            h3,
+                            p {
+                                opacity: 0;
                             }
-                            @include breakpoints(small) {
-                                font-size: 12px;
+                            h3 {
+                                padding: 150px 0 15px;
+                                text-align: center;
+                                @include breakpoints(large) {
+                                    padding: 40px 0 15px;
+                                }
+                            }
+                            p {
+                                color: #f9f9f9;
+                                font-weight: 200;
+                                line-height: 1.6;
+                                font-size: 16px;
+                                letter-spacing: -0.2px;
+                                @include breakpoints(medium) {
+                                    font-size: 14px;
+                                }
+                                @include breakpoints(small) {
+                                    font-size: 12px;
+                                }
+                            }
+                        }
+                        .d-link {
+                            height: 195px;
+                            box-shadow: 100px 400px 20px 20px inset
+                                rgb(134 119 160);
+                            text-align: center;
+                            padding-top: 100px;
+                            a {
+                                color: $text-color;
+                                padding: 10px 5px;
+                                opacity: 0;
+                                border-bottom: 1px solid $text-color;
                             }
                         }
                     }
-                    .d-link {
-                        height: 195px;
-                        box-shadow: 100px 400px 20px 20px inset rgb(134 119 160);
-                        text-align: center;
-                        padding-top: 100px;
-                        a {
-                            color: $text-color;
-                            padding: 10px 5px;
-                            opacity: 0;
-                            border-bottom: 1px solid $text-color;
-                        }
+                    &:hover .active {
+                        animation: active 1s forwards 0.5s;
                     }
-                }
-                &:hover .active {
-                    animation: active 1s forwards 0.5s;
-                }
-                &:hover .description h3,
-                &:hover .description p,
-                &:hover .d-link a {
-                    animation: opacity 1s forwards 1s;
+                    &:hover .description h3,
+                    &:hover .description p,
+                    &:hover .d-link a {
+                        animation: opacity 1s forwards 1s;
+                    }
                 }
             }
         }
-    }
 
-    .slider-btn {
-        position: absolute;
-        display: flex;
-        justify-content: space-between;
-        width: 110%;
-        position: absolute;
-        top: 50%;
-        margin-right: -80px;
         .prev,
         .next {
             cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
             padding: 16px;
+            margin-top: -100px;
             color: $primary-color;
             font-size: 40px;
             transition: 0.6s ease;
@@ -814,9 +877,17 @@ main {
                 font-size: 30px;
             }
         }
+        .prev{
+            @include breakpoints(x-large) {
+                right: -60px;
+            }
+        }
         .next {
             left: 0;
             border-radius: 3px 0 0 3px;
+            @include breakpoints(x-large) {
+                left: -60px;
+            }
             @include breakpoints(mobile) {
                 right: 95%;
             }
@@ -952,7 +1023,7 @@ main {
     .container {
         @include flex(space-between, row, nowrap, center);
         @include breakpoints(mobile) {
-            @include flex(center, row, nowrap, center);
+            @include flex(center, column-reverse, nowrap, center);
             text-align: center;
         }
         h2 {
@@ -963,11 +1034,14 @@ main {
         img {
             width: 51vw;
             @include breakpoints(mobile) {
-                display: none;
+                width: 100%;
             }
         }
         .content {
             margin-top: 160px;
+            @include breakpoints(mobile) {
+                margin-top: 0px;
+            }
             .boxes {
                 text-align: center;
                 width: 360px;

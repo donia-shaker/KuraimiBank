@@ -73,7 +73,7 @@
         {{-- Start Nav Section --}}
         <nav>
             <ul class="main-list " id="main-list">
-                <li><a href="">@lang('content.home')</a></li>
+                <li><a href="{{route('home')}}">@lang('content.home')</a></li>
                 <li><a href="">@lang('content.about_us')</a>
                     <div class="info">
                         <h2 class="h-2">@lang('content.about_us')</h2>
@@ -329,7 +329,7 @@
                     <li><a href="">خدمات الشركات</a></li>
                     <li><a href="">كريمي اكسبرس</a></li>
                     <li><a href="">ام فلوس </a></li>
-                    <li><a href=""> التمويل </a></li>
+                    <li><a href="{{route('services')}}"> التمويل </a></li>
 
                 </ul>
             </li>

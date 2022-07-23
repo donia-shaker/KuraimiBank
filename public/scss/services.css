@@ -213,6 +213,11 @@ main {
   color: white;
   padding-right: 12vw;
 }
+@media (max-width: 1200px) {
+  main {
+    padding-right: 0;
+  }
+}
 @media (max-width: 991px) {
   main {
     background-size: cover;
@@ -220,7 +225,8 @@ main {
   }
 }
 main .container {
-  height: 100%;
+  height: 105%;
+  overflow: hidden;
   position: relative;
   display: flex;
   flex-direction: row;
@@ -229,22 +235,33 @@ main .container {
   align-items: center;
 }
 main .text {
-  padding-left: 20px;
+  padding-left: 40px;
   width: 50%;
   text-align: start;
+  position: absolute;
+  z-index: 4;
 }
-@media (max-width: 991px) {
+@media (max-width: 1199px) {
   main .text {
-    top: 40%;
+    top: 200px;
+    right: 30px;
+    width: 60%;
+  }
+}
+@media (max-width: 767px) {
+  main .text {
+    width: 100%;
+    top: 160px;
   }
 }
 main .text h1 {
   font-size: 50px;
+  line-height: 0.5;
 }
 @media (max-width: 991px) {
   main .text h1 {
     font-size: 36px;
-    text-align: center;
+    text-align: start;
     text-shadow: 0 1px 5px #555;
   }
 }
@@ -252,11 +269,12 @@ main .text p {
   font-family: "GE SS Two";
   font-weight: 200;
   margin-bottom: 20px;
+  font-size: 24px;
+  line-height: 1.5;
 }
 @media (max-width: 991px) {
   main .text p {
-    font-size: 24px;
-    text-align: center;
+    font-size: 18px;
     margin-top: 20px;
   }
 }
@@ -267,13 +285,38 @@ main .text p .number {
 }
 main .images {
   width: 50%;
-  position: relative;
 }
-main .images img {
+@media (max-width: 991px) {
+  main .images {
+    display: none;
+  }
+}
+main .images img.back {
+  width: 1500px;
   position: absolute;
-  width: 200%;
-  top: -320px;
-  left: -40px;
+  left: -20px;
+  bottom: 50px;
+  transform: rotateZ(-2deg);
+  z-index: 2;
+}
+@media (max-width: 1200px) {
+  main .images img.back {
+    width: 1250px;
+  }
+}
+main .images img:last-child {
+  position: absolute;
+  width: 1300px;
+  bottom: 60px;
+  left: -15px;
+  z-index: 3;
+}
+@media (max-width: 1200px) {
+  main .images img:last-child {
+    left: -95px;
+    width: 1200px;
+    bottom: 35px;
+  }
 }
 
 .adventages {
@@ -282,34 +325,62 @@ main .images img {
   background-size: 70%;
   background-repeat: repeat-x;
 }
-.adventages .container {
-  background-color: white;
-  position: relative;
-  padding: 40px;
-  z-index: 4;
-  top: -200px;
-}
 .adventages .container .main-adv {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
+  background-color: white;
+  position: relative;
+  top: -30vh;
+  padding: 40px;
+  z-index: 6;
+}
+@media (max-width: 991px) {
+  .adventages .container .main-adv {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
 }
 .adventages .container .main-adv .box {
-  padding: 20px 40px;
+  padding: 20px 30px;
+}
+@media (max-width: 991px) {
+  .adventages .container .main-adv .box {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transform: translateX(-100%);
+    transition: 0.5s ease-in-out;
+  }
+  .adventages .container .main-adv .box.active {
+    transform: translateX(0);
+    z-index: 2;
+  }
 }
 .adventages .container .main-adv .box .image {
   position: relative;
 }
-.adventages .container .main-adv .box .image img.two {
+.adventages .container .main-adv .box img.two {
   position: absolute;
   right: 2px;
 }
-.adventages .container .main-adv .box .image img.two::after {
-  content: attr("data-number");
-  width: 100%;
-  height: 100%;
+.adventages .container .main-adv .box span {
+  font-family: "Helvetica Neue LT Pro";
+  position: absolute;
+  top: 0%;
+  color: white;
+  right: 24px;
+  font-size: 74px;
+  font-weight: 400;
 }
 .adventages .container .main-adv .box h2 {
   font-size: 26px;
@@ -319,4 +390,69 @@ main .images img {
   font-size: 14px;
   color: #555;
   line-height: 1.9;
+}
+.adventages .container .slider-list {
+  width: 70%;
+  margin: 100px auto;
+  margin-top: -190px;
+}
+.adventages .container .slider-list ul {
+  padding: 20px 0;
+  margin: 0 80px;
+  font-size: 14px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+@media (max-width: 767px) {
+  .adventages .container .slider-list ul {
+    margin: 10px;
+    font-size: 2.3vw;
+  }
+}
+.adventages .container .slider-list ul .ServicesDot {
+  font-weight: 600;
+  font-size: 16px;
+  color: #eee;
+  cursor: pointer;
+  position: relative;
+  padding: 10px;
+}
+.adventages .container .slider-list ul .active.ServicesDot {
+  color: #73659A;
+  border-bottom: 2px solid #73659A;
+}
+.adventages .container .content {
+  padding: 0 40px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: start;
+}
+.adventages .container .content img {
+  width: 400px;
+  height: 450px;
+}
+.adventages .container .content .text {
+  width: 50%;
+}
+.adventages .container .content .text h2 {
+  padding-top: 10px;
+  font-size: 40px;
+}
+.adventages .container .content .text p {
+  height: 300px;
+  font-size: 14px;
+  line-height: 2.3;
+}
+.adventages .container .content .text .link {
+  margin-top: 20px;
+}
+.adventages .container .content .text .link a {
+  margin-top: 20px;
+  color: #73659A;
+  border-bottom: 2px solid #73659A;
 }/*# sourceMappingURL=services.css.map */

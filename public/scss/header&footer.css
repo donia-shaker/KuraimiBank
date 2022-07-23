@@ -245,7 +245,7 @@ body::before {
 header {
   position: absolute;
   width: 100%;
-  z-index: 2;
+  z-index: 10;
   color: white;
 }
 header a {
@@ -357,7 +357,7 @@ header nav ul.main-list {
     align-items: start;
     display: none;
     border: none;
-    background-color: rgba(115, 101, 154, 0.8784313725);
+    background-color: #73659A;
     position: absolute;
     width: 100vw;
     height: 100vh;

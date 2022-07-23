@@ -68,7 +68,7 @@ body {
 header {
     position: absolute;
     width: 100%;
-    z-index: 2;
+    z-index: 10;
     color: $text-color;
     a {
         font-family: "GE SS Two";
@@ -161,7 +161,7 @@ header {
                 @include flex(start, column, wrap, start);
                 display: none;
                 border: none;
-                background-color: #73659ae0;
+                background-color: $primary-color;
                 position: absolute;
                 width: 100vw;
                 height: 100vh;

@@ -408,7 +408,7 @@
                     <p>تمويل عقاري تم تمويلة تمويلا شاملا</p>
                 </div>
                 <div class="box">
-                    <a data-content="+889"><span class="h-2">+ 889</span></a>
+                    <a data-content="+679"><span class="h-2">+ 679</span></a>
                     <p>تمويل عقاري تم تمويلة تمويلا شاملا</p>
                 </div>
                 <div class="box">

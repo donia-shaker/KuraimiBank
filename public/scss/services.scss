@@ -41,28 +41,41 @@ main {
     height: 110vh;
     color: $text-color;
     padding-right: 12vw;
+    @include breakpoints(large) {
+        padding-right: 0;
+    }
+
     @include breakpoints(small) {
         background-size: cover;
         height: 110vh;
     }
     .container {
-        height: 100%;
+        height: 105%;
+        overflow: hidden;
         position: relative;
         @include flex(space-between, row, nowrap, center);
     }
     .text {
-        padding-left: 20px;
+        padding-left: 40px;
         width: 50%;
         text-align: start;
-        @include breakpoints(small) {
-            top: 40%;
+        position: absolute;
+        z-index: 4;
+        @include breakpoints(medium) {
+            top: 200px;
+            right: 30px;
+            width: 60%;
         }
-
+        @include breakpoints(mobile) {
+            width: 100%;
+            top: 160px;
+        }
         h1 {
             font-size: 50px;
+            line-height: 0.5;
             @include breakpoints(small) {
                 font-size: 36px;
-                text-align: center;
+                text-align: start;
                 text-shadow: 0 1px 5px #555;
             }
         }
@@ -70,13 +83,14 @@ main {
             font-family: "GE SS Two";
             font-weight: 200;
             margin-bottom: 20px;
+            font-size: 24px;
+            line-height: 1.5;
             @include breakpoints(small) {
-                font-size: 24px;
-                text-align: center;
+                font-size: 18px;
                 margin-top: 20px;
             }
-            .number{
-                font-family: 'Helvetica Neue LT Pro';
+            .number {
+                font-family: "Helvetica Neue LT Pro";
                 font-weight: 500;
                 color: $orange-color;
             }
@@ -84,62 +98,149 @@ main {
     }
     .images {
         width: 50%;
-        position: relative;
-        img {
-            position: absolute;
-    width: 200%;
-    top: -320px;
-    left: -40px;
-    
+        @include breakpoints(small) {
+            display: none;
         }
-        
-        
+        img.back {
+            width: 1500px;
+            position: absolute;
+            left: -20px;
+            bottom: 50px;
+            transform: rotateZ(-2deg);
+            z-index: 2;
+            @include breakpoints(large) {
+                width: 1250px;
+            }
+        }
+
+        img:last-child {
+            position: absolute;
+            width: 1300px;
+            bottom: 60px;
+            left: -15px;
+            z-index: 3;
+            @include breakpoints(large) {
+                left: -95px;
+                width: 1200px;
+                bottom: 35px;
+            }
+        }
     }
 }
 // End Hero Section
 
-
 // Start Adventage Section
-.adventages{
+.adventages {
     position: relative;
     background-image: url("/images/header-bg.png");
     background-size: 70%;
     background-repeat: repeat-x;
-    .container{
-        background-color: $text-color;
-        position: relative;
-        padding: 40px;
-        z-index: 4;
-        top: -200px;
-        .main-adv{
+    .container {
+        .main-adv {
             @include flex(space-between, row, nowrap, center);
-            .box{
-                padding: 20px 40px;
-                .image{
-                position: relative;
-
-                img.two{
+            background-color: $text-color;
+            position: relative;
+            top: -30vh;
+            @include breakpoints(small) {
+                @include flex(center, column, wrap, center);
+                text-align: center;
+            }
+            padding: 40px;
+            z-index: 6;
+            .box {
+                padding: 20px 30px;
+                @include breakpoints(small) {
+                    @include flex(center, column, wrap, center);
+                    text-align: center;
+                    transform: translateX(-100%);
+                    transition: 0.5s ease-in-out;
+                    &.active {
+                        transform: translateX(0);
+                        z-index: 2;
+                    }
+                }
+                .image {
+                    position: relative;
+                }
+                img.two {
                     position: absolute;
                     right: 2px;
-                    &::after{
-                        content: attr('data-number');
-                        width: 100%;
-                        height: 100%;
-                    }
-                }}
-                h2{
+                }
+                span {
+                    font-family: "Helvetica Neue LT Pro";
+                    position: absolute;
+                    top: 0%;
+                    color: white;
+                    right: 24px;
+                    font-size: 74px;
+                    font-weight: 400;
+                }
+                h2 {
                     font-size: 26px;
                     font-weight: 600;
                 }
-                p{
+                p {
                     font-size: 14px;
                     color: #555;
                     line-height: 1.9;
                 }
             }
-            
+        }
+        .slider-list {
+            width: 70%;
+            margin: 100px auto;
+            margin-top: -190px;
 
-
+            ul {
+                padding: 20px 0;
+                margin: 0 80px;
+                font-size: 14px;
+                @include breakpoints(mobile) {
+                    margin: 10px;
+                    font-size: 2.3vw;
+                }
+                @include flex(space-between, row, wrap, center);
+                .ServicesDot {
+                    font-weight: 600;
+                    font-size: 16px;
+                    color: #eee;
+                    cursor: pointer;
+                    position: relative;
+                    padding: 10px;
+                }
+                .active.ServicesDot {
+                    color: $primary-color;
+                    border-bottom: 2px solid $primary-color;
+                }
+            }
+        }
+        .content {
+            padding: 0 40px;
+            @include flex(space-between, row, wrap, start);
+            img {
+                width: 400px;
+                height: 450px;
+            }
+            .text {
+                width: 50%;
+                h2 {
+                    padding-top: 10px;
+                    font-size: 40px;
+                }
+                p {
+                    height: 300px;
+                    font-size: 14px;
+                    line-height: 2.3;
+                }
+                .link {
+                    margin-top: 20px;
+                    a {
+                        margin-top: 20px;
+                        color: $primary-color;
+                        border-bottom: 2px solid $primary-color;
+                    }
+                }
+            }
         }
     }
 }

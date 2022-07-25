@@ -1,6 +1,6 @@
 @extends('web.layout.master')
 @section('css')
-<link rel="stylesheet" href="{{ asset('scss/main.css') }}" />
+<link rel="stylesheet" href="{{ asset('scss/main/main.css') }}" />
 @endsection
 @section('content')
     {{-- Start Hero Section --}}

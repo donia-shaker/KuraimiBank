@@ -16,7 +16,7 @@
     <!-- CSS Normalized -->
     <link rel="stylesheet" href="{{ asset('css/normalized.css') }}" />
     <!-- CSS File -->
-    <link rel="stylesheet" href="{{ asset('scss/header&footer.css') }}" />
+    <link rel="stylesheet" href="{{ asset('scss/header&footer/header&footer.css') }}" />
     @yield('css')
     <!-- Open  Font -->
     <link rel="stylesheet" href="{{ asset('css/stylesheet.css') }}" />

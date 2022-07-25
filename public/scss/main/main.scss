@@ -1,9 +1,9 @@
-@use "component/header" as *;
-@use "helper/mixin" as *;
-@use "helper/variable" as *;
-@use "component/btn" as *;
-@use "component/animation" as *;
-@use "component/shadow" as *;
+@use "../component/header" as *;
+@use "../helper/mixin" as *;
+@use "../helper/variable" as *;
+@use "../component/btn" as *;
+@use "../component/animation" as *;
+@use "../component/shadow" as *;
 * {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -34,7 +34,7 @@
     }
     @include breakpoints(x-large) {
         // width: 970px;
-        max-width: 1460px;
+        max-width: 1300px;
     }
 }
 /* End Container */

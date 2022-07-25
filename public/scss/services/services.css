@@ -216,7 +216,7 @@
 }
 @media (min-width: 1300px) {
   .container {
-    max-width: 1460px;
+    max-width: 1300px;
   }
 }
 
@@ -552,7 +552,7 @@ section.success .container .slider-wrapper {
   margin-bottom: 40px;
   position: relative;
   width: 100%;
-  background-image: url("../images/success.png");
+  background-image: url("/images/success.png");
   z-index: 2;
   background-size: cover;
   border-bottom: 10px solid transparent;

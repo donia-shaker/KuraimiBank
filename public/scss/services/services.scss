@@ -1,9 +1,9 @@
-@use "component/header" as *;
-@use "helper/mixin" as *;
-@use "helper/variable" as *;
-@use "component/btn" as *;
-@use "component/animation" as *;
-@use "component/shadow" as *;
+@use "../component/header" as *;
+@use "../helper/mixin" as *;
+@use "../helper/variable" as *;
+@use "../component/btn" as *;
+@use "../component/animation" as *;
+@use "../component/shadow" as *;
 /* start Container */
 .container {
     margin: 0 auto;
@@ -27,9 +27,7 @@
     }
     @include breakpoints(x-large) {
         // width: 970px;
-        // max-width: 1300px;
-        max-width: 1460px;
-
+        max-width: 1300px;
     }
 }
 // End Container
@@ -306,7 +304,7 @@ section.success {
             margin-bottom: 40px;
             position: relative;
             width: 100%;
-            background-image: url("../images/success.png");
+            background-image: url("/images/success.png");
             z-index: 2;
             background-size: cover;
             border-bottom: 10px solid transparent;

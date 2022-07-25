@@ -1,6 +1,6 @@
 @extends('web.layout.master')
 @section('css')
-    <link rel="stylesheet" href="{{ asset('scss/services.css') }}" />
+    <link rel="stylesheet" href="{{ asset('scss/services/services.css') }}" />
 @endsection
 @section('content')
     <main>

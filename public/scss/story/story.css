@@ -265,10 +265,20 @@ section.story .content {
   z-index: 2;
   padding: 80px 120px;
 }
+@media (max-width: 991px) {
+  section.story .content {
+    padding: 80px 15px;
+  }
+}
 section.story .content h2 {
   color: #666;
   font-weight: 600;
   position: relative;
+}
+@media (max-width: 991px) {
+  section.story .content h2 {
+    text-align: center;
+  }
 }
 section.story .content h2::before {
   content: "";

@@ -99,12 +99,19 @@ section.story {
                 font-size: 14px;
                 line-height: 2.3;
                 width: 60%;
+                @include breakpoints(large) {
+                    width: 100%;
+                }
                 &:first-of-type {
                     width: 100%;
                 }
             }
             .slider {
                 width: 40%;
+                @include breakpoints(large) {
+                    width: 100%;
+                    display: none;
+                }
                 margin: 60px;
                 margin-left: -100px;
                 .slider-wrapper {

@@ -289,6 +289,11 @@ section.story .content .text p {
   line-height: 2.3;
   width: 60%;
 }
+@media (max-width: 1299px) {
+  section.story .content .text p {
+    width: 100%;
+  }
+}
 section.story .content .text p:first-of-type {
   width: 100%;
 }
@@ -296,6 +301,12 @@ section.story .content .text .slider {
   width: 40%;
   margin: 60px;
   margin-left: -100px;
+}
+@media (max-width: 1299px) {
+  section.story .content .text .slider {
+    width: 100%;
+    display: none;
+  }
 }
 section.story .content .text .slider .slider-wrapper {
   position: relative;

@@ -1,0 +1,235 @@
+@use "component/header" as *;
+@use "helper/mixin" as *;
+@use "helper/variable" as *;
+@use "component/btn" as *;
+@use "component/animation" as *;
+@use "component/shadow" as *;
+/* start Container */
+.container {
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.container {
+    @include breakpoints(mobile) {
+        max-width: 100%;
+    }
+    @include breakpoints(small) {
+        max-width: 750px;
+        // width: 100%;
+    }
+    @include breakpoints(medium) {
+        max-width: 970px;
+    }
+    @include breakpoints(large) {
+        // width: 970px;
+        max-width: 1120px;
+    }
+    @include breakpoints(x-large) {
+        // width: 970px;
+        max-width: 1300px;
+    }
+}
+// End Container
+
+// Start Hero Section
+main {
+    position: relative;
+    background-image: url("/images/about_us.png");
+    background-color: $primary-color;
+    background-size: cover;
+    height: 120vh;
+    color: $text-color;
+    padding-right: 12vw;
+    @include breakpoints(large) {
+        padding-right: 0;
+    }
+    @include breakpoints(small) {
+        background-size: cover;
+        height: 110vh;
+    }
+    .overlay {
+        position: absolute;
+        background-image: linear-gradient(
+            to bottom,
+            rgb(34 0 101 / 86%),
+            rgb(21 3 38 / 25%)
+        );
+        width: 100%;
+        height: 100%;
+        right: 0;
+    }
+    .container {
+        height: 105%;
+        overflow: hidden;
+        position: relative;
+        @include flex(space-between, row, nowrap, center);
+    }
+    .text {
+        padding-left: 40px;
+        width: 50%;
+        text-align: start;
+        position: absolute;
+        z-index: 4;
+        @include breakpoints(medium) {
+            top: 200px;
+            right: 30px;
+            width: 60%;
+        }
+        @include breakpoints(mobile) {
+            width: 100%;
+            top: 160px;
+        }
+        h1 {
+            font-size: 50px;
+            line-height: 0.5;
+            margin-top: 60px;
+            @include breakpoints(small) {
+                font-size: 36px;
+                text-align: start;
+                text-shadow: 0 1px 5px #555;
+            }
+        }
+        p {
+            font-family: "GE SS Two";
+            font-weight: 200;
+            margin-bottom: 20px;
+            font-size: 24px;
+            line-height: 1.5;
+            @include breakpoints(small) {
+                font-size: 18px;
+                margin-top: 20px;
+            }
+        }
+    }
+}
+// End Hero Section
+
+// Start About Bank
+section.about_us {
+    overflow-x: hidden;
+    position: relative;
+    background-color: $primary-color;
+    padding: 80px 40px;
+    @include breakpoints(mobile) {
+        padding: 60px 0px;
+    }
+    .container {
+        position: relative;
+        display: flex;
+        color: $text-color;
+        z-index: 2;
+        @include breakpoints(small) {
+            @include flex(center, column, wrap, center);
+        }
+        .list {
+            width: 70%;
+            padding: 40px;
+            @include flex(center, column, wrap, start);
+            @include breakpoints(small) {
+                width: 100%;
+                padding: 15px;
+            }
+            :first-child,
+            li {
+                cursor: pointer;
+                margin-bottom: 80px;
+                position: relative;
+                @include breakpoints(small) {
+                    margin-bottom: 36px;
+                }
+                &.active {
+                    font-weight: 500;
+                    position: relative;
+                    margin-right: 60px;
+                    transition: 0.5s ease;
+                    @include breakpoints(small) {
+                        margin-right: 0px;
+                    }
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        width: 45px;
+                        height: 2px;
+                        background-color: white;
+                        right: -60px;
+                        top: 3px;
+                        @include breakpoints(small) {
+                            right: 0px;
+                            width: 98%;
+                            top: 30px;
+                        }
+                    }
+                }
+            }
+            h2 {
+                // font-size: 30px;
+                color: $text-color;
+            }
+            ul {
+                li {
+                    font-size: 18px;
+                    font-weight: 100;
+                    @include breakpoints(small) {
+                        font-size: 12px;
+                    }
+                }
+                @include breakpoints(small) {
+                    width: 100%;
+                    @include flex(space-between, row, wrap, start);
+                }
+            }
+        }
+        .content {
+            position: relative;
+            padding: 60px 60px 60px 80px;
+            border: 10px solid rgba(184, 175, 210, 0.3);
+            @include breakpoints(mobile) {
+                padding: 60px 20px;
+            }
+            .overlay {
+                position: absolute;
+                background-color: rgb(115 101 154 / 40%);
+                width: 200%;
+                height: 100%;
+                right: 0;
+                z-index: -1;
+            }
+            .mySlides {
+                display: none;
+                animation-name: fade;
+                animation-duration: 1.5s;
+            }
+            h3 {
+                margin-bottom: 40px;
+            }
+            p {
+                line-height: 2.3;
+                font-size: 14px;
+                font-weight: 100;
+            }
+            .bank {
+                margin-top: 40px;
+                font-size: 12px;
+                font-weight: 100;
+                .link {
+                    cursor: pointer;
+                    margin-left: 40px;
+                    padding-bottom: 5px;
+                    border-bottom: 1px solid $text-color;
+                }
+            }
+        }
+    }
+    .images {
+        bottom: -67px;
+        left: -167px;
+        position: absolute;
+        width: 280px;
+        z-index: -2;
+        img {
+            width: 280px;
+        }
+    }
+}
+// End About Bank

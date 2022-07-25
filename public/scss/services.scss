@@ -44,7 +44,6 @@ main {
     @include breakpoints(large) {
         padding-right: 0;
     }
-
     @include breakpoints(small) {
         background-size: cover;
         height: 110vh;
@@ -112,11 +111,10 @@ main {
                 width: 1250px;
             }
         }
-
         img:last-child {
             position: absolute;
             width: 1300px;
-            bottom: 60px;
+            bottom: 50px;
             left: -15px;
             z-index: 3;
             @include breakpoints(large) {
@@ -140,7 +138,7 @@ main {
             @include flex(space-between, row, nowrap, center);
             background-color: $text-color;
             position: relative;
-            top: -30vh;
+            top: -28vh;
             @include breakpoints(small) {
                 @include flex(center, column, wrap, center);
                 text-align: center;
@@ -151,13 +149,6 @@ main {
                 padding: 20px 30px;
                 @include breakpoints(small) {
                     @include flex(center, column, wrap, center);
-                    text-align: center;
-                    transform: translateX(-100%);
-                    transition: 0.5s ease-in-out;
-                    &.active {
-                        transform: translateX(0);
-                        z-index: 2;
-                    }
                 }
                 .image {
                     position: relative;
@@ -190,7 +181,9 @@ main {
             width: 70%;
             margin: 100px auto;
             margin-top: -190px;
-
+            @include breakpoints(small) {
+                width: 100%;
+            }
             ul {
                 padding: 20px 0;
                 margin: 0 80px;
@@ -200,47 +193,253 @@ main {
                     font-size: 2.3vw;
                 }
                 @include flex(space-between, row, wrap, center);
-                .ServicesDot {
+                .dot {
                     font-weight: 600;
-                    font-size: 16px;
+                    // font-size: 16px;
                     color: #eee;
                     cursor: pointer;
                     position: relative;
                     padding: 10px;
                 }
-                .active.ServicesDot {
+                .active.dot {
                     color: $primary-color;
                     border-bottom: 2px solid $primary-color;
                 }
             }
         }
-        .content {
-            padding: 0 40px;
-            @include flex(space-between, row, wrap, start);
-            img {
-                width: 400px;
-                height: 450px;
-            }
-            .text {
-                width: 50%;
-                h2 {
-                    padding-top: 10px;
-                    font-size: 40px;
+        .box {
+            margin-bottom: 80px;
+            .content {
+                padding: 0 40px;
+                @include flex(space-between, row, wrap, start);
+                @include breakpoints(small) {
+                    padding: 0;
+                    @include flex(center, row, wrap, start);
                 }
-                p {
-                    height: 300px;
-                    font-size: 14px;
-                    line-height: 2.3;
-                }
-                .link {
-                    margin-top: 20px;
-                    a {
-                        margin-top: 20px;
-                        color: $primary-color;
-                        border-bottom: 2px solid $primary-color;
+                .image {
+                    margin-right: 40px;
+                    img {
+                        width: 400px;
+                        height: 450px;
+                        @include breakpoints(small) {
+                            width: 100%;
+                            align-items: center;
+                        }
+                    }
+                    @include breakpoints(large) {
+                        margin-right: 0px;
                     }
                 }
+                .text {
+                    width: 50%;
+                    @include breakpoints(small) {
+                        width: 100%;
+                        text-align: center;
+                    }
+                    h2 {
+                        padding-top: 10px;
+                        font-size: 40px;
+                    }
+                    p {
+                        font-size: 14px;
+                        line-height: 2.3;
+                        min-height: 280px;
+                        @include breakpoints(small) {
+                            padding: 0 20px;
+                        }
+                        @include breakpoints(mobile) {
+                            padding: 0;
+                        }
+                    }
+                    .link {
+                        margin: 40px 0 0;
+                        a {
+                            color: $primary-color;
+                            cursor: pointer;
+                            border-bottom: 2px solid $primary-color;
+                        }
+                    }
+                }
+            }
+            &.fade {
+                animation-name: fade;
+                animation-duration: 1.5s;
             }
         }
     }
 }
+// End Adventage Section
+
+// Start Text Section
+section.text {
+    background-color: $background-color;
+    padding: 60px 0;
+    color: $primary-color;
+    line-height: 2;
+    font-weight: bold;
+    p {
+        font-size: 40px;
+        @include breakpoints(small) {
+            font-size: 4vw;
+        }
+        &:last-child {
+            text-align: end;
+        }
+        span {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            color: $orange-color;
+        }
+    }
+}
+// End Text Section
+
+// Start Success Section
+section.success {
+    padding-bottom: 50px;
+    .container {
+        h2 {
+            padding: 80px 0;
+        }
+        .slider-wrapper {
+            margin-bottom: 40px;
+            position: relative;
+            width: 100%;
+            background-image: url("../images/success.png");
+            z-index: 2;
+            background-size: cover;
+            border-bottom: 10px solid transparent;
+            border-image: linear-gradient(
+                to left,
+                $primary-color 0% 65%,
+                #fff 65%
+            );
+            border-image-slice: 1;
+            color: $text-color;
+            .box {
+                background-image: linear-gradient(
+                    to left,
+                    #73659ac2,
+                    #ffffff41
+                );
+                width: 100%;
+                height: 630px;
+                display: none;
+                &.fade {
+                    animation-name: fade;
+                    animation-duration: 1.5s;
+                }
+            }
+            .image {
+                width: 100%;
+                height: 100%;
+                position: relative;
+                z-index: -1;
+                img {
+                    width: 100%;
+                    height: 500px;
+                    position: relative;
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+            }
+            .text {
+                position: absolute;
+                top: 0;
+                width: 50%;
+                padding: 40px 80px;
+                @include breakpoints(large) {
+                    width: 70%;
+                }
+                @include breakpoints(mobile) {
+                    width: 100%;
+                    padding: 40px 10px;
+                }
+                h3 {
+                    padding: 40px 0 20px;
+                }
+                p {
+                    line-height: 2;
+                    margin-bottom: 20px;
+                    @include breakpoints(mobile) {
+                        font-size: 14px;
+                    }
+                }
+                a {
+                    color: $text-color;
+                    padding: 3px 0;
+                    font-size: 12px;
+                    border-bottom: 1px solid white;
+                }
+            }
+        }
+        .btn-success {
+            text-align: end;
+            .btn {
+                margin-right: 10px;
+                padding: 5px 15px 0;
+                width: 20px;
+                font-size: 36px;
+                border: 2px solid #73659aa1;
+                color: $primary-color;
+                transition: 0.6s ease;
+            }
+        }
+    }
+}
+// End Success Section
+
+// Start Other Services Section
+section.other {
+    position: relative;
+    overflow-x: hidden;
+    h2 {
+        text-align: center;
+        margin: 140px 0 60px;
+    }
+    .bg {
+        position: absolute;
+        bottom: 320px;
+        img {
+            width: 150%;
+            height: 270px;
+        }
+    }
+    .slides-wrapper {
+        overflow-x: hidden;
+        height: 620px;
+        display: flex;
+        position: relative;
+        .box {
+            display: inline-block;
+            margin-left: 60px;
+            transform: translateX(40%);
+            img {
+                width: 320px;
+            }
+
+            h3 {
+                font-size: 26px;
+                padding: 40px 0;
+            }
+        }
+    }
+    .btn-other {
+        text-align: center;
+        margin-bottom: 60px;
+        .other-btn {
+            cursor: pointer;
+            margin-right: 20px;
+            padding: 5px 15px 0;
+            width: 20px;
+            font-size: 36px;
+            color: $primary-color;
+            background-color: #e7f1ff;
+            transition: 0.6s ease;
+        }
+    }
+}
+// End Other Services Section

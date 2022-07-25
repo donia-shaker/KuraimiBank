@@ -1,0 +1,375 @@
+.h-1 {
+  font-size: 57px;
+  font-family: "Hacen Tunisia";
+  font-weight: 200;
+}
+@media (max-width: 991px) {
+  .h-1 {
+    font-size: 36px;
+  }
+}
+
+.h-2 {
+  padding: 26px 0;
+  font-size: 46px;
+  font-family: "Hacen Tunisia";
+  color: #73659A;
+  font-weight: 400;
+}
+@media (max-width: 991px) {
+  .h-2 {
+    font-size: 30px;
+  }
+}
+
+.h-3 {
+  font-size: 30px;
+}
+@media (max-width: 991px) {
+  .h-3 {
+    font-size: 20px;
+  }
+}
+
+.f-4 {
+  font-size: 14px;
+  color: #666;
+  line-height: 2;
+}
+@media (max-width: 767px) {
+  .f-4 {
+    font-size: 12px;
+  }
+}
+
+.f-5 {
+  font-size: 22px;
+}
+@media (max-width: 991px) {
+  .f-5 {
+    font-size: 20px;
+  }
+}
+
+.f-16pt {
+  font-size: 16pt;
+  line-height: 1.8;
+}
+
+.btn {
+  border: 1.5px solid #73659A;
+  padding: 15px 25px;
+  background-color: transparent;
+  color: #73659A;
+  font-size: 16px;
+  cursor: pointer;
+  min-width: 140px;
+  border-radius: 2px;
+}
+@media (max-width: 767px) {
+  .btn {
+    font-size: 12px;
+    padding: 10px 15px;
+  }
+}
+
+.btn-2 {
+  background-color: #E26E0B;
+  border: 1.5px solid #E26E0B;
+  border-radius: 2px;
+  padding: 15px 25px;
+  color: white;
+}
+
+@-webkit-keyframes news {
+  from {
+    top: -50px;
+  }
+  to {
+    top: 0;
+  }
+}
+
+@keyframes news {
+  from {
+    top: -50px;
+  }
+  to {
+    top: 0;
+  }
+}
+@-webkit-keyframes active-list {
+  from {
+    height: 0px;
+  }
+  to {
+    height: 25px;
+  }
+}
+@keyframes active-list {
+  from {
+    height: 0px;
+  }
+  to {
+    height: 25px;
+  }
+}
+@-webkit-keyframes minu {
+  from {
+    height: 0;
+  }
+  to {
+    height: 400px;
+  }
+}
+@keyframes minu {
+  from {
+    height: 0;
+  }
+  to {
+    height: 400px;
+  }
+}
+@-webkit-keyframes active {
+  from {
+    -webkit-clip-path: circle(6px at 50% 50px);
+            clip-path: circle(6px at 50% 50px);
+  }
+  to {
+    -webkit-clip-path: circle(130% at 50% 50px);
+            clip-path: circle(130% at 50% 50px);
+  }
+}
+@keyframes active {
+  from {
+    -webkit-clip-path: circle(6px at 50% 50px);
+            clip-path: circle(6px at 50% 50px);
+  }
+  to {
+    -webkit-clip-path: circle(130% at 50% 50px);
+            clip-path: circle(130% at 50% 50px);
+  }
+}
+@-webkit-keyframes opacity {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 100%;
+  }
+}
+@keyframes opacity {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 100%;
+  }
+}
+@-webkit-keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.shadow {
+  box-shadow: 0px 10px 10px 0px rgba(115, 101, 154, 0.0901960784);
+}
+
+.shadow-inset {
+  box-shadow: 100px 400px 20px 20px inset rgba(251, 251, 251, 0.95);
+}
+
+/* start Container */
+.container {
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+@media (max-width: 767px) {
+  .container {
+    max-width: 100%;
+  }
+}
+@media (max-width: 991px) {
+  .container {
+    max-width: 750px;
+  }
+}
+@media (max-width: 1199px) {
+  .container {
+    max-width: 970px;
+  }
+}
+@media (max-width: 1299px) {
+  .container {
+    max-width: 1120px;
+  }
+}
+@media (min-width: 1300px) {
+  .container {
+    max-width: 1300px;
+  }
+}
+
+main {
+  position: relative;
+  background-image: url("/images/bg-story.png");
+  background-color: #73659A;
+  background-size: cover;
+  height: 120vh;
+  color: white;
+  padding-right: 12vw;
+}
+@media (max-width: 1299px) {
+  main {
+    padding-right: 0;
+  }
+}
+@media (max-width: 991px) {
+  main {
+    background-size: cover;
+    height: 110vh;
+  }
+}
+main .overlay {
+  position: absolute;
+  background-image: linear-gradient(to bottom, rgba(34, 0, 101, 0.86), rgba(21, 3, 38, 0.25));
+  width: 100%;
+  height: 100%;
+  right: 0;
+}
+main .text {
+  position: relative;
+  top: 260px;
+  font-size: 14px;
+}
+
+section.story {
+  margin-bottom: -215px;
+}
+section.story .content {
+  background-color: white;
+  position: relative;
+  top: -40vh;
+  z-index: 2;
+  padding: 80px 120px;
+}
+section.story .content h2 {
+  color: #666;
+  font-weight: 600;
+  position: relative;
+}
+section.story .content h2::before {
+  content: "";
+  width: 80px;
+  height: 2px;
+  position: absolute;
+  background-color: #666;
+  top: 50%;
+  right: -90px;
+}
+section.story .content .text {
+  display: flex;
+  flex-wrap: wrap;
+}
+section.story .content .text p {
+  color: #666;
+  font-size: 14px;
+  line-height: 2.3;
+  width: 60%;
+}
+section.story .content .text p:first-of-type {
+  width: 100%;
+}
+section.story .content .text .slider {
+  width: 40%;
+  margin: 60px;
+  margin-left: -100px;
+}
+section.story .content .text .slider .slider-wrapper {
+  position: relative;
+  perspective: 300px;
+  display: flex;
+}
+section.story .content .text .slider .slider-wrapper img {
+  position: absolute;
+  width: 500px;
+  top: -40px;
+}
+section.story .content .text .slider .slider-wrapper img:first-of-type {
+  transform: translateZ(0px);
+  left: -60px;
+  z-index: 4;
+}
+section.story .content .text .slider .slider-wrapper img:nth-of-type(2) {
+  transform: translateZ(-50px);
+  left: -128px;
+  z-index: 3;
+  top: -28px;
+}
+section.story .content .text .slider .slider-wrapper img:nth-of-type(3) {
+  transform: translateZ(-45px);
+  left: -140px;
+  z-index: 2;
+  top: -6px;
+}
+section.story .content .text .slider .slider-wrapper img:nth-of-type(4) {
+  transform: translateZ(-115px);
+  left: -226px;
+  z-index: 1;
+  top: 20px;
+}
+section.story .content .text .slider .btn-success {
+  position: relative;
+  top: 138%;
+}
+section.story .content .text .slider .btn-success .btn {
+  margin-left: 10px;
+  padding: 5px 15px 0;
+  width: 20px;
+  font-size: 36px;
+  border: 2px solid rgba(115, 101, 154, 0.631372549);
+  color: #73659A;
+  transition: 0.6s ease;
+}
+
+section.share {
+  padding: 40px 0;
+  margin-top: -80px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+section.share h2 {
+  font-size: 30px;
+  margin-bottom: -30px;
+}
+section.share ul {
+  padding-top: 40px;
+  width: 260px;
+  font-size: 26px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+section.share ul li {
+  color: #aaa;
+}
+section.share ul li:hover {
+  color: #73659A;
+}/*# sourceMappingURL=story.css.map */

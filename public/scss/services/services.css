@@ -308,10 +308,10 @@ main .images {
   }
 }
 main .images img.back {
-  width: 1600px;
+  width: 1500px;
   position: absolute;
   left: -20px;
-  bottom: 100px;
+  bottom: 50px;
   transform: rotateZ(-2deg);
   z-index: 2;
 }
@@ -322,9 +322,9 @@ main .images img.back {
 }
 main .images img:last-child {
   position: absolute;
-  width: 1500px;
-  bottom: 70px;
-  left: -23px;
+  width: 1300px;
+  bottom: 60px;
+  left: -15px;
   z-index: 3;
 }
 @media (max-width: 1299px) {
@@ -349,7 +349,7 @@ main .images img:last-child {
   align-items: center;
   background-color: white;
   position: relative;
-  top: -31vh;
+  top: -30vh;
   padding: 40px 40px 0;
   z-index: 6;
 }

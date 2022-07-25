@@ -22,6 +22,7 @@ use App\Http\Controllers\web\AboutUsController;
 use App\Http\Controllers\web\HomePageController;
 use App\Http\Controllers\web\ServicesController as WebServicesController;
 use App\Http\Controllers\web\ServicesPageController;
+use App\Http\Controllers\web\SuccessStoryController;
 use App\Models\service_points;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -200,4 +201,5 @@ Route::group([
     Route::get('/home', [HomePageController::class, 'showHomePage'])->name('home');
     Route::get('/services', [ServicesPageController::class, 'showServicesPage'])->name('services');
     Route::get('/about_us', [AboutUsController::class, 'showAboutUsPage'])->name('about_us');
+    Route::get('/success_story', [SuccessStoryController::class, 'showSuccessStoryPage'])->name('success_story');
 });

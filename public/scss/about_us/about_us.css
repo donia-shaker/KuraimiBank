@@ -478,10 +478,10 @@ section.principles h2 {
   color: #333;
   font-weight: bold;
   text-align: center;
-  padding: 100px 0;
+  padding: 90px 0 70px;
 }
 section.principles .content {
-  min-height: 1000px;
+  min-height: 840px;
   position: relative;
 }
 @media (max-width: 991px) {
@@ -495,8 +495,8 @@ section.principles .content h3 {
   position: relative;
   color: #73659A;
   font-weight: 500;
-  font-size: 32px;
-  padding-bottom: 60px;
+  font-size: 30px;
+  padding-bottom: 40px;
   padding-right: 40px;
 }
 @media (max-width: 991px) {
@@ -508,7 +508,7 @@ section.principles .content h3::before {
   content: "";
   position: absolute;
   width: 4px;
-  height: 200px;
+  height: 190px;
   background-color: #E26E0B;
   right: 0;
   z-index: 3;
@@ -520,10 +520,8 @@ section.principles .content .box {
 section.principles .content .box .text {
   background-color: #73659A;
   position: absolute;
-  right: -300px;
+  right: -260px;
   width: 110%;
-  height: 500;
-  padding: 0 40px;
 }
 @media (max-width: 991px) {
   section.principles .content .box .text {
@@ -535,11 +533,12 @@ section.principles .content .box .text {
 }
 section.principles .content .box .text p {
   position: relative;
-  right: 300px;
+  right: 260px;
   color: white;
-  padding: 160px 20px;
-  width: 600px;
+  padding: 140px 20px;
+  width: 640px;
   line-height: 2;
+  font-size: 14px;
 }
 @media (max-width: 991px) {
   section.principles .content .box .text p {
@@ -548,15 +547,20 @@ section.principles .content .box .text p {
     width: 100%;
   }
 }
+@media (max-width: 767px) {
+  section.principles .content .box .text p {
+    padding: 140px 0px;
+  }
+}
 section.principles .content .box .images {
   width: 55%;
   position: absolute;
-  top: 80px;
-  left: -130px;
+  top: 70px;
+  left: -120px;
 }
 @media (max-width: 1299px) {
   section.principles .content .box .images {
-    top: 360px;
+    top: 280px;
   }
 }
 @media (max-width: 991px) {
@@ -576,7 +580,7 @@ section.principles .content.reverse {
   }
 }
 section.principles .content.reverse h3 {
-  margin-right: 700px;
+  margin-right: 630px;
 }
 @media (max-width: 1299px) {
   section.principles .content.reverse h3 {
@@ -589,12 +593,7 @@ section.principles .content.reverse h3 {
   }
 }
 section.principles .content.reverse .text {
-  margin-right: 700px;
-}
-@media (max-width: 1199px) {
-  section.principles .content.reverse .text {
-    margin-right: 500px;
-  }
+  right: 180px;
 }
 @media (max-width: 991px) {
   section.principles .content.reverse .text {
@@ -603,6 +602,9 @@ section.principles .content.reverse .text {
     text-align: center;
     margin-right: 0;
   }
+}
+section.principles .content.reverse .text p {
+  right: 450px;
 }
 @media (max-width: 1299px) {
   section.principles .content.reverse .text p {
@@ -621,13 +623,18 @@ section.principles .content.reverse .text {
   }
 }
 section.principles .content.reverse .images {
-  top: -370px;
+  top: -310px;
   left: 55.5%;
+}
+@media (max-width: 1299px) {
+  section.principles .content.reverse .images {
+    top: -430px;
+  }
 }
 
 section.share {
   background-color: #f4f7fb;
-  padding: 40px 0;
+  padding: 100px 0 40px;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;

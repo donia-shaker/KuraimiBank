@@ -27,7 +27,9 @@
     }
     @include breakpoints(x-large) {
         // width: 970px;
-        max-width: 1300px;
+        // max-width: 1300px;
+        max-width: 1460px;
+
     }
 }
 // End Container
@@ -101,10 +103,10 @@ main {
             display: none;
         }
         img.back {
-            width: 1500px;
+            width: 1600px;
             position: absolute;
             left: -20px;
-            bottom: 50px;
+            bottom: 100px;
             transform: rotateZ(-2deg);
             z-index: 2;
             @include breakpoints(large) {
@@ -113,9 +115,9 @@ main {
         }
         img:last-child {
             position: absolute;
-            width: 1300px;
-            bottom: 50px;
-            left: -15px;
+            width: 1500px;
+            bottom: 70px;
+            left: -23px;
             z-index: 3;
             @include breakpoints(large) {
                 left: -95px;
@@ -138,15 +140,15 @@ main {
             @include flex(space-between, row, nowrap, center);
             background-color: $text-color;
             position: relative;
-            top: -28vh;
+            top: -31vh;
             @include breakpoints(small) {
                 @include flex(center, column, wrap, center);
                 text-align: center;
             }
-            padding: 40px;
+            padding:  40px 40px 0;
             z-index: 6;
             .box {
-                padding: 20px 30px;
+                padding: 20px 60px;
                 @include breakpoints(small) {
                     @include flex(center, column, wrap, center);
                 }

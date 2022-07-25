@@ -217,7 +217,7 @@
     max-width: 970px;
   }
 }
-@media (max-width: 1200px) {
+@media (max-width: 1299px) {
   .container {
     max-width: 1120px;
   }

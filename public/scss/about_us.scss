@@ -27,7 +27,8 @@
     }
     @include breakpoints(x-large) {
         // width: 970px;
-        max-width: 1300px;
+        // width: 1300px;
+        max-width: 1460px;
     }
 }
 // End Container
@@ -124,7 +125,10 @@ section.about_us {
         }
         .list {
             width: 70%;
-            padding: 40px;
+            padding: 40px 160px 40px 40px;
+            @include breakpoints(large) {
+                padding-right: 40px;
+            }
             @include flex(center, column, wrap, start);
             @include breakpoints(small) {
                 width: 100%;
@@ -233,3 +237,173 @@ section.about_us {
     }
 }
 // End About Bank
+
+// Start Principles Section
+section.principles {
+    background-color: $background-color;
+    position: relative;
+    overflow-x: clip;
+    h2 {
+        color: #333;
+        font-weight: bold;
+        text-align: center;
+        padding: 100px 0;
+    }
+    .content {
+        min-height: 1000px;
+        position: relative;
+        @include breakpoints(small) {
+            min-height: 700px;
+            padding-bottom: 40px;
+            padding-top: 40px;
+            }
+        h3 {
+            position: relative;
+            color: $primary-color;
+            font-weight: 500;
+            font-size: 32px;
+            padding-bottom: 60px;
+            padding-right: 40px;
+            @include breakpoints(small) {
+                margin-right: 40px;
+            }
+            &::before {
+                content: "";
+                position: absolute;
+                width: 4px;
+                height: 200px;
+                background-color: $orange-color;
+                right: 0;
+                z-index: 3;
+            }
+        }
+        .box {
+            position: relative;
+            display: flex;
+            .text {
+                background-color: $primary-color;
+                position: absolute;
+                right: -300px;
+                width: 110%;
+                height: 500;
+                padding: 0 40px;
+                @include breakpoints(small) {
+                    right: 0px;
+                    width: 100%;
+                    text-align: center;
+                    padding: 0 15px;
+
+                }
+                p {
+                    position: relative;
+                    right: 300px;
+                    color: $text-color;
+                    padding: 160px 20px;
+                    width: 600px;
+                    line-height: 2;
+                    @include breakpoints(small) {
+                        right: 0;
+                        font-size: 14px;
+                        width: 100%;
+                    }
+                }
+            }
+
+            .images {
+                width: 55%;
+                position: absolute;
+                top: 80px;
+                left: -130px;
+                @include breakpoints(large) {
+                    top: 360px;
+
+                }
+                @include breakpoints(small) {
+                    display: none;
+
+                }
+                img {
+                    width: 100%;
+                }
+            }
+        }
+
+        &.reverse {
+            bottom: -180px;
+            @include breakpoints(small) {
+
+                bottom: 0px;
+            }
+            
+            h3 {
+                margin-right: 700px;
+                @include breakpoints(large) {
+                margin-right: 520px;
+                
+                }
+                @include breakpoints(small) {
+                    margin-right: 40px;
+                }
+            }
+            .text {
+                margin-right: 700px;
+                @include breakpoints(medium) {
+                    margin-right: 500px;
+                }
+                @include breakpoints(small) {
+                    right: 0px;
+                    width: 100%;
+                    text-align: center;
+                margin-right: 0;
+
+                }
+                // align-items: end;
+                p{
+                    @include breakpoints(large) {
+                        right: 6vw;
+                    }
+                    @include breakpoints(medium) {
+                        right: 3vw;
+                    }
+                    @include breakpoints(small) {
+                        right: 0px;
+                        text-align: center;
+                    }
+
+                }
+            }
+            .images {
+                top: -370px;
+                left: 55.5%;
+                
+            }
+        }
+    }
+}
+
+// End Principles Section
+
+// Start Share Section
+section.share{
+background-color: $background-color;
+padding: 40px 0 ;
+@include flex(center, column, nowrap, center);
+h2{
+    font-size: 30px;
+    margin-bottom: -30px;
+}
+ul{
+    padding-top: 40px;
+    width: 260px;
+    font-size: 26px;
+    @include flex(space-between, row, nowrap, center);
+    li{
+        color: #aaa;
+        &:hover{
+            color: $primary-color;
+        }
+    }
+
+}
+}
+// End Share Section

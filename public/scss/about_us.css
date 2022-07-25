@@ -209,14 +209,14 @@
     max-width: 970px;
   }
 }
-@media (max-width: 1200px) {
+@media (max-width: 1299px) {
   .container {
     max-width: 1120px;
   }
 }
 @media (min-width: 1300px) {
   .container {
-    max-width: 1300px;
+    max-width: 1460px;
   }
 }
 
@@ -229,7 +229,7 @@ main {
   color: white;
   padding-right: 12vw;
 }
-@media (max-width: 1200px) {
+@media (max-width: 1299px) {
   main {
     padding-right: 0;
   }
@@ -331,12 +331,17 @@ section.about_us .container {
 }
 section.about_us .container .list {
   width: 70%;
-  padding: 40px;
+  padding: 40px 160px 40px 40px;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
   align-items: start;
+}
+@media (max-width: 1299px) {
+  section.about_us .container .list {
+    padding-right: 40px;
+  }
 }
 @media (max-width: 991px) {
   section.about_us .container .list {
@@ -462,4 +467,190 @@ section.about_us .images {
 }
 section.about_us .images img {
   width: 280px;
+}
+
+section.principles {
+  background-color: #f4f7fb;
+  position: relative;
+  overflow-x: clip;
+}
+section.principles h2 {
+  color: #333;
+  font-weight: bold;
+  text-align: center;
+  padding: 100px 0;
+}
+section.principles .content {
+  min-height: 1000px;
+  position: relative;
+}
+@media (max-width: 991px) {
+  section.principles .content {
+    min-height: 700px;
+    padding-bottom: 40px;
+    padding-top: 40px;
+  }
+}
+section.principles .content h3 {
+  position: relative;
+  color: #73659A;
+  font-weight: 500;
+  font-size: 32px;
+  padding-bottom: 60px;
+  padding-right: 40px;
+}
+@media (max-width: 991px) {
+  section.principles .content h3 {
+    margin-right: 40px;
+  }
+}
+section.principles .content h3::before {
+  content: "";
+  position: absolute;
+  width: 4px;
+  height: 200px;
+  background-color: #E26E0B;
+  right: 0;
+  z-index: 3;
+}
+section.principles .content .box {
+  position: relative;
+  display: flex;
+}
+section.principles .content .box .text {
+  background-color: #73659A;
+  position: absolute;
+  right: -300px;
+  width: 110%;
+  height: 500;
+  padding: 0 40px;
+}
+@media (max-width: 991px) {
+  section.principles .content .box .text {
+    right: 0px;
+    width: 100%;
+    text-align: center;
+    padding: 0 15px;
+  }
+}
+section.principles .content .box .text p {
+  position: relative;
+  right: 300px;
+  color: white;
+  padding: 160px 20px;
+  width: 600px;
+  line-height: 2;
+}
+@media (max-width: 991px) {
+  section.principles .content .box .text p {
+    right: 0;
+    font-size: 14px;
+    width: 100%;
+  }
+}
+section.principles .content .box .images {
+  width: 55%;
+  position: absolute;
+  top: 80px;
+  left: -130px;
+}
+@media (max-width: 1299px) {
+  section.principles .content .box .images {
+    top: 360px;
+  }
+}
+@media (max-width: 991px) {
+  section.principles .content .box .images {
+    display: none;
+  }
+}
+section.principles .content .box .images img {
+  width: 100%;
+}
+section.principles .content.reverse {
+  bottom: -180px;
+}
+@media (max-width: 991px) {
+  section.principles .content.reverse {
+    bottom: 0px;
+  }
+}
+section.principles .content.reverse h3 {
+  margin-right: 700px;
+}
+@media (max-width: 1299px) {
+  section.principles .content.reverse h3 {
+    margin-right: 520px;
+  }
+}
+@media (max-width: 991px) {
+  section.principles .content.reverse h3 {
+    margin-right: 40px;
+  }
+}
+section.principles .content.reverse .text {
+  margin-right: 700px;
+}
+@media (max-width: 1199px) {
+  section.principles .content.reverse .text {
+    margin-right: 500px;
+  }
+}
+@media (max-width: 991px) {
+  section.principles .content.reverse .text {
+    right: 0px;
+    width: 100%;
+    text-align: center;
+    margin-right: 0;
+  }
+}
+@media (max-width: 1299px) {
+  section.principles .content.reverse .text p {
+    right: 6vw;
+  }
+}
+@media (max-width: 1199px) {
+  section.principles .content.reverse .text p {
+    right: 3vw;
+  }
+}
+@media (max-width: 991px) {
+  section.principles .content.reverse .text p {
+    right: 0px;
+    text-align: center;
+  }
+}
+section.principles .content.reverse .images {
+  top: -370px;
+  left: 55.5%;
+}
+
+section.share {
+  background-color: #f4f7fb;
+  padding: 40px 0;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+section.share h2 {
+  font-size: 30px;
+  margin-bottom: -30px;
+}
+section.share ul {
+  padding-top: 40px;
+  width: 260px;
+  font-size: 26px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+section.share ul li {
+  color: #aaa;
+}
+section.share ul li:hover {
+  color: #73659A;
 }/*# sourceMappingURL=about_us.css.map */

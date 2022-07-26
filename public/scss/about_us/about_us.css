@@ -517,6 +517,11 @@ section.principles .content .box {
   position: relative;
   display: flex;
 }
+@media (max-width: 991px) {
+  section.principles .content .box {
+    flex-direction: column;
+  }
+}
 section.principles .content .box .text {
   background-color: #73659A;
   position: absolute;
@@ -529,6 +534,7 @@ section.principles .content .box .text {
     width: 100%;
     text-align: center;
     padding: 0 15px;
+    position: relative;
   }
 }
 section.principles .content .box .text p {
@@ -565,7 +571,10 @@ section.principles .content .box .images {
 }
 @media (max-width: 991px) {
   section.principles .content .box .images {
-    display: none;
+    position: relative;
+    width: 100%;
+    top: 100%;
+    left: 0;
   }
 }
 section.principles .content .box .images img {
@@ -629,6 +638,14 @@ section.principles .content.reverse .images {
 @media (max-width: 1299px) {
   section.principles .content.reverse .images {
     top: -430px;
+  }
+}
+@media (max-width: 991px) {
+  section.principles .content.reverse .images {
+    position: relative;
+    width: 100%;
+    top: 100%;
+    left: 0;
   }
 }
 

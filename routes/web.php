@@ -18,8 +18,10 @@ use App\Http\Controllers\admin\WebsiteInfoController;
 use App\Http\Controllers\admin\Authentication;
 use App\Http\Controllers\admin\SubCategoriesController;
 use App\Http\Controllers\admin\UserController;
+use App\Http\Controllers\web\CompaniesPageController;
 use App\Http\Controllers\web\AboutUsController;
 use App\Http\Controllers\web\HomePageController;
+use App\Http\Controllers\web\ReportsPageController;
 use App\Http\Controllers\web\ServicesController as WebServicesController;
 use App\Http\Controllers\web\ServicesPageController;
 use App\Http\Controllers\web\SuccessStoryController;
@@ -202,4 +204,7 @@ Route::group([
     Route::get('/services', [ServicesPageController::class, 'showServicesPage'])->name('services');
     Route::get('/about_us', [AboutUsController::class, 'showAboutUsPage'])->name('about_us');
     Route::get('/success_story', [SuccessStoryController::class, 'showSuccessStoryPage'])->name('success_story');
+    Route::get('/success_story', [SuccessStoryController::class, 'showSuccessStoryPage'])->name('success_story');
+    Route::get('/companies', [CompaniesPageController::class, 'showCompaniesPage'])->name('companies');
+    Route::get('/reports_page', [ReportsPageController::class, 'showReportPage'])->name('reports_page');
 });

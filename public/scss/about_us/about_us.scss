@@ -255,7 +255,7 @@ section.principles {
             min-height: 700px;
             padding-bottom: 40px;
             padding-top: 40px;
-            }
+        }
         h3 {
             position: relative;
             color: $primary-color;
@@ -279,6 +279,9 @@ section.principles {
         .box {
             position: relative;
             display: flex;
+            @include breakpoints(small) {
+                flex-direction: column;
+            }
             .text {
                 background-color: $primary-color;
                 position: absolute;
@@ -291,7 +294,7 @@ section.principles {
                     width: 100%;
                     text-align: center;
                     padding: 0 15px;
-
+                    position: relative;
                 }
                 p {
                     position: relative;
@@ -308,7 +311,6 @@ section.principles {
                     }
                     @include breakpoints(mobile) {
                         padding: 140px 0px;
-
                     }
                 }
             }
@@ -320,11 +322,12 @@ section.principles {
                 left: -120px;
                 @include breakpoints(large) {
                     top: 280px;
-
                 }
                 @include breakpoints(small) {
-                    display: none;
-
+                    position: relative;
+                    width: 100%;
+                    top: 100%;
+                    left: 0;
                 }
                 img {
                     width: 100%;
@@ -343,8 +346,7 @@ section.principles {
             h3 {
                 margin-right: 630px;
                 @include breakpoints(large) {
-                margin-right: 520px;
-                
+                    margin-right: 520px;
                 }
                 @include breakpoints(small) {
                     margin-right: 40px;
@@ -359,11 +361,10 @@ section.principles {
                     right: 0px;
                     width: 100%;
                     text-align: center;
-                margin-right: 0;
-
+                    margin-right: 0;
                 }
                 // align-items: end;
-                p{
+                p {
                     right: 450px;
                     @include breakpoints(large) {
                         right: 6vw;
@@ -375,7 +376,6 @@ section.principles {
                         right: 0px;
                         text-align: center;
                     }
-
                 }
             }
             .images {
@@ -384,7 +384,12 @@ section.principles {
                 @include breakpoints(large) {
                     top: -430px;
                 }
-                
+                @include breakpoints(small) {
+                position: relative;
+                    width: 100%;
+                    top: 100%;
+                    left: 0;
+                }
             }
         }
     }
@@ -393,26 +398,25 @@ section.principles {
 // End Principles Section
 
 // Start Share Section
-section.share{
-background-color: $background-color;
-padding: 100px 0 40px ;
-@include flex(center, column, nowrap, center);
-h2{
-    font-size: 30px;
-    margin-bottom: -30px;
-}
-ul{
-    padding-top: 40px;
-    width: 260px;
-    font-size: 26px;
-    @include flex(space-between, row, nowrap, center);
-    li{
-        color: #aaa;
-        &:hover{
-            color: $primary-color;
+section.share {
+    background-color: $background-color;
+    padding: 100px 0 40px;
+    @include flex(center, column, nowrap, center);
+    h2 {
+        font-size: 30px;
+        margin-bottom: -30px;
+    }
+    ul {
+        padding-top: 40px;
+        width: 260px;
+        font-size: 26px;
+        @include flex(space-between, row, nowrap, center);
+        li {
+            color: #aaa;
+            &:hover {
+                color: $primary-color;
+            }
         }
     }
-
-}
 }
 // End Share Section

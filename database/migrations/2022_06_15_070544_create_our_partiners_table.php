@@ -18,7 +18,7 @@ return new class extends Migration
             $table->json('title');
             $table->string('image');
             $table->json('description');
-            $table->boolean('is_active')->default(0);
+            $table->boolean('is_active')->default(1);
             $table->timestamps();
         });
     }

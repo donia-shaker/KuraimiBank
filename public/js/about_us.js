@@ -24,3 +24,16 @@ function showSlides(n) {
   slides[slideIndex-1].style.display = "block";  
   dots[slideIndex-1].className += " active";
 }
+
+var content = document.querySelectorAll('.principles .content')
+
+for(let i = 0; i < content.length ; i ++){
+  if(i % 2 != 0)
+  content[i].classList.add('reverse');
+  console.log(content[i]);
+}
+
+  
+
+// ele.classList.add('reverse');
+// console.log(ele.length)

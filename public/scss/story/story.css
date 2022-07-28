@@ -81,6 +81,23 @@
   color: white;
 }
 
+.btn-3 {
+  padding: 15px 25px;
+  border: none;
+  background-color: #73659A;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  min-width: 140px;
+  border-radius: 2px;
+}
+@media (max-width: 767px) {
+  .btn-3 {
+    font-size: 12px;
+    padding: 10px 15px;
+  }
+}
+
 @-webkit-keyframes news {
   from {
     top: -50px;
@@ -182,6 +199,22 @@
     opacity: 1;
   }
 }
+@-webkit-keyframes ticker-kf {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, -100%, 0);
+  }
+}
+@keyframes ticker-kf {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, -100%, 0);
+  }
+}
 .shadow {
   box-shadow: 0px 10px 10px 0px rgba(115, 101, 154, 0.0901960784);
 }
@@ -256,19 +289,69 @@ main .text {
 }
 
 section.story {
-  margin-bottom: -215px;
+  margin-bottom: -300px;
+  position: relative;
+}
+section.story .image.layer2 {
+  position: absolute;
+  top: 400px;
+  left: 0px;
+  height: 450px;
+  overflow: hidden;
+  width: 126px;
+}
+@media (max-width: 1299px) {
+  section.story .image.layer2 {
+    display: none;
+  }
+}
+section.story .image.layer2 img {
+  height: 460px;
+}
+section.story .image.layer3 {
+  position: absolute;
+  top: 50px;
+  right: -83px;
+  height: 430px;
+  overflow: hidden;
+  width: 160px;
+}
+@media (max-width: 991px) {
+  section.story .image.layer3 {
+    display: none;
+  }
+}
+section.story .image.layer3 img {
+  height: 500px;
 }
 section.story .content {
   background-color: white;
   position: relative;
   top: -40vh;
   z-index: 2;
-  padding: 80px 120px;
+  padding: 80px 120px 145px;
+  overflow-y: clip;
 }
 @media (max-width: 991px) {
   section.story .content {
     padding: 80px 15px;
   }
+}
+section.story .content .image {
+  position: absolute;
+  top: -160px;
+  left: 0px;
+  height: 400px;
+  overflow: hidden;
+  width: 120px;
+}
+@media (max-width: 991px) {
+  section.story .content .image {
+    display: none;
+  }
+}
+section.story .content .image img.layer1 {
+  height: 400px;
 }
 section.story .content h2 {
   color: #666;

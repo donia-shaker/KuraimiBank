@@ -1,7 +1,7 @@
 {{-- Start Share Section --}}
 <section class="share">
     <h2 class="h-2">
-        مشاركة الصفحة في
+       @lang('content.share_page')
     </h2>
     <ul>
         <li><i class="fa-brands fa-twitter"></i></li>

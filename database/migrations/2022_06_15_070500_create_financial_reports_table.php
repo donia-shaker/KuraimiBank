@@ -18,7 +18,7 @@ return new class extends Migration
             $table->json('title');
             $table->json('description');
             $table->string('pdf');
-            $table->boolean('is_active')->default(0);
+            $table->boolean('is_active')->default(1);
             $table->timestamps();
         });
     }

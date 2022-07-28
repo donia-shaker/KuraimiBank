@@ -413,6 +413,7 @@ section.other {
         height: 620px;
         display: flex;
         position: relative;
+        transition: 0.5s ease-in-out;
         .box {
             display: inline-block;
             margin-left: 60px;

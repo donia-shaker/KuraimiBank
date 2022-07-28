@@ -68,20 +68,65 @@ main {
 }
 // End Hero Section
 
-// Start Story Section
+// Start companies Section
 section.companies {
     margin-bottom: -300px;
+    position: relative;
+    .image.layer2 {
+        position: absolute;
+        top: 400px;
+        left: 0px;
+        height: 450px;
+        overflow: hidden;
+        width: 126px;
+        @include breakpoints(large) {
+            display: none;
+        }
+        img {
+            height: 460px;
+        }
+    }
+
+    .image.layer3 {
+        position: absolute;
+        top: 50px;
+        right: -83px;
+        height: 430px;
+        overflow: hidden;
+        width: 160px;
+        @include breakpoints(small) {
+            display: none;
+        }
+        img {
+            height: 500px;
+        }
+    }
     .main {
         background-color: $text-color;
         position: relative;
         top: -40vh;
         z-index: 2;
         padding: 80px 20px 10px;
+        overflow-y: clip;
+        .image.layer1 {
+            position: absolute;
+            top: -160px;
+            left: 0px;
+            height: 400px;
+            overflow: hidden;
+            width: 120px;
+            @include breakpoints(small) {
+                display: none;
+            }
+            img {
+                height: 400px;
+            }
+        }
         h2 {
             color: #666;
             font-weight: 600;
             position: relative;
-            margin: 0 100px;
+            margin: 0 100px 40px;
             &::before {
                 content: "";
                 width: 80px;
@@ -206,4 +251,26 @@ section.companies {
     }
 }
 
-
+// Start Share Section
+section.share {
+    padding: 40px 0;
+    margin-top: -80px;
+    @include flex(center, column, nowrap, center);
+    h2 {
+        font-size: 30px;
+        margin-bottom: -30px;
+    }
+    ul {
+        padding-top: 40px;
+        width: 260px;
+        font-size: 26px;
+        @include flex(space-between, row, nowrap, center);
+        li {
+            color: #aaa;
+            &:hover {
+                color: $primary-color;
+            }
+        }
+    }
+}
+// End Share Section

@@ -44,6 +44,12 @@ ul {
 a {
     text-decoration: none;
 }
+html[dir=rtl]{
+    $dir : rtl;
+}
+html[dir=ltr]{
+    $dir : ltr;
+}
 body {
     overflow-x: hidden;
     &[dir=rtl]{
@@ -244,6 +250,7 @@ header {
     // End Nav Section
 }
 // End Header Section
+
 // Start Footer
 footer {
     background-color: #73659a;

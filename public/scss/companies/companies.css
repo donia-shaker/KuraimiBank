@@ -81,6 +81,23 @@
   color: white;
 }
 
+.btn-3 {
+  padding: 15px 25px;
+  border: none;
+  background-color: #73659A;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  min-width: 140px;
+  border-radius: 2px;
+}
+@media (max-width: 767px) {
+  .btn-3 {
+    font-size: 12px;
+    padding: 10px 15px;
+  }
+}
+
 @-webkit-keyframes news {
   from {
     top: -50px;
@@ -182,6 +199,22 @@
     opacity: 1;
   }
 }
+@-webkit-keyframes ticker-kf {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, -100%, 0);
+  }
+}
+@keyframes ticker-kf {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, -100%, 0);
+  }
+}
 .shadow {
   box-shadow: 0px 10px 10px 0px rgba(115, 101, 154, 0.0901960784);
 }
@@ -257,6 +290,39 @@ main .text {
 
 section.companies {
   margin-bottom: -300px;
+  position: relative;
+}
+section.companies .image.layer2 {
+  position: absolute;
+  top: 400px;
+  left: 0px;
+  height: 450px;
+  overflow: hidden;
+  width: 126px;
+}
+@media (max-width: 1299px) {
+  section.companies .image.layer2 {
+    display: none;
+  }
+}
+section.companies .image.layer2 img {
+  height: 460px;
+}
+section.companies .image.layer3 {
+  position: absolute;
+  top: 50px;
+  right: -83px;
+  height: 430px;
+  overflow: hidden;
+  width: 160px;
+}
+@media (max-width: 991px) {
+  section.companies .image.layer3 {
+    display: none;
+  }
+}
+section.companies .image.layer3 img {
+  height: 500px;
 }
 section.companies .main {
   background-color: white;
@@ -264,12 +330,29 @@ section.companies .main {
   top: -40vh;
   z-index: 2;
   padding: 80px 20px 10px;
+  overflow-y: clip;
+}
+section.companies .main .image.layer1 {
+  position: absolute;
+  top: -160px;
+  left: 0px;
+  height: 400px;
+  overflow: hidden;
+  width: 120px;
+}
+@media (max-width: 991px) {
+  section.companies .main .image.layer1 {
+    display: none;
+  }
+}
+section.companies .main .image.layer1 img {
+  height: 400px;
 }
 section.companies .main h2 {
   color: #666;
   font-weight: 600;
   position: relative;
-  margin: 0 100px;
+  margin: 0 100px 40px;
 }
 section.companies .main h2::before {
   content: "";
@@ -399,4 +482,34 @@ section.companies .main .content .box a {
   font-size: 12px;
   margin-top: 10px;
   border-bottom: 1px solid #555;
+}
+
+section.share {
+  padding: 40px 0;
+  margin-top: -80px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+section.share h2 {
+  font-size: 30px;
+  margin-bottom: -30px;
+}
+section.share ul {
+  padding-top: 40px;
+  width: 260px;
+  font-size: 26px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+section.share ul li {
+  color: #aaa;
+}
+section.share ul li:hover {
+  color: #73659A;
 }/*# sourceMappingURL=companies.css.map */

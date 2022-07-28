@@ -42,7 +42,7 @@
                 </div>
                 <ul class="right-list">
                     <li class="job"><a href=""><i class="fa-solid fa-user"></i>@lang('content.jobs')</a></li>
-                    <li><a href=""><i class="fa-solid fa-phone"></i>@lang('content.contact_us')</a></li>
+                    <li><a href="{{route('contact_page')}}"><i class="fa-solid fa-phone"></i>@lang('content.contact_us')</a></li>
                 </ul>
             </div>
             <div class="logo">

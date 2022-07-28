@@ -114,6 +114,26 @@ section.about_us {
     @include breakpoints(mobile) {
         padding: 60px 0px;
     }
+    img.layer1{
+        position: absolute;
+    top: -150px;
+    right: 0;
+    height: 420px;
+    @include breakpoints(small) {
+        display: none;
+    }
+    }
+    img.layer2{
+        z-index: 3;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    height: 140px;
+    @include breakpoints(small) {
+        display: none;
+    }
+    }
+    
     .container {
         position: relative;
         display: flex;
@@ -170,6 +190,7 @@ section.about_us {
                 color: $text-color;
             }
             ul {
+                width: 206px;
                 li {
                     font-size: 18px;
                     font-weight: 100;
@@ -185,14 +206,28 @@ section.about_us {
         }
         .content {
             position: relative;
+            max-width: 800px;
             padding: 60px 60px 60px 80px;
             border: 10px solid rgba(184, 175, 210, 0.3);
+            &::after {
+                content: "";
+                background-image: url("/images/6.png");
+                width: 252px;
+                height: 305px;
+                z-index: 2;
+                position: absolute;
+                bottom: -50px;
+                left: -150px;
+                background-size: cover;
+                mix-blend-mode: overlay;
+            }
             @include breakpoints(mobile) {
                 padding: 60px 20px;
             }
+
             .overlay {
                 position: absolute;
-                background-color: rgb(115 101 154 / 40%);
+                background-color: $primary-color;
                 width: 200%;
                 height: 100%;
                 right: 0;
@@ -224,16 +259,6 @@ section.about_us {
             }
         }
     }
-    .images {
-        bottom: -67px;
-        left: -167px;
-        position: absolute;
-        width: 280px;
-        z-index: -2;
-        img {
-            width: 280px;
-        }
-    }
 }
 // End About Bank
 
@@ -242,6 +267,25 @@ section.principles {
     background-color: $background-color;
     position: relative;
     overflow-x: clip;
+    img.layer1{
+        position: absolute;
+    top: 40px;
+    right: -111px;
+    height: 500px;
+    @include breakpoints(small) {
+        display: none;
+    }
+}
+img.layer2{
+    z-index: 3;
+position: absolute;
+top: 0px;
+left: 0;
+height: 140px;
+@include breakpoints(small) {
+    display: none;
+}
+}
     h2 {
         color: #333;
         font-weight: bold;
@@ -385,7 +429,7 @@ section.principles {
                     top: -430px;
                 }
                 @include breakpoints(small) {
-                position: relative;
+                    position: relative;
                     width: 100%;
                     top: 100%;
                     left: 0;

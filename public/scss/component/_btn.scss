@@ -22,3 +22,18 @@
     padding: 15px 25px;
     color: $text-color;
 }
+
+.btn-3{
+    padding: 15px 25px;
+    border: none;
+    background-color: $primary-color;
+    color: $text-color;
+    font-size: 16px;
+    cursor: pointer;
+    min-width: 140px;
+    border-radius: 2px;
+    @include breakpoints(mobile) {
+        font-size: 12px;
+        padding: 10px 15px;
+    }
+}

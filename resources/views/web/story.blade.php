@@ -16,8 +16,18 @@
 
     {{-- Start Adventage Section --}}
     <section class="story">
+
+        <div class="image layer2">
+        <img src="{{ asset('images/layer-1.png') }}" alt="layer" >
+        </div>
+        <div class="image layer3">
+        <img src="{{ asset('images/layer2.png') }}" alt="layer">
+        </div>
         <div class="container">
             <div class="content">
+                <div class="image">
+            <img src="{{ asset('images/layer-1.png') }}" alt="layer" class="layer1">
+        </div>
                 <h2 class="h-2">مشروع تحديث أنظمة البنك</h2>
                 <div class="text">
                     <p>

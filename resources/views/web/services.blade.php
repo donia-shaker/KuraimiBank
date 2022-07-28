@@ -209,7 +209,7 @@
                             في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى هذا
                             النص هو مثال لنص يمكن أن يستبدل
                         </p>
-                        <a href="">قراءة المزيد</a>
+                        <a href="{{route('success_story')}}">قراءة المزيد</a>
                     </div>
                 </div>
                 <div class="box story-slides fade">
@@ -232,7 +232,7 @@
                             في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى هذا
                             النص هو مثال لنص يمكن أن يستبدل
                         </p>
-                        <a href="">قراءة المزيد</a>
+                        <a href="{{route('success_story')}}">قراءة المزيد</a>
                     </div>
                 </div>
                 <div class="box story-slides fade">
@@ -255,7 +255,7 @@
                             في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى هذا
                             النص هو مثال لنص يمكن أن يستبدل
                         </p>
-                        <a href="">قراءة المزيد</a>
+                        <a href="{{route('success_story')}}">قراءة المزيد</a>
                     </div>
                 </div>
                 <div class="box story-slides fade">
@@ -278,7 +278,7 @@
                             في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى هذا
                             النص هو مثال لنص يمكن أن يستبدل
                         </p>
-                        <a href="">قراءة المزيد</a>
+                        <a href="{{route('success_story')}}">قراءة المزيد</a>
                     </div>
                 </div>
             </div>
@@ -298,7 +298,7 @@
         <div class="bg">
             <img src="{{asset('images/bg-other.png')}}" alt="">
         </div>
-        <div class="slides-wrapper">
+        <div class="slides-wrapper" id="slides-wrapper">
             <div class="box">
                 <img src="{{asset('images/other-1.png')}}" alt="">
                 <h3 class="h-3">
@@ -349,8 +349,8 @@
             </div>
         </div>
         <div class="btn-other">
-            <span class="other-btn next" ><i class="fa-solid fa-chevron-right"></i></span>
-            <span class="other-btn prev" ><i class="fa-solid fa-chevron-left"></i></span>
+            <span class="other-btn next" onclick="servPrev(-1)" ><i class="fa-solid fa-chevron-right"></i></span>
+            <span class="other-btn prev" onclick="servNext(1)" ><i class="fa-solid fa-chevron-left"></i></span>
         </div>
     </section>
     {{-- End Other Services Section --}}
@@ -358,4 +358,5 @@
 @section('javascript')
     <script src="{{ asset('js/servicePage.js') }}"></script>
     <script src="{{ asset('js/successStory.js') }}"></script>
+    <script src="{{ asset('js/another_serv.js') }}"></script>
 @endsection

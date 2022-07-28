@@ -70,16 +70,65 @@ main {
 
 // Start Story Section
 section.story {
-    margin-bottom: -215px;
+    margin-bottom: -300px;
+    position: relative;
+    .image.layer2{
+        position: absolute;
+    top: 400px;
+    left: 0px;
+    height: 450px;
+    overflow: hidden;
+    width: 126px;
+    @include breakpoints(large) {
+        display: none;
+    }
+    img {
+        height: 460px;
+        
+    }
+    }
+    
+    .image.layer3{
+        position: absolute;
+    top: 50px;
+    right: -83px;
+    height: 430px;
+    overflow: hidden;
+    width: 160px;
+    @include breakpoints(small) {
+        display: none;
+    }
+    img {
+        height: 500px;
+        
+    }
+    }
+
     .content {
         background-color: $text-color;
         position: relative;
         top: -40vh;
         z-index: 2;
-        padding: 80px 120px;
+        padding: 80px 120px 145px;
+        overflow-y: clip;
         @include breakpoints(small) {
             padding: 80px 15px;
         }
+        .image{
+            position: absolute;
+            top: -160px;
+            left: 0px;
+            height: 400px;
+            overflow: hidden;
+            width: 120px;
+        @include breakpoints(small) {
+            display: none;
+        }
+        img.layer1 {
+            height: 400px;
+    }
+        }
+        
         h2 {
             color: #666;
             font-weight: 600;

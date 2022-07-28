@@ -28,5 +28,8 @@ $this->call(roleSeeder::class);
 $this->call(PermissionSeeder::class);
 $this->call(userTableSeeder::class);
 $this->call(CategoriesSeeder::class);
+$this->call(SocialMediaSeeder::class);
+$this->call(PartinersSeeder::class);
+$this->call(ReportsSeeder::class);
     }
 }

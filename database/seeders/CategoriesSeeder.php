@@ -15,12 +15,6 @@ class CategoriesSeeder extends Seeder
      */
     public function run()
     {
-        categories::create([
-            'name' => json_encode([
-                'ar'    =>  'عن البنك ',
-                'en'    =>  'about us '
-            ])
-        ]);
 
         categories::create([
             'name' => json_encode([
@@ -52,13 +46,6 @@ class CategoriesSeeder extends Seeder
 
         categories::create([
             'name' => json_encode([
-                'ar'    =>  'خدمات الافراد  ',
-                'en'    =>  'lient services '
-            ])
-        ]);
-
-        categories::create([
-            'name' => json_encode([
                 'ar'    =>  'التمويل ',
                 'en'    =>  'al-tamweel '
             ])
@@ -66,15 +53,15 @@ class CategoriesSeeder extends Seeder
 
         categories::create([
             'name' => json_encode([
-                'ar'    =>  'من نحن ',
-                'en'    =>  'About Us '
+                'ar'    =>  'الحسابات البنكية',
+                'en'    =>  'bank account '
             ]),
             'parentId'=> 1
         ]);
 
         categories::create([
             'name' => json_encode([
-                'ar'    =>  'هيكل البنك',
+                'ar'    =>  'الخدمات الالكترونيه',
                 'en'    =>  'Bank '
             ]),
             'parentId'=> 1

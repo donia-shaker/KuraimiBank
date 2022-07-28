@@ -10,7 +10,7 @@ function newsNext(n) {
     }
     console.log(i);
     // console.log({ item: newsSlideWrapper.style.transform });
-    let maxWidth = 420 * (newsBox.length - 1) + "px";
+    let maxWidth = 420 * (newsBox.length - 3) + "px";
     // console.log(maxWidth);
     if (newsSlideWrapper.style.transform != "translateX(" + maxWidth + ")")
         newsSlideWrapper.style.transform = "translateX(" + 420 * i + "px)";

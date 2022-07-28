@@ -1,0 +1,219 @@
+@use "../component/header" as *;
+@use "../helper/mixin" as *;
+@use "../helper/variable" as *;
+@use "../component/btn" as *;
+@use "../component/animation" as *;
+@use "../component/shadow" as *;
+/* start Container */
+.container {
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.container {
+    @include breakpoints(mobile) {
+        max-width: 100%;
+    }
+    @include breakpoints(small) {
+        max-width: 750px;
+        // width: 100%;
+    }
+    @include breakpoints(medium) {
+        max-width: 970px;
+    }
+    @include breakpoints(large) {
+        // width: 970px;
+        max-width: 1120px;
+    }
+    @include breakpoints(x-large) {
+        // width: 970px;
+        max-width: 1300px;
+    }
+}
+// End Container
+
+// Start Hero Section
+main {
+    position: relative;
+    background-color: #73659a;
+    background-image: url("/images/Al-_Kurimi_3\ f4.png");
+    background-size: cover;
+    height: 110vh;
+    color: $text-color;
+    padding-right: 12vw;
+    @include breakpoints(large) {
+        padding-right: 0;
+    }
+    @include breakpoints(small) {
+        background-size: cover;
+        height: 110vh;
+    }
+    .container {
+        height: 105%;
+        overflow: hidden;
+        position: relative;
+        @include flex(space-between, row, nowrap, center);
+    }
+    .text {
+        padding-left: 40px;
+        width: 50%;
+        text-align: start;
+        position: absolute;
+        z-index: 4;
+        @include breakpoints(medium) {
+            top: 200px;
+            right: 30px;
+            width: 60%;
+        }
+        @include breakpoints(mobile) {
+            width: 100%;
+            top: 160px;
+        }
+        h1 {
+            font-size: 50px;
+            line-height: 1.5;
+            @include breakpoints(small) {
+                font-size: 36px;
+                text-align: start;
+                text-shadow: 0 1px 5px #555;
+            }
+        }
+        p {
+            font-family: "GE SS Two";
+            font-weight: 200;
+            margin-bottom: 20px;
+            font-size: 24px;
+            line-height: 1.5;
+            @include breakpoints(small) {
+                font-size: 18px;
+                margin-top: 20px;
+            }
+            .number {
+                font-family: "Helvetica Neue LT Pro";
+                font-weight: 500;
+                color: $orange-color;
+            }
+        }
+    }
+    .images {
+        width: 50%;
+        @include breakpoints(small) {
+            display: none;
+        }
+        img.back {
+            width: 1500px;
+            position: absolute;
+            left: -20px;
+            bottom: 50px;
+            transform: rotateZ(-2deg);
+            z-index: 2;
+            @include breakpoints(large) {
+                width: 1250px;
+            }
+        }
+        img:last-child {
+            position: absolute;
+            width: 1300px;
+            bottom: 60px;
+            left: -15px;
+            z-index: 3;
+            @include breakpoints(large) {
+                left: -95px;
+                width: 1200px;
+                bottom: 35px;
+            }
+        }
+    }
+}
+// End Hero Section
+
+// Start search Section
+.search {
+    position: relative;
+    background-size: 70%;
+    background-image: url("/images/map2.png");
+    background-size: cover;
+    min-height: 1500px;
+    .container {
+        position: relative;
+        .main {
+            background-color: $text-color;
+            position: relative;
+            top: -29vh;
+            z-index: 7;
+            width: 100%;
+            padding: 60px 100px;
+            overflow-y: clip;
+            @include breakpoints(small) {
+                padding: 60px 20px;
+                width: 100%;
+            }
+            form {
+                @include flex(start, row, wrap, end);
+                .input_group {
+                    margin: 10px;
+                    width: 220px;
+                    margin-left: 20px;
+                    @include breakpoints(small) {
+                        margin-left: 0px;
+                    }
+                    @include flex(space-between, column, nowrap, start);
+                    label {
+                        color: #aaa;
+                        font-weight: 200;
+                        margin-bottom: 30px;
+                    }
+                    select {
+                        padding: 10px 10px 10px 30px;
+                        width: 80%;
+                        border: 1px solid #bbb;
+                        color: #555;
+                        font-weight: 200;
+                        @include breakpoints(small) {
+                            width: 100%;
+                        }
+                    }
+                }
+
+                button {
+                    margin: 10px;
+                }
+            }
+            h2 {
+                font-size: 36px;
+                margin-top: 60px;
+            }
+        }
+        .location {
+            top: -29vh;
+            position: relative;
+            z-index: 7;
+            background-color: #ffffff9e;
+            padding: 20px;
+            width: 540px;
+            @include breakpoints(small) {
+                width: 100%;
+            }
+            .box {
+                background-color: $text-color;
+                border: 1px solid #ccc;
+                padding: 20px;
+                margin-bottom: 20px;
+                width: 500px;
+                @include breakpoints(small) {
+                    width: 100%;
+                }
+                .info {
+                    @include flex(space-between, row, wrap, start);
+                    margin-bottom: 20px;
+                }
+                p {
+                    padding: 10px 0;
+                    color: #555;
+                    font-weight: 100;
+                }
+            }
+        }
+    }
+}
+// End Adventage Section

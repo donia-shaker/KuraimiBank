@@ -31,5 +31,6 @@ $this->call(CategoriesSeeder::class);
 $this->call(SocialMediaSeeder::class);
 $this->call(PartinersSeeder::class);
 $this->call(ReportsSeeder::class);
+$this->call(ServicesSeeder::class);
     }
 }
